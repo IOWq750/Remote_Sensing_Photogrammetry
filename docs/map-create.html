@@ -1,0 +1,247 @@
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+<head>
+
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <title>Справка 4 Составление географической карты | Картография: практикум в QGIS</title>
+  <meta name="description" content="Справка 4 Составление географической карты | Картография: практикум в QGIS" />
+  <meta name="generator" content="bookdown 0.20 and GitBook 2.6.7" />
+
+  <meta property="og:title" content="Справка 4 Составление географической карты | Картография: практикум в QGIS" />
+  <meta property="og:type" content="book" />
+  
+  
+  <meta property="og:description" content="Справка 4 Составление географической карты | Картография: практикум в QGIS" />
+  <meta name="github-repo" content="iowq750/cartography" />
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="Справка 4 Составление географической карты | Картография: практикум в QGIS" />
+  
+  <meta name="twitter:description" content="Справка 4 Составление географической карты | Картография: практикум в QGIS" />
+  
+
+<meta name="author" content="Карпачевский А.М." />
+
+
+<meta name="date" content="2020-10-22" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+  <link rel="apple-touch-icon-precomposed" sizes="120x120" href="images/apple-touch-icon.png" />
+  <link rel="shortcut icon" href="images/favicon.ico" type="image/x-icon" />
+<link rel="prev" href="map-symbology.html"/>
+
+<script src="libs/jquery-2.2.3/jquery.min.js"></script>
+<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-clipboard.css" rel="stylesheet" />
+
+
+
+
+
+
+
+
+
+<script src="libs/accessible-code-block-0.0.1/empty-anchor.js"></script>
+
+
+
+<link rel="stylesheet" href="style.css" type="text/css" />
+</head>
+
+<body>
+
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+<li><a href="./">Картография</a></li>
+
+<li class="divider"></li>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i>Программное обеспечение для работы</a><ul>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html#qgis"><i class="fa fa-check"></i>QGIS</a><ul>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html#windows"><i class="fa fa-check"></i>Windows</a></li>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html#macos"><i class="fa fa-check"></i>macOS</a></li>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html#linux"><i class="fa fa-check"></i>Linux</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html#inkscape"><i class="fa fa-check"></i>Inkscape</a></li>
+</ul></li>
+<li class="chapter" data-level="1" data-path="map-topo.html"><a href="map-topo.html"><i class="fa fa-check"></i><b>1</b> Создание топографического плана</a><ul>
+<li class="chapter" data-level="1.1" data-path="map-topo.html"><a href="map-topo.html#map-topo-csv-table-reading"><i class="fa fa-check"></i><b>1.1</b> Чтение CSV-таблиц</a></li>
+<li class="chapter" data-level="1.2" data-path="map-topo.html"><a href="map-topo.html#map-topo-database"><i class="fa fa-check"></i><b>1.2</b> Создание базы данных для топографического плана</a></li>
+<li class="chapter" data-level="1.3" data-path="map-topo.html"><a href="map-topo.html#map-topo-vectorization"><i class="fa fa-check"></i><b>1.3</b> Векторизация</a></li>
+<li class="chapter" data-level="1.4" data-path="map-topo.html"><a href="map-topo.html#map-topo-symbols"><i class="fa fa-check"></i><b>1.4</b> Оформление в условных знаках</a></li>
+<li class="chapter" data-level="1.5" data-path="map-topo.html"><a href="map-topo.html#map-topo-layout"><i class="fa fa-check"></i><b>1.5</b> Оформение макета</a></li>
+</ul></li>
+<li class="chapter" data-level="2" data-path="map-math.html"><a href="map-math.html"><i class="fa fa-check"></i><b>2</b> Математическая основа карт</a><ul>
+<li class="chapter" data-level="2.1" data-path="map-math.html"><a href="map-math.html#map-math-links"><i class="fa fa-check"></i><b>2.1</b> Полезные ссылки</a></li>
+<li class="chapter" data-level="2.2" data-path="map-math.html"><a href="map-math.html#map-math-initial-data"><i class="fa fa-check"></i><b>2.2</b> Исходные данные</a></li>
+<li class="chapter" data-level="2.3" data-path="map-math.html"><a href="map-math.html#map-math-interface"><i class="fa fa-check"></i><b>2.3</b> Интерфейс QGIS</a></li>
+<li class="chapter" data-level="2.4" data-path="map-math.html"><a href="map-math.html#map-math-crs"><i class="fa fa-check"></i><b>2.4</b> Системы координат</a></li>
+<li class="chapter" data-level="2.5" data-path="map-math.html"><a href="map-math.html#map-math-distortions"><i class="fa fa-check"></i><b>2.5</b> Искажения картографических проекций</a></li>
+<li class="chapter" data-level="2.6" data-path="map-math.html"><a href="map-math.html#map-math-tissot"><i class="fa fa-check"></i><b>2.6</b> Построение эллипсов искажения в QGIS</a></li>
+<li class="chapter" data-level="2.7" data-path="map-math.html"><a href="map-math.html#map-math-layout"><i class="fa fa-check"></i><b>2.7</b> Работа с компоновкой в QGIS</a></li>
+<li class="chapter" data-level="2.8" data-path="map-math.html"><a href="map-math.html#map-math-issues"><i class="fa fa-check"></i><b>2.8</b> Варианты решения некоторых технических проблем</a><ul>
+<li class="chapter" data-level="2.8.1" data-path="map-math.html"><a href="map-math.html#некорректное-построение-эллипсов-искажений-и-координатной-сетки"><i class="fa fa-check"></i><b>2.8.1</b> Некорректное построение эллипсов искажений и координатной сетки</a></li>
+<li class="chapter" data-level="2.8.2" data-path="map-math.html"><a href="map-math.html#некорректное-отображение-геометрии"><i class="fa fa-check"></i><b>2.8.2</b> Некорректное отображение геометрии</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="3" data-path="map-symbology.html"><a href="map-symbology.html"><i class="fa fa-check"></i><b>3</b> Способы изображения и графические средства</a><ul>
+<li class="chapter" data-level="3.1" data-path="map-symbology.html"><a href="map-symbology.html#map-symbology-initial-data"><i class="fa fa-check"></i><b>3.1</b> Исходные данные</a></li>
+<li class="chapter" data-level="3.2" data-path="map-symbology.html"><a href="map-symbology.html#map-symbology-variables"><i class="fa fa-check"></i><b>3.2</b> Графические переменные</a></li>
+<li class="chapter" data-level="3.3" data-path="map-symbology.html"><a href="map-symbology.html#map-symbology-methods"><i class="fa fa-check"></i><b>3.3</b> Способы изображения</a></li>
+</ul></li>
+<li class="chapter" data-level="4" data-path="map-create.html"><a href="map-create.html"><i class="fa fa-check"></i><b>4</b> Составление географической карты</a><ul>
+<li class="chapter" data-level="4.1" data-path="map-create.html"><a href="map-create.html#map-create-database"><i class="fa fa-check"></i><b>4.1</b> Создание базы пространственных данных</a></li>
+<li class="chapter" data-level="4.2" data-path="map-create.html"><a href="map-create.html#map-create-vectorize"><i class="fa fa-check"></i><b>4.2</b> Векторизация</a></li>
+<li class="chapter" data-level="4.3" data-path="map-create.html"><a href="map-create.html#map-create-symbology"><i class="fa fa-check"></i><b>4.3</b> Оформление</a></li>
+</ul></li>
+<li class="divider"></li>
+<li><a href="https://github.com/rstudio/bookdown" target="blank">Published with bookdown</a></li>
+
+</ul>
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">Картография: практикум в QGIS</a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<div id="map-create" class="section level1">
+<h1><span class="header-section-number">Справка 4</span> Составление географической карты</h1>
+<div id="map-create-database" class="section level2">
+<h2><span class="header-section-number">4.1</span> Создание базы пространственных данных</h2>
+<p><a href="map-create.html#map-create">В начало справки ⇡</a></p>
+<p>Составление карты подразумевает, прежде всего, создание векторных наборов данных.</p>
+<blockquote>
+<p><strong>Векторные данные</strong> – данные, которые описываются парами координат.</p>
+</blockquote>
+<p>Подробнее о них вы узнаете из курса <em>Основы геоинформатики</em>. На данный момент нам необходимо знать, что векторные объекты могут относиться к трём <em>основным</em> типам геометрии: 1) точечные; 2) линейные; 3) полигональные.</p>
+<blockquote>
+<p><strong>Классы объектов</strong> – это наборы однородных векторных данных одного типа геометрии с одним набором атрибутов, относящие к одному роду пространственных объектов или явлений. Например, на почвенной карте будет визуализироваться класс полигональных объектов почв, класс полигональных объектов механического состава, класс внемасштабных почвенных ареалов.</p>
+</blockquote>
+<blockquote>
+<p><strong>Атрибут класса объектов</strong> – это формализованное описание какого-либо свойства класса объектов. Атрибутов может быть много, каждый из них отвечает за различные аспекты пространственных объектов или явлений. У класса почв это может быть атрибут типа, подтипа, pH, содержания гумуса, мощности и т.д. Атрибуты строго типизируются, то есть при создании указывается тип данных, который будет храниться в атрибутивном поле: <em>целочисленные данные</em>, <em>действительные числа</em>, <em>числа с плавающей точкой</em>, <em>логические значения</em>, <em>текстовые данные</em> и ряд других.</p>
+</blockquote>
+<p>QGIS поддерживает различные форматы пространственных данных. Среди них наиболее удобным и современным для хранения и работы считается формат <strong>Geopackage</strong>. По сути это формат базы пространственных данных, внутри которой мы можем складывать различные классы объектов. Для создания базы данных формата <strong>Geopackage</strong> откройте окно Браузера внутри QGIS. Если его нет, включите его в выпадающем списке при щелчке правой кнопкой мыши по пустой панели. Найдите каталог, в котором вы хотите создать базу данных (лучше всего, чтобы путь к этой базы состоял из символов латинского алфавита, не содержал дефисов, пробелов и спецсимволов). Правой кнопкой мыши щелкните по каталогу, выберете <strong>Новые – Geopackage</strong>. Откроется окно, которое помимо самой базы данных предложит создать класс объектов внутри неё. В поле Имя таблицы введите имя класса объектов латинскими символами, лучше, чтобы это был английский перевод соответствующего вида картографируемого объекта, а не транслитерация.</p>
+<div class="figure">
+<img src="images/Ref01/Create_gpkg.png" alt="" />
+<p class="caption">Окно создания базы данных Geopackage</p>
+</div>
+<p>В поле <strong>Тип геометрии</strong> укажите соответствующую геометрию объектов.
+Укажите спроецированную систему координат. Если указать геодезическую систему координат, то велика вероятность, что при векторизации объектов возникнут курьёзные ситуации.
+В разделе <strong>New Field</strong> можно указать имя, типа и длину атрибутивного поля создаваемого класса объектов.</p>
+<p>Каждый последующий класс объектов создавайте внутри базы данных. Таким образом вы сформируете единое хранилище для всех картографируемых объектов.</p>
+</div>
+<div id="map-create-vectorize" class="section level2">
+<h2><span class="header-section-number">4.2</span> Векторизация</h2>
+<p><a href="map-create.html#map-create">В начало справки ⇡</a></p>
+</div>
+<div id="map-create-symbology" class="section level2">
+<h2><span class="header-section-number">4.3</span> Оформление</h2>
+<p><a href="map-create.html#map-create">В начало справки ⇡</a></p>
+<p><strong>Сохраните проект.</strong></p>
+<table>
+<tbody>
+<tr class="odd">
+<td><em>Карпачевский А.М.</em> <strong>Картография: практикум в QGIS</strong>. М.: Географический факультет МГУ, 2020.</td>
+</tr>
+</tbody>
+</table>
+
+</div>
+</div>
+            </section>
+
+          </div>
+        </div>
+      </div>
+<a href="map-symbology.html" class="navigation navigation-prev navigation-unique" aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+
+    </div>
+  </div>
+<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/lunr.js"></script>
+<script src="libs/gitbook-2.6.7/js/clipboard.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-clipboard.js"></script>
+<script>
+gitbook.require(["gitbook"], function(gitbook) {
+gitbook.start({
+"sharing": {
+"github": false,
+"facebook": true,
+"twitter": true,
+"linkedin": false,
+"weibo": false,
+"instapaper": false,
+"vk": false,
+"all": ["facebook", "twitter", "linkedin", "weibo", "instapaper"]
+},
+"fontsettings": {
+"theme": "white",
+"family": "sans",
+"size": 2
+},
+"edit": {
+"link": null,
+"text": null
+},
+"history": {
+"link": null,
+"text": null
+},
+"view": {
+"link": null,
+"text": null
+},
+"download": ["cartography-course.pdf", "cartography-course.epub"],
+"toc": {
+"collapse": "subsection"
+}
+});
+});
+</script>
+
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    var src = "true";
+    if (src === "" || src === "true") src = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML";
+    if (location.protocol !== "file:")
+      if (/^https?:/.test(src))
+        src = src.replace(/^https?:/, '');
+    script.src = src;
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
+</body>
+
+</html>

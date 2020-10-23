@@ -1,0 +1,21 @@
+--- 
+title: "Фотограмметрия и основы дистанционного зондирования"
+author: "Карпачевский А.М."
+date: "`r Sys.Date()`"
+site: bookdown::bookdown_site
+documentclass: book
+bibliography: [book.bib, packages.bib]
+biblio-style: apalike
+link-citations: yes
+description: "Фотограмметрия и основы дистанционного зондирования"
+colorlinks: true
+github-repo: iowq750/cartography
+fontsize: 12pt
+mainfont: PT Serif
+toc_float:
+  collapse: section
+  smooth_scroll: true
+apple-touch-icon: images/apple-touch-icon.png
+apple-touch-icon-size: 120
+favicon: images/favicon.ico
+---
