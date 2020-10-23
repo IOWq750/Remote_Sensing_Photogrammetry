@@ -17,9 +17,8 @@ toc_float:
   smooth_scroll: true
 apple-touch-icon: images/apple-touch-icon.png
 apple-touch-icon-size: 120
-favicon: images/favicon.ico
+favicon: images/Mann-Mit-Der-Tarnjacke-Aurora-Map.ico
 ---
 
 
-
-# Программное обеспечение {#soft}
+# Программное обеспечение {-}
