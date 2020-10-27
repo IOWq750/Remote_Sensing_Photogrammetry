@@ -9,7 +9,7 @@ biblio-style: apalike
 link-citations: yes
 description: "Фотограмметрия и основы дистанционного зондирования"
 colorlinks: true
-github-repo: iowq750/cartography
+github-repo: IOWq750/Remote_Sensing_Photogrammetry
 fontsize: 12pt
 mainfont: PT Serif
 toc_float:
@@ -22,3 +22,11 @@ favicon: images/Mann-Mit-Der-Tarnjacke-Aurora-Map.ico
 
 
 # Программное обеспечение {-}
+
+**Erdas Imagine**
+
+**QGIS**
+
+**Image Processor**
+
+**Google Earth**
