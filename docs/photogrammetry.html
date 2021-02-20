@@ -4,21 +4,21 @@
 
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title>Справка 1 Географическая привязка | Фотограмметрия и основы дистанционного зондирования</title>
-  <meta name="description" content="Справка 1 Географическая привязка | Фотограмметрия и основы дистанционного зондирования" />
+  <title>Справка 2 Географическая привязка | Фотограмметрия и основы дистанционного зондирования</title>
+  <meta name="description" content="Справка 2 Географическая привязка | Фотограмметрия и основы дистанционного зондирования" />
   <meta name="generator" content="bookdown 0.20 and GitBook 2.6.7" />
 
-  <meta property="og:title" content="Справка 1 Географическая привязка | Фотограмметрия и основы дистанционного зондирования" />
+  <meta property="og:title" content="Справка 2 Географическая привязка | Фотограмметрия и основы дистанционного зондирования" />
   <meta property="og:type" content="book" />
   
   
-  <meta property="og:description" content="Справка 1 Географическая привязка | Фотограмметрия и основы дистанционного зондирования" />
+  <meta property="og:description" content="Справка 2 Географическая привязка | Фотограмметрия и основы дистанционного зондирования" />
   <meta name="github-repo" content="IOWq750/Remote_Sensing_Photogrammetry" />
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="Справка 1 Географическая привязка | Фотограмметрия и основы дистанционного зондирования" />
+  <meta name="twitter:title" content="Справка 2 Географическая привязка | Фотограмметрия и основы дистанционного зондирования" />
   
-  <meta name="twitter:description" content="Справка 1 Географическая привязка | Фотограмметрия и основы дистанционного зондирования" />
+  <meta name="twitter:description" content="Справка 2 Географическая привязка | Фотограмметрия и основы дистанционного зондирования" />
   
 
 <meta name="author" content="Карпачевский А.М." />
@@ -31,8 +31,8 @@
   <meta name="apple-mobile-web-app-status-bar-style" content="black" />
   <link rel="apple-touch-icon-precomposed" sizes="120x120" href="images/apple-touch-icon.png" />
   <link rel="shortcut icon" href="images/Mann-Mit-Der-Tarnjacke-Aurora-Map.ico" type="image/x-icon" />
-<link rel="prev" href="index.html"/>
-<link rel="next" href="photogrammetry.html"/>
+<link rel="prev" href="georeference.html"/>
+
 <script src="libs/jquery-2.2.3/jquery.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
@@ -97,11 +97,13 @@
           <div class="page-inner">
 
             <section class="normal" id="section-">
-<div id="georeference" class="section level1">
-<h1><span class="header-section-number">Справка 1</span> Географическая привязка</h1>
-<div id="georeference-qgis" class="section level2">
-<h2><span class="header-section-number">1.1</span> Географическая привязка в QGIS</h2>
-<p><a href="georeference.html#georeference">В начало справки ⇡</a></p>
+<div id="photogrammetry" class="section level1">
+<h1><span class="header-section-number">Справка 2</span> Географическая привязка</h1>
+<div id="photogrammetry--" class="section level2">
+<h2><span class="header-section-number">2.1</span> Географическая привязка в QGIS</h2>
+<p><a href="photogrammetry.html#photogrammetry">В начало справки ⇡</a></p>
+<iframe src="https://www.geogebra.org/3d/a2veawbs?embed" width="800" height="600" allowfullscreen style="border: 1px solid #e4e4e4;border-radius: 4px;" frameborder="0">
+</iframe>
 <p>Для привязки данных дистанционного зондирования в QGIS можно использовать WMS-сервис с мозаикой спутниковых снимков. Для включения мозаики зайдите в меню <strong>Модули – Управление и установка модулей…</strong>. Впишите в строку поиска <strong>QuickMapServices</strong>. Установите модуль.</p>
 <p>Откроется окно модуля. В окне поиска геосервиса введите <strong>Google satelite</strong>. Нажмите <strong>Добавить</strong>.</p>
 <p><img src="images/Ref01/QMS.png" /></p>
@@ -109,20 +111,7 @@
 <blockquote>
 <p>Примечание: Если у вас такой панели не оказалось, это значит, что она отключена. Для включения панели щелкните правой кнопкой мыши по пустому месту на панели и найдите <strong>панель работы со слоями</strong>.</p>
 </blockquote>
-<p>Включите <strong>Панель инструментов работы с растровыми данными</strong>. На ней нажмите кнопку <strong>Привязка растров</strong> <img src="images/Ref01/Reference_button.png" />.</p>
-<p>Откроется окно привязки. Нажмите на кнопку <strong>Открыть растр</strong> <img src="images/Ref01/Open_rastr.png" />, добавьте привязываемый растр. Щелчок левой кнопкой мыши по привязываемому изображению открое окно, куда будет предложено ввести координаты. Если вы для привязки хотите использовать референцное изображение, нажмите на кнопку <strong>С карты</strong>.</p>
-<div class="figure">
-<img src="images/Ref01/Input_coordinates.png" alt="" />
-<p class="caption">Окно ввода координат</p>
-</div>
-<p>Для настройки параметров трансформации нажмите на кнопку <img src="images/Ref01/Transformation_settings.png" />. Опорные точки можно сохранять и подгружать – для этого используйте соответствующие кнопки на панели. Для запуска процесса трансформации нажмите на кнопку <img src="images/Ref01/Transformation_button.png" /></p>
-<p>После добавления трансформированного изображения в основное окно карты убедитесь в правильности проделанной операции, сравнивая его с подложкой из мозаики спутниковых снимков. Для этого удобно использовать инструмент шторки.</p>
-<p>Зайдите в <strong>Модули – Управление и установка модулей…</strong> и вбейте в поиск <strong>MapSwipe Tool</strong>. После этого появится панель шторки.</p>
-<p>Выберите слой, который будет активен в режиме шторки (будет находиться под шторкой) и нажмите на кнопку <img src="images/Ref01/Swipe_button.png" />.</p>
-<div class="figure">
-<img src="images/Ref01/Swipe.png" alt="" />
-<p class="caption">Режим шторки для слоя Google Maps</p>
-</div>
+<p>Включите **П</p>
 <table>
 <tbody>
 <tr class="odd">
@@ -138,8 +127,8 @@
           </div>
         </div>
       </div>
-<a href="index.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
-<a href="photogrammetry.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+<a href="georeference.html" class="navigation navigation-prev navigation-unique" aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>
