@@ -5,6 +5,7 @@ rmd_files:
     - "index.Rmd"
     - "Ref01_Georeference.Rmd"
     - "Ref02_Photogrammetry.Rmd"
+    - "Ref03_Efoto.Rmd"
 delete_merged_file: true
 language:
   label:
