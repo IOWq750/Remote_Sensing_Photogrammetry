@@ -4,27 +4,27 @@
 
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title>Справка 3 Стереоизмерения | Фотограмметрия и основы дистанционного зондирования</title>
-  <meta name="description" content="Справка 3 Стереоизмерения | Фотограмметрия и основы дистанционного зондирования" />
+  <title>Раздел 3 Стереоизмерения | Фотограмметрия и основы дистанционного зондирования</title>
+  <meta name="description" content="Раздел 3 Стереоизмерения | Фотограмметрия и основы дистанционного зондирования" />
   <meta name="generator" content="bookdown 0.20 and GitBook 2.6.7" />
 
-  <meta property="og:title" content="Справка 3 Стереоизмерения | Фотограмметрия и основы дистанционного зондирования" />
+  <meta property="og:title" content="Раздел 3 Стереоизмерения | Фотограмметрия и основы дистанционного зондирования" />
   <meta property="og:type" content="book" />
   
   
-  <meta property="og:description" content="Справка 3 Стереоизмерения | Фотограмметрия и основы дистанционного зондирования" />
+  <meta property="og:description" content="Раздел 3 Стереоизмерения | Фотограмметрия и основы дистанционного зондирования" />
   <meta name="github-repo" content="IOWq750/Remote_Sensing_Photogrammetry" />
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="Справка 3 Стереоизмерения | Фотограмметрия и основы дистанционного зондирования" />
+  <meta name="twitter:title" content="Раздел 3 Стереоизмерения | Фотограмметрия и основы дистанционного зондирования" />
   
-  <meta name="twitter:description" content="Справка 3 Стереоизмерения | Фотограмметрия и основы дистанционного зондирования" />
+  <meta name="twitter:description" content="Раздел 3 Стереоизмерения | Фотограмметрия и основы дистанционного зондирования" />
   
 
 <meta name="author" content="Карпачевский А.М." />
 
 
-<meta name="date" content="2021-02-27" />
+<meta name="date" content="2021-02-28" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -103,7 +103,7 @@
 
             <section class="normal" id="section-">
 <div id="stereo" class="section level1">
-<h1><span class="header-section-number">Справка 3</span> Стереоизмерения</h1>
+<h1><span class="header-section-number">Раздел 3</span> Стереоизмерения</h1>
 <div id="stereo-soft" class="section level2">
 <h2><span class="header-section-number">3.1</span> Установка программного обеспечения</h2>
 <p><a href="stereo.html#stereo">В начало справки ⇡</a></p>
@@ -117,27 +117,41 @@
 <div id="stereo-initial" class="section level2">
 <h2><span class="header-section-number">3.2</span> Исходные данные</h2>
 <p><a href="stereo.html#stereo">В начало справки ⇡</a></p>
-<p>В качестве исходных данных мы будем использовать стереопару аэрофотоснимков на территорию окрестностей УНС Сатино, сделанную в 1970 году.</p>
-<p><a href="https://yadi.sk/i/fCQNfwX_BVaacA" target="_blank">Снимок №1</a></p>
-<p><a href="https://yadi.sk/i/OphjKipErEiOTw" target="_blank">Снимок №2</a></p>
+<p>В качестве исходных данных мы будем использовать серию аэрофотоснимков с перекрытием на территорию окрестностей УНС Сатино, сделанную в 1970 году.</p>
+<p><a href="https://yadi.sk/d/x7V_hMkPuviJVw" target="_blank">Снимки</a></p>
 <p><a href="https://yadi.sk/d/gEQC2jcCFJGifA" target="_blank">Наземные опорные точки</a></p>
 </div>
 <div id="stereo-create_project" class="section level2">
 <h2><span class="header-section-number">3.3</span> Создание проекта</h2>
 <p><a href="stereo.html#stereo">В начало справки ⇡</a></p>
 <p>Запустите программу <strong>E-foto</strong>. В меню выберите <strong>Project – New</strong>. Укажите путь для сохранения файла проекта с расширением <strong>.epp</strong>.</p>
+<p>Откроется окно менеджера проекта. Слева приведена структура проекта, а по центру - содержание. В разделе <strong>Project Header</strong> вам нужно указать общую информацию о проекте. Для этого включите режим редактирования, нажав на кнопку <strong>Edit</strong> внизу страницы.</p>
 <div class="figure">
 <img src="images/Ref03/Project_Manager.png" alt="" />
 <p class="caption">Окно менеджера проекта</p>
 </div>
-<p>Перейдите в раздел <strong>Terrain</strong> и укажите общую информацию о территории.
-Максимальная высота – 200 м
-Минимальная высота – 133 м
-Средняя высота – 167 м
-Зона UTM – 37
-Примерную широту и долготу центра территории укажите, используя <strong>Google Earth</strong> и точки фототриангуляции. Не забудьте указать правильные полушария.</p>
+<p>Перейдите в раздел <strong>Terrain</strong> и укажите общую информацию о территории.</p>
+<p><em>Максимальная высота</em> – 200 м</p>
+<p><em>Минимальная высота</em> – 133 м</p>
+<p><em>Средняя высота</em> – 167 м</p>
+<p><em>Зона UTM</em> – 37</p>
+<p>Примерную широту и долготу центра территории укажите, используя программу <strong>Google Earth</strong> и точки фототриангуляции. Не забудьте указать правильные полушария.</p>
 <p>Перейдите в раздел <strong>Sensor</strong> и укажите общую информацию о съёмке.</p>
-<p>Откроется окно менеджера проекта. Слева приведена структура проекта, а по центру - содержание. В разделе <strong>Project Header</strong> вам нужно указать общую информацию о проекте. Для этого включите режим редактирования, нажав на кнопку <strong>Edit</strong> внизу страницы.</p>
+<p><em>Калиброванное фокусное расстояние аэрофотоаппарата</em> – 96.78 мм.</p>
+<p><em>Координаты главной точки</em> – x = 0.5, y = 0.4.</p>
+<p>Информации о параметрах дисторсии камеры у нас нет.</p>
+<p>Укажите координаты координатных меток снимков (<strong>Fiducial marks</strong>) в последней таблице.</p>
+<div class="figure">
+<img src="images/Ref03/Fiducial.png" alt="" />
+<p class="caption">Координаты меток</p>
+</div>
+<p>В разделе <strong>Flight</strong> мы можем указать примерную высоту съёмку – 1500 м, а также примерный масштаб снимков 1:14 000.</p>
+<p>В разделе <strong>images</strong> нужно загрузить аэрофотоснимки, указав их разрешение – <strong>600 dpi</strong>. Вы можете после этого открыть раздел с каждым из загруженных снимков и увидеть информацию о нём.</p>
+<div class="figure">
+<img src="images/Ref03/image.png" alt="" />
+<p class="caption">Параметры снимка</p>
+</div>
+<p>В этом разделе нажмите на кнопку <strong>View Image</strong> для просмотра изображения.</p>
 <table>
 <tbody>
 <tr class="odd">
