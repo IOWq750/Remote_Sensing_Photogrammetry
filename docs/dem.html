@@ -4,11 +4,11 @@
 
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title>Раздел 1 Географическая привязка | Основы дистанционного зондирования и фотограмметрияя</title>
+  <title>Раздел 4 Получение ЦММ и ортотрансформация | Основы дистанционного зондирования и фотограмметрияя</title>
   <meta name="description" content="Основы дистанционного зондирования и фотограмметрия" />
   <meta name="generator" content="bookdown 0.20 and GitBook 2.6.7" />
 
-  <meta property="og:title" content="Раздел 1 Географическая привязка | Основы дистанционного зондирования и фотограмметрияя" />
+  <meta property="og:title" content="Раздел 4 Получение ЦММ и ортотрансформация | Основы дистанционного зондирования и фотограмметрияя" />
   <meta property="og:type" content="book" />
   
   
@@ -16,7 +16,7 @@
   <meta name="github-repo" content="IOWq750/Remote_Sensing_Photogrammetry" />
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="Раздел 1 Географическая привязка | Основы дистанционного зондирования и фотограмметрияя" />
+  <meta name="twitter:title" content="Раздел 4 Получение ЦММ и ортотрансформация | Основы дистанционного зондирования и фотограмметрияя" />
   
   <meta name="twitter:description" content="Основы дистанционного зондирования и фотограмметрия" />
   
@@ -31,8 +31,8 @@
   <meta name="apple-mobile-web-app-status-bar-style" content="black" />
   <link rel="apple-touch-icon-precomposed" sizes="120x120" href="images/apple-touch-icon.png" />
   <link rel="shortcut icon" href="images/favicon.ico" type="image/x-icon" />
-<link rel="prev" href="index.html"/>
-<link rel="next" href="photogrammetry.html"/>
+<link rel="prev" href="stereo.html"/>
+
 <script src="libs/jquery-2.2.3/jquery.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
@@ -115,32 +115,54 @@
           <div class="page-inner">
 
             <section class="normal" id="section-">
-<div id="georeference" class="section level1">
-<h1><span class="header-section-number">Раздел 1</span> Географическая привязка</h1>
-<div id="georeference-qgis" class="section level2">
-<h2><span class="header-section-number">1.1</span> Географическая привязка в QGIS</h2>
-<p><a href="georeference.html#georeference">В начало справки ⇡</a></p>
-<p>Для привязки данных дистанционного зондирования в QGIS можно использовать WMS-сервис с мозаикой спутниковых снимков. Для включения мозаики зайдите в меню <strong>Модули – Управление и установка модулей…</strong>. Впишите в строку поиска <strong>QuickMapServices</strong>. Установите модуль.</p>
-<p>Откроется окно модуля. В окне поиска геосервиса введите <strong>Google satelite</strong>. Нажмите <strong>Добавить</strong>.</p>
-<p><img src="images/Ref01/QMS.png" /></p>
-<p>Добавьте в качестве слоя данных привязываемый снимок.</p>
-<blockquote>
-<p>Примечание: Если у вас такой панели не оказалось, это значит, что она отключена. Для включения панели щелкните правой кнопкой мыши по пустому месту на панели и найдите <strong>панель работы со слоями</strong>.</p>
-</blockquote>
-<p>Включите <strong>Панель инструментов работы с растровыми данными</strong>. На ней нажмите кнопку <strong>Привязка растров</strong> <img src="images/Ref01/Reference_button.png" />.</p>
-<p>Откроется окно привязки. Нажмите на кнопку <strong>Открыть растр</strong> <img src="images/Ref01/Open_rastr.png" />, добавьте привязываемый растр. Щелчок левой кнопкой мыши по привязываемому изображению открое окно, куда будет предложено ввести координаты. Если вы для привязки хотите использовать референцное изображение, нажмите на кнопку <strong>С карты</strong>.</p>
-<div class="figure">
-<img src="images/Ref01/Input_coordinates.png" alt="" />
-<p class="caption">Окно ввода координат</p>
+<div id="dem" class="section level1">
+<h1><span class="header-section-number">Раздел 4</span> Получение ЦММ и ортотрансформация</h1>
+<div id="dem-initial" class="section level2">
+<h2><span class="header-section-number">4.1</span> Исходные данные</h2>
+<p><a href="dem.html#dem">В начало справки ⇡</a></p>
+<p>В качестве исходных данных в этой работе выступают ориентированные и привязанные снимки из предыдущей модели, а также полученная на их основе стереомодель в программе E-foto.</p>
 </div>
-<p>Для настройки параметров трансформации нажмите на кнопку <img src="images/Ref01/Transformation_settings.png" />. Опорные точки можно сохранять и подгружать – для этого используйте соответствующие кнопки на панели. Для запуска процесса трансформации нажмите на кнопку <img src="images/Ref01/Transformation_button.png" /></p>
-<p>После добавления трансформированного изображения в основное окно карты убедитесь в правильности проделанной операции, сравнивая его с подложкой из мозаики спутниковых снимков. Для этого удобно использовать инструмент шторки.</p>
-<p>Зайдите в <strong>Модули – Управление и установка модулей…</strong> и вбейте в поиск <strong>MapSwipe Tool</strong>. После этого появится панель шторки.</p>
-<p>Выберите слой, который будет активен в режиме шторки (будет находиться под шторкой) и нажмите на кнопку <img src="images/Ref01/Swipe_button.png" />.</p>
+<div id="dem-create" class="section level2">
+<h2><span class="header-section-number">4.2</span> Построение ЦММ</h2>
+<p><a href="dem.html#dem">В начало справки ⇡</a></p>
+<p>Выберите команду <strong>Execute – DSM Extraction</strong>. Откроется окно соответствующего модуля.Перейдите во вкладку <strong>Automatic Extraction</strong>.</p>
 <div class="figure">
-<img src="images/Ref01/Swipe.png" alt="" />
-<p class="caption">Режим шторки для слоя Google Maps</p>
+<img src="images/Ref04/Automatic_Extraction.png" alt="" />
+<p class="caption">Настройки извлечения ЦММ</p>
 </div>
+<p>Здесь можно выбрать тип радиометрической коррекции – для чёрно-белых снимков лучше всего выбрать <strong>Histogram matching</strong>. Для обработки стереопар и поиска тождественных точек в программе доступно два метода – кросс-корреляции (<strong>Cross-correlation</strong>) и наименьших квадратов (<strong>Least-Squares Matching</strong>). Проделайте сначала всё одним методом, затем попробуйте другой и сравните результат. Для ускорения процесса построения лучше задать параметр передискретизации (<strong>Image downsampling</strong>) 2 (размер пикселов уменьшиться в два раза). В окне <strong>Use pairs</strong> выберите ту стереопару, по которой нужно построить ЦММ. Нажмите на кнопку <img src="images/Ref04/DSM_extraction.png" /> для запуска процесса. По окончании процесса откроется окно для просмотра найденных пикетов в виде жёлтых крестиков.</p>
+<p>После того, как пикеты были извлечены, необходимо их интерполировать. Для этого нажмите на соответствующую кнопку <img src="images/Ref04/DSM_interpolation.png" />. После этого можно экспортировать полученный грид.Перейдите во вкладку <strong>Load/Save Options</strong>, выберите <strong>DSM extraction file format</strong> – облако точек без индексов, а <strong>Grid file format</strong> – <strong>ASCII DSM Grid</strong>. В разделе <strong>DSM Grid Interpolation</strong> внизу окна нажмите на сохранение <img src="images/Ref04/Save_DSM.png" /> и сохраните текстовый файл с высотными данными.</p>
+</div>
+<div id="dem-QGIS" class="section level2">
+<h2><span class="header-section-number">4.3</span> Работа с высотными данными в QGIS</h2>
+<p><a href="dem.html#dem">В начало справки ⇡</a></p>
+<p>Добавьте в QGIS полученные ранее высотные данные как текст с разделителями. Обратите внимание, что необходимо правильно выбрать символ разделителя, указать количество строк заголовка файла, которые мы не учитываем, указать соответствующие поля для координат, а также правильную систему координат.</p>
+<div class="figure">
+<img src="images/Ref04/Delimited_Text.png" alt="" />
+<p class="caption">Добавление ASCII-файла как текста с разделителями</p>
+</div>
+<p>Добавленные данные необходимо сохранить либо в виде шейп-файла, либо в базе геоданных, щёлкнув правой кнопкой по слою <strong>Экспорт – сохранить как</strong>. Для получения растровой поверхности используйте инструмент <strong>Grid (Nearest Neighbor)…</strong>. Его можно найти через меню <strong>Raster – Analysis</strong>. Укажите поле для Z-значений в настройках инструмента. После настройки символики ваша ЦММ примет примерно следующий вид – очевидно, что в ней много пропущенных данных.</p>
+<div class="figure">
+<img src="images/Ref04/DSM_gaps.png" alt="" />
+<p class="caption">Визуализация первичной ЦММ с пропусками данных</p>
+</div>
+<p>Для заполнения пропусков воспользуйтесь инструментом <strong>Raster – Analysis – Fill nodata…</strong>. После этого ЦММ должна принять примерно следующий вид:</p>
+<div class="figure">
+<img src="images/Ref04/DSM_filled.png" alt="" />
+<p class="caption">Визуализация ЦММ с заполненными пропусками</p>
+</div>
+</div>
+<div id="dem-derived" class="section level2">
+<h2><span class="header-section-number">4.4</span> Построение производных поверхностей</h2>
+<p><a href="dem.html#dem">В начало справки ⇡</a></p>
+</div>
+<div id="dem-verification" class="section level2">
+<h2><span class="header-section-number">4.5</span> Верификация ЦММ по точкам стереоизмерений</h2>
+<p><a href="dem.html#dem">В начало справки ⇡</a></p>
+</div>
+<div id="dem-orthorectification" class="section level2">
+<h2><span class="header-section-number">4.6</span> Ортотрансформация с использованием полученной ЦММ</h2>
+<p><a href="dem.html#dem">В начало справки ⇡</a></p>
 <table>
 <tbody>
 <tr class="odd">
@@ -156,8 +178,8 @@
           </div>
         </div>
       </div>
-<a href="index.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
-<a href="photogrammetry.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+<a href="stereo.html" class="navigation navigation-prev navigation-unique" aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>

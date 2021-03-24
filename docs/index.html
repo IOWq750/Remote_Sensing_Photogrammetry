@@ -4,33 +4,33 @@
 
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title>Фотограмметрия и основы дистанционного зондирования</title>
-  <meta name="description" content="Фотограмметрия и основы дистанционного зондирования" />
+  <title>Основы дистанционного зондирования и фотограмметрияя</title>
+  <meta name="description" content="Основы дистанционного зондирования и фотограмметрия" />
   <meta name="generator" content="bookdown 0.20 and GitBook 2.6.7" />
 
-  <meta property="og:title" content="Фотограмметрия и основы дистанционного зондирования" />
+  <meta property="og:title" content="Основы дистанционного зондирования и фотограмметрияя" />
   <meta property="og:type" content="book" />
   
   
-  <meta property="og:description" content="Фотограмметрия и основы дистанционного зондирования" />
+  <meta property="og:description" content="Основы дистанционного зондирования и фотограмметрия" />
   <meta name="github-repo" content="IOWq750/Remote_Sensing_Photogrammetry" />
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="Фотограмметрия и основы дистанционного зондирования" />
+  <meta name="twitter:title" content="Основы дистанционного зондирования и фотограмметрияя" />
   
-  <meta name="twitter:description" content="Фотограмметрия и основы дистанционного зондирования" />
+  <meta name="twitter:description" content="Основы дистанционного зондирования и фотограмметрия" />
   
 
 <meta name="author" content="Карпачевский А.М." />
 
 
-<meta name="date" content="2021-03-01" />
+<meta name="date" content="2021-03-24" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
   <meta name="apple-mobile-web-app-status-bar-style" content="black" />
   <link rel="apple-touch-icon-precomposed" sizes="120x120" href="images/apple-touch-icon.png" />
-  <link rel="shortcut icon" href="images/Mann-Mit-Der-Tarnjacke-Aurora-Map.ico" type="image/x-icon" />
+  <link rel="shortcut icon" href="images/favicon.ico" type="image/x-icon" />
 
 <link rel="next" href="georeference.html"/>
 <script src="libs/jquery-2.2.3/jquery.min.js"></script>
@@ -67,7 +67,7 @@
       <nav role="navigation">
 
 <ul class="summary">
-<li><a href="./">Фотограмметрия и основы дистанционного зондирования</a></li>
+<li><a href="./">Основы дистанционного зондирования и фотограмметрия</a></li>
 
 <li class="divider"></li>
 <li class="chapter" data-level="" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i>Программное обеспечение</a></li>
@@ -87,6 +87,14 @@
 <li class="chapter" data-level="3.6" data-path="stereo.html"><a href="stereo.html#stereo-exterior"><i class="fa fa-check"></i><b>3.6</b> Внешнее ориентирование</a></li>
 <li class="chapter" data-level="3.7" data-path="stereo.html"><a href="stereo.html#stereo-stereoplotter"><i class="fa fa-check"></i><b>3.7</b> Работа в стереокомпараторе</a></li>
 </ul></li>
+<li class="chapter" data-level="4" data-path="dem.html"><a href="dem.html"><i class="fa fa-check"></i><b>4</b> Получение ЦММ и ортотрансформация</a><ul>
+<li class="chapter" data-level="4.1" data-path="dem.html"><a href="dem.html#dem-initial"><i class="fa fa-check"></i><b>4.1</b> Исходные данные</a></li>
+<li class="chapter" data-level="4.2" data-path="dem.html"><a href="dem.html#dem-create"><i class="fa fa-check"></i><b>4.2</b> Построение ЦММ</a></li>
+<li class="chapter" data-level="4.3" data-path="dem.html"><a href="dem.html#dem-QGIS"><i class="fa fa-check"></i><b>4.3</b> Работа с высотными данными в QGIS</a></li>
+<li class="chapter" data-level="4.4" data-path="dem.html"><a href="dem.html#dem-derived"><i class="fa fa-check"></i><b>4.4</b> Построение производных поверхностей</a></li>
+<li class="chapter" data-level="4.5" data-path="dem.html"><a href="dem.html#dem-verification"><i class="fa fa-check"></i><b>4.5</b> Верификация ЦММ по точкам стереоизмерений</a></li>
+<li class="chapter" data-level="4.6" data-path="dem.html"><a href="dem.html#dem-orthorectification"><i class="fa fa-check"></i><b>4.6</b> Ортотрансформация с использованием полученной ЦММ</a></li>
+</ul></li>
 <li class="divider"></li>
 <li><a href="https://github.com/rstudio/bookdown" target="blank">Published with bookdown</a></li>
 
@@ -99,7 +107,7 @@
       <div class="body-inner">
         <div class="book-header" role="navigation">
           <h1>
-            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">Фотограмметрия и основы дистанционного зондирования</a>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">Основы дистанционного зондирования и фотограмметрияя</a>
           </h1>
         </div>
 
@@ -108,9 +116,9 @@
 
             <section class="normal" id="section-">
 <div id="header">
-<h1 class="title">Фотограмметрия и основы дистанционного зондирования</h1>
+<h1 class="title">Основы дистанционного зондирования и фотограмметрияя</h1>
 <p class="author"><em>Карпачевский А.М.</em></p>
-<p class="date"><em>2021-03-01</em></p>
+<p class="date"><em>2021-03-24</em></p>
 </div>
 <div id="программное-обеспечение" class="section level1 unnumbered">
 <h1>Программное обеспечение</h1>

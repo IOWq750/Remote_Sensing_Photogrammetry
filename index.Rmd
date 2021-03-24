@@ -1,5 +1,5 @@
 --- 
-title: "Фотограмметрия и основы дистанционного зондирования"
+title: "Основы дистанционного зондирования и фотограмметрияя"
 author: "Карпачевский А.М."
 date: "`r Sys.Date()`"
 site: bookdown::bookdown_site
@@ -7,7 +7,7 @@ documentclass: book
 bibliography: [book.bib, packages.bib]
 biblio-style: apalike
 link-citations: yes
-description: "Фотограмметрия и основы дистанционного зондирования"
+description: "Основы дистанционного зондирования и фотограмметрия"
 colorlinks: true
 github-repo: IOWq750/Remote_Sensing_Photogrammetry
 fontsize: 12pt
@@ -17,7 +17,7 @@ toc_float:
   smooth_scroll: true
 apple-touch-icon: images/apple-touch-icon.png
 apple-touch-icon-size: 120
-favicon: images/Mann-Mit-Der-Tarnjacke-Aurora-Map.ico
+favicon: images/favicon.ico
 ---
 
 
