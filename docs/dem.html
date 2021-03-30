@@ -24,7 +24,7 @@
 <meta name="author" content="Карпачевский А.М." />
 
 
-<meta name="date" content="2021-03-24" />
+<meta name="date" content="2021-03-30" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -155,14 +155,40 @@
 <div id="dem-derived" class="section level2">
 <h2><span class="header-section-number">4.4</span> Построение производных поверхностей</h2>
 <p><a href="dem.html#dem">В начало справки ⇡</a></p>
+<p>В QGIS доступны многие инструменты для построения производных поверхностей от ЦМР и ЦММ, например:</p>
+<ol style="list-style-type: decimal">
+<li><p><em>Углы наклона</em> – <strong>Raster – Analysis – Slope…</strong>.</p></li>
+<li><p><em>Экспозиция склонов</em> – <strong>Raster – Analysis – Aspect…</strong>.</p></li>
+<li><p><em>Аналитическая отмывка рельефа</em> – <strong>Raster – Analysis – Hillshade…</strong>.</p></li>
+</ol>
+<p>Кроме того, мы можем извлечь изолинии (горизонтали) с помощью инструмента <strong>Raster – Extraction – Contour…</strong>.</p>
 </div>
 <div id="dem-verification" class="section level2">
 <h2><span class="header-section-number">4.5</span> Верификация ЦММ по точкам стереоизмерений</h2>
 <p><a href="dem.html#dem">В начало справки ⇡</a></p>
+<p>Измерьте высоты с помощью стереокомпаратора в местах, где есть крупные пропуски данных в ЦММ. Полученные точки можно экспортировать в шейпфайл, нажав на кнопку <img src="images/Ref04/Export_survey_point.png" />. В открывшемся окне выберите формат сохранения <strong>SHP</strong>.</p>
+<p>Для извлечения значений высот ЦММ в точки используйте инструмент в QGIS <strong>Sample Raster Values</strong>. Этот инструмент записывает в виде атрибута значения ячеек растра, в которые попадают точки. Для расчёта собственных значений высот точек шейпфайла (полученные в результате стереоизмерений) можно зайти в калькулятор поле и написать выражение для нового атрибутивного поля _ z($geometry)_.</p>
 </div>
 <div id="dem-orthorectification" class="section level2">
 <h2><span class="header-section-number">4.6</span> Ортотрансформация с использованием полученной ЦММ</h2>
 <p><a href="dem.html#dem">В начало справки ⇡</a></p>
+<p>Для ортотрансформации снимков в <strong>E-foto</strong> требуется ЦММ в собственном формате, что обуславливает необходимость её коррекции (заполнения пропусков) внутренними средствами программы. Для этого в модуле <strong>DSM Extraction</strong> после извлечения ЦММ перейдите на вкладку <strong>Interpolation</strong>. В параметре <strong>Grid Interpolation method</strong> необходимо выбрать <strong>Moving average</strong> (обычно установлено по умолчанию). В параметре <strong>Distance</strong> укажите размер плавающего окна осреднения в пикселях, например, 10.</p>
+<div class="figure">
+<img src="images/Ref04/Interpolation.png" alt="" />
+<p class="caption">настройки интерполяции</p>
+</div>
+<p>Сохраните ЦММ в формате <strong>ASCII DSM Grid</strong> и выйдите из модуля.</p>
+<p>Запустите модуль ортотрансформации <strong>Execute – Ortho-Rectification</strong>.</p>
+<div class="figure">
+<img src="images/Ref04/Orthorectification.png" alt="" />
+<p class="caption">Окно модуля ортотрансформации</p>
+</div>
+<p>Выберите изображение, которое необходимо ортотрансформировать, укажите формат ЦММ такой же, как вы указывали для её сохранения, укажите путь к файлу ЦММ. В качестве выходного формата для изображения укажите <strong>GeoTIFF</strong>. Для запуска процедуры нажмите <img src="images/Ref04/Run.png" />.</p>
+<p>Ортотрансформированное изображение скорее всего сохранится без СК, но вы сможете её задать в QGIS. для сопоставления ортотрансформированного изображения с исходным можно воспользоваться инструментом <strong>Шторка</strong>.</p>
+<div class="figure">
+<img src="images/Ref04/Swipe.gif" alt="" />
+<p class="caption">Сопоставление ортотрансформированного изображения с исходным</p>
+</div>
 <table>
 <tbody>
 <tr class="odd">
