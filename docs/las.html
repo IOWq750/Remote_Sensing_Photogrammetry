@@ -4,11 +4,11 @@
 
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title>Раздел 1 Географическая привязка | Основы дистанционного зондирования и фотограмметрияя</title>
+  <title>Раздел 5 Лазерное сканирование | Основы дистанционного зондирования и фотограмметрияя</title>
   <meta name="description" content="Основы дистанционного зондирования и фотограмметрия" />
   <meta name="generator" content="bookdown 0.20 and GitBook 2.6.7" />
 
-  <meta property="og:title" content="Раздел 1 Географическая привязка | Основы дистанционного зондирования и фотограмметрияя" />
+  <meta property="og:title" content="Раздел 5 Лазерное сканирование | Основы дистанционного зондирования и фотограмметрияя" />
   <meta property="og:type" content="book" />
   
   
@@ -16,7 +16,7 @@
   <meta name="github-repo" content="IOWq750/Remote_Sensing_Photogrammetry" />
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="Раздел 1 Географическая привязка | Основы дистанционного зондирования и фотограмметрияя" />
+  <meta name="twitter:title" content="Раздел 5 Лазерное сканирование | Основы дистанционного зондирования и фотограмметрияя" />
   
   <meta name="twitter:description" content="Основы дистанционного зондирования и фотограмметрия" />
   
@@ -31,8 +31,8 @@
   <meta name="apple-mobile-web-app-status-bar-style" content="black" />
   <link rel="apple-touch-icon-precomposed" sizes="120x120" href="images/apple-touch-icon.png" />
   <link rel="shortcut icon" href="images/favicon.ico" type="image/x-icon" />
-<link rel="prev" href="index.html"/>
-<link rel="next" href="photogrammetry.html"/>
+<link rel="prev" href="dem.html"/>
+
 <script src="libs/jquery-2.2.3/jquery.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
@@ -121,32 +121,49 @@
           <div class="page-inner">
 
             <section class="normal" id="section-">
-<div id="georeference" class="section level1">
-<h1><span class="header-section-number">Раздел 1</span> Географическая привязка</h1>
-<div id="georeference-qgis" class="section level2">
-<h2><span class="header-section-number">1.1</span> Географическая привязка в QGIS</h2>
-<p><a href="georeference.html#georeference">В начало справки ⇡</a></p>
-<p>Для привязки данных дистанционного зондирования в QGIS можно использовать WMS-сервис с мозаикой спутниковых снимков. Для включения мозаики зайдите в меню <strong>Модули – Управление и установка модулей…</strong>. Впишите в строку поиска <strong>QuickMapServices</strong>. Установите модуль.</p>
-<p>Откроется окно модуля. В окне поиска геосервиса введите <strong>Google satelite</strong>. Нажмите <strong>Добавить</strong>.</p>
-<p><img src="images/Ref01/QMS.png" /></p>
-<p>Добавьте в качестве слоя данных привязываемый снимок.</p>
-<blockquote>
-<p>Примечание: Если у вас такой панели не оказалось, это значит, что она отключена. Для включения панели щелкните правой кнопкой мыши по пустому месту на панели и найдите <strong>панель работы со слоями</strong>.</p>
-</blockquote>
-<p>Включите <strong>Панель инструментов работы с растровыми данными</strong>. На ней нажмите кнопку <strong>Привязка растров</strong> <img src="images/Ref01/Reference_button.png" />.</p>
-<p>Откроется окно привязки. Нажмите на кнопку <strong>Открыть растр</strong> <img src="images/Ref01/Open_rastr.png" />, добавьте привязываемый растр. Щелчок левой кнопкой мыши по привязываемому изображению открое окно, куда будет предложено ввести координаты. Если вы для привязки хотите использовать референцное изображение, нажмите на кнопку <strong>С карты</strong>.</p>
-<div class="figure">
-<img src="images/Ref01/Input_coordinates.png" alt="" />
-<p class="caption">Окно ввода координат</p>
+<div id="las" class="section level1">
+<h1><span class="header-section-number">Раздел 5</span> Лазерное сканирование</h1>
+<div id="las-soft" class="section level2">
+<h2><span class="header-section-number">5.1</span> Установка программного обеспечения</h2>
+<p><a href="las.html#las">В начало справки ⇡</a></p>
+<p>Для практической работы вам понадобится открытая программа <strong>CloudCompare</strong>. Информацию о ней можно найти на <a href="https://www.danielgm.net/cc/" target="_blank">домашнем сайте</a>, там же можно скачать себе дистрибутив программы. Для этого выберите <strong>Latest stable release (2.11.3 Anoia) – Windows iconWindows 64 bits Stereo</strong>.</p>
+<p>Также для работы нам потребуется ГИС-пакет с открытым исходным кодом <strong>SAGA</strong>, который можно скачать <a href="https://sourceforge.net/projects/saga-gis/files/latest/download" target="_blank">по ссылке</a>. Программа не требует установки.</p>
 </div>
-<p>Для настройки параметров трансформации нажмите на кнопку <img src="images/Ref01/Transformation_settings.png" />. Опорные точки можно сохранять и подгружать – для этого используйте соответствующие кнопки на панели. Для запуска процесса трансформации нажмите на кнопку <img src="images/Ref01/Transformation_button.png" /></p>
-<p>После добавления трансформированного изображения в основное окно карты убедитесь в правильности проделанной операции, сравнивая его с подложкой из мозаики спутниковых снимков. Для этого удобно использовать инструмент шторки.</p>
-<p>Зайдите в <strong>Модули – Управление и установка модулей…</strong> и вбейте в поиск <strong>MapSwipe Tool</strong>. После этого появится панель шторки.</p>
-<p>Выберите слой, который будет активен в режиме шторки (будет находиться под шторкой) и нажмите на кнопку <img src="images/Ref01/Swipe_button.png" />.</p>
-<div class="figure">
-<img src="images/Ref01/Swipe.png" alt="" />
-<p class="caption">Режим шторки для слоя Google Maps</p>
+<div id="las-initial" class="section level2">
+<h2><span class="header-section-number">5.2</span> Исходные данные</h2>
+<p><a href="las.html#las">В начало справки ⇡</a></p>
+<p><a href="https://yadi.sk/d/CKfoC4XVkCTuIg" target="_blank">Облако точек</a></p>
+<p><a href="https://yadi.sk/d/Vj1B8y3_BG1mMA" target="_blank">Мозаика аэрофотоснимков</a></p>
+<p><a href="https://yadi.sk/d/6N_TCgy2Q7HAHQ" target="_blank">Векторные полигоны</a></p>
 </div>
+<div id="las-Extract" class="section level2">
+<h2><span class="header-section-number">5.3</span> Вырезание фрагмента облака ТЛО в SAGA</h2>
+<p><a href="las.html#las">В начало справки ⇡</a></p>
+<p>Откройте шейпфайл с границами вашего участка в SAGA через меню <strong>Open</strong>. В панели менеджера перейдите на вкладку <strong>Data</strong>. Двойной щелчок по слою предложит добавить слой к либо к уже открытой карте, либо к новой карте в SAGA.</p>
+<p>Для импорта ТЛО используйте инструмент <strong>Tools – Import/Export – LAS – Import LAS Files</strong>. Укажите путь к файлу, а все остальные параметры оставьте по умолчанию. Нажмите <strong>Okay</strong> для запуска инструмента.</p>
+<div class="figure">
+<img src="images/Ref05/Import_LAS.png" alt="" />
+<p class="caption">Окно инструмента импорта ТЛО</p>
+</div>
+<p>Вы можете визуализировать облако, дважды щёлкнув по появившемуся слою во вкладке <strong>Data</strong>. Для того чтобы вырезать фрагмент облака, воспользуйтесь инструментом <strong>Tools – Shapes – Point Clouds – Point Cloud Cutter</strong>. В параметре <strong>Points</strong> укажите загруженный слой точек, в параметре <strong>Choose cut from…</strong> выберите параметр <strong>Polygons</strong>. После нажатия <strong>Okay</strong> откроется новое окно, в котором будет предложено указать непосредственный векторный слой для обрезки.</p>
+<p>После появления вырезанного облака точек воспользуйтесь инструментом <strong>Tools – Import/Export – LAS – Export LAS Files</strong>. В параметре <strong>Point Cloud</strong> укажите набор данных для экспорта, укажите масштабный коэффициент по трём осям равным 1. Остальные параметры остаются по умолчанию.</p>
+</div>
+<div id="las-cloudcompare" class="section level2">
+<h2><span class="header-section-number">5.4</span> Работа с ТЛО в CloudCompare</h2>
+<p><a href="las.html#las">В начало справки ⇡</a></p>
+<p>В программе через меню <strong>File – Open</strong> откройте ваш фрагмент облака точек. Для того чтобы точки облака приобрели цвет (скаляр), указываем, что переменной цвета соответствует координата Z. Для этого вызываем меню <strong>Edit – Scalar Fields - Export coordinates to SF</strong> и выбираем координату.</p>
+<div class="figure">
+<img src="images/Ref05/Colorize_Cloud.png" alt="" />
+<p class="caption">Облако точек с настроенным скалярным значением</p>
+</div>
+<p>Для классификации облака точек на точки земли и точки всего остального вызываем меню <strong>Plugins – CSF Filter</strong>. Попробуйте разные настройки инструмента, сравните результаты. В <strong>Advanced parameters</strong> укажите параметр <strong>cloth resolution</strong> = 0,5.Результат классификации добавится в виде отдельных облаков точек.</p>
+<p>С помощью инструмента Segment <img src="images/Ref05/Segment.png" /> вырезаем объекты типа дорог и рек. Для этого нарисуйте полигон, ставя узлы левой кнопкой мыши. Замыкание полигона осуществляется нажатием правой кнопки мыши. После отрисовки участка, который необходимо очистить от ТЛО, выберите на панели <img src="images/Ref05/Segment_Panel.png" /> кнопку <strong>Segment Out</strong>. В результате у вас появятся новые поднаборы облаков точек в списке слоёв слева.</p>
+<p>Для получения растровой поверхности, горизонталей и mesh-модели используется кнопка <img src="images/Ref05/Rasterize.png" /> на главной панели, либо вызывается меню <strong>Tool – Projection – Rasterize</strong>. В открывшемся окне укажите разрешение растра <strong>step – 1</strong>, ось координат для проекции <strong>direction – Z</strong>, размер ячейки укажите минимальный <strong>cell height – minimum</strong>, а также передискретизация <strong>resample input cloud – checked</strong>. пустые ячейки оставьте пустыми <strong>Empty cells fill with – leave empty</strong>.</p>
+<div class="figure">
+<img src="images/Ref05/Rasterize_Window.png" alt="" />
+<p class="caption">Окно настроек растеризации</p>
+</div>
+<p>Для запуска процесса растеризации нажмите на кнопку <strong>Raster</strong> и укажите путь для сохранения файла GeoTIFF. Опционально вы можете построить горизонтали <strong>Contour plot</strong>.</p>
 <table>
 <tbody>
 <tr class="odd">
@@ -162,8 +179,8 @@
           </div>
         </div>
       </div>
-<a href="index.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
-<a href="photogrammetry.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+<a href="dem.html" class="navigation navigation-prev navigation-unique" aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>
