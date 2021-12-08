@@ -1,5 +1,9 @@
 pansharpen
+pansharpen-resampling
+pansharpen-filter
+pansharpen-pansharpen
 georeference
+georeference-arcgis
 georeference-qgis
 mosaic
 mosaic-arcgis
