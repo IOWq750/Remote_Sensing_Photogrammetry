@@ -4,11 +4,11 @@
 
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title>Раздел 4 Фотограмметрия кадрового снимка | Основы дистанционного зондирования и фотограмметрияя</title>
+  <title>Раздел 3 Создание мозаики | Основы дистанционного зондирования и фотограмметрияя</title>
   <meta name="description" content="Основы дистанционного зондирования и фотограмметрия" />
   <meta name="generator" content="bookdown 0.24 and GitBook 2.6.7" />
 
-  <meta property="og:title" content="Раздел 4 Фотограмметрия кадрового снимка | Основы дистанционного зондирования и фотограмметрияя" />
+  <meta property="og:title" content="Раздел 3 Создание мозаики | Основы дистанционного зондирования и фотограмметрияя" />
   <meta property="og:type" content="book" />
   
   
@@ -16,7 +16,7 @@
   <meta name="github-repo" content="IOWq750/Remote_Sensing_Photogrammetry" />
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="Раздел 4 Фотограмметрия кадрового снимка | Основы дистанционного зондирования и фотограмметрияя" />
+  <meta name="twitter:title" content="Раздел 3 Создание мозаики | Основы дистанционного зондирования и фотограмметрияя" />
   
   <meta name="twitter:description" content="Основы дистанционного зондирования и фотограмметрия" />
   
@@ -31,8 +31,8 @@
   <meta name="apple-mobile-web-app-status-bar-style" content="black" />
   <link rel="apple-touch-icon-precomposed" sizes="120x120" href="images/apple-touch-icon.png" />
   <link rel="shortcut icon" href="images/favicon.ico" type="image/x-icon" />
-<link rel="prev" href="mosaic.html"/>
-<link rel="next" href="stereo.html"/>
+<link rel="prev" href="georeference.html"/>
+<link rel="next" href="photogrammetry.html"/>
 <script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
@@ -128,18 +128,17 @@
           <div class="page-inner">
 
             <section class="normal" id="section-">
-<div id="photogrammetry" class="section level1">
-<h1><span class="header-section-number">Раздел 4</span> Фотограмметрия кадрового снимка</h1>
-<div id="photogrammetry-oblique" class="section level2">
-<h2><span class="header-section-number">4.1</span> Искажения наклонного снимка</h2>
-<p><a href="photogrammetry.html#photogrammetry">В начало справки ⇡</a></p>
-<iframe src="https://www.geogebra.org/3d/a2veawbs?embed" width="800" height="600" allowfullscreen style="border: 1px solid #e4e4e4;border-radius: 4px;" frameborder="0">
-</iframe>
-</div>
-<div id="photogrammetry-interior" class="section level2">
-<h2><span class="header-section-number">4.2</span> Внутреннее ориентирование снимка</h2>
-<p><a href="photogrammetry.html#photogrammetry">В начало справки ⇡</a></p>
-<p>Параметры внутреннего ориентирования снимка определяют систему координат снимка с началом в центре его проекции. Параметры внутреннего ориентирования <span class="math inline">\(a_{0}, a_{1}, a_{2}, b_{0}, b_{1}, b_{2}\)</span> – параметры аффинного преобразования системы координат на основе измерений координатных меток.</p>
+<div id="mosaic" class="section level1">
+<h1><span class="header-section-number">Раздел 3</span> Создание мозаики</h1>
+<div id="mosaic-arcgis" class="section level2">
+<h2><span class="header-section-number">3.1</span> Создание мозаики в ArcGIS Pro</h2>
+<p><a href="mosaic.html#mosaic">В начало справки ⇡</a></p>
+<p>Для создания мозаики с помощью ГИС-пакета ArcGIS Pro необходимо создать специальный набор данных мозаики внутри базы данных. Следует понимать, что этот набор данных не хранит собственно растры, а лишь ссылки на них. Для его создания нажмите правой кнопкой мыши по базе данных, выберите пункт <strong>New – Mosaic Dataset</strong>.</p>
+<p><img src="images/Ref03/New_Mosaic.png" /></p>
+<p>В открывшемся окне геообработки укажите параметры мозаики – название набора и проекцию. Нажмите на кнопку <strong>Run</strong>. В результате в таблицу содержания добавится специальный слой мозаики, который включает в себя собственно изображения, границы мозаики и границы отдельных изображений. Пока в мозаику не добавлены снимки, эти слои останутся пустыми.</p>
+<p>Для добавления растров в мозаику правой кнопкой мыши кликните по набору и выберите <img src="images/Ref03/Add_Rasters.png" />. Откроется окно инструмента. Если растры находятся в одной папке, можно указать её в качестве источника данных, либо можно указать каждый растр индивидуально, выбрав категорию <strong>Raster Dataset</strong>.</p>
+<p><img src="images/Ref03/Raster_Dataset.png" /></p>
+<p>Для настройки комбинации каналов мозаики выберите слой с изображением, выберите сверху вкладку <strong>Appearance</strong>, нажмите на <strong>Band Combination</strong>. Вы можете изменить яркость и контрастность изображения через настройку гистограммы <strong>Stretch Type</strong>.</p>
 <table>
 <tbody>
 <tr class="odd">
@@ -155,8 +154,8 @@
           </div>
         </div>
       </div>
-<a href="mosaic.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
-<a href="stereo.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+<a href="georeference.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="photogrammetry.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>

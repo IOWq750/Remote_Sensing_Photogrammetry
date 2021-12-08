@@ -4,11 +4,11 @@
 
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title>Раздел 5 Лазерное сканирование | Основы дистанционного зондирования и фотограмметрияя</title>
+  <title>Раздел 7 Лазерное сканирование | Основы дистанционного зондирования и фотограмметрияя</title>
   <meta name="description" content="Основы дистанционного зондирования и фотограмметрия" />
-  <meta name="generator" content="bookdown 0.20 and GitBook 2.6.7" />
+  <meta name="generator" content="bookdown 0.24 and GitBook 2.6.7" />
 
-  <meta property="og:title" content="Раздел 5 Лазерное сканирование | Основы дистанционного зондирования и фотограмметрияя" />
+  <meta property="og:title" content="Раздел 7 Лазерное сканирование | Основы дистанционного зондирования и фотограмметрияя" />
   <meta property="og:type" content="book" />
   
   
@@ -16,7 +16,7 @@
   <meta name="github-repo" content="IOWq750/Remote_Sensing_Photogrammetry" />
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="Раздел 5 Лазерное сканирование | Основы дистанционного зондирования и фотограмметрияя" />
+  <meta name="twitter:title" content="Раздел 7 Лазерное сканирование | Основы дистанционного зондирования и фотограмметрияя" />
   
   <meta name="twitter:description" content="Основы дистанционного зондирования и фотограмметрия" />
   
@@ -24,7 +24,7 @@
 <meta name="author" content="Карпачевский А.М." />
 
 
-<meta name="date" content="2021-04-21" />
+<meta name="date" content="2021-12-08" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -33,7 +33,8 @@
   <link rel="shortcut icon" href="images/favicon.ico" type="image/x-icon" />
 <link rel="prev" href="dem.html"/>
 
-<script src="libs/jquery-2.2.3/jquery.min.js"></script>
+<script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
@@ -49,8 +50,10 @@
 
 
 
-
 <script src="libs/accessible-code-block-0.0.1/empty-anchor.js"></script>
+<link href="libs/anchor-sections-1.0.1/anchor-sections.css" rel="stylesheet" />
+<script src="libs/anchor-sections-1.0.1/anchor-sections.js"></script>
+
 
 
 
@@ -71,35 +74,39 @@
 
 <li class="divider"></li>
 <li class="chapter" data-level="" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i>Программное обеспечение</a></li>
-<li class="chapter" data-level="1" data-path="georeference.html"><a href="georeference.html"><i class="fa fa-check"></i><b>1</b> Географическая привязка</a><ul>
-<li class="chapter" data-level="1.1" data-path="georeference.html"><a href="georeference.html#georeference-qgis"><i class="fa fa-check"></i><b>1.1</b> Географическая привязка в QGIS</a></li>
+<li class="chapter" data-level="1" data-path="pansharpen.html"><a href="pansharpen.html"><i class="fa fa-check"></i><b>1</b> Методы улучшения пространственного разрешения</a></li>
+<li class="chapter" data-level="2" data-path="georeference.html"><a href="georeference.html"><i class="fa fa-check"></i><b>2</b> Географическая привязка</a><ul>
+<li class="chapter" data-level="2.1" data-path="georeference.html"><a href="georeference.html#georeference-qgis"><i class="fa fa-check"></i><b>2.1</b> Географическая привязка в QGIS</a></li>
 </ul></li>
-<li class="chapter" data-level="2" data-path="photogrammetry.html"><a href="photogrammetry.html"><i class="fa fa-check"></i><b>2</b> Фотограмметрия кадрового снимка</a><ul>
-<li class="chapter" data-level="2.1" data-path="photogrammetry.html"><a href="photogrammetry.html#photogrammetry-oblique"><i class="fa fa-check"></i><b>2.1</b> Искажения наклонного снимка</a></li>
-<li class="chapter" data-level="2.2" data-path="photogrammetry.html"><a href="photogrammetry.html#photogrammetry-interior"><i class="fa fa-check"></i><b>2.2</b> Внутреннее ориентирование снимка</a></li>
+<li class="chapter" data-level="3" data-path="mosaic.html"><a href="mosaic.html"><i class="fa fa-check"></i><b>3</b> Создание мозаики</a><ul>
+<li class="chapter" data-level="3.1" data-path="mosaic.html"><a href="mosaic.html#mosaic-arcgis"><i class="fa fa-check"></i><b>3.1</b> Создание мозаики в ArcGIS Pro</a></li>
 </ul></li>
-<li class="chapter" data-level="3" data-path="stereo.html"><a href="stereo.html"><i class="fa fa-check"></i><b>3</b> Стереоизмерения</a><ul>
-<li class="chapter" data-level="3.1" data-path="stereo.html"><a href="stereo.html#stereo-soft"><i class="fa fa-check"></i><b>3.1</b> Установка программного обеспечения</a></li>
-<li class="chapter" data-level="3.2" data-path="stereo.html"><a href="stereo.html#stereo-initial"><i class="fa fa-check"></i><b>3.2</b> Исходные данные</a></li>
-<li class="chapter" data-level="3.3" data-path="stereo.html"><a href="stereo.html#stereo-create_project"><i class="fa fa-check"></i><b>3.3</b> Создание проекта</a></li>
-<li class="chapter" data-level="3.4" data-path="stereo.html"><a href="stereo.html#stereo-interior"><i class="fa fa-check"></i><b>3.4</b> Внутреннее ориентирование</a></li>
-<li class="chapter" data-level="3.5" data-path="stereo.html"><a href="stereo.html#stereo-GCP"><i class="fa fa-check"></i><b>3.5</b> Опорные точки</a></li>
-<li class="chapter" data-level="3.6" data-path="stereo.html"><a href="stereo.html#stereo-exterior"><i class="fa fa-check"></i><b>3.6</b> Внешнее ориентирование</a></li>
-<li class="chapter" data-level="3.7" data-path="stereo.html"><a href="stereo.html#stereo-stereoplotter"><i class="fa fa-check"></i><b>3.7</b> Работа в стереокомпараторе</a></li>
+<li class="chapter" data-level="4" data-path="photogrammetry.html"><a href="photogrammetry.html"><i class="fa fa-check"></i><b>4</b> Фотограмметрия кадрового снимка</a><ul>
+<li class="chapter" data-level="4.1" data-path="photogrammetry.html"><a href="photogrammetry.html#photogrammetry-oblique"><i class="fa fa-check"></i><b>4.1</b> Искажения наклонного снимка</a></li>
+<li class="chapter" data-level="4.2" data-path="photogrammetry.html"><a href="photogrammetry.html#photogrammetry-interior"><i class="fa fa-check"></i><b>4.2</b> Внутреннее ориентирование снимка</a></li>
 </ul></li>
-<li class="chapter" data-level="4" data-path="dem.html"><a href="dem.html"><i class="fa fa-check"></i><b>4</b> Получение ЦММ и ортотрансформация</a><ul>
-<li class="chapter" data-level="4.1" data-path="dem.html"><a href="dem.html#dem-initial"><i class="fa fa-check"></i><b>4.1</b> Исходные данные</a></li>
-<li class="chapter" data-level="4.2" data-path="dem.html"><a href="dem.html#dem-create"><i class="fa fa-check"></i><b>4.2</b> Построение ЦММ</a></li>
-<li class="chapter" data-level="4.3" data-path="dem.html"><a href="dem.html#dem-QGIS"><i class="fa fa-check"></i><b>4.3</b> Работа с высотными данными в QGIS</a></li>
-<li class="chapter" data-level="4.4" data-path="dem.html"><a href="dem.html#dem-derived"><i class="fa fa-check"></i><b>4.4</b> Построение производных поверхностей</a></li>
-<li class="chapter" data-level="4.5" data-path="dem.html"><a href="dem.html#dem-verification"><i class="fa fa-check"></i><b>4.5</b> Верификация ЦММ по точкам стереоизмерений</a></li>
-<li class="chapter" data-level="4.6" data-path="dem.html"><a href="dem.html#dem-orthorectification"><i class="fa fa-check"></i><b>4.6</b> Ортотрансформация с использованием полученной ЦММ</a></li>
+<li class="chapter" data-level="5" data-path="stereo.html"><a href="stereo.html"><i class="fa fa-check"></i><b>5</b> Стереоизмерения</a><ul>
+<li class="chapter" data-level="5.1" data-path="stereo.html"><a href="stereo.html#stereo-soft"><i class="fa fa-check"></i><b>5.1</b> Установка программного обеспечения</a></li>
+<li class="chapter" data-level="5.2" data-path="stereo.html"><a href="stereo.html#stereo-initial"><i class="fa fa-check"></i><b>5.2</b> Исходные данные</a></li>
+<li class="chapter" data-level="5.3" data-path="stereo.html"><a href="stereo.html#stereo-create_project"><i class="fa fa-check"></i><b>5.3</b> Создание проекта</a></li>
+<li class="chapter" data-level="5.4" data-path="stereo.html"><a href="stereo.html#stereo-interior"><i class="fa fa-check"></i><b>5.4</b> Внутреннее ориентирование</a></li>
+<li class="chapter" data-level="5.5" data-path="stereo.html"><a href="stereo.html#stereo-GCP"><i class="fa fa-check"></i><b>5.5</b> Опорные точки</a></li>
+<li class="chapter" data-level="5.6" data-path="stereo.html"><a href="stereo.html#stereo-exterior"><i class="fa fa-check"></i><b>5.6</b> Внешнее ориентирование</a></li>
+<li class="chapter" data-level="5.7" data-path="stereo.html"><a href="stereo.html#stereo-stereoplotter"><i class="fa fa-check"></i><b>5.7</b> Работа в стереокомпараторе</a></li>
 </ul></li>
-<li class="chapter" data-level="5" data-path="las.html"><a href="las.html"><i class="fa fa-check"></i><b>5</b> Лазерное сканирование</a><ul>
-<li class="chapter" data-level="5.1" data-path="las.html"><a href="las.html#las-soft"><i class="fa fa-check"></i><b>5.1</b> Установка программного обеспечения</a></li>
-<li class="chapter" data-level="5.2" data-path="las.html"><a href="las.html#las-initial"><i class="fa fa-check"></i><b>5.2</b> Исходные данные</a></li>
-<li class="chapter" data-level="5.3" data-path="las.html"><a href="las.html#las-Extract"><i class="fa fa-check"></i><b>5.3</b> Вырезание фрагмента облака ТЛО в SAGA</a></li>
-<li class="chapter" data-level="5.4" data-path="las.html"><a href="las.html#las-cloudcompare"><i class="fa fa-check"></i><b>5.4</b> Работа с ТЛО в CloudCompare</a></li>
+<li class="chapter" data-level="6" data-path="dem.html"><a href="dem.html"><i class="fa fa-check"></i><b>6</b> Получение ЦММ и ортотрансформация</a><ul>
+<li class="chapter" data-level="6.1" data-path="dem.html"><a href="dem.html#dem-initial"><i class="fa fa-check"></i><b>6.1</b> Исходные данные</a></li>
+<li class="chapter" data-level="6.2" data-path="dem.html"><a href="dem.html#dem-create"><i class="fa fa-check"></i><b>6.2</b> Построение ЦММ</a></li>
+<li class="chapter" data-level="6.3" data-path="dem.html"><a href="dem.html#dem-QGIS"><i class="fa fa-check"></i><b>6.3</b> Работа с высотными данными в QGIS</a></li>
+<li class="chapter" data-level="6.4" data-path="dem.html"><a href="dem.html#dem-derived"><i class="fa fa-check"></i><b>6.4</b> Построение производных поверхностей</a></li>
+<li class="chapter" data-level="6.5" data-path="dem.html"><a href="dem.html#dem-verification"><i class="fa fa-check"></i><b>6.5</b> Верификация ЦММ по точкам стереоизмерений</a></li>
+<li class="chapter" data-level="6.6" data-path="dem.html"><a href="dem.html#dem-orthorectification"><i class="fa fa-check"></i><b>6.6</b> Ортотрансформация с использованием полученной ЦММ</a></li>
+</ul></li>
+<li class="chapter" data-level="7" data-path="las.html"><a href="las.html"><i class="fa fa-check"></i><b>7</b> Лазерное сканирование</a><ul>
+<li class="chapter" data-level="7.1" data-path="las.html"><a href="las.html#las-soft"><i class="fa fa-check"></i><b>7.1</b> Установка программного обеспечения</a></li>
+<li class="chapter" data-level="7.2" data-path="las.html"><a href="las.html#las-initial"><i class="fa fa-check"></i><b>7.2</b> Исходные данные</a></li>
+<li class="chapter" data-level="7.3" data-path="las.html"><a href="las.html#las-Extract"><i class="fa fa-check"></i><b>7.3</b> Вырезание фрагмента облака ТЛО в SAGA</a></li>
+<li class="chapter" data-level="7.4" data-path="las.html"><a href="las.html#las-cloudcompare"><i class="fa fa-check"></i><b>7.4</b> Работа с ТЛО в CloudCompare</a></li>
 </ul></li>
 <li class="divider"></li>
 <li><a href="https://github.com/rstudio/bookdown" target="blank">Published with bookdown</a></li>
@@ -122,22 +129,22 @@
 
             <section class="normal" id="section-">
 <div id="las" class="section level1">
-<h1><span class="header-section-number">Раздел 5</span> Лазерное сканирование</h1>
+<h1><span class="header-section-number">Раздел 7</span> Лазерное сканирование</h1>
 <div id="las-soft" class="section level2">
-<h2><span class="header-section-number">5.1</span> Установка программного обеспечения</h2>
+<h2><span class="header-section-number">7.1</span> Установка программного обеспечения</h2>
 <p><a href="las.html#las">В начало справки ⇡</a></p>
 <p>Для практической работы вам понадобится открытая программа <strong>CloudCompare</strong>. Информацию о ней можно найти на <a href="https://www.danielgm.net/cc/" target="_blank">домашнем сайте</a>, там же можно скачать себе дистрибутив программы. Для этого выберите <strong>Latest stable release (2.11.3 Anoia) – Windows iconWindows 64 bits Stereo</strong>.</p>
 <p>Также для работы нам потребуется ГИС-пакет с открытым исходным кодом <strong>SAGA</strong>, который можно скачать <a href="https://sourceforge.net/projects/saga-gis/files/latest/download" target="_blank">по ссылке</a>. Программа не требует установки.</p>
 </div>
 <div id="las-initial" class="section level2">
-<h2><span class="header-section-number">5.2</span> Исходные данные</h2>
+<h2><span class="header-section-number">7.2</span> Исходные данные</h2>
 <p><a href="las.html#las">В начало справки ⇡</a></p>
 <p><a href="https://yadi.sk/d/CKfoC4XVkCTuIg" target="_blank">Облако точек</a></p>
 <p><a href="https://yadi.sk/d/Vj1B8y3_BG1mMA" target="_blank">Мозаика аэрофотоснимков</a></p>
 <p><a href="https://yadi.sk/d/6N_TCgy2Q7HAHQ" target="_blank">Векторные полигоны</a></p>
 </div>
 <div id="las-Extract" class="section level2">
-<h2><span class="header-section-number">5.3</span> Вырезание фрагмента облака ТЛО в SAGA</h2>
+<h2><span class="header-section-number">7.3</span> Вырезание фрагмента облака ТЛО в SAGA</h2>
 <p><a href="las.html#las">В начало справки ⇡</a></p>
 <p>Откройте шейпфайл с границами вашего участка в SAGA через меню <strong>Open</strong>. В панели менеджера перейдите на вкладку <strong>Data</strong>. Двойной щелчок по слою предложит добавить слой к либо к уже открытой карте, либо к новой карте в SAGA.</p>
 <p>Для импорта ТЛО используйте инструмент <strong>Tools – Import/Export – LAS – Import LAS Files</strong>. Укажите путь к файлу, а все остальные параметры оставьте по умолчанию. Нажмите <strong>Okay</strong> для запуска инструмента.</p>
@@ -149,18 +156,18 @@
 <p>После появления вырезанного облака точек воспользуйтесь инструментом <strong>Tools – Import/Export – LAS – Export LAS Files</strong>. В параметре <strong>Point Cloud</strong> укажите набор данных для экспорта, укажите масштабный коэффициент по трём осям равным 1. Остальные параметры остаются по умолчанию.</p>
 </div>
 <div id="las-cloudcompare" class="section level2">
-<h2><span class="header-section-number">5.4</span> Работа с ТЛО в CloudCompare</h2>
+<h2><span class="header-section-number">7.4</span> Работа с ТЛО в CloudCompare</h2>
 <p><a href="las.html#las">В начало справки ⇡</a></p>
 <p>В программе через меню <strong>File – Open</strong> откройте ваш фрагмент облака точек. Для того чтобы точки облака приобрели цвет (скаляр), указываем, что переменной цвета соответствует координата Z. Для этого вызываем меню <strong>Edit – Scalar Fields - Export coordinates to SF</strong> и выбираем координату.</p>
 <div class="figure">
-<img src="images/Ref05/Colorize_Cloud.png" alt="" />
+<img src="images\Ref05\Colorize_Cloud.png" alt="" />
 <p class="caption">Облако точек с настроенным скалярным значением</p>
 </div>
 <p>Для классификации облака точек на точки земли и точки всего остального вызываем меню <strong>Plugins – CSF Filter</strong>. Попробуйте разные настройки инструмента, сравните результаты. В <strong>Advanced parameters</strong> укажите параметр <strong>cloth resolution</strong> = 0,5.Результат классификации добавится в виде отдельных облаков точек.</p>
-<p>С помощью инструмента Segment <img src="images/Ref05/Segment.png" /> вырезаем объекты типа дорог и рек. Для этого нарисуйте полигон, ставя узлы левой кнопкой мыши. Замыкание полигона осуществляется нажатием правой кнопки мыши. После отрисовки участка, который необходимо очистить от ТЛО, выберите на панели <img src="images/Ref05/Segment_Panel.png" /> кнопку <strong>Segment Out</strong>. В результате у вас появятся новые поднаборы облаков точек в списке слоёв слева.</p>
-<p>Для получения растровой поверхности, горизонталей и mesh-модели используется кнопка <img src="images/Ref05/Rasterize.png" /> на главной панели, либо вызывается меню <strong>Tool – Projection – Rasterize</strong>. В открывшемся окне укажите разрешение растра <strong>step – 1</strong>, ось координат для проекции <strong>direction – Z</strong>, размер ячейки укажите минимальный <strong>cell height – minimum</strong>, а также передискретизация <strong>resample input cloud – checked</strong>. пустые ячейки оставьте пустыми <strong>Empty cells fill with – leave empty</strong>.</p>
+<p>С помощью инструмента Segment <img src="images\Ref05\Segment.png" /> вырезаем объекты типа дорог и рек. Для этого нарисуйте полигон, ставя узлы левой кнопкой мыши. Замыкание полигона осуществляется нажатием правой кнопки мыши. После отрисовки участка, который необходимо очистить от ТЛО, выберите на панели <img src="images\Ref05\Segment_panel.png" /> кнопку <strong>Segment Out</strong>. В результате у вас появятся новые поднаборы облаков точек в списке слоёв слева.</p>
+<p>Для получения растровой поверхности, горизонталей и mesh-модели используется кнопка <img src="images\Ref05\Rasterize.png" /> на главной панели, либо вызывается меню <strong>Tool – Projection – Rasterize</strong>. В открывшемся окне укажите разрешение растра <strong>step – 1</strong>, ось координат для проекции <strong>direction – Z</strong>, размер ячейки укажите минимальный <strong>cell height – minimum</strong>, а также передискретизация <strong>resample input cloud – checked</strong>. пустые ячейки оставьте пустыми <strong>Empty cells fill with – leave empty</strong>.</p>
 <div class="figure">
-<img src="images/Ref05/Rasterize_Window.png" alt="" />
+<img src="images\Ref05\Rasterize_window.png" alt="" />
 <p class="caption">Окно настроек растеризации</p>
 </div>
 <p>Для запуска процесса растеризации нажмите на кнопку <strong>Raster</strong> и укажите путь для сохранения файла GeoTIFF. Опционально вы можете построить горизонтали <strong>Contour plot</strong>.</p>
@@ -184,7 +191,6 @@
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>
-<script src="libs/gitbook-2.6.7/js/lunr.js"></script>
 <script src="libs/gitbook-2.6.7/js/clipboard.min.js"></script>
 <script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
 <script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
@@ -203,6 +209,7 @@ gitbook.start({
 "weibo": false,
 "instapaper": false,
 "vk": false,
+"whatsapp": false,
 "all": ["facebook", "twitter", "linkedin", "weibo", "instapaper"]
 },
 "fontsettings": {
@@ -223,6 +230,10 @@ gitbook.start({
 "text": null
 },
 "download": ["Remote_Sensing.pdf", "Remote_Sensing.epub"],
+"search": {
+"engine": "fuse",
+"options": null
+},
 "toc": {
 "collapse": "subsection"
 }

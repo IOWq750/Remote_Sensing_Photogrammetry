@@ -4,11 +4,11 @@
 
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title>Раздел 3 Стереоизмерения | Основы дистанционного зондирования и фотограмметрияя</title>
+  <title>Раздел 5 Стереоизмерения | Основы дистанционного зондирования и фотограмметрияя</title>
   <meta name="description" content="Основы дистанционного зондирования и фотограмметрия" />
-  <meta name="generator" content="bookdown 0.20 and GitBook 2.6.7" />
+  <meta name="generator" content="bookdown 0.24 and GitBook 2.6.7" />
 
-  <meta property="og:title" content="Раздел 3 Стереоизмерения | Основы дистанционного зондирования и фотограмметрияя" />
+  <meta property="og:title" content="Раздел 5 Стереоизмерения | Основы дистанционного зондирования и фотограмметрияя" />
   <meta property="og:type" content="book" />
   
   
@@ -16,7 +16,7 @@
   <meta name="github-repo" content="IOWq750/Remote_Sensing_Photogrammetry" />
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="Раздел 3 Стереоизмерения | Основы дистанционного зондирования и фотограмметрияя" />
+  <meta name="twitter:title" content="Раздел 5 Стереоизмерения | Основы дистанционного зондирования и фотограмметрияя" />
   
   <meta name="twitter:description" content="Основы дистанционного зондирования и фотограмметрия" />
   
@@ -24,7 +24,7 @@
 <meta name="author" content="Карпачевский А.М." />
 
 
-<meta name="date" content="2021-04-21" />
+<meta name="date" content="2021-12-08" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -33,7 +33,8 @@
   <link rel="shortcut icon" href="images/favicon.ico" type="image/x-icon" />
 <link rel="prev" href="photogrammetry.html"/>
 <link rel="next" href="dem.html"/>
-<script src="libs/jquery-2.2.3/jquery.min.js"></script>
+<script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
@@ -49,8 +50,10 @@
 
 
 
-
 <script src="libs/accessible-code-block-0.0.1/empty-anchor.js"></script>
+<link href="libs/anchor-sections-1.0.1/anchor-sections.css" rel="stylesheet" />
+<script src="libs/anchor-sections-1.0.1/anchor-sections.js"></script>
+
 
 
 
@@ -71,35 +74,39 @@
 
 <li class="divider"></li>
 <li class="chapter" data-level="" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i>Программное обеспечение</a></li>
-<li class="chapter" data-level="1" data-path="georeference.html"><a href="georeference.html"><i class="fa fa-check"></i><b>1</b> Географическая привязка</a><ul>
-<li class="chapter" data-level="1.1" data-path="georeference.html"><a href="georeference.html#georeference-qgis"><i class="fa fa-check"></i><b>1.1</b> Географическая привязка в QGIS</a></li>
+<li class="chapter" data-level="1" data-path="pansharpen.html"><a href="pansharpen.html"><i class="fa fa-check"></i><b>1</b> Методы улучшения пространственного разрешения</a></li>
+<li class="chapter" data-level="2" data-path="georeference.html"><a href="georeference.html"><i class="fa fa-check"></i><b>2</b> Географическая привязка</a><ul>
+<li class="chapter" data-level="2.1" data-path="georeference.html"><a href="georeference.html#georeference-qgis"><i class="fa fa-check"></i><b>2.1</b> Географическая привязка в QGIS</a></li>
 </ul></li>
-<li class="chapter" data-level="2" data-path="photogrammetry.html"><a href="photogrammetry.html"><i class="fa fa-check"></i><b>2</b> Фотограмметрия кадрового снимка</a><ul>
-<li class="chapter" data-level="2.1" data-path="photogrammetry.html"><a href="photogrammetry.html#photogrammetry-oblique"><i class="fa fa-check"></i><b>2.1</b> Искажения наклонного снимка</a></li>
-<li class="chapter" data-level="2.2" data-path="photogrammetry.html"><a href="photogrammetry.html#photogrammetry-interior"><i class="fa fa-check"></i><b>2.2</b> Внутреннее ориентирование снимка</a></li>
+<li class="chapter" data-level="3" data-path="mosaic.html"><a href="mosaic.html"><i class="fa fa-check"></i><b>3</b> Создание мозаики</a><ul>
+<li class="chapter" data-level="3.1" data-path="mosaic.html"><a href="mosaic.html#mosaic-arcgis"><i class="fa fa-check"></i><b>3.1</b> Создание мозаики в ArcGIS Pro</a></li>
 </ul></li>
-<li class="chapter" data-level="3" data-path="stereo.html"><a href="stereo.html"><i class="fa fa-check"></i><b>3</b> Стереоизмерения</a><ul>
-<li class="chapter" data-level="3.1" data-path="stereo.html"><a href="stereo.html#stereo-soft"><i class="fa fa-check"></i><b>3.1</b> Установка программного обеспечения</a></li>
-<li class="chapter" data-level="3.2" data-path="stereo.html"><a href="stereo.html#stereo-initial"><i class="fa fa-check"></i><b>3.2</b> Исходные данные</a></li>
-<li class="chapter" data-level="3.3" data-path="stereo.html"><a href="stereo.html#stereo-create_project"><i class="fa fa-check"></i><b>3.3</b> Создание проекта</a></li>
-<li class="chapter" data-level="3.4" data-path="stereo.html"><a href="stereo.html#stereo-interior"><i class="fa fa-check"></i><b>3.4</b> Внутреннее ориентирование</a></li>
-<li class="chapter" data-level="3.5" data-path="stereo.html"><a href="stereo.html#stereo-GCP"><i class="fa fa-check"></i><b>3.5</b> Опорные точки</a></li>
-<li class="chapter" data-level="3.6" data-path="stereo.html"><a href="stereo.html#stereo-exterior"><i class="fa fa-check"></i><b>3.6</b> Внешнее ориентирование</a></li>
-<li class="chapter" data-level="3.7" data-path="stereo.html"><a href="stereo.html#stereo-stereoplotter"><i class="fa fa-check"></i><b>3.7</b> Работа в стереокомпараторе</a></li>
+<li class="chapter" data-level="4" data-path="photogrammetry.html"><a href="photogrammetry.html"><i class="fa fa-check"></i><b>4</b> Фотограмметрия кадрового снимка</a><ul>
+<li class="chapter" data-level="4.1" data-path="photogrammetry.html"><a href="photogrammetry.html#photogrammetry-oblique"><i class="fa fa-check"></i><b>4.1</b> Искажения наклонного снимка</a></li>
+<li class="chapter" data-level="4.2" data-path="photogrammetry.html"><a href="photogrammetry.html#photogrammetry-interior"><i class="fa fa-check"></i><b>4.2</b> Внутреннее ориентирование снимка</a></li>
 </ul></li>
-<li class="chapter" data-level="4" data-path="dem.html"><a href="dem.html"><i class="fa fa-check"></i><b>4</b> Получение ЦММ и ортотрансформация</a><ul>
-<li class="chapter" data-level="4.1" data-path="dem.html"><a href="dem.html#dem-initial"><i class="fa fa-check"></i><b>4.1</b> Исходные данные</a></li>
-<li class="chapter" data-level="4.2" data-path="dem.html"><a href="dem.html#dem-create"><i class="fa fa-check"></i><b>4.2</b> Построение ЦММ</a></li>
-<li class="chapter" data-level="4.3" data-path="dem.html"><a href="dem.html#dem-QGIS"><i class="fa fa-check"></i><b>4.3</b> Работа с высотными данными в QGIS</a></li>
-<li class="chapter" data-level="4.4" data-path="dem.html"><a href="dem.html#dem-derived"><i class="fa fa-check"></i><b>4.4</b> Построение производных поверхностей</a></li>
-<li class="chapter" data-level="4.5" data-path="dem.html"><a href="dem.html#dem-verification"><i class="fa fa-check"></i><b>4.5</b> Верификация ЦММ по точкам стереоизмерений</a></li>
-<li class="chapter" data-level="4.6" data-path="dem.html"><a href="dem.html#dem-orthorectification"><i class="fa fa-check"></i><b>4.6</b> Ортотрансформация с использованием полученной ЦММ</a></li>
+<li class="chapter" data-level="5" data-path="stereo.html"><a href="stereo.html"><i class="fa fa-check"></i><b>5</b> Стереоизмерения</a><ul>
+<li class="chapter" data-level="5.1" data-path="stereo.html"><a href="stereo.html#stereo-soft"><i class="fa fa-check"></i><b>5.1</b> Установка программного обеспечения</a></li>
+<li class="chapter" data-level="5.2" data-path="stereo.html"><a href="stereo.html#stereo-initial"><i class="fa fa-check"></i><b>5.2</b> Исходные данные</a></li>
+<li class="chapter" data-level="5.3" data-path="stereo.html"><a href="stereo.html#stereo-create_project"><i class="fa fa-check"></i><b>5.3</b> Создание проекта</a></li>
+<li class="chapter" data-level="5.4" data-path="stereo.html"><a href="stereo.html#stereo-interior"><i class="fa fa-check"></i><b>5.4</b> Внутреннее ориентирование</a></li>
+<li class="chapter" data-level="5.5" data-path="stereo.html"><a href="stereo.html#stereo-GCP"><i class="fa fa-check"></i><b>5.5</b> Опорные точки</a></li>
+<li class="chapter" data-level="5.6" data-path="stereo.html"><a href="stereo.html#stereo-exterior"><i class="fa fa-check"></i><b>5.6</b> Внешнее ориентирование</a></li>
+<li class="chapter" data-level="5.7" data-path="stereo.html"><a href="stereo.html#stereo-stereoplotter"><i class="fa fa-check"></i><b>5.7</b> Работа в стереокомпараторе</a></li>
 </ul></li>
-<li class="chapter" data-level="5" data-path="las.html"><a href="las.html"><i class="fa fa-check"></i><b>5</b> Лазерное сканирование</a><ul>
-<li class="chapter" data-level="5.1" data-path="las.html"><a href="las.html#las-soft"><i class="fa fa-check"></i><b>5.1</b> Установка программного обеспечения</a></li>
-<li class="chapter" data-level="5.2" data-path="las.html"><a href="las.html#las-initial"><i class="fa fa-check"></i><b>5.2</b> Исходные данные</a></li>
-<li class="chapter" data-level="5.3" data-path="las.html"><a href="las.html#las-Extract"><i class="fa fa-check"></i><b>5.3</b> Вырезание фрагмента облака ТЛО в SAGA</a></li>
-<li class="chapter" data-level="5.4" data-path="las.html"><a href="las.html#las-cloudcompare"><i class="fa fa-check"></i><b>5.4</b> Работа с ТЛО в CloudCompare</a></li>
+<li class="chapter" data-level="6" data-path="dem.html"><a href="dem.html"><i class="fa fa-check"></i><b>6</b> Получение ЦММ и ортотрансформация</a><ul>
+<li class="chapter" data-level="6.1" data-path="dem.html"><a href="dem.html#dem-initial"><i class="fa fa-check"></i><b>6.1</b> Исходные данные</a></li>
+<li class="chapter" data-level="6.2" data-path="dem.html"><a href="dem.html#dem-create"><i class="fa fa-check"></i><b>6.2</b> Построение ЦММ</a></li>
+<li class="chapter" data-level="6.3" data-path="dem.html"><a href="dem.html#dem-QGIS"><i class="fa fa-check"></i><b>6.3</b> Работа с высотными данными в QGIS</a></li>
+<li class="chapter" data-level="6.4" data-path="dem.html"><a href="dem.html#dem-derived"><i class="fa fa-check"></i><b>6.4</b> Построение производных поверхностей</a></li>
+<li class="chapter" data-level="6.5" data-path="dem.html"><a href="dem.html#dem-verification"><i class="fa fa-check"></i><b>6.5</b> Верификация ЦММ по точкам стереоизмерений</a></li>
+<li class="chapter" data-level="6.6" data-path="dem.html"><a href="dem.html#dem-orthorectification"><i class="fa fa-check"></i><b>6.6</b> Ортотрансформация с использованием полученной ЦММ</a></li>
+</ul></li>
+<li class="chapter" data-level="7" data-path="las.html"><a href="las.html"><i class="fa fa-check"></i><b>7</b> Лазерное сканирование</a><ul>
+<li class="chapter" data-level="7.1" data-path="las.html"><a href="las.html#las-soft"><i class="fa fa-check"></i><b>7.1</b> Установка программного обеспечения</a></li>
+<li class="chapter" data-level="7.2" data-path="las.html"><a href="las.html#las-initial"><i class="fa fa-check"></i><b>7.2</b> Исходные данные</a></li>
+<li class="chapter" data-level="7.3" data-path="las.html"><a href="las.html#las-Extract"><i class="fa fa-check"></i><b>7.3</b> Вырезание фрагмента облака ТЛО в SAGA</a></li>
+<li class="chapter" data-level="7.4" data-path="las.html"><a href="las.html#las-cloudcompare"><i class="fa fa-check"></i><b>7.4</b> Работа с ТЛО в CloudCompare</a></li>
 </ul></li>
 <li class="divider"></li>
 <li><a href="https://github.com/rstudio/bookdown" target="blank">Published with bookdown</a></li>
@@ -122,19 +129,19 @@
 
             <section class="normal" id="section-">
 <div id="stereo" class="section level1">
-<h1><span class="header-section-number">Раздел 3</span> Стереоизмерения</h1>
+<h1><span class="header-section-number">Раздел 5</span> Стереоизмерения</h1>
 <div id="stereo-soft" class="section level2">
-<h2><span class="header-section-number">3.1</span> Установка программного обеспечения</h2>
+<h2><span class="header-section-number">5.1</span> Установка программного обеспечения</h2>
 <p><a href="stereo.html#stereo">В начало справки ⇡</a></p>
 <p>Для практической работы вам понадобится открытая учебная фотограмметрическая программа <strong>E-foto</strong>. Информацию о ней можно найти на домашнем сайте (<a href="http://www.efoto.eng.uerj.br/" class="uri">http://www.efoto.eng.uerj.br/</a>), там же можно скачать себе дистрибутив программы. Для этого перейдите во вкладку <strong>DOWNLOAD – Latest Version</strong>.</p>
 <div class="figure">
-<img src="images/Ref03/Download.png" alt="" />
+<img src="images\Ref03\Download.png" alt="" />
 <p class="caption">Страница для загрузки программы и данных</p>
 </div>
 <p>Запустите скачанный пакет установщика и установите программу.</p>
 </div>
 <div id="stereo-initial" class="section level2">
-<h2><span class="header-section-number">3.2</span> Исходные данные</h2>
+<h2><span class="header-section-number">5.2</span> Исходные данные</h2>
 <p><a href="stereo.html#stereo">В начало справки ⇡</a></p>
 <p>В качестве исходных данных мы будем использовать серию аэрофотоснимков с перекрытием на территорию окрестностей УНС Сатино, сделанную в 1970 году, а также сеть опорных точек и топографическую карту.</p>
 <p><a href="https://yadi.sk/d/x7V_hMkPuviJVw" target="_blank">Снимки</a></p>
@@ -142,12 +149,12 @@
 <p><a href="https://yadi.sk/i/XM7Z30SZcvy6IA" target="_blank">Топографическая карта масштаба 1:10 000</a></p>
 </div>
 <div id="stereo-create_project" class="section level2">
-<h2><span class="header-section-number">3.3</span> Создание проекта</h2>
+<h2><span class="header-section-number">5.3</span> Создание проекта</h2>
 <p><a href="stereo.html#stereo">В начало справки ⇡</a></p>
 <p>Запустите программу <strong>E-foto</strong>. В меню выберите <strong>Project – New</strong>. Укажите путь для сохранения файла проекта с расширением <strong>.epp</strong>.</p>
 <p>Откроется окно менеджера проекта. Слева приведена структура проекта, а по центру - содержание. В разделе <strong>Project Header</strong> вам нужно указать общую информацию о проекте. Для этого включите режим редактирования, нажав на кнопку <strong>Edit</strong> внизу страницы.</p>
 <div class="figure">
-<img src="images/Ref03/Project_Manager.png" alt="" />
+<img src="images\Ref03\Project_Manager.png" alt="" />
 <p class="caption">Окно менеджера проекта</p>
 </div>
 <p>Перейдите в раздел <strong>Terrain</strong> и укажите общую информацию о территории.</p>
@@ -164,48 +171,48 @@
 <p>Компенсированная радиальная дисторсия учтена при калибровке фокусного расстояния (исходно 100 мм). Некомпенсированная радиальная дисторсия +-25 мкм, что очень мало, поэтому мы ей можем пренебречь.</p>
 <p>Укажите координаты координатных меток снимков (<strong>Fiducial marks</strong>) в последней таблице.</p>
 <div class="figure">
-<img src="images/Ref03/Fiducial.png" alt="" />
+<img src="images\Ref03\Fiducial.png" alt="" />
 <p class="caption">Координаты меток</p>
 </div>
 <p>В разделе <strong>Flight</strong> мы можем указать примерную высоту съёмку – 1500 м, а также примерный масштаб снимков 1:14 000.</p>
 <p>В разделе <strong>images</strong> нужно загрузить аэрофотоснимки, указав их разрешение – <strong>600 dpi</strong>. Вы можете после этого открыть раздел с каждым из загруженных снимков и увидеть информацию о нём.</p>
 <div class="figure">
-<img src="images/Ref03/image.png" alt="" />
+<img src="images\Ref03\Image.png" alt="" />
 <p class="caption">Параметры снимка внутри проекта</p>
 </div>
 <p>В этом разделе нажмите на кнопку <strong>View Image</strong> для просмотра изображения. Если при открытии изображения возникла ошибка, то, скорее всего, у вас неправильно записались пути в файле проекта. Обратите внимание на снимок экрана выше – в строке пути должен быть указан путь, в строке имени файла - только его имя, а в строке ID снимка достаточно указать имя файла без расширения. Исправить это внутри программы нельзя, но, к счастью, файл проекта – это документ XML, который редактируется блокнотом. Найдите внутри него соответствующие теги и исправьте содержимое внутри них.</p>
 <div class="figure">
-<img src="images/Ref03/XML_editing.png" alt="" />
+<img src="images\Ref03\XML_editing.png" alt="" />
 <p class="caption">Параметры снимка в формате XML</p>
 </div>
 </div>
 <div id="stereo-interior" class="section level2">
-<h2><span class="header-section-number">3.4</span> Внутреннее ориентирование</h2>
+<h2><span class="header-section-number">5.4</span> Внутреннее ориентирование</h2>
 <p><a href="stereo.html#stereo">В начало справки ⇡</a></p>
 <p>Для выполнения внутреннего ориентирования снимков выберите пункт меню <strong>Execute – Interior Orientation</strong>. В открывшемся окне предлагается выбрать снимок для ориентирования. Необходимо последовательно выполнить эту операцию для всех снимков. Для масштабирования можно использовать инструмент лупы, который работает на выделяемую прямоугольную область. Для произвольного изменения масштаба в обе стороны нужно зажать колёсико мыши. Координатные метки рассматриваемых снимков расположены возле края середины каждой из сторон и представляют собой асимметричные кресты, которые по размеру больше, чем обычные регулярные кресты, идущие с шагом в 1 см.</p>
 <div class="figure">
-<img src="images/Ref03/Mark.png" alt="" />
+<img src="images\Ref03\Mark.png" alt="" />
 <p class="caption">Координатная метка снимка</p>
 </div>
 <p>Обратите внимание на порядок координатных меток – правая, левая, верхняя, нижняя. Вам нужно расставлять их в таком же порядке. Внизу окна приводится табличка, где выделена строка с активной на данной момент меткой. Как только вы метку установили, автоматически активной становится следующая метка в таблице. Если вам необходимо исправить положение координатной метки, то нужно выделить соответствующую строку в таблице и указать на снимке правильное положение метки.</p>
-<p>После расстановки меток нажмите на кнопку <img src="images/Ref03/Execute_IO.png" />. В результате откроется окно отчёта внутреннего ориентирования с вектором параметров аффинного преобразования системы координат камеры и матрицей вариации-ковариации. Если точность операции удовлетворительная, то будет активна кнопка <strong>Accept</strong>, нажав которую, мы сохраняем параметры. После этого нажмите на кнопку <strong>Done</strong> <img src="images/Ref03/Done.png" />, что вернёт вас в основное окно проекта.</p>
+<p>После расстановки меток нажмите на кнопку <img src="images\Ref03\Execute_IO.png" />. В результате откроется окно отчёта внутреннего ориентирования с вектором параметров аффинного преобразования системы координат камеры и матрицей вариации-ковариации. Если точность операции удовлетворительная, то будет активна кнопка <strong>Accept</strong>, нажав которую, мы сохраняем параметры. После этого нажмите на кнопку <strong>Done</strong> <img src="images\Ref03\Done.png" />, что вернёт вас в основное окно проекта.</p>
 <div class="figure">
-<img src="images/Ref03/IO_Report.png" alt="" />
+<img src="images\Ref03\IO_Report.png" alt="" />
 <p class="caption">Отчёт внутреннего ориентирования</p>
 </div>
 <p>Аналогично операция проделывается для всех снимков.</p>
 </div>
 <div id="stereo-GCP" class="section level2">
-<h2><span class="header-section-number">3.5</span> Опорные точки</h2>
+<h2><span class="header-section-number">5.5</span> Опорные точки</h2>
 <p><a href="stereo.html#stereo">В начало справки ⇡</a></p>
-<p>Поскольку параметры внешнего ориентирования нам заранее неизвестны, то их необходимо рассчитать на основе обратной фотограмметрической засечки. Для обратной засечки нам потребуются опорные точки с известными координатами и высотами. Откройте в программе <strong>Google Earth Pro</strong> файл <strong>KML</strong> с точками фототриангуляции. Для просмотра нам потребуется снимок QuickBird за 20 апреля 2006 года (как самый хронологически близкий к 1970), который можно включить кнопкой <img src="images/Ref03/Hystorical.png" />.</p>
+<p>Поскольку параметры внешнего ориентирования нам заранее неизвестны, то их необходимо рассчитать на основе обратной фотограмметрической засечки. Для обратной засечки нам потребуются опорные точки с известными координатами и высотами. Откройте в программе <strong>Google Earth Pro</strong> файл <strong>KML</strong> с точками фототриангуляции. Для просмотра нам потребуется снимок QuickBird за 20 апреля 2006 года (как самый хронологически близкий к 1970), который можно включить кнопкой <img src="images\Ref03\Hystorical.png" />.</p>
 <div class="figure">
-<img src="images/Ref03/QB2006.png" alt="" />
+<img src="images\Ref03\QB2006.png" alt="" />
 <p class="caption">Опорные точки на снимке QuickBird за 20 апреля 2006 года</p>
 </div>
 <p>Следует иметь в виду, что координаты этих точек достаточно точно уравнены между собой, но снимок сам по себе может быть аффинно сдвинут на некую постоянную величину. Нам необходимо получить координаты этих точек в проекции UTM. Для переключения показа координат в UTM зайдите в меню <strong>Инструменты – Настройки</strong> и выберите соответствующий пункт в разделе <strong>Показывать шир/долг</strong>.</p>
 <div class="figure">
-<img src="images/Ref03/GE_Settings.png" alt="" />
+<img src="images\Ref03\GE_Settings.png" alt="" />
 <p class="caption">Настройки показа координат</p>
 </div>
 <p>Теперь, если вы правой кнопкой мыши щёлкните по опорной точке и из меню выберите <strong>Свойства</strong>, перед вами откроется окно с координатами восточного и северного склонения для точки.</p>
@@ -287,25 +294,25 @@
 <p>Внесите информацию об опорных точках и сохраните проект.</p>
 </div>
 <div id="stereo-exterior" class="section level2">
-<h2><span class="header-section-number">3.6</span> Внешнее ориентирование</h2>
+<h2><span class="header-section-number">5.6</span> Внешнее ориентирование</h2>
 <p><a href="stereo.html#stereo">В начало справки ⇡</a></p>
-<p>Для внешнего ориентирования с помощью обратной фотограмметрической засечки в меню выберите пункт <strong>Execute – Spatial Resection</strong>. Аналогично внутреннему ориентированию откроется окно с выбором снимка. Далее откроется снимок с таблицей опорных точек внизу. Аналогично расстановке координатных меток установите опорные точки на снимке с помощью кнопки <strong>Measure</strong> <img src="images/Ref03/Measure.png" />. Пропускайте те точки, которые отсутствуют на данном снимке. Для исключения опорной точки из засечки нажмите на крестик <img src="images/Ref03/Exclusion.png" />. После расстановки всех опорных точек на снимке нажмите на <img src="images/Ref03/Execute_EO.png" />, согласитесь со всеми параметрами точности, после чего перед вами откроется отчёт об уравнивании с параметрами внешнего ориентирования и матрицей вариации-ковариации.</p>
+<p>Для внешнего ориентирования с помощью обратной фотограмметрической засечки в меню выберите пункт <strong>Execute – Spatial Resection</strong>. Аналогично внутреннему ориентированию откроется окно с выбором снимка. Далее откроется снимок с таблицей опорных точек внизу. Аналогично расстановке координатных меток установите опорные точки на снимке с помощью кнопки <strong>Measure</strong> <img src="images\Ref03\Measure.png" />. Пропускайте те точки, которые отсутствуют на данном снимке. Для исключения опорной точки из засечки нажмите на крестик <img src="images\Ref03\Exclusion.png" />. После расстановки всех опорных точек на снимке нажмите на <img src="images\Ref03\Execute_EO.png" />, согласитесь со всеми параметрами точности, после чего перед вами откроется отчёт об уравнивании с параметрами внешнего ориентирования и матрицей вариации-ковариации.</p>
 <div class="figure">
-<img src="images/Ref03/EO_Report.png" alt="" />
+<img src="images\Ref03\EO_Report.png" alt="" />
 <p class="caption">Окно отчёта уравнивания параметров внешнего ориентирования</p>
 </div>
-<p>Обратите внимание, что значение координаты Z должно быть около 1600 м, значения углов должны быть маленькими. Если параметры точности в матрице достаточны, то вы сможете нажать на кнопку <strong>Accept</strong> – параметры внешнего ориентирования будут сохранены. После этого нажмите на кнопку <strong>Done</strong> <img src="images/Ref03/Done.png" />, что вернёт вас в основное окно проекта. Проделайте аналогичные операции для остальных снимков.</p>
+<p>Обратите внимание, что значение координаты Z должно быть около 1600 м, значения углов должны быть маленькими. Если параметры точности в матрице достаточны, то вы сможете нажать на кнопку <strong>Accept</strong> – параметры внешнего ориентирования будут сохранены. После этого нажмите на кнопку <strong>Done</strong> <img src="images\Ref03\Done.png" />, что вернёт вас в основное окно проекта. Проделайте аналогичные операции для остальных снимков.</p>
 </div>
 <div id="stereo-stereoplotter" class="section level2">
-<h2><span class="header-section-number">3.7</span> Работа в стереокомпараторе</h2>
+<h2><span class="header-section-number">5.7</span> Работа в стереокомпараторе</h2>
 <p><a href="stereo.html#stereo">В начало справки ⇡</a></p>
 <p>В меню проекта выберите пункт <strong>Execute – Stereo Plotter</strong>. Откроется окно с анаглифными изображением стереопары снимков. Для эффективной работы с анаглифами рекомендуется использовать специальные очки.</p>
 <div class="figure">
-<img src="images/Ref03/Stereoplotter.png" alt="" />
+<img src="images\Ref03\Stereoplotter.png" alt="" />
 <p class="caption">Окно стереокомпаратора</p>
 </div>
-<p>Если изображение в анаглифических очках двоится, зажмите <strong>SHIFT</strong> и подвиньте изображение до тех пор, пока рассматриваемый участок не сольётся в объёмное изображение. Для измерения высоты в точке нужно добавить точку с помощью кнопки <img src="images/Ref03/Add_Point.png" />, далее выбрать кнопку <img src="images/Ref03/Measure.png" />. При устранённых параллаксах (восстановленной стереомодели на данную территорию) с помощью колеса мыши нужно посадить марку на измеряемый объект. На увеличенных фрагментах левого и правого изображения снизу будут показываться эти марки в «монокулярном» режиме. Как только мнимая марка слилась (реальные марки оказались на соответственных точках), нажмите левую кнопку мыши и в окне справа появятся измерения для данной точки. В случае, если вы замечаете поперечный параллакс, необходимо зажать <strong>CTRL</strong> и крутить колесо мыши до тех пор, пока поперечный параллакс не станет равен нулю.</p>
-<p>Результаты измерений можно экспортировать в виде текстового файла, нажав на кнопку <img src="images/Ref03/Export.png" />.</p>
+<p>Если изображение в анаглифических очках двоится, зажмите <strong>SHIFT</strong> и подвиньте изображение до тех пор, пока рассматриваемый участок не сольётся в объёмное изображение. Для измерения высоты в точке нужно добавить точку с помощью кнопки <img src="images\Ref03\Add_Point.png" />, далее выбрать кнопку <img src="images\Ref03\Measure.png" />. При устранённых параллаксах (восстановленной стереомодели на данную территорию) с помощью колеса мыши нужно посадить марку на измеряемый объект. На увеличенных фрагментах левого и правого изображения снизу будут показываться эти марки в «монокулярном» режиме. Как только мнимая марка слилась (реальные марки оказались на соответственных точках), нажмите левую кнопку мыши и в окне справа появятся измерения для данной точки. В случае, если вы замечаете поперечный параллакс, необходимо зажать <strong>CTRL</strong> и крутить колесо мыши до тех пор, пока поперечный параллакс не станет равен нулю.</p>
+<p>Результаты измерений можно экспортировать в виде текстового файла, нажав на кнопку <img src="images\Ref03\Export.png" />.</p>
 <table>
 <tbody>
 <tr class="odd">
@@ -326,7 +333,6 @@
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>
-<script src="libs/gitbook-2.6.7/js/lunr.js"></script>
 <script src="libs/gitbook-2.6.7/js/clipboard.min.js"></script>
 <script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
 <script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
@@ -345,6 +351,7 @@ gitbook.start({
 "weibo": false,
 "instapaper": false,
 "vk": false,
+"whatsapp": false,
 "all": ["facebook", "twitter", "linkedin", "weibo", "instapaper"]
 },
 "fontsettings": {
@@ -365,6 +372,10 @@ gitbook.start({
 "text": null
 },
 "download": ["Remote_Sensing.pdf", "Remote_Sensing.epub"],
+"search": {
+"engine": "fuse",
+"options": null
+},
 "toc": {
 "collapse": "subsection"
 }

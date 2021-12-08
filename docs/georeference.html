@@ -4,11 +4,11 @@
 
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title>Раздел 1 Географическая привязка | Основы дистанционного зондирования и фотограмметрияя</title>
+  <title>Раздел 2 Географическая привязка | Основы дистанционного зондирования и фотограмметрияя</title>
   <meta name="description" content="Основы дистанционного зондирования и фотограмметрия" />
-  <meta name="generator" content="bookdown 0.20 and GitBook 2.6.7" />
+  <meta name="generator" content="bookdown 0.24 and GitBook 2.6.7" />
 
-  <meta property="og:title" content="Раздел 1 Географическая привязка | Основы дистанционного зондирования и фотограмметрияя" />
+  <meta property="og:title" content="Раздел 2 Географическая привязка | Основы дистанционного зондирования и фотограмметрияя" />
   <meta property="og:type" content="book" />
   
   
@@ -16,7 +16,7 @@
   <meta name="github-repo" content="IOWq750/Remote_Sensing_Photogrammetry" />
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="Раздел 1 Географическая привязка | Основы дистанционного зондирования и фотограмметрияя" />
+  <meta name="twitter:title" content="Раздел 2 Географическая привязка | Основы дистанционного зондирования и фотограмметрияя" />
   
   <meta name="twitter:description" content="Основы дистанционного зондирования и фотограмметрия" />
   
@@ -24,16 +24,17 @@
 <meta name="author" content="Карпачевский А.М." />
 
 
-<meta name="date" content="2021-04-21" />
+<meta name="date" content="2021-12-08" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
   <meta name="apple-mobile-web-app-status-bar-style" content="black" />
   <link rel="apple-touch-icon-precomposed" sizes="120x120" href="images/apple-touch-icon.png" />
   <link rel="shortcut icon" href="images/favicon.ico" type="image/x-icon" />
-<link rel="prev" href="index.html"/>
-<link rel="next" href="photogrammetry.html"/>
-<script src="libs/jquery-2.2.3/jquery.min.js"></script>
+<link rel="prev" href="pansharpen.html"/>
+<link rel="next" href="mosaic.html"/>
+<script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
@@ -49,8 +50,10 @@
 
 
 
-
 <script src="libs/accessible-code-block-0.0.1/empty-anchor.js"></script>
+<link href="libs/anchor-sections-1.0.1/anchor-sections.css" rel="stylesheet" />
+<script src="libs/anchor-sections-1.0.1/anchor-sections.js"></script>
+
 
 
 
@@ -71,35 +74,39 @@
 
 <li class="divider"></li>
 <li class="chapter" data-level="" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i>Программное обеспечение</a></li>
-<li class="chapter" data-level="1" data-path="georeference.html"><a href="georeference.html"><i class="fa fa-check"></i><b>1</b> Географическая привязка</a><ul>
-<li class="chapter" data-level="1.1" data-path="georeference.html"><a href="georeference.html#georeference-qgis"><i class="fa fa-check"></i><b>1.1</b> Географическая привязка в QGIS</a></li>
+<li class="chapter" data-level="1" data-path="pansharpen.html"><a href="pansharpen.html"><i class="fa fa-check"></i><b>1</b> Методы улучшения пространственного разрешения</a></li>
+<li class="chapter" data-level="2" data-path="georeference.html"><a href="georeference.html"><i class="fa fa-check"></i><b>2</b> Географическая привязка</a><ul>
+<li class="chapter" data-level="2.1" data-path="georeference.html"><a href="georeference.html#georeference-qgis"><i class="fa fa-check"></i><b>2.1</b> Географическая привязка в QGIS</a></li>
 </ul></li>
-<li class="chapter" data-level="2" data-path="photogrammetry.html"><a href="photogrammetry.html"><i class="fa fa-check"></i><b>2</b> Фотограмметрия кадрового снимка</a><ul>
-<li class="chapter" data-level="2.1" data-path="photogrammetry.html"><a href="photogrammetry.html#photogrammetry-oblique"><i class="fa fa-check"></i><b>2.1</b> Искажения наклонного снимка</a></li>
-<li class="chapter" data-level="2.2" data-path="photogrammetry.html"><a href="photogrammetry.html#photogrammetry-interior"><i class="fa fa-check"></i><b>2.2</b> Внутреннее ориентирование снимка</a></li>
+<li class="chapter" data-level="3" data-path="mosaic.html"><a href="mosaic.html"><i class="fa fa-check"></i><b>3</b> Создание мозаики</a><ul>
+<li class="chapter" data-level="3.1" data-path="mosaic.html"><a href="mosaic.html#mosaic-arcgis"><i class="fa fa-check"></i><b>3.1</b> Создание мозаики в ArcGIS Pro</a></li>
 </ul></li>
-<li class="chapter" data-level="3" data-path="stereo.html"><a href="stereo.html"><i class="fa fa-check"></i><b>3</b> Стереоизмерения</a><ul>
-<li class="chapter" data-level="3.1" data-path="stereo.html"><a href="stereo.html#stereo-soft"><i class="fa fa-check"></i><b>3.1</b> Установка программного обеспечения</a></li>
-<li class="chapter" data-level="3.2" data-path="stereo.html"><a href="stereo.html#stereo-initial"><i class="fa fa-check"></i><b>3.2</b> Исходные данные</a></li>
-<li class="chapter" data-level="3.3" data-path="stereo.html"><a href="stereo.html#stereo-create_project"><i class="fa fa-check"></i><b>3.3</b> Создание проекта</a></li>
-<li class="chapter" data-level="3.4" data-path="stereo.html"><a href="stereo.html#stereo-interior"><i class="fa fa-check"></i><b>3.4</b> Внутреннее ориентирование</a></li>
-<li class="chapter" data-level="3.5" data-path="stereo.html"><a href="stereo.html#stereo-GCP"><i class="fa fa-check"></i><b>3.5</b> Опорные точки</a></li>
-<li class="chapter" data-level="3.6" data-path="stereo.html"><a href="stereo.html#stereo-exterior"><i class="fa fa-check"></i><b>3.6</b> Внешнее ориентирование</a></li>
-<li class="chapter" data-level="3.7" data-path="stereo.html"><a href="stereo.html#stereo-stereoplotter"><i class="fa fa-check"></i><b>3.7</b> Работа в стереокомпараторе</a></li>
+<li class="chapter" data-level="4" data-path="photogrammetry.html"><a href="photogrammetry.html"><i class="fa fa-check"></i><b>4</b> Фотограмметрия кадрового снимка</a><ul>
+<li class="chapter" data-level="4.1" data-path="photogrammetry.html"><a href="photogrammetry.html#photogrammetry-oblique"><i class="fa fa-check"></i><b>4.1</b> Искажения наклонного снимка</a></li>
+<li class="chapter" data-level="4.2" data-path="photogrammetry.html"><a href="photogrammetry.html#photogrammetry-interior"><i class="fa fa-check"></i><b>4.2</b> Внутреннее ориентирование снимка</a></li>
 </ul></li>
-<li class="chapter" data-level="4" data-path="dem.html"><a href="dem.html"><i class="fa fa-check"></i><b>4</b> Получение ЦММ и ортотрансформация</a><ul>
-<li class="chapter" data-level="4.1" data-path="dem.html"><a href="dem.html#dem-initial"><i class="fa fa-check"></i><b>4.1</b> Исходные данные</a></li>
-<li class="chapter" data-level="4.2" data-path="dem.html"><a href="dem.html#dem-create"><i class="fa fa-check"></i><b>4.2</b> Построение ЦММ</a></li>
-<li class="chapter" data-level="4.3" data-path="dem.html"><a href="dem.html#dem-QGIS"><i class="fa fa-check"></i><b>4.3</b> Работа с высотными данными в QGIS</a></li>
-<li class="chapter" data-level="4.4" data-path="dem.html"><a href="dem.html#dem-derived"><i class="fa fa-check"></i><b>4.4</b> Построение производных поверхностей</a></li>
-<li class="chapter" data-level="4.5" data-path="dem.html"><a href="dem.html#dem-verification"><i class="fa fa-check"></i><b>4.5</b> Верификация ЦММ по точкам стереоизмерений</a></li>
-<li class="chapter" data-level="4.6" data-path="dem.html"><a href="dem.html#dem-orthorectification"><i class="fa fa-check"></i><b>4.6</b> Ортотрансформация с использованием полученной ЦММ</a></li>
+<li class="chapter" data-level="5" data-path="stereo.html"><a href="stereo.html"><i class="fa fa-check"></i><b>5</b> Стереоизмерения</a><ul>
+<li class="chapter" data-level="5.1" data-path="stereo.html"><a href="stereo.html#stereo-soft"><i class="fa fa-check"></i><b>5.1</b> Установка программного обеспечения</a></li>
+<li class="chapter" data-level="5.2" data-path="stereo.html"><a href="stereo.html#stereo-initial"><i class="fa fa-check"></i><b>5.2</b> Исходные данные</a></li>
+<li class="chapter" data-level="5.3" data-path="stereo.html"><a href="stereo.html#stereo-create_project"><i class="fa fa-check"></i><b>5.3</b> Создание проекта</a></li>
+<li class="chapter" data-level="5.4" data-path="stereo.html"><a href="stereo.html#stereo-interior"><i class="fa fa-check"></i><b>5.4</b> Внутреннее ориентирование</a></li>
+<li class="chapter" data-level="5.5" data-path="stereo.html"><a href="stereo.html#stereo-GCP"><i class="fa fa-check"></i><b>5.5</b> Опорные точки</a></li>
+<li class="chapter" data-level="5.6" data-path="stereo.html"><a href="stereo.html#stereo-exterior"><i class="fa fa-check"></i><b>5.6</b> Внешнее ориентирование</a></li>
+<li class="chapter" data-level="5.7" data-path="stereo.html"><a href="stereo.html#stereo-stereoplotter"><i class="fa fa-check"></i><b>5.7</b> Работа в стереокомпараторе</a></li>
 </ul></li>
-<li class="chapter" data-level="5" data-path="las.html"><a href="las.html"><i class="fa fa-check"></i><b>5</b> Лазерное сканирование</a><ul>
-<li class="chapter" data-level="5.1" data-path="las.html"><a href="las.html#las-soft"><i class="fa fa-check"></i><b>5.1</b> Установка программного обеспечения</a></li>
-<li class="chapter" data-level="5.2" data-path="las.html"><a href="las.html#las-initial"><i class="fa fa-check"></i><b>5.2</b> Исходные данные</a></li>
-<li class="chapter" data-level="5.3" data-path="las.html"><a href="las.html#las-Extract"><i class="fa fa-check"></i><b>5.3</b> Вырезание фрагмента облака ТЛО в SAGA</a></li>
-<li class="chapter" data-level="5.4" data-path="las.html"><a href="las.html#las-cloudcompare"><i class="fa fa-check"></i><b>5.4</b> Работа с ТЛО в CloudCompare</a></li>
+<li class="chapter" data-level="6" data-path="dem.html"><a href="dem.html"><i class="fa fa-check"></i><b>6</b> Получение ЦММ и ортотрансформация</a><ul>
+<li class="chapter" data-level="6.1" data-path="dem.html"><a href="dem.html#dem-initial"><i class="fa fa-check"></i><b>6.1</b> Исходные данные</a></li>
+<li class="chapter" data-level="6.2" data-path="dem.html"><a href="dem.html#dem-create"><i class="fa fa-check"></i><b>6.2</b> Построение ЦММ</a></li>
+<li class="chapter" data-level="6.3" data-path="dem.html"><a href="dem.html#dem-QGIS"><i class="fa fa-check"></i><b>6.3</b> Работа с высотными данными в QGIS</a></li>
+<li class="chapter" data-level="6.4" data-path="dem.html"><a href="dem.html#dem-derived"><i class="fa fa-check"></i><b>6.4</b> Построение производных поверхностей</a></li>
+<li class="chapter" data-level="6.5" data-path="dem.html"><a href="dem.html#dem-verification"><i class="fa fa-check"></i><b>6.5</b> Верификация ЦММ по точкам стереоизмерений</a></li>
+<li class="chapter" data-level="6.6" data-path="dem.html"><a href="dem.html#dem-orthorectification"><i class="fa fa-check"></i><b>6.6</b> Ортотрансформация с использованием полученной ЦММ</a></li>
+</ul></li>
+<li class="chapter" data-level="7" data-path="las.html"><a href="las.html"><i class="fa fa-check"></i><b>7</b> Лазерное сканирование</a><ul>
+<li class="chapter" data-level="7.1" data-path="las.html"><a href="las.html#las-soft"><i class="fa fa-check"></i><b>7.1</b> Установка программного обеспечения</a></li>
+<li class="chapter" data-level="7.2" data-path="las.html"><a href="las.html#las-initial"><i class="fa fa-check"></i><b>7.2</b> Исходные данные</a></li>
+<li class="chapter" data-level="7.3" data-path="las.html"><a href="las.html#las-Extract"><i class="fa fa-check"></i><b>7.3</b> Вырезание фрагмента облака ТЛО в SAGA</a></li>
+<li class="chapter" data-level="7.4" data-path="las.html"><a href="las.html#las-cloudcompare"><i class="fa fa-check"></i><b>7.4</b> Работа с ТЛО в CloudCompare</a></li>
 </ul></li>
 <li class="divider"></li>
 <li><a href="https://github.com/rstudio/bookdown" target="blank">Published with bookdown</a></li>
@@ -122,29 +129,29 @@
 
             <section class="normal" id="section-">
 <div id="georeference" class="section level1">
-<h1><span class="header-section-number">Раздел 1</span> Географическая привязка</h1>
+<h1><span class="header-section-number">Раздел 2</span> Географическая привязка</h1>
 <div id="georeference-qgis" class="section level2">
-<h2><span class="header-section-number">1.1</span> Географическая привязка в QGIS</h2>
+<h2><span class="header-section-number">2.1</span> Географическая привязка в QGIS</h2>
 <p><a href="georeference.html#georeference">В начало справки ⇡</a></p>
 <p>Для привязки данных дистанционного зондирования в QGIS можно использовать WMS-сервис с мозаикой спутниковых снимков. Для включения мозаики зайдите в меню <strong>Модули – Управление и установка модулей…</strong>. Впишите в строку поиска <strong>QuickMapServices</strong>. Установите модуль.</p>
 <p>Откроется окно модуля. В окне поиска геосервиса введите <strong>Google satelite</strong>. Нажмите <strong>Добавить</strong>.</p>
-<p><img src="images/Ref01/QMS.png" /></p>
+<p><img src="images/Ref02/QMS.png" /></p>
 <p>Добавьте в качестве слоя данных привязываемый снимок.</p>
 <blockquote>
 <p>Примечание: Если у вас такой панели не оказалось, это значит, что она отключена. Для включения панели щелкните правой кнопкой мыши по пустому месту на панели и найдите <strong>панель работы со слоями</strong>.</p>
 </blockquote>
-<p>Включите <strong>Панель инструментов работы с растровыми данными</strong>. На ней нажмите кнопку <strong>Привязка растров</strong> <img src="images/Ref01/Reference_button.png" />.</p>
-<p>Откроется окно привязки. Нажмите на кнопку <strong>Открыть растр</strong> <img src="images/Ref01/Open_rastr.png" />, добавьте привязываемый растр. Щелчок левой кнопкой мыши по привязываемому изображению открое окно, куда будет предложено ввести координаты. Если вы для привязки хотите использовать референцное изображение, нажмите на кнопку <strong>С карты</strong>.</p>
+<p>Включите <strong>Панель инструментов работы с растровыми данными</strong>. На ней нажмите кнопку <strong>Привязка растров</strong> <img src="images/Ref02/Reference_button.png" />.</p>
+<p>Откроется окно привязки. Нажмите на кнопку <strong>Открыть растр</strong> <img src="images/Ref02/Open_rastr.png" />, добавьте привязываемый растр. Щелчок левой кнопкой мыши по привязываемому изображению открое окно, куда будет предложено ввести координаты. Если вы для привязки хотите использовать референцное изображение, нажмите на кнопку <strong>С карты</strong>.</p>
 <div class="figure">
-<img src="images/Ref01/Input_coordinates.png" alt="" />
+<img src="images/Ref02/Input_coordinates.png" alt="" />
 <p class="caption">Окно ввода координат</p>
 </div>
-<p>Для настройки параметров трансформации нажмите на кнопку <img src="images/Ref01/Transformation_settings.png" />. Опорные точки можно сохранять и подгружать – для этого используйте соответствующие кнопки на панели. Для запуска процесса трансформации нажмите на кнопку <img src="images/Ref01/Transformation_button.png" /></p>
+<p>Для настройки параметров трансформации нажмите на кнопку <img src="images/Ref02/Transformation_settings.png" />. Опорные точки можно сохранять и подгружать – для этого используйте соответствующие кнопки на панели. Для запуска процесса трансформации нажмите на кнопку <img src="images/Ref02/Transformation_button.png" /></p>
 <p>После добавления трансформированного изображения в основное окно карты убедитесь в правильности проделанной операции, сравнивая его с подложкой из мозаики спутниковых снимков. Для этого удобно использовать инструмент шторки.</p>
 <p>Зайдите в <strong>Модули – Управление и установка модулей…</strong> и вбейте в поиск <strong>MapSwipe Tool</strong>. После этого появится панель шторки.</p>
-<p>Выберите слой, который будет активен в режиме шторки (будет находиться под шторкой) и нажмите на кнопку <img src="images/Ref01/Swipe_button.png" />.</p>
+<p>Выберите слой, который будет активен в режиме шторки (будет находиться под шторкой) и нажмите на кнопку <img src="images/Ref02/Swipe_button.png" />.</p>
 <div class="figure">
-<img src="images/Ref01/Swipe.png" alt="" />
+<img src="images/Ref02/Swipe.png" alt="" />
 <p class="caption">Режим шторки для слоя Google Maps</p>
 </div>
 <table>
@@ -162,12 +169,11 @@
           </div>
         </div>
       </div>
-<a href="index.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
-<a href="photogrammetry.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+<a href="pansharpen.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="mosaic.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>
-<script src="libs/gitbook-2.6.7/js/lunr.js"></script>
 <script src="libs/gitbook-2.6.7/js/clipboard.min.js"></script>
 <script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
 <script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
@@ -186,6 +192,7 @@ gitbook.start({
 "weibo": false,
 "instapaper": false,
 "vk": false,
+"whatsapp": false,
 "all": ["facebook", "twitter", "linkedin", "weibo", "instapaper"]
 },
 "fontsettings": {
@@ -206,6 +213,10 @@ gitbook.start({
 "text": null
 },
 "download": ["Remote_Sensing.pdf", "Remote_Sensing.epub"],
+"search": {
+"engine": "fuse",
+"options": null
+},
 "toc": {
 "collapse": "subsection"
 }

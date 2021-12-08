@@ -4,11 +4,11 @@
 
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title>Раздел 4 Получение ЦММ и ортотрансформация | Основы дистанционного зондирования и фотограмметрияя</title>
+  <title>Раздел 6 Получение ЦММ и ортотрансформация | Основы дистанционного зондирования и фотограмметрияя</title>
   <meta name="description" content="Основы дистанционного зондирования и фотограмметрия" />
-  <meta name="generator" content="bookdown 0.20 and GitBook 2.6.7" />
+  <meta name="generator" content="bookdown 0.24 and GitBook 2.6.7" />
 
-  <meta property="og:title" content="Раздел 4 Получение ЦММ и ортотрансформация | Основы дистанционного зондирования и фотограмметрияя" />
+  <meta property="og:title" content="Раздел 6 Получение ЦММ и ортотрансформация | Основы дистанционного зондирования и фотограмметрияя" />
   <meta property="og:type" content="book" />
   
   
@@ -16,7 +16,7 @@
   <meta name="github-repo" content="IOWq750/Remote_Sensing_Photogrammetry" />
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="Раздел 4 Получение ЦММ и ортотрансформация | Основы дистанционного зондирования и фотограмметрияя" />
+  <meta name="twitter:title" content="Раздел 6 Получение ЦММ и ортотрансформация | Основы дистанционного зондирования и фотограмметрияя" />
   
   <meta name="twitter:description" content="Основы дистанционного зондирования и фотограмметрия" />
   
@@ -24,7 +24,7 @@
 <meta name="author" content="Карпачевский А.М." />
 
 
-<meta name="date" content="2021-04-21" />
+<meta name="date" content="2021-12-08" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -33,7 +33,8 @@
   <link rel="shortcut icon" href="images/favicon.ico" type="image/x-icon" />
 <link rel="prev" href="stereo.html"/>
 <link rel="next" href="las.html"/>
-<script src="libs/jquery-2.2.3/jquery.min.js"></script>
+<script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
@@ -49,8 +50,10 @@
 
 
 
-
 <script src="libs/accessible-code-block-0.0.1/empty-anchor.js"></script>
+<link href="libs/anchor-sections-1.0.1/anchor-sections.css" rel="stylesheet" />
+<script src="libs/anchor-sections-1.0.1/anchor-sections.js"></script>
+
 
 
 
@@ -71,35 +74,39 @@
 
 <li class="divider"></li>
 <li class="chapter" data-level="" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i>Программное обеспечение</a></li>
-<li class="chapter" data-level="1" data-path="georeference.html"><a href="georeference.html"><i class="fa fa-check"></i><b>1</b> Географическая привязка</a><ul>
-<li class="chapter" data-level="1.1" data-path="georeference.html"><a href="georeference.html#georeference-qgis"><i class="fa fa-check"></i><b>1.1</b> Географическая привязка в QGIS</a></li>
+<li class="chapter" data-level="1" data-path="pansharpen.html"><a href="pansharpen.html"><i class="fa fa-check"></i><b>1</b> Методы улучшения пространственного разрешения</a></li>
+<li class="chapter" data-level="2" data-path="georeference.html"><a href="georeference.html"><i class="fa fa-check"></i><b>2</b> Географическая привязка</a><ul>
+<li class="chapter" data-level="2.1" data-path="georeference.html"><a href="georeference.html#georeference-qgis"><i class="fa fa-check"></i><b>2.1</b> Географическая привязка в QGIS</a></li>
 </ul></li>
-<li class="chapter" data-level="2" data-path="photogrammetry.html"><a href="photogrammetry.html"><i class="fa fa-check"></i><b>2</b> Фотограмметрия кадрового снимка</a><ul>
-<li class="chapter" data-level="2.1" data-path="photogrammetry.html"><a href="photogrammetry.html#photogrammetry-oblique"><i class="fa fa-check"></i><b>2.1</b> Искажения наклонного снимка</a></li>
-<li class="chapter" data-level="2.2" data-path="photogrammetry.html"><a href="photogrammetry.html#photogrammetry-interior"><i class="fa fa-check"></i><b>2.2</b> Внутреннее ориентирование снимка</a></li>
+<li class="chapter" data-level="3" data-path="mosaic.html"><a href="mosaic.html"><i class="fa fa-check"></i><b>3</b> Создание мозаики</a><ul>
+<li class="chapter" data-level="3.1" data-path="mosaic.html"><a href="mosaic.html#mosaic-arcgis"><i class="fa fa-check"></i><b>3.1</b> Создание мозаики в ArcGIS Pro</a></li>
 </ul></li>
-<li class="chapter" data-level="3" data-path="stereo.html"><a href="stereo.html"><i class="fa fa-check"></i><b>3</b> Стереоизмерения</a><ul>
-<li class="chapter" data-level="3.1" data-path="stereo.html"><a href="stereo.html#stereo-soft"><i class="fa fa-check"></i><b>3.1</b> Установка программного обеспечения</a></li>
-<li class="chapter" data-level="3.2" data-path="stereo.html"><a href="stereo.html#stereo-initial"><i class="fa fa-check"></i><b>3.2</b> Исходные данные</a></li>
-<li class="chapter" data-level="3.3" data-path="stereo.html"><a href="stereo.html#stereo-create_project"><i class="fa fa-check"></i><b>3.3</b> Создание проекта</a></li>
-<li class="chapter" data-level="3.4" data-path="stereo.html"><a href="stereo.html#stereo-interior"><i class="fa fa-check"></i><b>3.4</b> Внутреннее ориентирование</a></li>
-<li class="chapter" data-level="3.5" data-path="stereo.html"><a href="stereo.html#stereo-GCP"><i class="fa fa-check"></i><b>3.5</b> Опорные точки</a></li>
-<li class="chapter" data-level="3.6" data-path="stereo.html"><a href="stereo.html#stereo-exterior"><i class="fa fa-check"></i><b>3.6</b> Внешнее ориентирование</a></li>
-<li class="chapter" data-level="3.7" data-path="stereo.html"><a href="stereo.html#stereo-stereoplotter"><i class="fa fa-check"></i><b>3.7</b> Работа в стереокомпараторе</a></li>
+<li class="chapter" data-level="4" data-path="photogrammetry.html"><a href="photogrammetry.html"><i class="fa fa-check"></i><b>4</b> Фотограмметрия кадрового снимка</a><ul>
+<li class="chapter" data-level="4.1" data-path="photogrammetry.html"><a href="photogrammetry.html#photogrammetry-oblique"><i class="fa fa-check"></i><b>4.1</b> Искажения наклонного снимка</a></li>
+<li class="chapter" data-level="4.2" data-path="photogrammetry.html"><a href="photogrammetry.html#photogrammetry-interior"><i class="fa fa-check"></i><b>4.2</b> Внутреннее ориентирование снимка</a></li>
 </ul></li>
-<li class="chapter" data-level="4" data-path="dem.html"><a href="dem.html"><i class="fa fa-check"></i><b>4</b> Получение ЦММ и ортотрансформация</a><ul>
-<li class="chapter" data-level="4.1" data-path="dem.html"><a href="dem.html#dem-initial"><i class="fa fa-check"></i><b>4.1</b> Исходные данные</a></li>
-<li class="chapter" data-level="4.2" data-path="dem.html"><a href="dem.html#dem-create"><i class="fa fa-check"></i><b>4.2</b> Построение ЦММ</a></li>
-<li class="chapter" data-level="4.3" data-path="dem.html"><a href="dem.html#dem-QGIS"><i class="fa fa-check"></i><b>4.3</b> Работа с высотными данными в QGIS</a></li>
-<li class="chapter" data-level="4.4" data-path="dem.html"><a href="dem.html#dem-derived"><i class="fa fa-check"></i><b>4.4</b> Построение производных поверхностей</a></li>
-<li class="chapter" data-level="4.5" data-path="dem.html"><a href="dem.html#dem-verification"><i class="fa fa-check"></i><b>4.5</b> Верификация ЦММ по точкам стереоизмерений</a></li>
-<li class="chapter" data-level="4.6" data-path="dem.html"><a href="dem.html#dem-orthorectification"><i class="fa fa-check"></i><b>4.6</b> Ортотрансформация с использованием полученной ЦММ</a></li>
+<li class="chapter" data-level="5" data-path="stereo.html"><a href="stereo.html"><i class="fa fa-check"></i><b>5</b> Стереоизмерения</a><ul>
+<li class="chapter" data-level="5.1" data-path="stereo.html"><a href="stereo.html#stereo-soft"><i class="fa fa-check"></i><b>5.1</b> Установка программного обеспечения</a></li>
+<li class="chapter" data-level="5.2" data-path="stereo.html"><a href="stereo.html#stereo-initial"><i class="fa fa-check"></i><b>5.2</b> Исходные данные</a></li>
+<li class="chapter" data-level="5.3" data-path="stereo.html"><a href="stereo.html#stereo-create_project"><i class="fa fa-check"></i><b>5.3</b> Создание проекта</a></li>
+<li class="chapter" data-level="5.4" data-path="stereo.html"><a href="stereo.html#stereo-interior"><i class="fa fa-check"></i><b>5.4</b> Внутреннее ориентирование</a></li>
+<li class="chapter" data-level="5.5" data-path="stereo.html"><a href="stereo.html#stereo-GCP"><i class="fa fa-check"></i><b>5.5</b> Опорные точки</a></li>
+<li class="chapter" data-level="5.6" data-path="stereo.html"><a href="stereo.html#stereo-exterior"><i class="fa fa-check"></i><b>5.6</b> Внешнее ориентирование</a></li>
+<li class="chapter" data-level="5.7" data-path="stereo.html"><a href="stereo.html#stereo-stereoplotter"><i class="fa fa-check"></i><b>5.7</b> Работа в стереокомпараторе</a></li>
 </ul></li>
-<li class="chapter" data-level="5" data-path="las.html"><a href="las.html"><i class="fa fa-check"></i><b>5</b> Лазерное сканирование</a><ul>
-<li class="chapter" data-level="5.1" data-path="las.html"><a href="las.html#las-soft"><i class="fa fa-check"></i><b>5.1</b> Установка программного обеспечения</a></li>
-<li class="chapter" data-level="5.2" data-path="las.html"><a href="las.html#las-initial"><i class="fa fa-check"></i><b>5.2</b> Исходные данные</a></li>
-<li class="chapter" data-level="5.3" data-path="las.html"><a href="las.html#las-Extract"><i class="fa fa-check"></i><b>5.3</b> Вырезание фрагмента облака ТЛО в SAGA</a></li>
-<li class="chapter" data-level="5.4" data-path="las.html"><a href="las.html#las-cloudcompare"><i class="fa fa-check"></i><b>5.4</b> Работа с ТЛО в CloudCompare</a></li>
+<li class="chapter" data-level="6" data-path="dem.html"><a href="dem.html"><i class="fa fa-check"></i><b>6</b> Получение ЦММ и ортотрансформация</a><ul>
+<li class="chapter" data-level="6.1" data-path="dem.html"><a href="dem.html#dem-initial"><i class="fa fa-check"></i><b>6.1</b> Исходные данные</a></li>
+<li class="chapter" data-level="6.2" data-path="dem.html"><a href="dem.html#dem-create"><i class="fa fa-check"></i><b>6.2</b> Построение ЦММ</a></li>
+<li class="chapter" data-level="6.3" data-path="dem.html"><a href="dem.html#dem-QGIS"><i class="fa fa-check"></i><b>6.3</b> Работа с высотными данными в QGIS</a></li>
+<li class="chapter" data-level="6.4" data-path="dem.html"><a href="dem.html#dem-derived"><i class="fa fa-check"></i><b>6.4</b> Построение производных поверхностей</a></li>
+<li class="chapter" data-level="6.5" data-path="dem.html"><a href="dem.html#dem-verification"><i class="fa fa-check"></i><b>6.5</b> Верификация ЦММ по точкам стереоизмерений</a></li>
+<li class="chapter" data-level="6.6" data-path="dem.html"><a href="dem.html#dem-orthorectification"><i class="fa fa-check"></i><b>6.6</b> Ортотрансформация с использованием полученной ЦММ</a></li>
+</ul></li>
+<li class="chapter" data-level="7" data-path="las.html"><a href="las.html"><i class="fa fa-check"></i><b>7</b> Лазерное сканирование</a><ul>
+<li class="chapter" data-level="7.1" data-path="las.html"><a href="las.html#las-soft"><i class="fa fa-check"></i><b>7.1</b> Установка программного обеспечения</a></li>
+<li class="chapter" data-level="7.2" data-path="las.html"><a href="las.html#las-initial"><i class="fa fa-check"></i><b>7.2</b> Исходные данные</a></li>
+<li class="chapter" data-level="7.3" data-path="las.html"><a href="las.html#las-Extract"><i class="fa fa-check"></i><b>7.3</b> Вырезание фрагмента облака ТЛО в SAGA</a></li>
+<li class="chapter" data-level="7.4" data-path="las.html"><a href="las.html#las-cloudcompare"><i class="fa fa-check"></i><b>7.4</b> Работа с ТЛО в CloudCompare</a></li>
 </ul></li>
 <li class="divider"></li>
 <li><a href="https://github.com/rstudio/bookdown" target="blank">Published with bookdown</a></li>
@@ -122,14 +129,14 @@
 
             <section class="normal" id="section-">
 <div id="dem" class="section level1">
-<h1><span class="header-section-number">Раздел 4</span> Получение ЦММ и ортотрансформация</h1>
+<h1><span class="header-section-number">Раздел 6</span> Получение ЦММ и ортотрансформация</h1>
 <div id="dem-initial" class="section level2">
-<h2><span class="header-section-number">4.1</span> Исходные данные</h2>
+<h2><span class="header-section-number">6.1</span> Исходные данные</h2>
 <p><a href="dem.html#dem">В начало справки ⇡</a></p>
 <p>В качестве исходных данных в этой работе выступают ориентированные и привязанные снимки из предыдущей модели, а также полученная на их основе стереомодель в программе E-foto.</p>
 </div>
 <div id="dem-create" class="section level2">
-<h2><span class="header-section-number">4.2</span> Построение ЦММ</h2>
+<h2><span class="header-section-number">6.2</span> Построение ЦММ</h2>
 <p><a href="dem.html#dem">В начало справки ⇡</a></p>
 <p>Выберите команду <strong>Execute – DSM Extraction</strong>. Откроется окно соответствующего модуля.Перейдите во вкладку <strong>Automatic Extraction</strong>.</p>
 <div class="figure">
@@ -140,7 +147,7 @@
 <p>После того, как пикеты были извлечены, необходимо их интерполировать. Для этого нажмите на соответствующую кнопку <img src="images/Ref04/DSM_interpolation.png" />. После этого можно экспортировать полученный грид.Перейдите во вкладку <strong>Load/Save Options</strong>, выберите <strong>DSM extraction file format</strong> – облако точек без индексов, а <strong>Grid file format</strong> – <strong>ASCII DSM Grid</strong>. В разделе <strong>DSM Grid Interpolation</strong> внизу окна нажмите на сохранение <img src="images/Ref04/Save_DSM.png" /> и сохраните текстовый файл с высотными данными.</p>
 </div>
 <div id="dem-QGIS" class="section level2">
-<h2><span class="header-section-number">4.3</span> Работа с высотными данными в QGIS</h2>
+<h2><span class="header-section-number">6.3</span> Работа с высотными данными в QGIS</h2>
 <p><a href="dem.html#dem">В начало справки ⇡</a></p>
 <p>Добавьте в QGIS полученные ранее высотные данные как текст с разделителями. Обратите внимание, что необходимо правильно выбрать символ разделителя, указать количество строк заголовка файла, которые мы не учитываем, указать соответствующие поля для координат, а также правильную систему координат.</p>
 <div class="figure">
@@ -159,7 +166,7 @@
 </div>
 </div>
 <div id="dem-derived" class="section level2">
-<h2><span class="header-section-number">4.4</span> Построение производных поверхностей</h2>
+<h2><span class="header-section-number">6.4</span> Построение производных поверхностей</h2>
 <p><a href="dem.html#dem">В начало справки ⇡</a></p>
 <p>В QGIS доступны многие инструменты для построения производных поверхностей от ЦМР и ЦММ, например:</p>
 <ol style="list-style-type: decimal">
@@ -170,13 +177,13 @@
 <p>Кроме того, мы можем извлечь изолинии (горизонтали) с помощью инструмента <strong>Raster – Extraction – Contour…</strong>.</p>
 </div>
 <div id="dem-verification" class="section level2">
-<h2><span class="header-section-number">4.5</span> Верификация ЦММ по точкам стереоизмерений</h2>
+<h2><span class="header-section-number">6.5</span> Верификация ЦММ по точкам стереоизмерений</h2>
 <p><a href="dem.html#dem">В начало справки ⇡</a></p>
 <p>Измерьте высоты с помощью стереокомпаратора в местах, где есть крупные пропуски данных в ЦММ. Полученные точки можно экспортировать в шейпфайл, нажав на кнопку <img src="images/Ref04/Export_survey_point.png" />. В открывшемся окне выберите формат сохранения <strong>SHP</strong>.</p>
 <p>Для извлечения значений высот ЦММ в точки используйте инструмент в QGIS <strong>Sample Raster Values</strong>. Этот инструмент записывает в виде атрибута значения ячеек растра, в которые попадают точки. Для расчёта собственных значений высот точек шейпфайла (полученные в результате стереоизмерений) можно зайти в калькулятор поле и написать выражение для нового атрибутивного поля _ z($geometry)_.</p>
 </div>
 <div id="dem-orthorectification" class="section level2">
-<h2><span class="header-section-number">4.6</span> Ортотрансформация с использованием полученной ЦММ</h2>
+<h2><span class="header-section-number">6.6</span> Ортотрансформация с использованием полученной ЦММ</h2>
 <p><a href="dem.html#dem">В начало справки ⇡</a></p>
 <p>Для ортотрансформации снимков в <strong>E-foto</strong> требуется ЦММ в собственном формате, что обуславливает необходимость её коррекции (заполнения пропусков) внутренними средствами программы. Для этого в модуле <strong>DSM Extraction</strong> после извлечения ЦММ перейдите на вкладку <strong>Interpolation</strong>. В параметре <strong>Grid Interpolation method</strong> необходимо выбрать <strong>Moving average</strong> (обычно установлено по умолчанию). В параметре <strong>Distance</strong> укажите размер плавающего окна осреднения в пикселях, например, 10.</p>
 <div class="figure">
@@ -215,7 +222,6 @@
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>
-<script src="libs/gitbook-2.6.7/js/lunr.js"></script>
 <script src="libs/gitbook-2.6.7/js/clipboard.min.js"></script>
 <script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
 <script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
@@ -234,6 +240,7 @@ gitbook.start({
 "weibo": false,
 "instapaper": false,
 "vk": false,
+"whatsapp": false,
 "all": ["facebook", "twitter", "linkedin", "weibo", "instapaper"]
 },
 "fontsettings": {
@@ -254,6 +261,10 @@ gitbook.start({
 "text": null
 },
 "download": ["Remote_Sensing.pdf", "Remote_Sensing.epub"],
+"search": {
+"engine": "fuse",
+"options": null
+},
 "toc": {
 "collapse": "subsection"
 }
