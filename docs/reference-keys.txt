@@ -1,3 +1,4 @@
+global
 pansharpen
 pansharpen-resampling
 pansharpen-filter
