@@ -1,5 +1,8 @@
 global
 pansharpen
+pansharpen-project
+pansharpen-composite
+pansharpen-extract
 pansharpen-resampling
 pansharpen-filter
 pansharpen-pansharpen

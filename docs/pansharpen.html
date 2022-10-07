@@ -4,27 +4,27 @@
 
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title>Раздел 1 Методы улучшения пространственного разрешения | Основы дистанционного зондирования и фотограмметрии</title>
-  <meta name="description" content="Раздел 1 Методы улучшения пространственного разрешения | Основы дистанционного зондирования и фотограмметрии" />
+  <title>Раздел 1 Преобразования пространственного разрешения | Основы дистанционного зондирования и фотограмметрии</title>
+  <meta name="description" content="Раздел 1 Преобразования пространственного разрешения | Основы дистанционного зондирования и фотограмметрии" />
   <meta name="generator" content="bookdown 0.24 and GitBook 2.6.7" />
 
-  <meta property="og:title" content="Раздел 1 Методы улучшения пространственного разрешения | Основы дистанционного зондирования и фотограмметрии" />
+  <meta property="og:title" content="Раздел 1 Преобразования пространственного разрешения | Основы дистанционного зондирования и фотограмметрии" />
   <meta property="og:type" content="book" />
   
   
-  <meta property="og:description" content="Раздел 1 Методы улучшения пространственного разрешения | Основы дистанционного зондирования и фотограмметрии" />
+  <meta property="og:description" content="Раздел 1 Преобразования пространственного разрешения | Основы дистанционного зондирования и фотограмметрии" />
   <meta name="github-repo" content="IOWq750/Remote_Sensing_Photogrammetry" />
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="Раздел 1 Методы улучшения пространственного разрешения | Основы дистанционного зондирования и фотограмметрии" />
+  <meta name="twitter:title" content="Раздел 1 Преобразования пространственного разрешения | Основы дистанционного зондирования и фотограмметрии" />
   
-  <meta name="twitter:description" content="Раздел 1 Методы улучшения пространственного разрешения | Основы дистанционного зондирования и фотограмметрии" />
+  <meta name="twitter:description" content="Раздел 1 Преобразования пространственного разрешения | Основы дистанционного зондирования и фотограмметрии" />
   
 
 <meta name="author" content="Карпачевский А.М." />
 
 
-<meta name="date" content="2022-09-12" />
+<meta name="date" content="2022-10-07" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -81,10 +81,13 @@
 </ul></li>
 <li class="chapter" data-level="0.1" data-path="index.html"><a href="index.html#global"><i class="fa fa-check"></i><b>0.1</b> Изменение языка интерфейса и прочих глобальных переменных QGIS</a></li>
 </ul></li>
-<li class="chapter" data-level="1" data-path="pansharpen.html"><a href="pansharpen.html"><i class="fa fa-check"></i><b>1</b> Методы улучшения пространственного разрешения</a><ul>
-<li class="chapter" data-level="1.1" data-path="pansharpen.html"><a href="pansharpen.html#pansharpen-resampling"><i class="fa fa-check"></i><b>1.1</b> Передискретизация</a></li>
-<li class="chapter" data-level="1.2" data-path="pansharpen.html"><a href="pansharpen.html#pansharpen-filter"><i class="fa fa-check"></i><b>1.2</b> фильтрация</a></li>
-<li class="chapter" data-level="1.3" data-path="pansharpen.html"><a href="pansharpen.html#pansharpen-pansharpen"><i class="fa fa-check"></i><b>1.3</b> паншарпенинг</a></li>
+<li class="chapter" data-level="1" data-path="pansharpen.html"><a href="pansharpen.html"><i class="fa fa-check"></i><b>1</b> Преобразования пространственного разрешения</a><ul>
+<li class="chapter" data-level="1.1" data-path="pansharpen.html"><a href="pansharpen.html#pansharpen-project"><i class="fa fa-check"></i><b>1.1</b> Создание проекта в ArcGIS Pro</a></li>
+<li class="chapter" data-level="1.2" data-path="pansharpen.html"><a href="pansharpen.html#pansharpen-composite"><i class="fa fa-check"></i><b>1.2</b> Создание композита</a></li>
+<li class="chapter" data-level="1.3" data-path="pansharpen.html"><a href="pansharpen.html#pansharpen-extract"><i class="fa fa-check"></i><b>1.3</b> Вырезание фрагмента изображения</a></li>
+<li class="chapter" data-level="1.4" data-path="pansharpen.html"><a href="pansharpen.html#pansharpen-resampling"><i class="fa fa-check"></i><b>1.4</b> Передискретизация</a></li>
+<li class="chapter" data-level="1.5" data-path="pansharpen.html"><a href="pansharpen.html#pansharpen-filter"><i class="fa fa-check"></i><b>1.5</b> фильтрация</a></li>
+<li class="chapter" data-level="1.6" data-path="pansharpen.html"><a href="pansharpen.html#pansharpen-pansharpen"><i class="fa fa-check"></i><b>1.6</b> паншарпенинг</a></li>
 </ul></li>
 <li class="chapter" data-level="2" data-path="georeference.html"><a href="georeference.html"><i class="fa fa-check"></i><b>2</b> Географическая привязка</a><ul>
 <li class="chapter" data-level="2.1" data-path="georeference.html"><a href="georeference.html#georeference-arcgis"><i class="fa fa-check"></i><b>2.1</b> Географическая привязка в ArcGIS Pro</a></li>
@@ -141,15 +144,53 @@
 
             <section class="normal" id="section-">
 <div id="pansharpen" class="section level1">
-<h1><span class="header-section-number">Раздел 1</span> Методы улучшения пространственного разрешения</h1>
+<h1><span class="header-section-number">Раздел 1</span> Преобразования пространственного разрешения</h1>
+<div id="pansharpen-project" class="section level2">
+<h2><span class="header-section-number">1.1</span> Создание проекта в ArcGIS Pro</h2>
+<p>Запустите ArcGIS Pro. В открывшемся окне выберите запуск проекта без шаблона.</p>
+<p><img src="images/Ref01/Launching.png" /></p>
+<p>Окно программы состоит из нескольких основных панелей: слева таблица содержания, самое большое окно посередине – окно карты, справа панель каталог и инструментов геообработки. Панель каталога нужна для того чтобы обращаться к данным, расположенным на компьютере. Раскройте пункт <strong>Folders</strong> и найдите свою папку, либо папку, расположенную выше по древу. Если её нет, можно добавить подключение к папке, щёлкнув правой кнопкой мыши.</p>
+<p><img src="images/Ref01/Add_Connection.png" /></p>
+<p>Внутри своей папки создайте новую базу геоданных, щёлкнув по ней правой кнопкой.</p>
+<p><img src="images/Ref01/New_GDB.png" /></p>
+<p>После этого база геоданных появится в перечне всех доступных баз данных в каталоге. Найдите там свою базу и сделайте её базой по умолчанию.</p>
+<p><img src="images/Ref01/Default.png" /></p>
+<p>Через главное меню добавьте новую карту. Сохраните проект в той же директории, где расположена база данных, после чего в каталоге на этой папке должен появиться значок домика.</p>
+</div>
+<div id="pansharpen-composite" class="section level2">
+<h2><span class="header-section-number">1.2</span> Создание композита</h2>
+<p>Для создания композита перетащите из окна каталога файлы отдельных каналов изображения. В панели геообработки найдите набор инструментов <strong>Data Management Tools – Raster – Raster Processing</strong>, внутри него выберите инструмент <strong>Composite Band</strong>.</p>
+<p><img src="images/Ref01/Raster_tools.png" /></p>
+<p>На вход инструменту подайте отдельные каналы, на выход укажите название итогового композита – обратите внимание, что он должен быть в базе геоданных по умолчанию.</p>
+<p><img src="images/Ref01/Composite_bands.png" /></p>
+<p>Для того чтобы задать визуализацию синтеза каналов нового композита, выделите слой и перейдите во вкладку <strong>Appearance</strong> основной ленты меню. В <strong>Band Combination</strong> укажите пользовательский синтез (<strong>Custom</strong>) и задайте соответствие каналов изображения каналам основных цветов.</p>
+<p><img src="images/Ref01/Band_combination.png" /></p>
+</div>
+<div id="pansharpen-extract" class="section level2">
+<h2><span class="header-section-number">1.3</span> Вырезание фрагмента изображения</h2>
+<p>Для вырезания фрагмента изображения необходимо создать новый класс объектов в базе геоданных. Для этого щёлкните правой кнопкой мыши по базе <strong>New – Feature Class</strong>. В открывшемся окне задайте имя и систему координат класса.</p>
+<p><img src="images/Ref01/New_FC.png" /></p>
+<p>Добавьте класс объектов в окно карты и перейдите на вкладку <strong>Edit</strong> главного меню, выберите пункт <strong>Create</strong>.</p>
+<p><img src="images/Ref01/Create.png" /></p>
+<p>Справа откроется панель с шаблонами объектов. Выберите способ создания объекта – прямоугольник. Отрисуйте прямоугольник на карте, который охватит вырезаемую область изображения.</p>
+<p><img src="images/Ref01/Rectangles.png" /></p>
+<p>После того, как объект будет готов, сохраните изменения, нажав на кнопку <img src="images/Ref01/Save_edits.png" />.</p>
+<p>Вырезается фрагмент изображения с помощью инструмента <strong>Extract by Mask</strong> – его можно найти на панели инструментов геообработки в наборе инструментов <strong>Spatial Analyst Tools – Extraction</strong>.</p>
+<p><img src="images/Ref01/Extract_by_Mask.png" /></p>
+<p>У полученного фрагмента изображения может быть не настроена гистограмма. Перейдите во вкладку <strong>Appearance</strong> и нажмите на кнопку <strong>DRA</strong> ждя автоматической настройки гистограммы фрагмента, либо исправьте гистограмму вручную.</p>
+<p><img src="images/Ref01/Stretching.png" /></p>
+</div>
 <div id="pansharpen-resampling" class="section level2">
-<h2><span class="header-section-number">1.1</span> Передискретизация</h2>
+<h2><span class="header-section-number">1.4</span> Передискретизация</h2>
+<p>Для передискретизации используется инструмент <strong>Data Management Tools – Raster – Raster Processing – Resample</strong>. В качестве входных параметров необходимо указать исходный растр, а также размер ячейки нового растра и тип интерполяции</p>
 </div>
 <div id="pansharpen-filter" class="section level2">
-<h2><span class="header-section-number">1.2</span> фильтрация</h2>
+<h2><span class="header-section-number">1.5</span> фильтрация</h2>
+<p>Для фильтрации используется инструмент <strong>Spatial Analyst Tools – Neighborhood – Filter</strong>. В качестве входных параметров необходимо указать исходный растр, а также тип фильтрации.</p>
 </div>
 <div id="pansharpen-pansharpen" class="section level2">
-<h2><span class="header-section-number">1.3</span> паншарпенинг</h2>
+<h2><span class="header-section-number">1.6</span> паншарпенинг</h2>
+<p>Для паншарпенинга используется инструмент <strong>Data Management Tools – Raster – Raster Processing – Create Pansharpened Raster Dataset</strong>. В качестве входных параметров необходимо указать исходный растр, тип преобразования и некоторые другие параметры, которые зависят от типа преобразования.</p>
 <table>
 <tbody>
 <tr class="odd">
