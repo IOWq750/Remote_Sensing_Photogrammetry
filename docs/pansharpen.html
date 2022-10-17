@@ -24,7 +24,7 @@
 <meta name="author" content="Карпачевский А.М." />
 
 
-<meta name="date" content="2022-10-07" />
+<meta name="date" content="2022-10-17" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -177,7 +177,7 @@
 <p>После того, как объект будет готов, сохраните изменения, нажав на кнопку <img src="images/Ref01/Save_edits.png" />.</p>
 <p>Вырезается фрагмент изображения с помощью инструмента <strong>Extract by Mask</strong> – его можно найти на панели инструментов геообработки в наборе инструментов <strong>Spatial Analyst Tools – Extraction</strong>.</p>
 <p><img src="images/Ref01/Extract_by_Mask.png" /></p>
-<p>У полученного фрагмента изображения может быть не настроена гистограмма. Перейдите во вкладку <strong>Appearance</strong> и нажмите на кнопку <strong>DRA</strong> ждя автоматической настройки гистограммы фрагмента, либо исправьте гистограмму вручную.</p>
+<p>У полученного фрагмента изображения может быть не настроена гистограмма. Перейдите во вкладку <strong>Appearance</strong> и нажмите на кнопку <strong>DRA</strong> для автоматической настройки гистограммы фрагмента, либо исправьте гистограмму вручную.</p>
 <p><img src="images/Ref01/Stretching.png" /></p>
 </div>
 <div id="pansharpen-resampling" class="section level2">
@@ -186,7 +186,8 @@
 </div>
 <div id="pansharpen-filter" class="section level2">
 <h2><span class="header-section-number">1.5</span> Фильтрация</h2>
-<p>Для фильтрации используется инструмент <strong>Spatial Analyst Tools – Neighborhood – Filter</strong>. В качестве входных параметров необходимо указать исходный растр, а также тип фильтрации.</p>
+<p>Для градиентной фильтрации выберите растр, в основной ленте меню выберите вкладку <strong>Imagery</strong>, нажмите на кнопку <strong>Raster Functions</strong> – у вас справа откроется панель с различными инструментами растров, в том числе во вкладке <strong>Appearance</strong> есть инструмент свёртки (<strong>Convolution</strong>).</p>
+<p>Для линейной (высокочастотная, низкочастотная) фильтрации используется инструмент <strong>Spatial Analyst Tools – Neighborhood – Filter</strong>. В качестве входных параметров необходимо указать исходный растр, а также тип фильтрации.</p>
 </div>
 <div id="pansharpen-pansharpen" class="section level2">
 <h2><span class="header-section-number">1.6</span> Паншарпенинг</h2>
