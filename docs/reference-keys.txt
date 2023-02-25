@@ -20,7 +20,8 @@ stereo-initial
 stereo-create_project
 stereo-interior
 stereo-GCP
-stereo-exterior
+stereo-resection
+stereo-phototriangulation
 stereo-stereoplotter
 dem
 dem-initial

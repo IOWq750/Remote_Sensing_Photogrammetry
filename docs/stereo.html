@@ -23,7 +23,7 @@
 <meta name="author" content="Карпачевский А.М." />
 
 
-<meta name="date" content="2023-02-15" />
+<meta name="date" content="2023-02-25" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -112,8 +112,9 @@
 <li class="chapter" data-level="5.3" data-path="stereo.html"><a href="stereo.html#stereo-create_project"><i class="fa fa-check"></i><b>5.3</b> Создание проекта</a></li>
 <li class="chapter" data-level="5.4" data-path="stereo.html"><a href="stereo.html#stereo-interior"><i class="fa fa-check"></i><b>5.4</b> Внутреннее ориентирование</a></li>
 <li class="chapter" data-level="5.5" data-path="stereo.html"><a href="stereo.html#stereo-GCP"><i class="fa fa-check"></i><b>5.5</b> Опорные точки</a></li>
-<li class="chapter" data-level="5.6" data-path="stereo.html"><a href="stereo.html#stereo-exterior"><i class="fa fa-check"></i><b>5.6</b> Внешнее ориентирование</a></li>
-<li class="chapter" data-level="5.7" data-path="stereo.html"><a href="stereo.html#stereo-stereoplotter"><i class="fa fa-check"></i><b>5.7</b> Работа в стереокомпараторе</a></li>
+<li class="chapter" data-level="5.6" data-path="stereo.html"><a href="stereo.html#stereo-resection"><i class="fa fa-check"></i><b>5.6</b> Обратная фотограмметрическая засечка</a></li>
+<li class="chapter" data-level="5.7" data-path="stereo.html"><a href="stereo.html#stereo-phototriangulation"><i class="fa fa-check"></i><b>5.7</b> Взаимное ориентирование снимков</a></li>
+<li class="chapter" data-level="5.8" data-path="stereo.html"><a href="stereo.html#stereo-stereoplotter"><i class="fa fa-check"></i><b>5.8</b> Работа в стереокомпараторе</a></li>
 </ul></li>
 <li class="chapter" data-level="6" data-path="dem.html"><a href="dem.html"><i class="fa fa-check"></i><b>6</b> Получение ЦММ и ортотрансформация</a>
 <ul>
@@ -328,8 +329,8 @@
 </table>
 <p>Внесите информацию об опорных точках и сохраните проект.</p>
 </div>
-<div id="stereo-exterior" class="section level2 hasAnchor" number="5.6">
-<h2><span class="header-section-number">5.6</span> Внешнее ориентирование<a href="stereo.html#stereo-exterior" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<div id="stereo-resection" class="section level2 hasAnchor" number="5.6">
+<h2><span class="header-section-number">5.6</span> Обратная фотограмметрическая засечка<a href="stereo.html#stereo-resection" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p><a href="stereo.html#stereo">В начало справки ⇡</a></p>
 <p>Для внешнего ориентирования с помощью обратной фотограмметрической засечки в меню выберите пункт <strong>Execute – Spatial Resection</strong>. Аналогично внутреннему ориентированию откроется окно с выбором снимка. Далее откроется снимок с таблицей опорных точек внизу. Аналогично расстановке координатных меток установите опорные точки на снимке с помощью кнопки <strong>Measure</strong> <img src="images/Ref13/Measure.png" />. Пропускайте те точки, которые отсутствуют на данном снимке. Для исключения опорной точки из засечки нажмите на крестик <img src="images/Ref13/Exclusion.png" />. После расстановки всех опорных точек на снимке нажмите на <img src="images\Ref03\Execute_EO.png" />, согласитесь со всеми параметрами точности, после чего перед вами откроется отчёт об уравнивании с параметрами внешнего ориентирования и матрицей вариации-ковариации.</p>
 <div class="figure">
@@ -338,8 +339,35 @@
 </div>
 <p>Обратите внимание, что значение координаты Z должно быть около 1600 м, значения углов должны быть маленькими. Если параметры точности в матрице достаточны, то вы сможете нажать на кнопку <strong>Accept</strong> – параметры внешнего ориентирования будут сохранены. После этого нажмите на кнопку <strong>Done</strong> <img src="images/Ref13/Done.png" />, что вернёт вас в основное окно проекта. Проделайте аналогичные операции для остальных снимков.</p>
 </div>
-<div id="stereo-stereoplotter" class="section level2 hasAnchor" number="5.7">
-<h2><span class="header-section-number">5.7</span> Работа в стереокомпараторе<a href="stereo.html#stereo-stereoplotter" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<div id="stereo-phototriangulation" class="section level2 hasAnchor" number="5.7">
+<h2><span class="header-section-number">5.7</span> Взаимное ориентирование снимков<a href="stereo.html#stereo-phototriangulation" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p><a href="stereo.html#stereo">В начало справки ⇡</a></p>
+<p>Ранее вы получили элементы внешнего ориентирования для каждого снимка по отдельности. Для более точного ориентирования модели местности необходимо взаимно ориентировать снимки и сделать уравнивание связок. В меню выберите пункт <strong>Execute – Phototriangulation</strong>.</p>
+<div class="figure">
+<img src="images/Ref13/Phototriangulation.png" alt="" />
+<p class="caption">Окно стереокомпаратора</p>
+</div>
+<p>Перед вами откроются окна с левым и правым снимком, окно со списком наземных опорных точек, а также окна с их измерениями на соответственных снимках. Для фототриангуляции необходимо дополнительно поставить так называемые <strong>фотограмметрические точки (связующие точки)</strong>.</p>
+<blockquote>
+<p>Обратите внимание, что для корректных измерений и дальнейшего ориентирования модели необходимо правильно указать левый и правый снимок – они должны быть в соответствующих окнах.</p>
+</blockquote>
+<p>Для создания связующей точки нажмите на кнопку <strong>Create a photogrammetric point in project</strong> <img src="images/Ref13/Tie_Point.png" />. Затем разместите точку с помощью кнопки <strong>Measure</strong> на левом и правом снимке. При выборе места размещения помните о наилучших местах на стереопаре при взаимном ориентировании снимков.</p>
+<p>После расстановки всех связующих точек нажмите на кнопку <strong>Execute phototriangulation</strong> <img src="images/Ref13/Execute_EO.png" />. Откроется окно, где будут предложены снимки и точки для уравнивания связок проектирующих лучей.</p>
+<div class="figure">
+<img src="images/Ref13/Phototriangulation_execution.png" alt="" />
+<p class="caption">Окно выбора снимков и точек для фототриангуляции</p>
+</div>
+<p>Если на предыдущих этапах всё было сделано правильно, то вы получите отчёт с корректными значениями элементов внешнего ориентирования, которые можно принять и использовать в дальнейшем. Помимо элементов внешнего ориентирования в отчёте приводятся поправки к ним относительно ранее выполненной обратной фотограмметрической засечки, а также расчётные координаты для связующих точек.</p>
+<div class="figure">
+<img src="images/Ref13/Phototriangulation_report.png" alt="" />
+<p class="caption">Окно отчёта фототриангуляции</p>
+</div>
+<blockquote>
+<p>Обратите внимание, что из-за особенностей программы координата северного склонения в отчёте получает дополнительный разряд в начале. К сожалению, в текущей версии эта проблема не решается и для дальнейшей работы необходимо иметь в виду, что у вас есть дополнительный сдвиг по оси Y на 10000000 м.</p>
+</blockquote>
+</div>
+<div id="stereo-stereoplotter" class="section level2 hasAnchor" number="5.8">
+<h2><span class="header-section-number">5.8</span> Работа в стереокомпараторе<a href="stereo.html#stereo-stereoplotter" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p><a href="stereo.html#stereo">В начало справки ⇡</a></p>
 <p>В меню проекта выберите пункт <strong>Execute – Stereo Plotter</strong>. Откроется окно с анаглифными изображением стереопары снимков. Для эффективной работы с анаглифами рекомендуется использовать специальные очки.</p>
 <div class="figure">
