@@ -23,7 +23,7 @@
 <meta name="author" content="Карпачевский А.М." />
 
 
-<meta name="date" content="2023-02-27" />
+<meta name="date" content="2023-03-05" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -125,12 +125,22 @@
 <li class="chapter" data-level="6.5" data-path="dem.html"><a href="dem.html#dem-verification"><i class="fa fa-check"></i><b>6.5</b> Верификация ЦММ по точкам стереоизмерений</a></li>
 <li class="chapter" data-level="6.6" data-path="dem.html"><a href="dem.html#dem-orthorectification"><i class="fa fa-check"></i><b>6.6</b> Ортотрансформация с использованием полученной ЦММ</a></li>
 </ul></li>
-<li class="chapter" data-level="7" data-path="las.html"><a href="las.html"><i class="fa fa-check"></i><b>7</b> Лазерное сканирование</a>
+<li class="chapter" data-level="7" data-path="photomod.html"><a href="photomod.html"><i class="fa fa-check"></i><b>7</b> Обработка данных аэрофотосъёмки в ЦФС PHOTOMOD</a>
 <ul>
-<li class="chapter" data-level="7.1" data-path="las.html"><a href="las.html#las-soft"><i class="fa fa-check"></i><b>7.1</b> Установка программного обеспечения</a></li>
-<li class="chapter" data-level="7.2" data-path="las.html"><a href="las.html#las-initial"><i class="fa fa-check"></i><b>7.2</b> Исходные данные</a></li>
-<li class="chapter" data-level="7.3" data-path="las.html"><a href="las.html#las-Extract"><i class="fa fa-check"></i><b>7.3</b> Вырезание фрагмента облака ТЛО в SAGA</a></li>
-<li class="chapter" data-level="7.4" data-path="las.html"><a href="las.html#las-cloudcompare"><i class="fa fa-check"></i><b>7.4</b> Работа с ТЛО в CloudCompare</a></li>
+<li class="chapter" data-level="7.1" data-path="photomod.html"><a href="photomod.html#photomod-soft"><i class="fa fa-check"></i><b>7.1</b> Установка программного обеспечения</a></li>
+<li class="chapter" data-level="7.2" data-path="photomod.html"><a href="photomod.html#photomod-initial"><i class="fa fa-check"></i><b>7.2</b> Исходные данные</a></li>
+<li class="chapter" data-level="7.3" data-path="photomod.html"><a href="photomod.html#photomod-create_project"><i class="fa fa-check"></i><b>7.3</b> Создание проекта</a></li>
+<li class="chapter" data-level="7.4" data-path="photomod.html"><a href="photomod.html#photomod-interior_orientation"><i class="fa fa-check"></i><b>7.4</b> Внутреннее ориентирование</a></li>
+<li class="chapter" data-level="7.5" data-path="photomod.html"><a href="photomod.html#photomod-network_measurements"><i class="fa fa-check"></i><b>7.5</b> Измерение сети</a></li>
+<li class="chapter" data-level="7.6" data-path="photomod.html"><a href="photomod.html#photomod-network_adjustment"><i class="fa fa-check"></i><b>7.6</b> Уравнивание сети</a></li>
+<li class="chapter" data-level="7.7" data-path="photomod.html"><a href="photomod.html#photomod-DEM_creation"><i class="fa fa-check"></i><b>7.7</b> Обработка сети. Создание ЦМР</a></li>
+</ul></li>
+<li class="chapter" data-level="8" data-path="las.html"><a href="las.html"><i class="fa fa-check"></i><b>8</b> Лазерное сканирование</a>
+<ul>
+<li class="chapter" data-level="8.1" data-path="las.html"><a href="las.html#las-soft"><i class="fa fa-check"></i><b>8.1</b> Установка программного обеспечения</a></li>
+<li class="chapter" data-level="8.2" data-path="las.html"><a href="las.html#las-initial"><i class="fa fa-check"></i><b>8.2</b> Исходные данные</a></li>
+<li class="chapter" data-level="8.3" data-path="las.html"><a href="las.html#las-Extract"><i class="fa fa-check"></i><b>8.3</b> Вырезание фрагмента облака ТЛО в SAGA</a></li>
+<li class="chapter" data-level="8.4" data-path="las.html"><a href="las.html#las-cloudcompare"><i class="fa fa-check"></i><b>8.4</b> Работа с ТЛО в CloudCompare</a></li>
 </ul></li>
 <li class="divider"></li>
 <li><a href="https://github.com/rstudio/bookdown" target="blank">Published with bookdown</a></li>
@@ -155,7 +165,7 @@
 <div id="header">
 <h1 class="title">Ref150_Las</h1>
 <p class="author"><em>Карпачевский А.М.</em></p>
-<p class="date"><em>2023-02-27</em></p>
+<p class="date"><em>2023-03-05</em></p>
 </div>
 <div id="программное-обеспечение" class="section level1 unnumbered hasAnchor">
 <h1>Программное обеспечение<a href="index.html#программное-обеспечение" class="anchor-section" aria-label="Anchor link to header"></a></h1>
@@ -164,7 +174,7 @@
 <p>Для выполнения работ в учебном курсе вам потребуется скачать и установить на свой компьютер геоинформационное приложение QGIS. Это свободно распространяемое программное обеспечение, то есть для его установки не требуется покупка или регистрация.</p>
 <div id="windows" class="section level3 unnumbered hasAnchor">
 <h3>Windows<a href="index.html#windows" class="anchor-section" aria-label="Anchor link to header"></a></h3>
-<p>Скачайте с официального сайта последнюю стабильную версию QGIS. По состоянию на 7 февраля 2022 г. это версия 3.16. Выберите версию в зависимости от разрядности вашей системы. <a href="https://qgis.org/downloads/QGIS-OSGeo4W-3.16.16-1.msi" target="_blank">Перейти к скачиванию</a>.</p>
+<p>Скачайте с официального сайта последнюю стабильную версию QGIS. По состоянию на 7 февраля 2023 г. это версия 3.28. Выберите версию в зависимости от разрядности вашей системы. <a href="https://qgis.org/downloads/QGIS-OSGeo4W-3.16.16-1.msi" target="_blank">Перейти к скачиванию</a>.</p>
 <p>Если на вашем компьютере уже установлена более старая версия QGIS, удалите её перед началом установки новой версии. Вы можете использовать старую версию QGIS для выполнения большинства заданий практикума, однако, если у вас возникнут технические проблемы,</p>
 <p>Когда исполняемый файл загрузится, запустите его. Если потребуется, разрешите приложению вносить изменения на вашем устройстве.</p>
 <p>Будет показано приветственное окно мастера установки. Нажмите «Далее», чтобы перейти на следующий шаг.
@@ -179,7 +189,7 @@
 </div>
 <div id="macos" class="section level3 unnumbered hasAnchor">
 <h3>macOS<a href="index.html#macos" class="anchor-section" aria-label="Anchor link to header"></a></h3>
-<p>По состоянию на 2023-02-27 для прохождения практикума рекомендуется использовать альтернативную сборку версии <a href="https://www.kyngchaos.com/files/software/qgis/QGIS-macOS-3.4.12-1.dmg" target="_blank">3.4.12</a>. Перейдя по ссылке, необходимо согласиться сохранить образ установочного диска на компьютер (можно разрешить его сразу открыть средствами <em>DiskImageMounter</em>):</p>
+<p>По состоянию на 2023-03-05 для прохождения практикума рекомендуется использовать альтернативную сборку версии <a href="https://www.kyngchaos.com/files/software/qgis/QGIS-macOS-3.4.12-1.dmg" target="_blank">3.4.12</a>. Перейдя по ссылке, необходимо согласиться сохранить образ установочного диска на компьютер (можно разрешить его сразу открыть средствами <em>DiskImageMounter</em>):</p>
 <p><img src="images/Index0/mac01.png" /></p>
 <p>После того как образ загрузится и будет открыт, необходимо последовательно запустить три установщика, выделенные на снимке экрана ниже (именно в том порядке, в котором они пронумерованы!):</p>
 <p><img src="images/Index0/mac02.png" /></p>

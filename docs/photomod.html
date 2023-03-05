@@ -1,0 +1,415 @@
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+<head>
+
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <title>Раздел 7 Обработка данных аэрофотосъёмки в ЦФС PHOTOMOD | Ref150_Las</title>
+  <meta name="description" content="Основы дистанционного зондирования и фотограмметрии" />
+  <meta name="generator" content="bookdown 0.30 and GitBook 2.6.7" />
+
+  <meta property="og:title" content="Раздел 7 Обработка данных аэрофотосъёмки в ЦФС PHOTOMOD | Ref150_Las" />
+  <meta property="og:type" content="book" />
+  
+  <meta property="og:description" content="Основы дистанционного зондирования и фотограмметрии" />
+  <meta name="github-repo" content="IOWq750/Remote_Sensing_Photogrammetry" />
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="Раздел 7 Обработка данных аэрофотосъёмки в ЦФС PHOTOMOD | Ref150_Las" />
+  
+  <meta name="twitter:description" content="Основы дистанционного зондирования и фотограмметрии" />
+  
+
+<meta name="author" content="Карпачевский А.М." />
+
+
+<meta name="date" content="2023-03-05" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+  <link rel="apple-touch-icon-precomposed" sizes="120x120" href="images/apple-touch-icon.png" />
+  <link rel="shortcut icon" href="images/favicon.ico" type="image/x-icon" />
+<link rel="prev" href="dem.html"/>
+<link rel="next" href="las.html"/>
+<script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
+<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-clipboard.css" rel="stylesheet" />
+
+
+
+
+
+
+
+
+<link href="libs/anchor-sections-1.1.0/anchor-sections.css" rel="stylesheet" />
+<link href="libs/anchor-sections-1.1.0/anchor-sections-hash.css" rel="stylesheet" />
+<script src="libs/anchor-sections-1.1.0/anchor-sections.js"></script>
+
+
+
+
+<link rel="stylesheet" href="style.css" type="text/css" />
+</head>
+
+<body>
+
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+<li><a href="./">Основы дистанционного зондирования и фотограмметрия</a></li>
+
+<li class="divider"></li>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i>Программное обеспечение</a>
+<ul>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html#qgis"><i class="fa fa-check"></i>QGIS</a>
+<ul>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html#windows"><i class="fa fa-check"></i>Windows</a></li>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html#macos"><i class="fa fa-check"></i>macOS</a></li>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html#linux"><i class="fa fa-check"></i>Linux</a></li>
+</ul></li>
+<li class="chapter" data-level="0.1" data-path="index.html"><a href="index.html#global"><i class="fa fa-check"></i><b>0.1</b> Изменение языка интерфейса и прочих глобальных переменных QGIS</a></li>
+</ul></li>
+<li class="chapter" data-level="1" data-path="pansharpen.html"><a href="pansharpen.html"><i class="fa fa-check"></i><b>1</b> Преобразования пространственного разрешения</a>
+<ul>
+<li class="chapter" data-level="1.1" data-path="pansharpen.html"><a href="pansharpen.html#pansharpen-project"><i class="fa fa-check"></i><b>1.1</b> Создание проекта в ArcGIS Pro</a></li>
+<li class="chapter" data-level="1.2" data-path="pansharpen.html"><a href="pansharpen.html#pansharpen-composite"><i class="fa fa-check"></i><b>1.2</b> Создание композита</a></li>
+<li class="chapter" data-level="1.3" data-path="pansharpen.html"><a href="pansharpen.html#pansharpen-extract"><i class="fa fa-check"></i><b>1.3</b> Вырезание фрагмента изображения</a></li>
+<li class="chapter" data-level="1.4" data-path="pansharpen.html"><a href="pansharpen.html#pansharpen-resampling"><i class="fa fa-check"></i><b>1.4</b> Передискретизация</a></li>
+<li class="chapter" data-level="1.5" data-path="pansharpen.html"><a href="pansharpen.html#pansharpen-filter"><i class="fa fa-check"></i><b>1.5</b> Фильтрация</a></li>
+<li class="chapter" data-level="1.6" data-path="pansharpen.html"><a href="pansharpen.html#pansharpen-pansharpen"><i class="fa fa-check"></i><b>1.6</b> Паншарпенинг</a></li>
+</ul></li>
+<li class="chapter" data-level="2" data-path="georeference.html"><a href="georeference.html"><i class="fa fa-check"></i><b>2</b> Географическая привязка</a>
+<ul>
+<li class="chapter" data-level="2.1" data-path="georeference.html"><a href="georeference.html#georeference-arcgis"><i class="fa fa-check"></i><b>2.1</b> Географическая привязка в ArcGIS Pro</a></li>
+<li class="chapter" data-level="2.2" data-path="georeference.html"><a href="georeference.html#georeference-qgis"><i class="fa fa-check"></i><b>2.2</b> Географическая привязка в QGIS</a></li>
+</ul></li>
+<li class="chapter" data-level="3" data-path="mosaic.html"><a href="mosaic.html"><i class="fa fa-check"></i><b>3</b> Создание мозаики</a>
+<ul>
+<li class="chapter" data-level="3.1" data-path="mosaic.html"><a href="mosaic.html#mosaic-arcgis"><i class="fa fa-check"></i><b>3.1</b> Создание мозаики в ArcGIS Pro</a></li>
+</ul></li>
+<li class="chapter" data-level="4" data-path="photogrammetry.html"><a href="photogrammetry.html"><i class="fa fa-check"></i><b>4</b> Фотограмметрия кадрового снимка</a>
+<ul>
+<li class="chapter" data-level="4.1" data-path="photogrammetry.html"><a href="photogrammetry.html#photogrammetry-oblique"><i class="fa fa-check"></i><b>4.1</b> Искажения наклонного снимка</a></li>
+<li class="chapter" data-level="4.2" data-path="photogrammetry.html"><a href="photogrammetry.html#photogrammetry-interior"><i class="fa fa-check"></i><b>4.2</b> Внутреннее ориентирование снимка</a></li>
+</ul></li>
+<li class="chapter" data-level="5" data-path="stereo.html"><a href="stereo.html"><i class="fa fa-check"></i><b>5</b> Стереоизмерения</a>
+<ul>
+<li class="chapter" data-level="5.1" data-path="stereo.html"><a href="stereo.html#stereo-soft"><i class="fa fa-check"></i><b>5.1</b> Установка программного обеспечения</a></li>
+<li class="chapter" data-level="5.2" data-path="stereo.html"><a href="stereo.html#stereo-initial"><i class="fa fa-check"></i><b>5.2</b> Исходные данные</a></li>
+<li class="chapter" data-level="5.3" data-path="stereo.html"><a href="stereo.html#stereo-create_project"><i class="fa fa-check"></i><b>5.3</b> Создание проекта</a></li>
+<li class="chapter" data-level="5.4" data-path="stereo.html"><a href="stereo.html#stereo-interior"><i class="fa fa-check"></i><b>5.4</b> Внутреннее ориентирование</a></li>
+<li class="chapter" data-level="5.5" data-path="stereo.html"><a href="stereo.html#stereo-GCP"><i class="fa fa-check"></i><b>5.5</b> Опорные точки</a></li>
+<li class="chapter" data-level="5.6" data-path="stereo.html"><a href="stereo.html#stereo-resection"><i class="fa fa-check"></i><b>5.6</b> Обратная фотограмметрическая засечка</a></li>
+<li class="chapter" data-level="5.7" data-path="stereo.html"><a href="stereo.html#stereo-phototriangulation"><i class="fa fa-check"></i><b>5.7</b> Взаимное ориентирование снимков</a></li>
+<li class="chapter" data-level="5.8" data-path="stereo.html"><a href="stereo.html#stereo-stereoplotter"><i class="fa fa-check"></i><b>5.8</b> Работа в стереокомпараторе</a></li>
+</ul></li>
+<li class="chapter" data-level="6" data-path="dem.html"><a href="dem.html"><i class="fa fa-check"></i><b>6</b> Получение ЦММ и ортотрансформация</a>
+<ul>
+<li class="chapter" data-level="6.1" data-path="dem.html"><a href="dem.html#dem-initial"><i class="fa fa-check"></i><b>6.1</b> Исходные данные</a></li>
+<li class="chapter" data-level="6.2" data-path="dem.html"><a href="dem.html#dem-create"><i class="fa fa-check"></i><b>6.2</b> Построение ЦММ</a></li>
+<li class="chapter" data-level="6.3" data-path="dem.html"><a href="dem.html#dem-QGIS"><i class="fa fa-check"></i><b>6.3</b> Работа с высотными данными в QGIS</a></li>
+<li class="chapter" data-level="6.4" data-path="dem.html"><a href="dem.html#dem-derived"><i class="fa fa-check"></i><b>6.4</b> Построение производных поверхностей</a></li>
+<li class="chapter" data-level="6.5" data-path="dem.html"><a href="dem.html#dem-verification"><i class="fa fa-check"></i><b>6.5</b> Верификация ЦММ по точкам стереоизмерений</a></li>
+<li class="chapter" data-level="6.6" data-path="dem.html"><a href="dem.html#dem-orthorectification"><i class="fa fa-check"></i><b>6.6</b> Ортотрансформация с использованием полученной ЦММ</a></li>
+</ul></li>
+<li class="chapter" data-level="7" data-path="photomod.html"><a href="photomod.html"><i class="fa fa-check"></i><b>7</b> Обработка данных аэрофотосъёмки в ЦФС PHOTOMOD</a>
+<ul>
+<li class="chapter" data-level="7.1" data-path="photomod.html"><a href="photomod.html#photomod-soft"><i class="fa fa-check"></i><b>7.1</b> Установка программного обеспечения</a></li>
+<li class="chapter" data-level="7.2" data-path="photomod.html"><a href="photomod.html#photomod-initial"><i class="fa fa-check"></i><b>7.2</b> Исходные данные</a></li>
+<li class="chapter" data-level="7.3" data-path="photomod.html"><a href="photomod.html#photomod-create_project"><i class="fa fa-check"></i><b>7.3</b> Создание проекта</a></li>
+<li class="chapter" data-level="7.4" data-path="photomod.html"><a href="photomod.html#photomod-interior_orientation"><i class="fa fa-check"></i><b>7.4</b> Внутреннее ориентирование</a></li>
+<li class="chapter" data-level="7.5" data-path="photomod.html"><a href="photomod.html#photomod-network_measurements"><i class="fa fa-check"></i><b>7.5</b> Измерение сети</a></li>
+<li class="chapter" data-level="7.6" data-path="photomod.html"><a href="photomod.html#photomod-network_adjustment"><i class="fa fa-check"></i><b>7.6</b> Уравнивание сети</a></li>
+<li class="chapter" data-level="7.7" data-path="photomod.html"><a href="photomod.html#photomod-DEM_creation"><i class="fa fa-check"></i><b>7.7</b> Обработка сети. Создание ЦМР</a></li>
+</ul></li>
+<li class="chapter" data-level="8" data-path="las.html"><a href="las.html"><i class="fa fa-check"></i><b>8</b> Лазерное сканирование</a>
+<ul>
+<li class="chapter" data-level="8.1" data-path="las.html"><a href="las.html#las-soft"><i class="fa fa-check"></i><b>8.1</b> Установка программного обеспечения</a></li>
+<li class="chapter" data-level="8.2" data-path="las.html"><a href="las.html#las-initial"><i class="fa fa-check"></i><b>8.2</b> Исходные данные</a></li>
+<li class="chapter" data-level="8.3" data-path="las.html"><a href="las.html#las-Extract"><i class="fa fa-check"></i><b>8.3</b> Вырезание фрагмента облака ТЛО в SAGA</a></li>
+<li class="chapter" data-level="8.4" data-path="las.html"><a href="las.html#las-cloudcompare"><i class="fa fa-check"></i><b>8.4</b> Работа с ТЛО в CloudCompare</a></li>
+</ul></li>
+<li class="divider"></li>
+<li><a href="https://github.com/rstudio/bookdown" target="blank">Published with bookdown</a></li>
+
+</ul>
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">Ref150_Las</a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<div id="photomod" class="section level1 hasAnchor" number="7">
+<h1><span class="header-section-number">Раздел 7</span> Обработка данных аэрофотосъёмки в ЦФС PHOTOMOD<a href="photomod.html#photomod" class="anchor-section" aria-label="Anchor link to header"></a></h1>
+<div id="photomod-soft" class="section level2 hasAnchor" number="7.1">
+<h2><span class="header-section-number">7.1</span> Установка программного обеспечения<a href="photomod.html#photomod-soft" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p><a href="photomod.html#photomod">В начало справки ⇡</a></p>
+<p>Для практической работы вам понадобится цифровая фотограмметрическая система <strong>PHOTOMOD</strong>. Информацию о ней можно найти на домашнем сайте (<a href="https://racurs.ru/" class="uri">https://racurs.ru/</a>), там же можно скачать себе дистрибутив бесплатной версии программы, предварительно зарегистрировавшись.</p>
+</div>
+<div id="photomod-initial" class="section level2 hasAnchor" number="7.2">
+<h2><span class="header-section-number">7.2</span> Исходные данные<a href="photomod.html#photomod-initial" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p><a href="photomod.html#photomod">В начало справки ⇡</a></p>
+<p>В качестве исходных данных мы будем использовать серию аналоговых аэрофотоснимков на территорию WaldKirch (Германия).</p>
+<p><a href="https://disk.yandex.ru/d/vxx2kKksx5Hyfw" target="_blank">Снимки</a></p>
+<p><a href="https://disk.yandex.ru/d/7xvAgKMJ7xIavg" target="_blank">Параметры камеры</a></p>
+<p><a href="https://disk.yandex.ru/d/ZFQWVoHlaKIGUA" target="_blank">Наземные опорные точки</a></p>
+</div>
+<div id="photomod-create_project" class="section level2 hasAnchor" number="7.3">
+<h2><span class="header-section-number">7.3</span> Создание проекта<a href="photomod.html#photomod-create_project" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p><a href="photomod.html#photomod">В начало справки ⇡</a></p>
+<p>Запустите программу <strong>PHOTOMOD 7 X64</strong>. Если вы используете <strong>Lite</strong> версию, то откроется окно с информацией об усеченном функционале. Интерфейс программы представляет собой набор окон, например, окно главного меню, окно схемы блока, а также различные панели работы с данными. При запуске программы открывается окно управления проектами. Для создания проекта нажмите на соответствующую кнопку справа.</p>
+<div class="figure">
+<img src="images/Ref15/Project_Manager.png" alt="" />
+<p class="caption">Окно менеджера проекта</p>
+</div>
+<p>Справа выберите путь для создания проекта. Обратите внимание, что по умолчанию предлагаются системные пути на диске C. вы можете создать новый путь, нажав на кнопку <strong>Open Explorer</strong> <img src="images/Ref15/Open_Explorer.png" />, а затем на кнопку подключения <img src="images/Ref15/Connect_Folder.png" />.</p>
+<blockquote>
+<p>Обратите внимание, что у программы есть свои особенности, связанные с сетевой структурой хранения данных, что может не позволить вам создать проект с произвольным путём не на диске C.</p>
+</blockquote>
+<p>Заполните <em>Имя</em> проекта, <em>Описание</em>. Если вы работаете с фотографическими снимками, выберите в <em>Тип</em> <strong>Центральная проекция</strong>. Укажите правую декартовую систему координат – для этого нажмите на <strong>Выбрать – Из БД – Международная</strong>, в открывшемся окне найдите <strong>Cartesian Right</strong> (№142). Задайте амплитуду высот местности от 400 до 900 м. нажмите <strong>ОК</strong> для создания проекта.</p>
+</div>
+<div id="photomod-interior_orientation" class="section level2 hasAnchor" number="7.4">
+<h2><span class="header-section-number">7.4</span> Внутреннее ориентирование<a href="photomod.html#photomod-interior_orientation" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p><a href="photomod.html#photomod">В начало справки ⇡</a></p>
+<p>Перед вами откроется окно создания нового маршрута – можно согласиться с именем по умолчанию. <em>Маршрут</em> – это совокупность снимков, полученных с одного галса залёта. Затем вы перейдёте к окну редактора блока снимков. <em>Блок снимков</em> – это совокупность всех снимков, сделанных на изучамую территорию в течение залёта.</p>
+<div class="figure">
+<img src="images/Ref15/Block_Editor.png" alt="" />
+<p class="caption">Окно менеджера проекта</p>
+</div>
+<p>Кнопки <img src="images/Ref15/Add_Image1.png" /> и <img src="images/Ref15/Add_Image2.png" /> предназначены для добавления снимков. Первая позволяет добавить файлы из любого места, а вторая – из подключенных папок, включая папку проекта. Проще использовать вторую кнопку – для этого необходимо переместить данные в папку <strong>Images</strong> проекта (<strong>C:/PHOTOMOD6.VAR/Profiles/%Имя профиля%/%Имя проекта%/Images</strong>).</p>
+<p>По умолчанию программа формирует накидной монтаж из снимков, состоящий из одного маршрута (в одну линию).</p>
+<blockquote>
+<p>Накидной монтаж – схематическое наложение снимков блока, исходя из их принадлежности к маршрутам, порядка съёмки, значений продольного и поперечного перекрытия.</p>
+</blockquote>
+<p>Используемые снимки в именах файлов содержат информацию о принадлежности к маршрутам (число до символа ‘<em>’) и порядковом номере снимка (число после символа ’</em>’). Можно заметить, что используемые снимки относятся к маршрутам 2 и 3. В основном окне программы найдите меню <strong>Блок – Разбить на маршруты – По именам снимков</strong>.</p>
+<div class="figure">
+<img src="images/Ref15/Split_Block.png" alt="" />
+<p class="caption">Разбивка по маршрутам</p>
+</div>
+<p>Поскольку маршрут 2 представляет собой галс обратного направления съёмки, необходимо его выделить в редакторе блока и нажать на кнопку изменения порядка изображений в маршруте <img src="images/Ref15/Change_direction.png" />.</p>
+<div class="figure">
+<img src="images/Ref15/Block_Editor2.png" alt="" />
+<p class="caption">Правильный порядок кадров в маршрутах блока</p>
+</div>
+<p>Откройте окно накидного монтажа в главном меню <strong>Окна – Накидной монтаж</strong> или нажав на кнопку <img src="images/Ref15/Schematics_Button.png" /> в окне редактора блока. Задайте продольное и поперечное перекрытие в 65 и 43%, для предварительного внешнего ориентирования снимков выберите <strong>Центры проекции и углы</strong>. Нажмите на кнопку <strong>Применить</strong> и закройте окно, после чего накидной монтаж перестроится.</p>
+<div class="figure">
+<img src="images/Ref15/Schematics.png" alt="" />
+<p class="caption">Настройки накидного монтажа</p>
+</div>
+<p>Далее необходимо задать параметры камеры, с помощью которой были сделаны кадры. Для этого в главном меню программы выберите пункт <strong>Ориентирование – Управление камерами</strong>. В открывшемся окне необходимо создать камеру, нажав на кнопку <img src="images/Ref15/Create_Camera.png" />. Параметры камеры можно заполнить самостоятельно, а можно импортировать из файла, предоставленного в исходных данных.</p>
+<p><em>Камера</em>: RC_30
+<em>Тип камеры</em>: аналоговая
+<em>Единицы измерения</em>: мм
+<em>Фокусное расстояние</em>: 153.5030
+<em>Координаты главной точки</em>: X: 0.0020, Y: 0.0110
+<em>Дисторсия</em>: Формула (физ.)
+<em>Информация о метках</em>: Координаты меток</p>
+<div class="figure">
+<img src="images/Ref15/Camera.png" alt="" />
+<p class="caption">Настройки накидного монтажа</p>
+</div>
+<p>После этого необходимо выделить все снимки в окне управления камерами проекта и убедиться в том, что стоит галка напротив опции <strong>Присвоить выбранную камеру выбранным изображениям</strong>. Нажмите на кнопку <strong>Выполнить</strong>. После закрытия окна камера присвоится ко всем снимкам.</p>
+<p>В окне редактора блока выделите снимок <strong>2_0710</strong>, после чего в главном меню программы выберите <strong>Ориентирование – Внутреннее ориентирование – Внутреннее ориентирование снимка</strong>. Откроется окно для задания координатных меток снимков. Для ориентирования необходимо выбрать каждую строку координат из таблицы внизу и указать их положение на соответственных координатных метках. После установки маркера необходимо нажать на кнопку <strong>Измерить метку</strong>.</p>
+<div class="figure">
+<img src="images/Ref15/Interior_Orientation.png" alt="" />
+<p class="caption">Окно внутреннего ориентирования снимка</p>
+</div>
+<blockquote>
+<p>Для того, чтобы перемещать снимок, используйте зажатую клавишу <strong>ALT</strong>. Изменение масштаба осуществляется с помощью соответствующих кнопок над изображением.</p>
+</blockquote>
+<p>После расстановки координатных меток снимка нажмите кнопку <strong>Применить</strong> и <strong>OK</strong>. Координатные метки на всех остальных снимках можно расставить автоматически. Выберите в главном меню <strong>Ориентирование – Внутреннее ориентирование – Полуавтоматическое внутреннее ориентирование</strong>. Выберите все изображения в окне, поставив напротив них галочки. Введите параметры размера области метки 101 и размер области поиска 201. Коэффициент корреляции 0,9. Аффинный тип преобразования. Нажмите выполнить. Появится сообщение о том, что найдены все метки на 5 изображениях. Нажмите ОК. Закройте окно полуавтоматического внутреннего ориентирования.</p>
+<div class="figure">
+<img src="images/Ref15/Semi-Automate.png" alt="" />
+<p class="caption">Полуавтоматическое внутреннее ориентирование снимка</p>
+</div>
+<p>В окне управления камерами проекта вы можете увидеть знак + напротив каждого снимка в колонке внутреннего ориентирования. Можно ознакомиться с отчётом по внутреннему ориентированию. Выберите пункт главного меню <strong>Ориентирование – Внутреннее ориентирование – Отчет по внутреннему ориентированию</strong>, либо нажмите на кнопку <img src="images/Ref15/Report_IO.png" /> в окне управления камерами. Необходимо убедиться, что ошибка по СКО у измеренных меток не больше 0,5 пиксела. При несоответствии ваших измерений этому допуску ошибка подсветится красным цветом. Отредактировать измерение можно, нажав на синюю звездочку в левом столбце таблицы отчета напротив измерения, превышающего допуск. После исправления возможных ошибок закройте окно отчета и окно управления камерами проекта.</p>
+</div>
+<div id="photomod-network_measurements" class="section level2 hasAnchor" number="7.5">
+<h2><span class="header-section-number">7.5</span> Измерение сети<a href="photomod.html#photomod-network_measurements" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p><a href="photomod.html#photomod">В начало справки ⇡</a></p>
+<p>Выберите пункт главного меню <strong>Ориентирование – Автоматическое измерение связующих точек – Аэросъёмка (Площадной коррелятор)</strong>. Откроется окно, убедитесь, что параметры соответствуют тому, что указано на скриншоте. Нажмите <strong>Выполнить</strong>, по завершении операции нажмите <strong>ОК</strong> и закройте открывшийся отчёт.</p>
+<div class="figure">
+<img src="images/Ref15/Tie_Points.png" alt="" />
+<p class="caption">Окно автоматического измерения связующих точек</p>
+</div>
+<p>Для перестройки накидного монтажа выберите пункт меню <strong>Проект – Синхронизировать</strong></p>
+<p>В окне накидного монтажа или редактора блока выберите любой снимок. Далее импортируйте опорные точки в проект, выбрав пункт главного меню <strong>Ориентирование – Каталог опорных точек</strong>. В открывшемся окне нажмите на кнопку импорта <img src="images/Ref15/Import_Points.png" /> и выберите файл <strong>Waldkirch_GCP.csv</strong>. В открывшемся окне убедитесь, что выбран правильный разделитель колонок, а также указана правильный порядковый номер строки, с которой начинает чтение файла. Колонки с данными должны соответствовать колонкам в окне.</p>
+<div class="figure">
+<img src="images/Ref15/Import_Points2.png" alt="" />
+<p class="caption">Окно импорта опорных точек</p>
+</div>
+<p>Далее необходимо последовательно выбрать добавленные опорные точки в таблице и каждую измерить, нажав на кнопку <strong>Найти/измерить точку</strong> <img src="images/Ref15/Measure_Point.png" />. После нажатия откроется окно со снимком. С помощью инструментов на верхней панели вы можете менять масштаб, а также премещаться между снимками накидного монтажа. Помните о том, что опорные точки, как правило, имеют свои проекции на нескольких снимках, но на данном этапе необходимо поставить точку только на одном снимке из блока.</p>
+<div class="figure">
+<img src="images/Ref15/Measure_Point2.png" alt="" />
+<p class="caption">Окно измерения опорных точек</p>
+</div>
+<p>Изучите размещение опорных точек по рисунке ниже и найдите каждую. После нахождения точки и установки маркера в центр опознака необходимо нажать на кнопку <strong>Переместить точку в положение маркера</strong> <img src="images/Ref15/Move_Point2Marker.png" />.</p>
+<div class="figure">
+<img src="images/Ref15/Image_0722.png" alt="" />
+<p class="caption">Размещение опорных точек на снимке 0722</p>
+</div>
+<div class="figure">
+<img src="images/Ref15/Image_0712.png" alt="" />
+<p class="caption">Размещение опорных точек на снимке 0712</p>
+</div>
+<p>Далее приведены положения всех опорных точек в крупном масштабе. Обратите внимание, что каждая точка представляет собой опознак белого цвета с двумя перпендикулярными прямоугольниками.</p>
+<div class="figure">
+<img src="images/Ref15/Opoznak.png" alt="" />
+<p class="caption">Схематичное изображение опознака</p>
+</div>
+<div class="figure">
+<img src="images/Ref15/Point_40169P.png" alt="" />
+<p class="caption">Точка 40169P</p>
+</div>
+<div class="figure">
+<img src="images/Ref15/Point_6719.png" alt="" />
+<p class="caption">Точка 6719</p>
+</div>
+<div class="figure">
+<img src="images/Ref15/Point_6720.png" alt="" />
+<p class="caption">Точка 6720</p>
+</div>
+<div class="figure">
+<img src="images/Ref15/Point_779.png" alt="" />
+<p class="caption">Точка 779</p>
+</div>
+<div class="figure">
+<img src="images/Ref15/Point_970.png" alt="" />
+<p class="caption">Точка 970</p>
+</div>
+<div class="figure">
+<img src="images/Ref15/Point_163.png" alt="" />
+<p class="caption">Точка 163</p>
+</div>
+<p>После измерения всех опорных точек на одном снимке нажмите кнопку <strong>Применить</strong>.</p>
+<p>Для измерения остальных проекций точек на других снимках дважды щёлкните по точке в таблице. Откроются другие снимки, на которых эта точка должна присутствовать. Снимок, на котором точка была измерена в первый раз, назначьте левым, нажав на кнопку <img src="images/Ref15/Make_Left.png" />. Поставьте маркер на правом снимке (снимках) в нужное место и нажмите на кнопку <strong>Коррелировать все с левым</strong> <img src="images/Ref15/Correlate.png" />. При правильной установке проекции опорной точки будет получен высокий коэффициент корреляции. Если вы заметили, что коррелятор некорректно ставит проекцию точки, то поставьте её вручную с помощью кнопки <strong>Переместить точку в положение маркера</strong>. По завершении работы со всеми точками нажмите <strong>Применить</strong> и <strong>ОК</strong>.</p>
+</div>
+<div id="photomod-network_adjustment" class="section level2 hasAnchor" number="7.6">
+<h2><span class="header-section-number">7.6</span> Уравнивание сети<a href="photomod.html#photomod-network_adjustment" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p><a href="photomod.html#photomod">В начало справки ⇡</a></p>
+<p>Запустите уравнивание блока в главном меню <strong>Ориентирование – Уравнивание блока</strong>. На открывшейся панели нажмите на кнопку <strong>Редактировать параметры уравнивания и вид отчёта</strong> <img src="images/Ref15/Adjustment.png" />. Для начального приближения выберите метод <strong>по схеме блока</strong>, а уравнивания по методу <strong>связок</strong>.</p>
+<div class="figure">
+<img src="images/Ref15/Adjustment_Settings.png" alt="" />
+<p class="caption">Окно параметрова уравнивания и вида отчета</p>
+</div>
+<p>Зайдите в настройки уравнивания методом связок и убедитесь, что веса для параметров уравнений равны 1. Это значение можно менять, но при это общая точность может ухудшиться. Точность измерений на снимках установите в 0,5 пикселя, поскольку это оптимальное значение параметра по соотношению время работы алгоритма/точность.</p>
+<div class="figure">
+<img src="images/Ref15/Bundle_Adjustment.png" alt="" />
+<p class="caption">Параметры метода связок</p>
+</div>
+<p>Нажмите на кнопку <strong>Уравнять</strong>, если не требуется менять параметры системы координат и вида отчета.</p>
+</div>
+<div id="photomod-DEM_creation" class="section level2 hasAnchor" number="7.7">
+<h2><span class="header-section-number">7.7</span> Обработка сети. Создание ЦМР<a href="photomod.html#photomod-DEM_creation" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p><a href="photomod.html#photomod">В начало справки ⇡</a></p>
+<p>Включите стереорежим в программе – для этого в главном меню выберите <strong>Сервис – Параметры – Анаглифический</strong>, если вы планируете работать с анаглифическими очками. Также в главном меню выберите <strong>Окна – Новое 2D-окно (стереопара)</strong>. Нажмите на кнопку перехода в стереорежим <img src="images/Ref15/Stereo.png" />. Для инвертирования стереоэффекта нажмите на кнопку <img src="images/Ref15/Stereo_Invert.png" />. Для перемещения по стереопаре используйте лапку. Для изменения масштаба – соответствующие инструменты на панели.</p>
+<table>
+<tbody>
+<tr class="odd">
+<td><em>Карпачевский А.М.</em> <strong>Основы дистанционного зондирования и фотограмметрия</strong>. М.: Географический факультет МГУ, 2023.</td>
+</tr>
+</tbody>
+</table>
+
+</div>
+</div>
+            </section>
+
+          </div>
+        </div>
+      </div>
+<a href="dem.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="las.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+    </div>
+  </div>
+<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/clipboard.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-clipboard.js"></script>
+<script>
+gitbook.require(["gitbook"], function(gitbook) {
+gitbook.start({
+"sharing": {
+"github": false,
+"facebook": true,
+"twitter": true,
+"linkedin": false,
+"weibo": false,
+"instapaper": false,
+"vk": false,
+"whatsapp": false,
+"all": ["facebook", "twitter", "linkedin", "weibo", "instapaper"]
+},
+"fontsettings": {
+"theme": "white",
+"family": "sans",
+"size": 2
+},
+"edit": {
+"link": null,
+"text": null
+},
+"history": {
+"link": null,
+"text": null
+},
+"view": {
+"link": null,
+"text": null
+},
+"download": ["Remote_Sensing.pdf", "Remote_Sensing.epub"],
+"search": {
+"engine": "fuse",
+"options": null
+},
+"toc": {
+"collapse": "subsection"
+}
+});
+});
+</script>
+
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    var src = "true";
+    if (src === "" || src === "true") src = "https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.9/latest.js?config=TeX-MML-AM_CHTML";
+    if (location.protocol !== "file:")
+      if (/^https?:/.test(src))
+        src = src.replace(/^https?:/, '');
+    script.src = src;
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
+</body>
+
+</html>

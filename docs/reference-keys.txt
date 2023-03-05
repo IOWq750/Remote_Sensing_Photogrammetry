@@ -30,6 +30,14 @@ dem-QGIS
 dem-derived
 dem-verification
 dem-orthorectification
+photomod
+photomod-soft
+photomod-initial
+photomod-create_project
+photomod-interior_orientation
+photomod-network_measurements
+photomod-network_adjustment
+photomod-DEM_creation
 las
 las-soft
 las-initial

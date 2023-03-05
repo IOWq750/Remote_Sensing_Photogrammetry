@@ -1,3 +1,8 @@
+---
+title: "Ref13_Efoto"
+output: html_document
+---
+
 # Стереоизмерения {#stereo}
 
 ## Установка программного обеспечения {#stereo-soft}

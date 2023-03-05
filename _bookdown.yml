@@ -9,7 +9,8 @@ rmd_files:
     - "Ref12_Photogrammetry.Rmd"
     - "Ref13_Efoto.Rmd"
     - "Ref14_DEM.Rmd"
-    - "Ref15_Las.Rmd"
+    - "Ref15_Photomod_aerial.Rmd"
+    - "Ref150_Las.Rmd"
 delete_merged_file: true
 language:
   label:
