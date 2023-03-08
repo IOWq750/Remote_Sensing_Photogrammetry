@@ -37,7 +37,7 @@ photomod-create_project
 photomod-interior_orientation
 photomod-network_measurements
 photomod-network_adjustment
-photomod-DEM_creation
+photomod-stereo
 las
 las-soft
 las-initial
