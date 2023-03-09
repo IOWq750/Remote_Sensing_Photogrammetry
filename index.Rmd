@@ -98,3 +98,8 @@ favicon: images/favicon.ico
 
 
 ![](images/Index0/Interface.png)
+
+ 
+----
+_Карпачевский А.М._ **Основы дистанционного зондирования и фотограмметрии**. М.: Географический факультет МГУ, `r lubridate::year(Sys.Date())`.
+----

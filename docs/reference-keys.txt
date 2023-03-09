@@ -38,8 +38,3 @@ photomod-interior_orientation
 photomod-network_measurements
 photomod-network_adjustment
 photomod-stereo
-las
-las-soft
-las-initial
-las-Extract
-las-cloudcompare
