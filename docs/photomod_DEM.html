@@ -4,20 +4,20 @@
 
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title>Раздел 6 Получение ЦММ и ортотрансформация | Основы дистанционного зондирования и фотограмметрии</title>
-  <meta name="description" content="Раздел 6 Получение ЦММ и ортотрансформация | Основы дистанционного зондирования и фотограмметрии" />
+  <title>Раздел 8 Создание ЦМР на основе стереопары АФС в ЦФС PHOTOMOD | Основы дистанционного зондирования и фотограмметрии</title>
+  <meta name="description" content="Раздел 8 Создание ЦМР на основе стереопары АФС в ЦФС PHOTOMOD | Основы дистанционного зондирования и фотограмметрии" />
   <meta name="generator" content="bookdown 0.30 and GitBook 2.6.7" />
 
-  <meta property="og:title" content="Раздел 6 Получение ЦММ и ортотрансформация | Основы дистанционного зондирования и фотограмметрии" />
+  <meta property="og:title" content="Раздел 8 Создание ЦМР на основе стереопары АФС в ЦФС PHOTOMOD | Основы дистанционного зондирования и фотограмметрии" />
   <meta property="og:type" content="book" />
   
-  <meta property="og:description" content="Раздел 6 Получение ЦММ и ортотрансформация | Основы дистанционного зондирования и фотограмметрии" />
+  <meta property="og:description" content="Раздел 8 Создание ЦМР на основе стереопары АФС в ЦФС PHOTOMOD | Основы дистанционного зондирования и фотограмметрии" />
   <meta name="github-repo" content="IOWq750/Remote_Sensing_Photogrammetry" />
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="Раздел 6 Получение ЦММ и ортотрансформация | Основы дистанционного зондирования и фотограмметрии" />
+  <meta name="twitter:title" content="Раздел 8 Создание ЦМР на основе стереопары АФС в ЦФС PHOTOMOD | Основы дистанционного зондирования и фотограмметрии" />
   
-  <meta name="twitter:description" content="Раздел 6 Получение ЦММ и ортотрансформация | Основы дистанционного зондирования и фотограмметрии" />
+  <meta name="twitter:description" content="Раздел 8 Создание ЦМР на основе стереопары АФС в ЦФС PHOTOMOD | Основы дистанционного зондирования и фотограмметрии" />
   
 
 <meta name="author" content="Карпачевский А.М." />
@@ -30,8 +30,8 @@
   <meta name="apple-mobile-web-app-status-bar-style" content="black" />
   <link rel="apple-touch-icon-precomposed" sizes="120x120" href="images/apple-touch-icon.png" />
   <link rel="shortcut icon" href="images/favicon.ico" type="image/x-icon" />
-<link rel="prev" href="stereo.html"/>
-<link rel="next" href="photomod.html"/>
+<link rel="prev" href="photomod.html"/>
+
 <script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
@@ -164,80 +164,56 @@
           <div class="page-inner">
 
             <section class="normal" id="section-">
-<div id="dem" class="section level1 hasAnchor" number="6">
-<h1><span class="header-section-number">Раздел 6</span> Получение ЦММ и ортотрансформация<a href="dem.html#dem" class="anchor-section" aria-label="Anchor link to header"></a></h1>
-<div id="dem-initial" class="section level2 hasAnchor" number="6.1">
-<h2><span class="header-section-number">6.1</span> Исходные данные<a href="dem.html#dem-initial" class="anchor-section" aria-label="Anchor link to header"></a></h2>
-<p><a href="dem.html#dem">В начало справки ⇡</a></p>
-<p>В качестве исходных данных в этой работе выступают ориентированные и привязанные снимки из предыдущей модели, а также полученная на их основе стереомодель в программе E-foto.</p>
-</div>
-<div id="dem-create" class="section level2 hasAnchor" number="6.2">
-<h2><span class="header-section-number">6.2</span> Построение ЦММ<a href="dem.html#dem-create" class="anchor-section" aria-label="Anchor link to header"></a></h2>
-<p><a href="dem.html#dem">В начало справки ⇡</a></p>
-<p>Выберите команду <strong>Execute – DSM Extraction</strong>. Откроется окно соответствующего модуля.Перейдите во вкладку <strong>Automatic Extraction</strong>.</p>
+<div id="photomod_DEM" class="section level1 hasAnchor" number="8">
+<h1><span class="header-section-number">Раздел 8</span> Создание ЦМР на основе стереопары АФС в ЦФС PHOTOMOD<a href="photomod_DEM.html#photomod_DEM" class="anchor-section" aria-label="Anchor link to header"></a></h1>
+<div id="photomod_DEM-structure_lines" class="section level2 hasAnchor" number="8.1">
+<h2><span class="header-section-number">8.1</span> Построение структурных линий<a href="photomod_DEM.html#photomod_DEM-structure_lines" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p><a href="photomod_DEM.html#photomod_DEM">В начало справки ⇡</a></p>
+<p>Для начала нужно создать векторный слой, куда будут сохраняться векторные объекты (<strong>Векторы – Создать слой</strong>). После этого в диспетчере слоёв появится соответствующий слой.</p>
 <div class="figure">
-<img src="images/Ref14/Automatic_Extraction.png" alt="" />
-<p class="caption">Настройки извлечения ЦММ</p>
+<img src="images/Ref16/Layers.png" alt="" />
+<p class="caption">Диспетчер слоёв</p>
 </div>
-<p>Здесь можно выбрать тип радиометрической коррекции – для чёрно-белых снимков лучше всего выбрать <strong>Histogram matching</strong>. Для обработки стереопар и поиска тождественных точек в программе доступно два метода – кросс-корреляции (<strong>Cross-correlation</strong>) и наименьших квадратов (<strong>Least-Squares Matching</strong>). Проделайте сначала всё одним методом, затем попробуйте другой и сравните результат. Для ускорения процесса построения лучше задать параметр передискретизации (<strong>Image downsampling</strong>) 2 (размер пикселов уменьшиться в два раза). В окне <strong>Use pairs</strong> выберите ту стереопару, по которой нужно построить ЦММ. Нажмите на кнопку <img src="images/Ref14/DSM_extraction.png" /> для запуска процесса. По окончании процесса откроется окно для просмотра найденных пикетов в виде жёлтых крестиков.</p>
-<p>После того, как пикеты были извлечены, необходимо их интерполировать. Для этого нажмите на соответствующую кнопку <img src="images/Ref14/DSM_interpolation.png" />. После этого можно экспортировать полученный грид.Перейдите во вкладку <strong>Load/Save Options</strong>, выберите <strong>DSM extraction file format</strong> – облако точек без индексов, а <strong>Grid file format</strong> – <strong>ASCII DSM Grid</strong>. В разделе <strong>DSM Grid Interpolation</strong> внизу окна нажмите на сохранение <img src="images/Ref14/Save_DSM.png" /> и сохраните текстовый файл с высотными данными.</p>
+<p>На панели окна стереопары найдите инструмент векторизации линий <strong>Режим ввода незамкнутых линий</strong> <img src="images/Ref16/Polyline.png" />. Теперь вам необходимо векторизовать линии тальвегов и водоразделов в стереорежиме – установите маркер так, чтоб он слился в объемную марку (колёсиком мыши) и нажмите клавишей <strong>Insert</strong>. Если точка установлена неверно, её можно удалить клавишей <strong>Delete</strong>. Для завершения векторизации нажмите <strong>Enter</strong>. Сохраняйте полученные результаты векторизации, нажав правой кнопкой мыши по слою в диспетчере и сохранив данные в папку проекта <strong>Data</strong>. Вы можете использовать режим трассировки, который вызывается нажатием клавиши <strong>T</strong> и автоматически сводит марку на поверхности модели. Вы можете настроить чувствительность коррелятора в <strong>Сервис – Параметры – Коррелятор</strong>.</p>
+<p>Периодически сохраняйте векторный слой. Для этого правой кнопкой мыши щёлкните по слою и выберите пункт <strong>Сохранить как…</strong>. Сохраняйте данные в папке проекта.</p>
 </div>
-<div id="dem-QGIS" class="section level2 hasAnchor" number="6.3">
-<h2><span class="header-section-number">6.3</span> Работа с высотными данными в QGIS<a href="dem.html#dem-QGIS" class="anchor-section" aria-label="Anchor link to header"></a></h2>
-<p><a href="dem.html#dem">В начало справки ⇡</a></p>
-<p>Добавьте в QGIS полученные ранее высотные данные как текст с разделителями. Обратите внимание, что необходимо правильно выбрать символ разделителя, указать количество строк заголовка файла, которые мы не учитываем, указать соответствующие поля для координат, а также правильную систему координат.</p>
+<div id="photomod_DEM-pikets" class="section level2 hasAnchor" number="8.2">
+<h2><span class="header-section-number">8.2</span> Автоматический расчёт пикетов<a href="photomod_DEM.html#photomod_DEM-pikets" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p><a href="photomod_DEM.html#photomod_DEM">В начало справки ⇡</a></p>
+<p>Создайте слой сетки через главное меню <strong>Сетка – Создать</strong>. В диспетчере слоёв появится новый слой. Убедитесь в том, что он редактируем и с зажатой клавишей <strong>shift</strong> выделите прямоугольную область на нужную территорию. Зайдите в свойства слоя и задайте шаг сетки в <strong>15 м</strong>, а <strong>Уровень Z</strong> выставьте равным 0.</p>
 <div class="figure">
-<img src="images/Ref14/Delimited_Text.png" alt="" />
-<p class="caption">Добавление ASCII-файла как текста с разделителями</p>
+<img src="images/Ref16/Grid_Properties.png" alt="" />
+<p class="caption">Свойства сетки</p>
 </div>
-<p>Добавленные данные необходимо сохранить либо в виде шейп-файла, либо в базе геоданных, щёлкнув правой кнопкой по слою <strong>Экспорт – сохранить как</strong>. Для получения растровой поверхности используйте инструмент <strong>Grid (Nearest Neighbor)…</strong>. Его можно найти через меню <strong>Raster – Analysis</strong>. Укажите поле для Z-значений в настройках инструмента. После настройки символики ваша ЦММ примет примерно следующий вид – очевидно, что в ней много пропущенных данных.</p>
+<p>Откройте окно автоматического расчета пикетов <strong>ЦМР – Пикеты – Расчёт пикетов</strong>. Выберите конфигурацию коррелятора <strong>Сельская местность2</strong>, укажите необходимую область поиска, начальное приближение установите равным средней высоте стереопары. Обратите внимание, что рассчитанные пикеты должны сохраняться в отдельный слой.</p>
 <div class="figure">
-<img src="images/Ref14/DSM_gaps.png" alt="" />
-<p class="caption">Визуализация первичной ЦММ с пропусками данных</p>
+<img src="images/Ref16/Piket_Calculation.png" alt="" />
+<p class="caption">Окно расчёта пикетов</p>
 </div>
-<p>Для заполнения пропусков воспользуйтесь инструментом <strong>Raster – Analysis – Fill nodata…</strong>. После этого ЦММ должна принять примерно следующий вид:</p>
+</div>
+<div id="photomod_DEM-TIN" class="section level2 hasAnchor" number="8.3">
+<h2><span class="header-section-number">8.3</span> Построение и редактирование модели TIN<a href="photomod_DEM.html#photomod_DEM-TIN" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p><a href="photomod_DEM.html#photomod_DEM">В начало справки ⇡</a></p>
+<p>Одно из моделей представления высот – нерегулярная сеть триангуляции (TIN). Откройте панель инструментов <strong>TIN</strong>. Нажмите на кнопку <strong>Построить TIN по пикетам и структурным линиям</strong>. выберите необходимые слои и запустите процесс.</p>
 <div class="figure">
-<img src="images/Ref14/DSM_filled.png" alt="" />
-<p class="caption">Визуализация ЦММ с заполненными пропусками</p>
+<img src="images/Ref16/TIN.png" alt="" />
+<p class="caption">Сеть TIN и квазигоризонтали</p>
 </div>
 </div>
-<div id="dem-derived" class="section level2 hasAnchor" number="6.4">
-<h2><span class="header-section-number">6.4</span> Построение производных поверхностей<a href="dem.html#dem-derived" class="anchor-section" aria-label="Anchor link to header"></a></h2>
-<p><a href="dem.html#dem">В начало справки ⇡</a></p>
-<p>В QGIS доступны многие инструменты для построения производных поверхностей от ЦМР и ЦММ, например:</p>
-<ol style="list-style-type: decimal">
-<li><p><em>Углы наклона</em> – <strong>Raster – Analysis – Slope…</strong>.</p></li>
-<li><p><em>Экспозиция склонов</em> – <strong>Raster – Analysis – Aspect…</strong>.</p></li>
-<li><p><em>Аналитическая отмывка рельефа</em> – <strong>Raster – Analysis – Hillshade…</strong>.</p></li>
-</ol>
-<p>Кроме того, мы можем извлечь изолинии (горизонтали) с помощью инструмента <strong>Raster – Extraction – Contour…</strong>.</p>
+<div id="photomod_DEM-H_matrix" class="section level2 hasAnchor" number="8.4">
+<h2><span class="header-section-number">8.4</span> Построение матрицы высот цифровой модели местности и горизонталей<a href="photomod_DEM.html#photomod_DEM-H_matrix" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p><a href="photomod_DEM.html#photomod_DEM">В начало справки ⇡</a></p>
+<p>Убедитесь, что слой TIN открыт на редактирование. В главном меню вызовите <strong>Матрица высот – Построить матрицу высот – По TIN</strong>, укажите размер ячейки матрицы высот и сохраните результат в папке проекта.</p>
+<p>Откройте ранее созданный слой с матрицей высот. В главном меню вызовите <strong>Векторы - Построить горизонтали - По матрице высот</strong>. В открывшемся окне установите опцию <strong>Сглаживать</strong>, уровень сглаживания 1.0, размер апертуры 21*21, начальный уровень 0.0, шаг 5.0 м, утолщенные горизонтали – каждые 25 м, опция «сглаживание» (ползунок чуть правее середины). Нажмите ОК. Сохраните слой с горизонталями папке Data вашего проекта.</p>
 </div>
-<div id="dem-verification" class="section level2 hasAnchor" number="6.5">
-<h2><span class="header-section-number">6.5</span> Верификация ЦММ по точкам стереоизмерений<a href="dem.html#dem-verification" class="anchor-section" aria-label="Anchor link to header"></a></h2>
-<p><a href="dem.html#dem">В начало справки ⇡</a></p>
-<p>Измерьте высоты с помощью стереокомпаратора в местах, где есть крупные пропуски данных в ЦММ. Полученные точки можно экспортировать в шейпфайл, нажав на кнопку <img src="images/Ref14/Export_survey_point.png" />. В открывшемся окне выберите формат сохранения <strong>SHP</strong>.</p>
-<p>Для извлечения значений высот ЦММ в точки используйте инструмент в QGIS <strong>Sample Raster Values</strong>. Этот инструмент записывает в виде атрибута значения ячеек растра, в которые попадают точки. Для расчёта собственных значений высот точек шейпфайла (полученные в результате стереоизмерений) можно зайти в калькулятор поле и написать выражение для нового атрибутивного поля _ z($geometry)_.</p>
+<div id="photomod_DEM-DEM" class="section level2 hasAnchor" number="8.5">
+<h2><span class="header-section-number">8.5</span> Фильтрация пикетов и построение цифровой модели рельефа<a href="photomod_DEM.html#photomod_DEM-DEM" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p><a href="photomod_DEM.html#photomod_DEM">В начало справки ⇡</a></p>
+<p>Сохраните слой с пикетами с названием «Точки» в подпапке Data вашего проекта. Посмотрите в стереорежиме на построенные пикеты. Далее, убедившись, что слой «Точки» открыт на редактирование, отфильтруйте пикеты, попавшие на деревья и строения. Для этого откройте окно Векторы – Фильтрация - Фильтр строений и растительности и, оставив параметры по умолчанию, нажмите ОК. Удалите слои с непроверяемыми и удаленными пикетами. Сохраните слой с отфильтрованными векторами с названием «Точки фильтрованные» в подпапке Data вашего проекта.</p>
 </div>
-<div id="dem-orthorectification" class="section level2 hasAnchor" number="6.6">
-<h2><span class="header-section-number">6.6</span> Ортотрансформация с использованием полученной ЦММ<a href="dem.html#dem-orthorectification" class="anchor-section" aria-label="Anchor link to header"></a></h2>
-<p><a href="dem.html#dem">В начало справки ⇡</a></p>
-<p>Для ортотрансформации снимков в <strong>E-foto</strong> требуется ЦММ в собственном формате, что обуславливает необходимость её коррекции (заполнения пропусков) внутренними средствами программы. Для этого в модуле <strong>DSM Extraction</strong> после извлечения ЦММ перейдите на вкладку <strong>Interpolation</strong>. В параметре <strong>Grid Interpolation method</strong> необходимо выбрать <strong>Moving average</strong> (обычно установлено по умолчанию). В параметре <strong>Distance</strong> укажите размер плавающего окна осреднения в пикселях, например, 10.</p>
-<div class="figure">
-<img src="images/Ref14/Interpolation.png" alt="" />
-<p class="caption">настройки интерполяции</p>
-</div>
-<p>Сохраните ЦММ в формате <strong>ASCII DSM Grid</strong> и выйдите из модуля.</p>
-<p>Запустите модуль ортотрансформации <strong>Execute – Ortho-Rectification</strong>.</p>
-<div class="figure">
-<img src="images/Ref14/Orthorectification.png" alt="" />
-<p class="caption">Окно модуля ортотрансформации</p>
-</div>
-<p>Выберите изображение, которое необходимо ортотрансформировать, укажите формат ЦММ такой же, как вы указывали для её сохранения, укажите путь к файлу ЦММ. В качестве выходного формата для изображения укажите <strong>GeoTIFF</strong>. Для запуска процедуры нажмите <img src="images/Ref14/Run.png" />.</p>
-<p>Ортотрансформированное изображение скорее всего сохранится без СК, но вы сможете её задать в QGIS. для сопоставления ортотрансформированного изображения с исходным можно воспользоваться инструментом <strong>Шторка</strong>.</p>
-<div class="figure">
-<img src="images/Ref14/Swipe.gif" alt="" />
-<p class="caption">Сопоставление ортотрансформированного изображения с исходным</p>
-</div>
+<div id="photomod_DEM-Orthorectification" class="section level2 hasAnchor" number="8.6">
+<h2><span class="header-section-number">8.6</span> Ортотрансформация на основе полученной ЦММ<a href="photomod_DEM.html#photomod_DEM-Orthorectification" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p><a href="photomod_DEM.html#photomod_DEM">В начало справки ⇡</a></p>
 <table>
 <tbody>
 <tr class="odd">
@@ -253,8 +229,8 @@
           </div>
         </div>
       </div>
-<a href="stereo.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
-<a href="photomod.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+<a href="photomod.html" class="navigation navigation-prev navigation-unique" aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>
