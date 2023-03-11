@@ -137,10 +137,10 @@
 </ul></li>
 <li class="chapter" data-level="8" data-path="photomod_DEM.html"><a href="photomod_DEM.html"><i class="fa fa-check"></i><b>8</b> Создание ЦМР на основе стереопары АФС в ЦФС PHOTOMOD</a>
 <ul>
-<li class="chapter" data-level="8.1" data-path="photomod_DEM.html"><a href="photomod_DEM.html#photomod_DEM-structure_lines"><i class="fa fa-check"></i><b>8.1</b> Построение структурных линий</a></li>
-<li class="chapter" data-level="8.2" data-path="photomod_DEM.html"><a href="photomod_DEM.html#photomod_DEM-pikets"><i class="fa fa-check"></i><b>8.2</b> Автоматический расчёт пикетов</a></li>
-<li class="chapter" data-level="8.3" data-path="photomod_DEM.html"><a href="photomod_DEM.html#photomod_DEM-TIN"><i class="fa fa-check"></i><b>8.3</b> Построение и редактирование модели TIN</a></li>
-<li class="chapter" data-level="8.4" data-path="photomod_DEM.html"><a href="photomod_DEM.html#photomod_DEM-H_matrix"><i class="fa fa-check"></i><b>8.4</b> Построение матрицы высот цифровой модели местности и горизонталей</a></li>
+<li class="chapter" data-level="8.1" data-path="photomod_DEM.html"><a href="photomod_DEM.html#photomod_DEM-pikets"><i class="fa fa-check"></i><b>8.1</b> Автоматический расчёт пикетов</a></li>
+<li class="chapter" data-level="8.2" data-path="photomod_DEM.html"><a href="photomod_DEM.html#photomod_DEM-TIN"><i class="fa fa-check"></i><b>8.2</b> Построение и редактирование модели TIN</a></li>
+<li class="chapter" data-level="8.3" data-path="photomod_DEM.html"><a href="photomod_DEM.html#photomod_DEM-H_matrix"><i class="fa fa-check"></i><b>8.3</b> Построение матрицы высот цифровой модели местности и горизонталей</a></li>
+<li class="chapter" data-level="8.4" data-path="photomod_DEM.html"><a href="photomod_DEM.html#photomod_DEM-structure_lines"><i class="fa fa-check"></i><b>8.4</b> Построение структурных линий</a></li>
 <li class="chapter" data-level="8.5" data-path="photomod_DEM.html"><a href="photomod_DEM.html#photomod_DEM-DEM"><i class="fa fa-check"></i><b>8.5</b> Фильтрация пикетов и построение цифровой модели рельефа</a></li>
 <li class="chapter" data-level="8.6" data-path="photomod_DEM.html"><a href="photomod_DEM.html#photomod_DEM-Orthorectification"><i class="fa fa-check"></i><b>8.6</b> Ортотрансформация на основе полученной ЦММ</a></li>
 </ul></li>
@@ -166,8 +166,37 @@
             <section class="normal" id="section-">
 <div id="photomod_DEM" class="section level1 hasAnchor" number="8">
 <h1><span class="header-section-number">Раздел 8</span> Создание ЦМР на основе стереопары АФС в ЦФС PHOTOMOD<a href="photomod_DEM.html#photomod_DEM" class="anchor-section" aria-label="Anchor link to header"></a></h1>
-<div id="photomod_DEM-structure_lines" class="section level2 hasAnchor" number="8.1">
-<h2><span class="header-section-number">8.1</span> Построение структурных линий<a href="photomod_DEM.html#photomod_DEM-structure_lines" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<div id="photomod_DEM-pikets" class="section level2 hasAnchor" number="8.1">
+<h2><span class="header-section-number">8.1</span> Автоматический расчёт пикетов<a href="photomod_DEM.html#photomod_DEM-pikets" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p><a href="photomod_DEM.html#photomod_DEM">В начало справки ⇡</a></p>
+<p>Создайте слой сетки через главное меню <strong>Сетка – Создать</strong>. В диспетчере слоёв появится новый слой. Убедитесь в том, что он редактируем и с зажатой клавишей <strong>shift</strong> выделите прямоугольную область на нужную территорию. Зайдите в свойства слоя и задайте шаг сетки в <strong>15 м</strong>, а <strong>Уровень Z</strong> выставьте равным 0.</p>
+<div class="figure">
+<img src="images/Ref16/Grid_Properties.png" alt="" />
+<p class="caption">Свойства сетки</p>
+</div>
+<p>Созданная сетка будет использована для построения пикетов.Откройте окно автоматического расчета пикетов <strong>ЦМР – Пикеты – Расчёт пикетов</strong>. Выберите конфигурацию коррелятора <strong>Сельская местность2</strong>, укажите необходимую область поиска, начальное приближение установите равным средней высоте стереопары. Обратите внимание, что рассчитанные пикеты должны сохраняться в отдельный слой.</p>
+<div class="figure">
+<img src="images/Ref16/Piket_Calculation.png" alt="" />
+<p class="caption">Окно расчёта пикетов</p>
+</div>
+</div>
+<div id="photomod_DEM-TIN" class="section level2 hasAnchor" number="8.2">
+<h2><span class="header-section-number">8.2</span> Построение и редактирование модели TIN<a href="photomod_DEM.html#photomod_DEM-TIN" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p><a href="photomod_DEM.html#photomod_DEM">В начало справки ⇡</a></p>
+<p>Одно из моделей представления высот – нерегулярная сеть триангуляции (TIN). Откройте панель инструментов <strong>TIN</strong>. Нажмите на кнопку <strong>Построить TIN по пикетам и структурным линиям</strong>. выберите необходимые слои и запустите процесс.</p>
+<div class="figure">
+<img src="images/Ref16/TIN.png" alt="" />
+<p class="caption">Сеть TIN и квазигоризонтали</p>
+</div>
+</div>
+<div id="photomod_DEM-H_matrix" class="section level2 hasAnchor" number="8.3">
+<h2><span class="header-section-number">8.3</span> Построение матрицы высот цифровой модели местности и горизонталей<a href="photomod_DEM.html#photomod_DEM-H_matrix" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p><a href="photomod_DEM.html#photomod_DEM">В начало справки ⇡</a></p>
+<p>Убедитесь, что слой TIN открыт на редактирование. В главном меню вызовите <strong>Матрица высот – Построить матрицу высот – По TIN</strong>, укажите размер ячейки матрицы высот и сохраните результат в папке проекта.</p>
+<p>Откройте ранее созданный слой с матрицей высот. В главном меню вызовите <strong>Векторы - Построить горизонтали - По матрице высот</strong>. В открывшемся окне установите опцию <strong>Сглаживать</strong>, уровень сглаживания 1.0, размер апертуры 21*21, начальный уровень 0.0, шаг 5.0 м, утолщенные горизонтали – каждые 25 м, опция «сглаживание» (ползунок чуть правее середины). Нажмите ОК. Сохраните слой с горизонталями папке Data вашего проекта.</p>
+</div>
+<div id="photomod_DEM-structure_lines" class="section level2 hasAnchor" number="8.4">
+<h2><span class="header-section-number">8.4</span> Построение структурных линий<a href="photomod_DEM.html#photomod_DEM-structure_lines" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p><a href="photomod_DEM.html#photomod_DEM">В начало справки ⇡</a></p>
 <p>Для начала нужно создать векторный слой, куда будут сохраняться векторные объекты (<strong>Векторы – Создать слой</strong>). После этого в диспетчере слоёв появится соответствующий слой.</p>
 <div class="figure">
@@ -177,43 +206,19 @@
 <p>На панели окна стереопары найдите инструмент векторизации линий <strong>Режим ввода незамкнутых линий</strong> <img src="images/Ref16/Polyline.png" />. Теперь вам необходимо векторизовать линии тальвегов и водоразделов в стереорежиме – установите маркер так, чтоб он слился в объемную марку (колёсиком мыши) и нажмите клавишей <strong>Insert</strong>. Если точка установлена неверно, её можно удалить клавишей <strong>Delete</strong>. Для завершения векторизации нажмите <strong>Enter</strong>. Сохраняйте полученные результаты векторизации, нажав правой кнопкой мыши по слою в диспетчере и сохранив данные в папку проекта <strong>Data</strong>. Вы можете использовать режим трассировки, который вызывается нажатием клавиши <strong>T</strong> и автоматически сводит марку на поверхности модели. Вы можете настроить чувствительность коррелятора в <strong>Сервис – Параметры – Коррелятор</strong>.</p>
 <p>Периодически сохраняйте векторный слой. Для этого правой кнопкой мыши щёлкните по слою и выберите пункт <strong>Сохранить как…</strong>. Сохраняйте данные в папке проекта.</p>
 </div>
-<div id="photomod_DEM-pikets" class="section level2 hasAnchor" number="8.2">
-<h2><span class="header-section-number">8.2</span> Автоматический расчёт пикетов<a href="photomod_DEM.html#photomod_DEM-pikets" class="anchor-section" aria-label="Anchor link to header"></a></h2>
-<p><a href="photomod_DEM.html#photomod_DEM">В начало справки ⇡</a></p>
-<p>Создайте слой сетки через главное меню <strong>Сетка – Создать</strong>. В диспетчере слоёв появится новый слой. Убедитесь в том, что он редактируем и с зажатой клавишей <strong>shift</strong> выделите прямоугольную область на нужную территорию. Зайдите в свойства слоя и задайте шаг сетки в <strong>15 м</strong>, а <strong>Уровень Z</strong> выставьте равным 0.</p>
-<div class="figure">
-<img src="images/Ref16/Grid_Properties.png" alt="" />
-<p class="caption">Свойства сетки</p>
-</div>
-<p>Откройте окно автоматического расчета пикетов <strong>ЦМР – Пикеты – Расчёт пикетов</strong>. Выберите конфигурацию коррелятора <strong>Сельская местность2</strong>, укажите необходимую область поиска, начальное приближение установите равным средней высоте стереопары. Обратите внимание, что рассчитанные пикеты должны сохраняться в отдельный слой.</p>
-<div class="figure">
-<img src="images/Ref16/Piket_Calculation.png" alt="" />
-<p class="caption">Окно расчёта пикетов</p>
-</div>
-</div>
-<div id="photomod_DEM-TIN" class="section level2 hasAnchor" number="8.3">
-<h2><span class="header-section-number">8.3</span> Построение и редактирование модели TIN<a href="photomod_DEM.html#photomod_DEM-TIN" class="anchor-section" aria-label="Anchor link to header"></a></h2>
-<p><a href="photomod_DEM.html#photomod_DEM">В начало справки ⇡</a></p>
-<p>Одно из моделей представления высот – нерегулярная сеть триангуляции (TIN). Откройте панель инструментов <strong>TIN</strong>. Нажмите на кнопку <strong>Построить TIN по пикетам и структурным линиям</strong>. выберите необходимые слои и запустите процесс.</p>
-<div class="figure">
-<img src="images/Ref16/TIN.png" alt="" />
-<p class="caption">Сеть TIN и квазигоризонтали</p>
-</div>
-</div>
-<div id="photomod_DEM-H_matrix" class="section level2 hasAnchor" number="8.4">
-<h2><span class="header-section-number">8.4</span> Построение матрицы высот цифровой модели местности и горизонталей<a href="photomod_DEM.html#photomod_DEM-H_matrix" class="anchor-section" aria-label="Anchor link to header"></a></h2>
-<p><a href="photomod_DEM.html#photomod_DEM">В начало справки ⇡</a></p>
-<p>Убедитесь, что слой TIN открыт на редактирование. В главном меню вызовите <strong>Матрица высот – Построить матрицу высот – По TIN</strong>, укажите размер ячейки матрицы высот и сохраните результат в папке проекта.</p>
-<p>Откройте ранее созданный слой с матрицей высот. В главном меню вызовите <strong>Векторы - Построить горизонтали - По матрице высот</strong>. В открывшемся окне установите опцию <strong>Сглаживать</strong>, уровень сглаживания 1.0, размер апертуры 21*21, начальный уровень 0.0, шаг 5.0 м, утолщенные горизонтали – каждые 25 м, опция «сглаживание» (ползунок чуть правее середины). Нажмите ОК. Сохраните слой с горизонталями папке Data вашего проекта.</p>
-</div>
 <div id="photomod_DEM-DEM" class="section level2 hasAnchor" number="8.5">
 <h2><span class="header-section-number">8.5</span> Фильтрация пикетов и построение цифровой модели рельефа<a href="photomod_DEM.html#photomod_DEM-DEM" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p><a href="photomod_DEM.html#photomod_DEM">В начало справки ⇡</a></p>
-<p>Сохраните слой с пикетами с названием «Точки» в подпапке Data вашего проекта. Посмотрите в стереорежиме на построенные пикеты. Далее, убедившись, что слой «Точки» открыт на редактирование, отфильтруйте пикеты, попавшие на деревья и строения. Для этого откройте окно Векторы – Фильтрация - Фильтр строений и растительности и, оставив параметры по умолчанию, нажмите ОК. Удалите слои с непроверяемыми и удаленными пикетами. Сохраните слой с отфильтрованными векторами с названием «Точки фильтрованные» в подпапке Data вашего проекта.</p>
+<p>Сохраните слой с пикетами папке <strong>Data</strong> вашего проекта. Посмотрите в стереорежиме на построенные пикеты. Далее, убедившись, что слой «Точки» открыт на редактирование, отфильтруйте пикеты, попавшие на деревья и строения. Для этого откройте окно Векторы – Фильтрация - Фильтр строений и растительности и, оставив параметры по умолчанию, нажмите ОК. Удалите слои с непроверяемыми и удаленными пикетами. Сохраните слой с отфильтрованными векторами с названием «Точки фильтрованные» в подпапке Data вашего проекта.</p>
 </div>
 <div id="photomod_DEM-Orthorectification" class="section level2 hasAnchor" number="8.6">
 <h2><span class="header-section-number">8.6</span> Ортотрансформация на основе полученной ЦММ<a href="photomod_DEM.html#photomod_DEM-Orthorectification" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p><a href="photomod_DEM.html#photomod_DEM">В начало справки ⇡</a></p>
+<p>Вызовите панель <strong>Растры – Ортотрансформирование</strong>. На схеме блока выделите снимок, с которым работаете. Далее на панели нажмите на кнопку <strong>Открыть выделенное изображение</strong> <img src="images/Ref16/Select.png" />. Нажмите на кнопку <strong>Обрезка краёв исходных изображений</strong> <img src="images/Ref16/Clip2.png" /> и укажите процент обрезки для ограничения вашей территории.</p>
+<div class="figure">
+<img src="images/Ref16/Clip.png" alt="" />
+<p class="caption">Окно обрезки изображения для ортотрансформации</p>
+</div>
 <table>
 <tbody>
 <tr class="odd">
