@@ -45,3 +45,4 @@ photomod_DEM-H_matrix
 photomod_DEM-Orthorectification
 photomod_DEM-structure_lines
 photomod_DEM-DEM
+photomod_DEM-vector
