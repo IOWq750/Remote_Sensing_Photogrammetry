@@ -46,3 +46,11 @@ photomod_DEM-Orthorectification
 photomod_DEM-structure_lines
 photomod_DEM-DEM
 photomod_DEM-vector
+agisoft
+agisoft-soft
+agisoft-initial
+agisoft-interface
+agisoft-alignment
+agisoft-markers
+agisoft-dense
+agisoft-DEM

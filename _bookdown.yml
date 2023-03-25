@@ -12,7 +12,7 @@ rmd_files:
     - "Ref15_Photomod_aerial.Rmd"
     - "Ref16_Photomod_DEM.Rmd"
     #- "Ref17_Photomod_RPC.Rmd"
-    #- "Ref18_Metashape.Rmd"
+    - "Ref18_Metashape.Rmd"
     #- "Ref19_Las.Rmd"
 delete_merged_file: true
 language:

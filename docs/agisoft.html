@@ -1,0 +1,377 @@
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+<head>
+
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <title>Раздел 9 Обработка данных в Agisoft Metashape | Основы дистанционного зондирования и фотограмметрии</title>
+  <meta name="description" content="Раздел 9 Обработка данных в Agisoft Metashape | Основы дистанционного зондирования и фотограмметрии" />
+  <meta name="generator" content="bookdown 0.30 and GitBook 2.6.7" />
+
+  <meta property="og:title" content="Раздел 9 Обработка данных в Agisoft Metashape | Основы дистанционного зондирования и фотограмметрии" />
+  <meta property="og:type" content="book" />
+  
+  <meta property="og:description" content="Раздел 9 Обработка данных в Agisoft Metashape | Основы дистанционного зондирования и фотограмметрии" />
+  <meta name="github-repo" content="IOWq750/Remote_Sensing_Photogrammetry" />
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="Раздел 9 Обработка данных в Agisoft Metashape | Основы дистанционного зондирования и фотограмметрии" />
+  
+  <meta name="twitter:description" content="Раздел 9 Обработка данных в Agisoft Metashape | Основы дистанционного зондирования и фотограмметрии" />
+  
+
+<meta name="author" content="Карпачевский А.М." />
+
+
+<meta name="date" content="2023-03-25" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+  <link rel="apple-touch-icon-precomposed" sizes="120x120" href="images/apple-touch-icon.png" />
+  <link rel="shortcut icon" href="images/favicon.ico" type="image/x-icon" />
+<link rel="prev" href="photomod_DEM.html"/>
+
+<script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
+<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-clipboard.css" rel="stylesheet" />
+
+
+
+
+
+
+
+
+<link href="libs/anchor-sections-1.1.0/anchor-sections.css" rel="stylesheet" />
+<link href="libs/anchor-sections-1.1.0/anchor-sections-hash.css" rel="stylesheet" />
+<script src="libs/anchor-sections-1.1.0/anchor-sections.js"></script>
+
+
+
+
+<link rel="stylesheet" href="style.css" type="text/css" />
+</head>
+
+<body>
+
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+<li><a href="./">Основы дистанционного зондирования и фотограмметрии</a></li>
+
+<li class="divider"></li>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i>Программное обеспечение</a>
+<ul>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html#qgis"><i class="fa fa-check"></i>QGIS</a>
+<ul>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html#windows"><i class="fa fa-check"></i>Windows</a></li>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html#macos"><i class="fa fa-check"></i>macOS</a></li>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html#linux"><i class="fa fa-check"></i>Linux</a></li>
+</ul></li>
+<li class="chapter" data-level="0.1" data-path="index.html"><a href="index.html#global"><i class="fa fa-check"></i><b>0.1</b> Изменение языка интерфейса и прочих глобальных переменных QGIS</a></li>
+</ul></li>
+<li class="chapter" data-level="1" data-path="pansharpen.html"><a href="pansharpen.html"><i class="fa fa-check"></i><b>1</b> Преобразования пространственного разрешения</a>
+<ul>
+<li class="chapter" data-level="1.1" data-path="pansharpen.html"><a href="pansharpen.html#pansharpen-project"><i class="fa fa-check"></i><b>1.1</b> Создание проекта в ArcGIS Pro</a></li>
+<li class="chapter" data-level="1.2" data-path="pansharpen.html"><a href="pansharpen.html#pansharpen-composite"><i class="fa fa-check"></i><b>1.2</b> Создание композита</a></li>
+<li class="chapter" data-level="1.3" data-path="pansharpen.html"><a href="pansharpen.html#pansharpen-extract"><i class="fa fa-check"></i><b>1.3</b> Вырезание фрагмента изображения</a></li>
+<li class="chapter" data-level="1.4" data-path="pansharpen.html"><a href="pansharpen.html#pansharpen-resampling"><i class="fa fa-check"></i><b>1.4</b> Передискретизация</a></li>
+<li class="chapter" data-level="1.5" data-path="pansharpen.html"><a href="pansharpen.html#pansharpen-filter"><i class="fa fa-check"></i><b>1.5</b> Фильтрация</a></li>
+<li class="chapter" data-level="1.6" data-path="pansharpen.html"><a href="pansharpen.html#pansharpen-pansharpen"><i class="fa fa-check"></i><b>1.6</b> Паншарпенинг</a></li>
+</ul></li>
+<li class="chapter" data-level="2" data-path="georeference.html"><a href="georeference.html"><i class="fa fa-check"></i><b>2</b> Географическая привязка</a>
+<ul>
+<li class="chapter" data-level="2.1" data-path="georeference.html"><a href="georeference.html#georeference-arcgis"><i class="fa fa-check"></i><b>2.1</b> Географическая привязка в ArcGIS Pro</a></li>
+<li class="chapter" data-level="2.2" data-path="georeference.html"><a href="georeference.html#georeference-qgis"><i class="fa fa-check"></i><b>2.2</b> Географическая привязка в QGIS</a></li>
+</ul></li>
+<li class="chapter" data-level="3" data-path="mosaic.html"><a href="mosaic.html"><i class="fa fa-check"></i><b>3</b> Создание мозаики</a>
+<ul>
+<li class="chapter" data-level="3.1" data-path="mosaic.html"><a href="mosaic.html#mosaic-arcgis"><i class="fa fa-check"></i><b>3.1</b> Создание мозаики в ArcGIS Pro</a></li>
+</ul></li>
+<li class="chapter" data-level="4" data-path="photogrammetry.html"><a href="photogrammetry.html"><i class="fa fa-check"></i><b>4</b> Фотограмметрия кадрового снимка</a>
+<ul>
+<li class="chapter" data-level="4.1" data-path="photogrammetry.html"><a href="photogrammetry.html#photogrammetry-oblique"><i class="fa fa-check"></i><b>4.1</b> Искажения наклонного снимка</a></li>
+<li class="chapter" data-level="4.2" data-path="photogrammetry.html"><a href="photogrammetry.html#photogrammetry-interior"><i class="fa fa-check"></i><b>4.2</b> Внутреннее ориентирование снимка</a></li>
+</ul></li>
+<li class="chapter" data-level="5" data-path="stereo.html"><a href="stereo.html"><i class="fa fa-check"></i><b>5</b> Стереоизмерения</a>
+<ul>
+<li class="chapter" data-level="5.1" data-path="stereo.html"><a href="stereo.html#stereo-soft"><i class="fa fa-check"></i><b>5.1</b> Установка программного обеспечения</a></li>
+<li class="chapter" data-level="5.2" data-path="stereo.html"><a href="stereo.html#stereo-initial"><i class="fa fa-check"></i><b>5.2</b> Исходные данные</a></li>
+<li class="chapter" data-level="5.3" data-path="stereo.html"><a href="stereo.html#stereo-create_project"><i class="fa fa-check"></i><b>5.3</b> Создание проекта</a></li>
+<li class="chapter" data-level="5.4" data-path="stereo.html"><a href="stereo.html#stereo-interior"><i class="fa fa-check"></i><b>5.4</b> Внутреннее ориентирование</a></li>
+<li class="chapter" data-level="5.5" data-path="stereo.html"><a href="stereo.html#stereo-GCP"><i class="fa fa-check"></i><b>5.5</b> Опорные точки</a></li>
+<li class="chapter" data-level="5.6" data-path="stereo.html"><a href="stereo.html#stereo-resection"><i class="fa fa-check"></i><b>5.6</b> Обратная фотограмметрическая засечка</a></li>
+<li class="chapter" data-level="5.7" data-path="stereo.html"><a href="stereo.html#stereo-phototriangulation"><i class="fa fa-check"></i><b>5.7</b> Взаимное ориентирование снимков</a></li>
+<li class="chapter" data-level="5.8" data-path="stereo.html"><a href="stereo.html#stereo-stereoplotter"><i class="fa fa-check"></i><b>5.8</b> Работа в стереокомпараторе</a></li>
+</ul></li>
+<li class="chapter" data-level="6" data-path="dem.html"><a href="dem.html"><i class="fa fa-check"></i><b>6</b> Получение ЦММ и ортотрансформация</a>
+<ul>
+<li class="chapter" data-level="6.1" data-path="dem.html"><a href="dem.html#dem-initial"><i class="fa fa-check"></i><b>6.1</b> Исходные данные</a></li>
+<li class="chapter" data-level="6.2" data-path="dem.html"><a href="dem.html#dem-create"><i class="fa fa-check"></i><b>6.2</b> Построение ЦММ</a></li>
+<li class="chapter" data-level="6.3" data-path="dem.html"><a href="dem.html#dem-QGIS"><i class="fa fa-check"></i><b>6.3</b> Работа с высотными данными в QGIS</a></li>
+<li class="chapter" data-level="6.4" data-path="dem.html"><a href="dem.html#dem-derived"><i class="fa fa-check"></i><b>6.4</b> Построение производных поверхностей</a></li>
+<li class="chapter" data-level="6.5" data-path="dem.html"><a href="dem.html#dem-verification"><i class="fa fa-check"></i><b>6.5</b> Верификация ЦММ по точкам стереоизмерений</a></li>
+<li class="chapter" data-level="6.6" data-path="dem.html"><a href="dem.html#dem-orthorectification"><i class="fa fa-check"></i><b>6.6</b> Ортотрансформация с использованием полученной ЦММ</a></li>
+</ul></li>
+<li class="chapter" data-level="7" data-path="photomod.html"><a href="photomod.html"><i class="fa fa-check"></i><b>7</b> Обработка данных аэрофотосъёмки в ЦФС PHOTOMOD</a>
+<ul>
+<li class="chapter" data-level="7.1" data-path="photomod.html"><a href="photomod.html#photomod-soft"><i class="fa fa-check"></i><b>7.1</b> Программное обеспечение</a></li>
+<li class="chapter" data-level="7.2" data-path="photomod.html"><a href="photomod.html#photomod-initial"><i class="fa fa-check"></i><b>7.2</b> Исходные данные</a></li>
+<li class="chapter" data-level="7.3" data-path="photomod.html"><a href="photomod.html#photomod-create_project"><i class="fa fa-check"></i><b>7.3</b> Создание проекта</a></li>
+<li class="chapter" data-level="7.4" data-path="photomod.html"><a href="photomod.html#photomod-interior_orientation"><i class="fa fa-check"></i><b>7.4</b> Внутреннее ориентирование</a></li>
+<li class="chapter" data-level="7.5" data-path="photomod.html"><a href="photomod.html#photomod-network_measurements"><i class="fa fa-check"></i><b>7.5</b> Измерение сети</a></li>
+<li class="chapter" data-level="7.6" data-path="photomod.html"><a href="photomod.html#photomod-network_adjustment"><i class="fa fa-check"></i><b>7.6</b> Уравнивание сети</a></li>
+<li class="chapter" data-level="7.7" data-path="photomod.html"><a href="photomod.html#photomod-stereo"><i class="fa fa-check"></i><b>7.7</b> Работа в стереорежиме</a></li>
+</ul></li>
+<li class="chapter" data-level="8" data-path="photomod_DEM.html"><a href="photomod_DEM.html"><i class="fa fa-check"></i><b>8</b> Создание ЦМР и ЦММ на основе стереопары АФС в ЦФС PHOTOMOD</a>
+<ul>
+<li class="chapter" data-level="8.1" data-path="photomod_DEM.html"><a href="photomod_DEM.html#photomod_DEM-pikets"><i class="fa fa-check"></i><b>8.1</b> Автоматический расчёт пикетов</a></li>
+<li class="chapter" data-level="8.2" data-path="photomod_DEM.html"><a href="photomod_DEM.html#photomod_DEM-TIN"><i class="fa fa-check"></i><b>8.2</b> Построение и редактирование модели TIN</a></li>
+<li class="chapter" data-level="8.3" data-path="photomod_DEM.html"><a href="photomod_DEM.html#photomod_DEM-H_matrix"><i class="fa fa-check"></i><b>8.3</b> Построение матрицы высот цифровой модели поверхности и горизонталей</a></li>
+<li class="chapter" data-level="8.4" data-path="photomod_DEM.html"><a href="photomod_DEM.html#photomod_DEM-Orthorectification"><i class="fa fa-check"></i><b>8.4</b> Ортотрансформация на основе полученной ЦМП</a></li>
+<li class="chapter" data-level="8.5" data-path="photomod_DEM.html"><a href="photomod_DEM.html#photomod_DEM-structure_lines"><i class="fa fa-check"></i><b>8.5</b> Построение структурных линий</a></li>
+<li class="chapter" data-level="8.6" data-path="photomod_DEM.html"><a href="photomod_DEM.html#photomod_DEM-DEM"><i class="fa fa-check"></i><b>8.6</b> Фильтрация пикетов и построение цифровой модели рельефа</a></li>
+<li class="chapter" data-level="8.7" data-path="photomod_DEM.html"><a href="photomod_DEM.html#photomod_DEM-vector"><i class="fa fa-check"></i><b>8.7</b> Векторизация ситуации</a></li>
+</ul></li>
+<li class="chapter" data-level="9" data-path="agisoft.html"><a href="agisoft.html"><i class="fa fa-check"></i><b>9</b> Обработка данных в Agisoft Metashape</a>
+<ul>
+<li class="chapter" data-level="9.1" data-path="agisoft.html"><a href="agisoft.html#agisoft-soft"><i class="fa fa-check"></i><b>9.1</b> Программное обеспечение</a></li>
+<li class="chapter" data-level="9.2" data-path="agisoft.html"><a href="agisoft.html#agisoft-initial"><i class="fa fa-check"></i><b>9.2</b> Исходные данные</a></li>
+<li class="chapter" data-level="9.3" data-path="agisoft.html"><a href="agisoft.html#agisoft-interface"><i class="fa fa-check"></i><b>9.3</b> Интерфейс</a></li>
+<li class="chapter" data-level="9.4" data-path="agisoft.html"><a href="agisoft.html#agisoft-alignment"><i class="fa fa-check"></i><b>9.4</b> Взаимное ориентирование снимков</a></li>
+<li class="chapter" data-level="9.5" data-path="agisoft.html"><a href="agisoft.html#agisoft-markers"><i class="fa fa-check"></i><b>9.5</b> Расстановка опорных точек</a></li>
+<li class="chapter" data-level="9.6" data-path="agisoft.html"><a href="agisoft.html#agisoft-dense"><i class="fa fa-check"></i><b>9.6</b> Построение плотного облака точек</a></li>
+<li class="chapter" data-level="9.7" data-path="agisoft.html"><a href="agisoft.html#agisoft-DEM"><i class="fa fa-check"></i><b>9.7</b> Построение ЦМП и фотомозаики</a></li>
+</ul></li>
+<li class="divider"></li>
+<li><a href="https://github.com/rstudio/bookdown" target="blank">Published with bookdown</a></li>
+
+</ul>
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">Основы дистанционного зондирования и фотограмметрии</a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<div id="agisoft" class="section level1 hasAnchor" number="9">
+<h1><span class="header-section-number">Раздел 9</span> Обработка данных в Agisoft Metashape<a href="agisoft.html#agisoft" class="anchor-section" aria-label="Anchor link to header"></a></h1>
+<div id="agisoft-soft" class="section level2 hasAnchor" number="9.1">
+<h2><span class="header-section-number">9.1</span> Программное обеспечение<a href="agisoft.html#agisoft-soft" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p><a href="agisoft.html#agisoft">В начало справки ⇡</a></p>
+<p>Agisoft Metashape – коммерческое фотограмметрическое ПО, использующее технологии компьютерного зрения. Домашний адрес со всей информацией о программе доступен по ссылке <a href="https://www.agisoft.com/" target="_blank"></a>, в том числе руководство пользователя на русском и английском языках.</p>
+</div>
+<div id="agisoft-initial" class="section level2 hasAnchor" number="9.2">
+<h2><span class="header-section-number">9.2</span> Исходные данные<a href="agisoft.html#agisoft-initial" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p><a href="agisoft.html#agisoft">В начало справки ⇡</a></p>
+<p>В качестве исходных данных в данной справке приведены снимки, полученные с БПЛА DJI Phantom 4 и опорные точки, измеренные с помощью высокоточного ГНСС.</p>
+<p><a href="https://disk.yandex.ru/d/E8aQT6f8C_KBuw" target="_blank">Снимки</a></p>
+<p><a href="https://disk.yandex.ru/d/_5-zxp2QLPxKxQ" target="_blank">Наземные опорные точки</a></p>
+</div>
+<div id="agisoft-interface" class="section level2 hasAnchor" number="9.3">
+<h2><span class="header-section-number">9.3</span> Интерфейс<a href="agisoft.html#agisoft-interface" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p><a href="agisoft.html#agisoft">В начало справки ⇡</a></p>
+<p>Интерфейс программы состоит из основного окна 3D-вьюера, окна <strong>Workspace</strong> слева, куда добавляются блоки (<strong>Chunk</strong>) фотографий (<strong>Cameras</strong>). Другие окна показывают фотографии блока, свойства слоёв, информацию о привязке, маркеры и другие. С полным перечнем окон и панелей можно ознакомиться, щёлкнув правой кнопкой мыши по пустому месту сверху – там можно включить или выключить окно/панель.</p>
+<div class="figure">
+<img src="images/Ref18/Interface.png" alt="" />
+<p class="caption">Вид окна программы</p>
+</div>
+<p>Настройки программы доступны через меню <strong>Tools – Preferences</strong>. Убедитесь в том, что ресурсы видеокарты используются для вычислений.</p>
+<div class="figure">
+<img src="images/Ref18/Preferences.png" alt="" />
+<p class="caption">Включение GPU для ускорения вычислений</p>
+</div>
+<p>Добавить фотографии можно, щёлкнув правой кнопкой по <strong>Chunk</strong> и вызвав меню <strong>Add – Add Photos…</strong> или <strong>Add – Add Folder…</strong>. Фотографии добавятся в окно блока и в окно с превью. Если в EXIF фотографий присутствуют геотеги, то соответствующие строчки появятся в окне <strong>Reference</strong>. При добавлении фотографий с БПЛА могут присутствовать углы ориентирования, как минимум рысканье (<strong>Yaw</strong>).</p>
+<div class="figure">
+<img src="images/Ref18/Reference.png" alt="" />
+<p class="caption">Окно с координатами центров проекции фотографий</p>
+</div>
+<p>При наличии геотегов добавленных фотографий их центры проекций будут схематично показываться и подписывать в окне 3D-вьюера. Кнопка <strong>Show Basemap</strong> <img src="images/Ref18/Basemap.png" /> включает и выключает подложку базовой карты, кнопка <strong>Show Cameras</strong> <img src="images/Ref18/Cameras.png" /> включает и выключает показ центров проекций снимков.</p>
+<p>Параметры калибровки камеры доступны через меню <strong>Tools – Camera calibration…</strong>.</p>
+<div class="figure">
+<img src="images/Ref18/Camera_Calibration.png" alt="" />
+<p class="caption">Параметры калибровки камеры</p>
+</div>
+<p>Перемещать вид в окне 3D-вьюера можно зажатой левой кнопкой мыши, меняется масштаб с помощью колёсика мыши, поворачивается вид с помощью зажатого колёсика мыши.</p>
+<p>Всё содержимое окна программы может быть сохранено в проект формата <strong>PSX</strong>.</p>
+</div>
+<div id="agisoft-alignment" class="section level2 hasAnchor" number="9.4">
+<h2><span class="header-section-number">9.4</span> Взаимное ориентирование снимков<a href="agisoft.html#agisoft-alignment" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p><a href="agisoft.html#agisoft">В начало справки ⇡</a></p>
+<p>Вызовите меню <strong>Workflow – Align Photos</strong>. В открывшемся окне будут доступны настройки:</p>
+<p><strong>Accuracy</strong> – точность, определяемая разрешением используемого уровня дискретизации. Значение <strong>High</strong> соответствует исходному разрешению снимков, каждый последующий уровень точности приводит к увеличению размера пикселя в 4 раза, соответственно время обработки данных с менее высокой точностью будет уменьшаться;</p>
+<p><strong>Generic preselection</strong> – использование изображений с худшим разрешением (пирамидальные слои) для предварительного отождествления соответственных точек на снимке;</p>
+<p><strong>Reference preselection</strong> – использование геотегов из EXIF фотографий для их предварительного ориентирования;</p>
+<p><strong>Reset current alignment</strong> – сброс текущих параметров ориентирования снимков;</p>
+<p><strong>Key point limit</strong> – лимит нахождения ключевых точек на снимке. Рекомендуется использовать значение <em>40 000</em>, а значение <em>0</em> означает отсутствие лимита;</p>
+<p><strong>Tie point limit</strong> – лимит нахождения связующих точек на снимке. Рекомендуется использовать значение <em>4 000</em>, а значение <em>0</em> означает отсутствие лимита;</p>
+<p><strong>Adaptive camera model fitting</strong> – при уравнивания связок проектирующих лучей происходит самокалибровка камеры.</p>
+<div class="figure">
+<img src="images/Ref18/Align_Photos.png" alt="" />
+<p class="caption">Настройки взаимного ориентирования (выравнивания)</p>
+</div>
+<p>По завершении операции вы получаете облако связующих точек (<strong>Tie Points</strong>) или разреженное облако точек.</p>
+<div class="figure">
+<img src="images/Ref18/Sparse_Cloud.png" alt="" />
+<p class="caption">Разреженное облако точек</p>
+</div>
+<p>Все обнаруженные отождествления ключевых точек для каждой пары снимков можно найти в меню <strong>Tools – Tie Points – View Matches…</strong>.</p>
+<div class="figure">
+<img src="images/Ref18/Matches.png" alt="" />
+<p class="caption">Обнаруженные корректные и некорректные отождествления для пары снимков</p>
+</div>
+</div>
+<div id="agisoft-markers" class="section level2 hasAnchor" number="9.5">
+<h2><span class="header-section-number">9.5</span> Расстановка опорных точек<a href="agisoft.html#agisoft-markers" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p><a href="agisoft.html#agisoft">В начало справки ⇡</a></p>
+<p>Опорные точки можно расставить вручную, если правой кнопкой мыши щёлкнуть по облаку точек в нужном месте и из выпадающего меню выбрать <strong>Add Marker</strong>. Соответствующая строчка с маркером появится в окне <strong>Reference</strong>, а в окне <strong>Photos</strong> на фотографиях, куда попадает маркер, появится синий флаг. При установлении проекции маркера на конкретной фотографии флаг станет зелёным.</p>
+<div class="figure">
+<img src="images/Ref18/Manual_Markers.png" alt="" />
+<p class="caption">Ручная установка маркера</p>
+</div>
+<p>Если правой кнопкой мыши вызвать выпадающее меню в точке разреженного облака точек и выбрать пункт <strong>Filter Photos by point</strong>, перечень фотографий в окне <strong>Photos</strong> сократится. Для сброса фильтра нажмите на кнопку <img src="images/Ref18/Reset_Filter.png" /> на панели окна <strong>Photos</strong>.</p>
+<p>Если данные по опорным точкам сведены в текстовый файл с разделителем, его можно добавить, нажав на кнопку <strong>Import Reference</strong> <img src="images/Ref18/Import_Reference.png" />. Откроется окно, где вам будет предложено установить символ разделителя, расставить в нужном порядке колонки и указать, с какой строчки необходимо начать считывать данные.</p>
+<div class="figure">
+<img src="images/Ref18/Import_CSV.png" alt="" />
+<p class="caption">Окно импорта CSV</p>
+</div>
+<p>В окне <strong>Reference</strong> нажмите на <strong>Settings</strong> <img src="images/Ref18/Settings.png" />, убедитесь в правильности установленных систем координат для модели, фотографий и маркеров (они могут быть разные). Установите точности для координат центров проекций и координат расставляемых маркеров.</p>
+<p>Установите маркеры на фотографиях, где присутствуют опознаки. Для этого откройте одну из фотографий в окне <strong>Photos</strong>, в точке опознака щёлкните правой кнопкой мыши и выберите пункт <strong>Place Marker</strong> и выберите нужный маркер из имеющихся. После установке хотя бы двух проекций программа начнёт подсказывать, на каких фотографиях присутствуют маркеры с помощью символа серого флага <img src="images/Ref18/Grey_Flag.png" />. Для хорошего результата необходимо, чтобы каждый маркер имел не менее четырёх проекций, а сами проекции не были установлены в области пониженной резкости изображения или совсем на краю снимка.</p>
+<div class="figure">
+<img src="images/Ref18/Place_Marker.png" alt="" />
+<p class="caption">Установка проекции маркера</p>
+</div>
+<p>Нажмите на кнопку <strong>Optimize</strong> <img src="images/Ref18/Optimize.png" /> для калибровки элементов внутреннего и внешнего ориентирования камеры, а также параметров дисторсии.</p>
+<div class="figure">
+<img src="images/Ref18/Optimize_Camera.png" alt="" />
+<p class="caption">Выбор параметров оптимизации камеры</p>
+</div>
+</div>
+<div id="agisoft-dense" class="section level2 hasAnchor" number="9.6">
+<h2><span class="header-section-number">9.6</span> Построение плотного облака точек<a href="agisoft.html#agisoft-dense" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p><a href="agisoft.html#agisoft">В начало справки ⇡</a></p>
+<p>В главном меню вызовите <strong>Workflow – Build Dense Cloud…</strong>. После окончания работы инструмента в окне <strong>Workspace</strong> появятся слои карт глубины (<strong>Depth Maps</strong>) и плотное облако точек (<strong>Dense Cloud</strong>).</p>
+<div class="figure">
+<img src="images/Ref18/Dense_Cloud.png" alt="" />
+<p class="caption">Плотное облако точек</p>
+</div>
+</div>
+<div id="agisoft-DEM" class="section level2 hasAnchor" number="9.7">
+<h2><span class="header-section-number">9.7</span> Построение ЦМП и фотомозаики<a href="agisoft.html#agisoft-DEM" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p><a href="agisoft.html#agisoft">В начало справки ⇡</a></p>
+<p>Для построения цифровой модели поверхности на основе плотного облака точек в главном меню вызовите <strong>Workflow – Build DEM…</strong>. Для построения фотомозаики вам потребуется ЦМП, полученная на предыдущем этапе – в главном меню вызовите <strong>Workflow – Build Orthomosaic…</strong>.</p>
+<div class="figure">
+<img src="images/Ref18/DEM.png" alt="" />
+<p class="caption">Цифровая модель поверхности</p>
+</div>
+<blockquote>
+<p>Обратите внимание, что каждый слой для блока может быть представлен только в одном экземпляре. Если вы запускаете процедуру с новыми параметрами, то выходной слой перезапишется. Если вы хотите получить несколько вариантов одного слоя, необходимо сдублировать блок – нажать правой кнопкой мыши по блоку и выбрать <strong>Duplicate</strong> и указать те данные, которые необходимо сдублировать.</p>
+</blockquote>
+<table>
+<tbody>
+<tr class="odd">
+<td><em>Карпачевский А.М.</em> <strong>Основы дистанционного зондирования и фотограмметрии</strong>. М.: Географический факультет МГУ, 2023.</td>
+</tr>
+</tbody>
+</table>
+
+</div>
+</div>
+            </section>
+
+          </div>
+        </div>
+      </div>
+<a href="photomod_DEM.html" class="navigation navigation-prev navigation-unique" aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+
+    </div>
+  </div>
+<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/clipboard.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-clipboard.js"></script>
+<script>
+gitbook.require(["gitbook"], function(gitbook) {
+gitbook.start({
+"sharing": {
+"github": false,
+"facebook": true,
+"twitter": true,
+"linkedin": false,
+"weibo": false,
+"instapaper": false,
+"vk": false,
+"whatsapp": false,
+"all": ["facebook", "twitter", "linkedin", "weibo", "instapaper"]
+},
+"fontsettings": {
+"theme": "white",
+"family": "sans",
+"size": 2
+},
+"edit": {
+"link": null,
+"text": null
+},
+"history": {
+"link": null,
+"text": null
+},
+"view": {
+"link": null,
+"text": null
+},
+"download": ["Remote_Sensing.pdf", "Remote_Sensing.epub"],
+"search": {
+"engine": "fuse",
+"options": null
+},
+"toc": {
+"collapse": "subsection"
+}
+});
+});
+</script>
+
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    var src = "true";
+    if (src === "" || src === "true") src = "https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.9/latest.js?config=TeX-MML-AM_CHTML";
+    if (location.protocol !== "file:")
+      if (/^https?:/.test(src))
+        src = src.replace(/^https?:/, '');
+    script.src = src;
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
+</body>
+
+</html>
