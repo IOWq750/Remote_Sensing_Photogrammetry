@@ -185,7 +185,7 @@
 <div id="agisoft-initial" class="section level2 hasAnchor" number="9.2">
 <h2><span class="header-section-number">9.2</span> Исходные данные<a href="agisoft.html#agisoft-initial" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p><a href="agisoft.html#agisoft">В начало справки ⇡</a></p>
-<p>В качестве исходных данных в данной справке приведены снимки, полученные с БПЛА DJI Phantom 4 и опорные точки, измеренные с помощью высокоточного ГНСС.</p>
+<p>В качестве исходных данных в этой справке приведены снимки, полученные с БПЛА DJI Phantom 4 и опорные точки, измеренные с помощью высокоточного ГНСС.</p>
 <p><a href="https://disk.yandex.ru/d/E8aQT6f8C_KBuw" target="_blank">Снимки</a></p>
 <p><a href="https://disk.yandex.ru/d/_5-zxp2QLPxKxQ" target="_blank">Наземные опорные точки</a></p>
 </div>
@@ -208,11 +208,6 @@
 <p class="caption">Окно с координатами центров проекции фотографий</p>
 </div>
 <p>При наличии геотегов добавленных фотографий их центры проекций будут схематично показываться и подписывать в окне 3D-вьюера. Кнопка <strong>Show Basemap</strong> <img src="images/Ref18/Basemap.png" /> включает и выключает подложку базовой карты, кнопка <strong>Show Cameras</strong> <img src="images/Ref18/Cameras.png" /> включает и выключает показ центров проекций снимков.</p>
-<p>Параметры калибровки камеры доступны через меню <strong>Tools – Camera calibration…</strong>.</p>
-<div class="figure">
-<img src="images/Ref18/Camera_Calibration.png" alt="" />
-<p class="caption">Параметры калибровки камеры</p>
-</div>
 <p>Перемещать вид в окне 3D-вьюера можно зажатой левой кнопкой мыши, меняется масштаб с помощью колёсика мыши, поворачивается вид с помощью зажатого колёсика мыши.</p>
 <p>Всё содержимое окна программы может быть сохранено в проект формата <strong>PSX</strong>.</p>
 </div>
@@ -226,7 +221,7 @@
 <p><strong>Reset current alignment</strong> – сброс текущих параметров ориентирования снимков;</p>
 <p><strong>Key point limit</strong> – лимит нахождения ключевых точек на снимке. Рекомендуется использовать значение <em>40 000</em>, а значение <em>0</em> означает отсутствие лимита;</p>
 <p><strong>Tie point limit</strong> – лимит нахождения связующих точек на снимке. Рекомендуется использовать значение <em>4 000</em>, а значение <em>0</em> означает отсутствие лимита;</p>
-<p><strong>Adaptive camera model fitting</strong> – при уравнивания связок проектирующих лучей происходит самокалибровка камеры.</p>
+<p><strong>Adaptive camera model fitting</strong> – при уравнивании связок проектирующих лучей происходит самокалибровка камеры.</p>
 <div class="figure">
 <img src="images/Ref18/Align_Photos.png" alt="" />
 <p class="caption">Настройки взаимного ориентирования (выравнивания)</p>
@@ -241,11 +236,16 @@
 <img src="images/Ref18/Matches.png" alt="" />
 <p class="caption">Обнаруженные корректные и некорректные отождествления для пары снимков</p>
 </div>
+<p>Параметры калибровки камеры после взаимного ориентирования меняются. С ними можно ознакомиться через меню <strong>Tools – Camera calibration…</strong>.</p>
+<div class="figure">
+<img src="images/Ref18/Camera_Calibration.png" alt="" />
+<p class="caption">Параметры калибровки камеры</p>
+</div>
 </div>
 <div id="agisoft-markers" class="section level2 hasAnchor" number="9.5">
 <h2><span class="header-section-number">9.5</span> Расстановка опорных точек<a href="agisoft.html#agisoft-markers" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p><a href="agisoft.html#agisoft">В начало справки ⇡</a></p>
-<p>Опорные точки можно расставить вручную, если правой кнопкой мыши щёлкнуть по облаку точек в нужном месте и из выпадающего меню выбрать <strong>Add Marker</strong>. Соответствующая строчка с маркером появится в окне <strong>Reference</strong>, а в окне <strong>Photos</strong> на фотографиях, куда попадает маркер, появится синий флаг. При установлении проекции маркера на конкретной фотографии флаг станет зелёным.</p>
+<p>Опорные точки можно расставить вручную, если правой кнопкой мыши щёлкнуть по облаку точек в нужном месте и из выпадающего меню выбрать <strong>Add Marker</strong>. Соответствующая строчка с маркером появится в окне <strong>Reference</strong>, а в окне <strong>Photos</strong> на фотографиях, куда попадает маркер, появится синий флаг. При установке проекции маркера на конкретной фотографии флаг станет зелёным.</p>
 <div class="figure">
 <img src="images/Ref18/Manual_Markers.png" alt="" />
 <p class="caption">Ручная установка маркера</p>
