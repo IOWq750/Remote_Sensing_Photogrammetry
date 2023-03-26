@@ -46,6 +46,7 @@ photomod_DEM-Orthorectification
 photomod_DEM-structure_lines
 photomod_DEM-DEM
 photomod_DEM-vector
+rpc
 agisoft
 agisoft-soft
 agisoft-initial
@@ -54,3 +55,8 @@ agisoft-alignment
 agisoft-markers
 agisoft-dense
 agisoft-DEM
+las
+las-soft
+las-initial
+las-Extract
+las-cloudcompare
