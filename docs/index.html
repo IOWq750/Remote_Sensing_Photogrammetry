@@ -23,7 +23,7 @@
 <meta name="author" content="Карпачевский А.М." />
 
 
-<meta name="date" content="2023-03-26" />
+<meta name="date" content="2023-03-30" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -105,7 +105,7 @@
 <li class="chapter" data-level="4.1" data-path="photogrammetry.html"><a href="photogrammetry.html#photogrammetry-oblique"><i class="fa fa-check"></i><b>4.1</b> Искажения наклонного снимка</a></li>
 <li class="chapter" data-level="4.2" data-path="photogrammetry.html"><a href="photogrammetry.html#photogrammetry-interior"><i class="fa fa-check"></i><b>4.2</b> Внутреннее ориентирование снимка</a></li>
 </ul></li>
-<li class="chapter" data-level="5" data-path="stereo.html"><a href="stereo.html"><i class="fa fa-check"></i><b>5</b> Стереоизмерения</a>
+<li class="chapter" data-level="5" data-path="stereo.html"><a href="stereo.html"><i class="fa fa-check"></i><b>5</b> Создание стереомодели и стереоизмерения в E-foto</a>
 <ul>
 <li class="chapter" data-level="5.1" data-path="stereo.html"><a href="stereo.html#stereo-soft"><i class="fa fa-check"></i><b>5.1</b> Установка программного обеспечения</a></li>
 <li class="chapter" data-level="5.2" data-path="stereo.html"><a href="stereo.html#stereo-initial"><i class="fa fa-check"></i><b>5.2</b> Исходные данные</a></li>
@@ -186,7 +186,7 @@
 <div id="header">
 <h1 class="title">Основы дистанционного зондирования и фотограмметрии</h1>
 <p class="author"><em>Карпачевский А.М.</em></p>
-<p class="date"><em>2023-03-26</em></p>
+<p class="date"><em>2023-03-30</em></p>
 </div>
 <div id="программное-обеспечение" class="section level1 unnumbered hasAnchor">
 <h1>Программное обеспечение<a href="index.html#программное-обеспечение" class="anchor-section" aria-label="Anchor link to header"></a></h1>
@@ -196,10 +196,10 @@
 <div id="windows" class="section level3 unnumbered hasAnchor">
 <h3>Windows<a href="index.html#windows" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>Скачайте с официального сайта последнюю стабильную версию QGIS. По состоянию на 7 февраля 2023 г. это версия 3.28. Выберите версию в зависимости от разрядности вашей системы. <a href="https://qgis.org/downloads/QGIS-OSGeo4W-3.16.16-1.msi" target="_blank">Перейти к скачиванию</a>.</p>
-<p>Если на вашем компьютере уже установлена более старая версия QGIS, удалите её перед началом установки новой версии. Вы можете использовать старую версию QGIS для выполнения большинства заданий практикума, однако, если у вас возникнут технические проблемы,</p>
+<p>Если на вашем компьютере уже установлена более старая версия QGIS, удалите её перед началом установки новой версии. Вы можете использовать старую версию QGIS для выполнения большинства заданий практикума, однако, если у вас возникнут технические проблемы, рекомендуется обновить программу до последней стабильной версии.</p>
 <p>Когда исполняемый файл загрузится, запустите его. Если потребуется, разрешите приложению вносить изменения на вашем устройстве.</p>
-<p>Будет показано приветственное окно мастера установки. Нажмите «Далее», чтобы перейти на следующий шаг.
-<img src="images/Index0/win01.png" /></p>
+<p>Будет показано приветственное окно мастера установки. Нажмите «Далее», чтобы перейти на следующий шаг.</p>
+<p><img src="images/Index0/win01.png" /></p>
 <p>На следующем шаге будет показано лицензионное соглашение QGIS и другого программного обеспечения, входящего в пакет поставки. Нажмите «Принимаю».</p>
 <p><img src="images/Index0/win02.png" /></p>
 <p>На следующем шаге выберите папку для установки и отметьте, нужно ли создавать ярлыки на рабочем столе и в меню «Пуск». По возможности используйте параметры, предлагаемые по умолчанию.</p>
@@ -210,7 +210,7 @@
 </div>
 <div id="macos" class="section level3 unnumbered hasAnchor">
 <h3>macOS<a href="index.html#macos" class="anchor-section" aria-label="Anchor link to header"></a></h3>
-<p>По состоянию на 2023-03-26 для прохождения практикума рекомендуется использовать альтернативную сборку версии <a href="https://www.kyngchaos.com/files/software/qgis/QGIS-macOS-3.4.12-1.dmg" target="_blank">3.4.12</a>. Перейдя по ссылке, необходимо согласиться сохранить образ установочного диска на компьютер (можно разрешить его сразу открыть средствами <em>DiskImageMounter</em>):</p>
+<p>По состоянию на 2023-03-30 для прохождения практикума рекомендуется использовать альтернативную сборку версии <a href="https://www.kyngchaos.com/files/software/qgis/QGIS-macOS-3.4.12-1.dmg" target="_blank">3.4.12</a>. Перейдя по ссылке, необходимо согласиться сохранить образ установочного диска на компьютер (можно разрешить его сразу открыть средствами <em>DiskImageMounter</em>):</p>
 <p><img src="images/Index0/mac01.png" /></p>
 <p>После того как образ загрузится и будет открыт, необходимо последовательно запустить три установщика, выделенные на снимке экрана ниже (именно в том порядке, в котором они пронумерованы!):</p>
 <p><img src="images/Index0/mac02.png" /></p>
