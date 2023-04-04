@@ -47,6 +47,11 @@ photomod_DEM-structure_lines
 photomod_DEM-DEM
 photomod_DEM-vector
 rpc
+rpc-initial
+rpc-prepare
+rpc-gcp
+rpc-adjustment
+rpc-orthorectification
 agisoft
 agisoft-soft
 agisoft-initial

@@ -23,7 +23,7 @@
 <meta name="author" content="Карпачевский А.М." />
 
 
-<meta name="date" content="2023-03-30" />
+<meta name="date" content="2023-04-04" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -145,7 +145,14 @@
 <li class="chapter" data-level="8.6" data-path="photomod_DEM.html"><a href="photomod_DEM.html#photomod_DEM-DEM"><i class="fa fa-check"></i><b>8.6</b> Фильтрация пикетов и построение цифровой модели рельефа</a></li>
 <li class="chapter" data-level="8.7" data-path="photomod_DEM.html"><a href="photomod_DEM.html#photomod_DEM-vector"><i class="fa fa-check"></i><b>8.7</b> Векторизация ситуации</a></li>
 </ul></li>
-<li class="chapter" data-level="9" data-path="rpc.html"><a href="rpc.html"><i class="fa fa-check"></i><b>9</b> Обработка сканерных космических изображений с помощью RPC</a></li>
+<li class="chapter" data-level="9" data-path="rpc.html"><a href="rpc.html"><i class="fa fa-check"></i><b>9</b> Обработка сканерных космических изображений с помощью RPC</a>
+<ul>
+<li class="chapter" data-level="9.1" data-path="rpc.html"><a href="rpc.html#rpc-initial"><i class="fa fa-check"></i><b>9.1</b> Исходные данные</a></li>
+<li class="chapter" data-level="9.2" data-path="rpc.html"><a href="rpc.html#rpc-prepare"><i class="fa fa-check"></i><b>9.2</b> Подготовка данных</a></li>
+<li class="chapter" data-level="9.3" data-path="rpc.html"><a href="rpc.html#rpc-gcp"><i class="fa fa-check"></i><b>9.3</b> Расстановка опорных точек</a></li>
+<li class="chapter" data-level="9.4" data-path="rpc.html"><a href="rpc.html#rpc-adjustment"><i class="fa fa-check"></i><b>9.4</b> Уравнивание блока</a></li>
+<li class="chapter" data-level="9.5" data-path="rpc.html"><a href="rpc.html#rpc-orthorectification"><i class="fa fa-check"></i><b>9.5</b> Ортотрансформация сканерного изображения по данным RPC и ЦМП в ArcGIS</a></li>
+</ul></li>
 <li class="chapter" data-level="10" data-path="agisoft.html"><a href="agisoft.html"><i class="fa fa-check"></i><b>10</b> Обработка данных в Agisoft Metashape</a>
 <ul>
 <li class="chapter" data-level="10.1" data-path="agisoft.html"><a href="agisoft.html#agisoft-soft"><i class="fa fa-check"></i><b>10.1</b> Программное обеспечение</a></li>
@@ -185,6 +192,126 @@
             <section class="normal" id="section-">
 <div id="rpc" class="section level1 hasAnchor" number="9">
 <h1><span class="header-section-number">Раздел 9</span> Обработка сканерных космических изображений с помощью RPC<a href="rpc.html#rpc" class="anchor-section" aria-label="Anchor link to header"></a></h1>
+<div id="rpc-initial" class="section level2 hasAnchor" number="9.1">
+<h2><span class="header-section-number">9.1</span> Исходные данные<a href="rpc.html#rpc-initial" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p><a href="rpc.html#rpc">В начало справки ⇡</a></p>
+<p>В качестве исходных данных можно использовать выложенные в открытый доступ сканерные изображения со спутника IKONOS. Данные, включая изображения, метаданные, коэффициенты рациональных полиномов, а также наземные опорные точки, можно скачать <a href="https://www.isprs.org/data/ikonos_hobart/default.aspx" target="_blank">со страницы</a>, либо <a href="https://disk.yandex.ru/d/N2cDLX4j3GryPg" target="_blank">из облака</a>.</p>
+</div>
+<div id="rpc-prepare" class="section level2 hasAnchor" number="9.2">
+<h2><span class="header-section-number">9.2</span> Подготовка данных<a href="rpc.html#rpc-prepare" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p><a href="rpc.html#rpc">В начало справки ⇡</a></p>
+<p>Создайте новый проект PHOTOMOD. Укажите тип – <strong>Космическая сканерная съёмка</strong>, система координат – укажите соответствующую зону UTM. Создайте новый маршрут в блоке и добавьте туда два космических изображения стереопары. В окне редактора блока нажмите на кнопку добавления изображений. В открывшемся окне укажите путь к папке, где расположены изображения или папки с изображениями, выберите в автопоиске опцию <strong>начиная с текущей папки</strong> и нажмите на кнопку <strong>Поиск</strong>. Если программа найдёт файлы, они отразятся в виде строчек в добавляемых изображениях. Нажмите на кнопку <strong>Добавить все</strong>.</p>
+<div class="figure">
+<img src="images/Ref17/Adding_Imagery.png" alt="" />
+<p class="caption">Добавление данных в проект</p>
+</div>
+<p>Если добавленные изображения получились чёрными, выполните их радиометрическую коррекцию, нажав на кнопку <img src="images/Ref17/Radiometric_Correction.png" /> в окне редактора блока.</p>
+</div>
+<div id="rpc-gcp" class="section level2 hasAnchor" number="9.3">
+<h2><span class="header-section-number">9.3</span> Расстановка опорных точек<a href="rpc.html#rpc-gcp" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p><a href="rpc.html#rpc">В начало справки ⇡</a></p>
+<p>Откройте окно каталога опорных точек <strong>Ориентирование – Каталог опорных точек…</strong>. Импортируйте опорные точки из файла <strong>Selected_HobartGCPs114-UTM.csv</strong>. Установите опорные точки на обоих снимках стереопары, дважды щёлкнув по каждой строчке и подвинув точки в положение маркера в верной позиции <img src="images\Ref17\Move2Marker.png" />. Ниже приведены фрагменты изображения с правильным положением точек.</p>
+<div class="figure">
+<img src="images/Ref17/B1_05_C.jpeg" alt="" />
+<p class="caption">Опорная точка B1_05_C</p>
+</div>
+<div class="figure">
+<img src="images/Ref17/B1_07.jpeg" alt="" />
+<p class="caption">Опорная точка B1_07</p>
+</div>
+<div class="figure">
+<img src="images/Ref17/B1_08.jpeg" alt="" />
+<p class="caption">Опорная точка B1_08</p>
+</div>
+<div class="figure">
+<img src="images/Ref17/B2_06.jpeg" alt="" />
+<p class="caption">Опорная точка B2_06</p>
+</div>
+<div class="figure">
+<img src="images/Ref17/B2_11.jpeg" alt="" />
+<p class="caption">Опорная точка B2_11</p>
+</div>
+<div class="figure">
+<img src="images/Ref17/B2_13.jpeg" alt="" />
+<p class="caption">Опорная точка B2_13</p>
+</div>
+<div class="figure">
+<img src="images/Ref17/B3_05.jpeg" alt="" />
+<p class="caption">Опорная точка B3_05</p>
+</div>
+<div class="figure">
+<img src="images/Ref17/B3_06.jpeg" alt="" />
+<p class="caption">Опорная точка B3_06</p>
+</div>
+<div class="figure">
+<img src="images/Ref17/B3_10.jpeg" alt="" />
+<p class="caption">Опорная точка B3_10</p>
+</div>
+<div class="figure">
+<img src="images/Ref17/B4_01.jpeg" alt="" />
+<p class="caption">Опорная точка B4_01</p>
+</div>
+<div class="figure">
+<img src="images/Ref17/B5_08.jpeg" alt="" />
+<p class="caption">Опорная точка B5_08</p>
+</div>
+<div class="figure">
+<img src="images/Ref17/B6_09.jpeg" alt="" />
+<p class="caption">Опорная точка B6_09</p>
+</div>
+<div class="figure">
+<img src="images/Ref17/B6_10.jpeg" alt="" />
+<p class="caption">Опорная точка B6_10</p>
+</div>
+<div class="figure">
+<img src="images/Ref17/B6_23.jpeg" alt="" />
+<p class="caption">Опорная точка B6_23</p>
+</div>
+<div class="figure">
+<img src="images/Ref17/B7_01.jpeg" alt="" />
+<p class="caption">Опорная точка B7_01</p>
+</div>
+<div class="figure">
+<img src="images/Ref17/B7_03.jpeg" alt="" />
+<p class="caption">Опорная точка B7_03</p>
+</div>
+<div class="figure">
+<img src="images/Ref17/B8_01.jpeg" alt="" />
+<p class="caption">Опорная точка B8_01</p>
+</div>
+<div class="figure">
+<img src="images/Ref17/B9_07.jpeg" alt="" />
+<p class="caption">Опорная точка B9_07</p>
+</div>
+<div class="figure">
+<img src="images/Ref17/B9_13.jpeg" alt="" />
+<p class="caption">Опорная точка B9_13</p>
+</div>
+<div class="figure">
+<img src="images/Ref17/B9_17.jpeg" alt="" />
+<p class="caption">Опорная точка B9_17</p>
+</div>
+<p>Для того чтобы оценить точность привязки снимка по RPC сделайте точки <em>B1_05_C</em>, <em>B2_11</em>, <em>B3_05</em>, <em>B5_08</em>, <em>B9_13</em> контрольными, выбрав их в таблице и нажав на кнопку <strong>Сделать выбранные точки контрольными</strong> <img src="images/Ref17/Control.png" />. Оставшиеся точки нужно исключить, нажав на кнопку <img src="images/Ref17/Excepted.png" />. Нажмите на кнопку <strong>Применить</strong>.</p>
+</div>
+<div id="rpc-adjustment" class="section level2 hasAnchor" number="9.4">
+<h2><span class="header-section-number">9.4</span> Уравнивание блока<a href="rpc.html#rpc-adjustment" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p><a href="rpc.html#rpc">В начало справки ⇡</a></p>
+<p>Вызовите меню <strong>Ориентирование – Уравнивание блока</strong>. На открывшейся панели нажмите на кнопку настроек уравнивания <img src="images/Ref17/Adjustment.png" />. В окне настроек убедитесь, что метод уравнивания стоит <strong>RPC</strong>. В объединениях укажите <strong>Не объединять</strong> и поставьте галочку напротив опции <strong>Создавать стереопары</strong>.</p>
+<div class="figure">
+<img src="images/Ref17/Adjustment_Settings.png" alt="" />
+<p class="caption">Настройки уравнивания блока</p>
+</div>
+<p>Запустите процесс уравнивания блока. Для получения отчёта об уравнивании нажмите на кнопку <img src="images/Ref17/Adjustment_Report.png" /> на панели уравнивания. Откроется окно параметров отчёта.</p>
+<div class="figure">
+<img src="images/Ref17/Report_Settings.png" alt="" />
+<p class="caption">Настройки отчёта об уравнивании</p>
+</div>
+<p>В открывшемся окне отчёта будет содержаться информация о точности уравнивания по контрольным точкам. Для совместного уравнивания по данным RPC и опорным точкам переведите ранее исключённые точки в категорию опорных.</p>
+</div>
+<div id="rpc-orthorectification" class="section level2 hasAnchor" number="9.5">
+<h2><span class="header-section-number">9.5</span> Ортотрансформация сканерного изображения по данным RPC и ЦМП в ArcGIS<a href="rpc.html#rpc-orthorectification" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p><a href="rpc.html#rpc">В начало справки ⇡</a></p>
+<p>В ArcGIS доступен инструмент ортотрансформации сканерных изображений с RPC <strong>Data Management Tools – Raster – Raster Processing – Create Ortho Corrected Raster Dataset</strong>. В качестве цифровой модели поверхности можно использовать модель на основе стереопары сканерных изображений или (менее точно) какой-либо глобальный набор данных.</p>
 <table>
 <tbody>
 <tr class="odd">
@@ -193,6 +320,7 @@
 </tbody>
 </table>
 
+</div>
 </div>
             </section>
 
