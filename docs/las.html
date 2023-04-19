@@ -23,7 +23,7 @@
 <meta name="author" content="Карпачевский А.М." />
 
 
-<meta name="date" content="2023-04-04" />
+<meta name="date" content="2023-04-19" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -167,7 +167,7 @@
 <ul>
 <li class="chapter" data-level="11.1" data-path="las.html"><a href="las.html#las-soft"><i class="fa fa-check"></i><b>11.1</b> Программное обеспечение</a></li>
 <li class="chapter" data-level="11.2" data-path="las.html"><a href="las.html#las-initial"><i class="fa fa-check"></i><b>11.2</b> Исходные данные</a></li>
-<li class="chapter" data-level="11.3" data-path="las.html"><a href="las.html#las-Extract"><i class="fa fa-check"></i><b>11.3</b> Вырезание фрагмента облака ТЛО в SAGA</a></li>
+<li class="chapter" data-level="11.3" data-path="las.html"><a href="las.html#las-Extract"><i class="fa fa-check"></i><b>11.3</b> Работа с облаком ТЛО в SAGA</a></li>
 <li class="chapter" data-level="11.4" data-path="las.html"><a href="las.html#las-cloudcompare"><i class="fa fa-check"></i><b>11.4</b> Работа с ТЛО в CloudCompare</a></li>
 </ul></li>
 <li class="divider"></li>
@@ -206,15 +206,29 @@
 <p><a href="https://yadi.sk/d/6N_TCgy2Q7HAHQ" target="_blank">Векторные полигоны</a></p>
 </div>
 <div id="las-Extract" class="section level2 hasAnchor" number="11.3">
-<h2><span class="header-section-number">11.3</span> Вырезание фрагмента облака ТЛО в SAGA<a href="las.html#las-Extract" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<h2><span class="header-section-number">11.3</span> Работа с облаком ТЛО в SAGA<a href="las.html#las-Extract" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p><a href="las.html#las">В начало справки ⇡</a></p>
-<p>Откройте шейпфайл с границами вашего участка в SAGA через меню <strong>Open</strong>. В панели менеджера перейдите на вкладку <strong>Data</strong>. Двойной щелчок по слою предложит добавить слой к либо к уже открытой карте, либо к новой карте в SAGA.</p>
 <p>Для импорта ТЛО используйте инструмент <strong>Tools – Import/Export – LAS – Import LAS Files</strong>. Укажите путь к файлу, а все остальные параметры оставьте по умолчанию. Нажмите <strong>Okay</strong> для запуска инструмента.</p>
 <div class="figure">
 <img src="images/Ref19/Import_LAS.png" alt="" />
 <p class="caption">Окно инструмента импорта ТЛО</p>
 </div>
-<p>Вы можете визуализировать облако, дважды щёлкнув по появившемуся слою во вкладке <strong>Data</strong>. Для того чтобы вырезать фрагмент облака, воспользуйтесь инструментом <strong>Tools – Shapes – Point Clouds – Point Cloud Cutter</strong>. В параметре <strong>Points</strong> укажите загруженный слой точек, в параметре <strong>Choose cut from…</strong> выберите параметр <strong>Polygons</strong>. После нажатия <strong>Okay</strong> откроется новое окно, в котором будет предложено указать непосредственный векторный слой для обрезки.</p>
+<p>Вы можете визуализировать облако, дважды щёлкнув по появившемуся слою во вкладке <strong>Data</strong>.</p>
+<div class="figure">
+<img src="images/Ref19/Point_Cloud.png" alt="" />
+<p class="caption">Визуализация данных в SAGA</p>
+</div>
+<p>В SAGA доступен инструмент для трёхмерной визуализации облаков точек. Для этого выберите <strong>Tools – Visualization – 3D Viewer – Point Cloud Viewer</strong>. Координату Z можно использовать для цветовой шкалы.</p>
+<div class="figure">
+<img src="images/Ref19/Point_Cloud_Viewer.png" alt="" />
+<p class="caption">Трёхмерная визуализация данных в SAGA</p>
+</div>
+<p>Добавьте готовый векторный объект в SAGA в формате шейпфайла через меню <strong>Open</strong> <img src="images/Ref19/Open.png" />, который потом будет использован для вырезания облака точек. В панели менеджера перейдите на вкладку <strong>Data</strong>. Двойной щелчок по слою предложит добавить слой к либо к уже открытой карте, либо к новой карте. На панели <strong>Settings</strong> вы можете настроить отображение данных, подписи объектов.</p>
+<div class="figure">
+<img src="images/Ref19/Vector_Features.png" alt="" />
+<p class="caption">Трёхмерная визуализация данных в SAGA</p>
+</div>
+<p>С помощью инструмента <img src="images/Ref19/Pick.png" /> можно выбрать и удалить ненужные объекты. Для того чтобы вырезать фрагмент облака, воспользуйтесь инструментом <strong>Tools – Shapes – Point Clouds – Point Cloud Cutter</strong>. В параметре <strong>Points</strong> укажите загруженный слой точек, в параметре <strong>Choose cut from…</strong> выберите параметр <strong>Polygons</strong>. После нажатия <strong>Okay</strong> откроется новое окно, в котором будет предложено указать непосредственный векторный слой для обрезки.</p>
 <p>После появления вырезанного облака точек воспользуйтесь инструментом <strong>Tools – Import/Export – LAS – Export LAS Files</strong>. В параметре <strong>Point Cloud</strong> укажите набор данных для экспорта, укажите масштабный коэффициент по трём осям равным 1. Остальные параметры остаются по умолчанию.</p>
 </div>
 <div id="las-cloudcompare" class="section level2 hasAnchor" number="11.4">
