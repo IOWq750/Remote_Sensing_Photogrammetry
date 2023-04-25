@@ -23,7 +23,7 @@
 <meta name="author" content="Карпачевский А.М." />
 
 
-<meta name="date" content="2023-04-20" />
+<meta name="date" content="2023-04-25" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -169,6 +169,7 @@
 <li class="chapter" data-level="11.2" data-path="las.html"><a href="las.html#las-initial"><i class="fa fa-check"></i><b>11.2</b> Исходные данные</a></li>
 <li class="chapter" data-level="11.3" data-path="las.html"><a href="las.html#las-Extract"><i class="fa fa-check"></i><b>11.3</b> Работа с облаком ТЛО в SAGA</a></li>
 <li class="chapter" data-level="11.4" data-path="las.html"><a href="las.html#las-cloudcompare"><i class="fa fa-check"></i><b>11.4</b> Работа с ТЛО в CloudCompare</a></li>
+<li class="chapter" data-level="11.5" data-path="las.html"><a href="las.html#las-qgis"><i class="fa fa-check"></i><b>11.5</b> Обработка данных в QGIS</a></li>
 </ul></li>
 <li class="divider"></li>
 <li><a href="https://github.com/rstudio/bookdown" target="blank">Published with bookdown</a></li>
@@ -201,7 +202,7 @@
 <div id="las-initial" class="section level2 hasAnchor" number="11.2">
 <h2><span class="header-section-number">11.2</span> Исходные данные<a href="las.html#las-initial" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p><a href="las.html#las">В начало справки ⇡</a></p>
-<p><a href="https://yadi.sk/d/CKfoC4XVkCTuIg" target="_blank">Облако точек</a></p>
+<p><a href="https://disk.yandex.ru/d/CKfoC4XVkCTuIg" target="_blank">Облако точек</a></p>
 <p><a href="https://disk.yandex.ru/d/ku7cj4tUNOKV3w" target="_blank">Фотомозаика</a></p>
 <p><a href="https://disk.yandex.ru/d/MruskWn_oupM0w" target="_blank">Векторные полигоны</a></p>
 </div>
@@ -247,6 +248,31 @@
 <p class="caption">Окно настроек растеризации</p>
 </div>
 <p>Для запуска процесса растеризации нажмите на кнопку <strong>Raster</strong> и укажите путь для сохранения файла GeoTIFF. Опционально вы можете построить горизонтали <strong>Contour plot</strong>.</p>
+</div>
+<div id="las-qgis" class="section level2 hasAnchor" number="11.5">
+<h2><span class="header-section-number">11.5</span> Обработка данных в QGIS<a href="las.html#las-qgis" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p><a href="las.html#las">В начало справки ⇡</a></p>
+<p>При открытии в QGIS для поверхности, соответствующей земле выполните заполнение пустых ячеек инструментом <strong>Raster – Analysis – Fill nodata…</strong>.</p>
+<p>Для нахождения высоты объектов над рельефом можно воспользоваться калькулятором растров и вычесть одну поверхность из другой.</p>
+<p>В QGIS доступны некоторые инструменты автоматизированного упрощения геометрии, что применимо к автоматически построенным горизонталям. Выберите в главном меню <strong>Vector – Geometry Tools – Simplify…</strong>. Откроется инструмент, упрощающий геометрию объектов. Для линейных объектов рекомендуется выбирать алгоритм Дугласа-Пейкера.</p>
+<div class="figure">
+<img src="images/Ref19/Simplify.png" alt="" />
+<p class="caption">Окно инструмента упрощения</p>
+</div>
+<p>Данный алгоритм убирает вершины согласно заданному порогу, который устанавливается пользователем на основе масштаба и детализации исходных данных.</p>
+<p>В QGIS есть инструмент для сглаживания векторных объектов. Для его использования нужно открыть окно <strong>Processing</strong> и в нём найти инструмент <strong>Vector Geometry – Smooth</strong>.</p>
+<div class="figure">
+<img src="images/Ref19/Smooth.png" alt="" />
+<p class="caption">Окно инструмента сглаживания</p>
+</div>
+<blockquote>
+<p>Обратите внимание, что оба инструмента не изменяют текущий слой, а создают новый.</p>
+</blockquote>
+<p>Упрощение и сглаживание объектов доступно в индивидуальном порядке в текущем слое на панели инструментов дополнительной оцифровки. Выбрав редактируемый слой в режиме редактирования, нажмите на кнопку <img src="images/Ref19/Simplify_button.png" />, после чего кликните по объекту, который вы хотите упростить. Откроется маленькое окошко, в котором можно выбрать метод сглаживания, либо упрощения.</p>
+<div class="figure">
+<img src="images/Ref19/Simplifying.png" alt="" />
+<p class="caption">Окно выбора метода упрощения и сглаживания</p>
+</div>
 <table>
 <tbody>
 <tr class="odd">

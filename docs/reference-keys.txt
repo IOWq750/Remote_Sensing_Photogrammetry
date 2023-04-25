@@ -65,3 +65,4 @@ las-soft
 las-initial
 las-Extract
 las-cloudcompare
+las-qgis
