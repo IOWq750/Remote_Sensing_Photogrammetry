@@ -91,9 +91,10 @@
 <li class="chapter" data-level="1.1" data-path="pansharpen.html"><a href="pansharpen.html#pansharpen-project"><i class="fa fa-check"></i><b>1.1</b> Создание проекта в ArcGIS Pro</a></li>
 <li class="chapter" data-level="1.2" data-path="pansharpen.html"><a href="pansharpen.html#pansharpen-composite"><i class="fa fa-check"></i><b>1.2</b> Создание композита</a></li>
 <li class="chapter" data-level="1.3" data-path="pansharpen.html"><a href="pansharpen.html#pansharpen-extract"><i class="fa fa-check"></i><b>1.3</b> Вырезание фрагмента изображения</a></li>
-<li class="chapter" data-level="1.4" data-path="pansharpen.html"><a href="pansharpen.html#pansharpen-resampling"><i class="fa fa-check"></i><b>1.4</b> Передискретизация</a></li>
-<li class="chapter" data-level="1.5" data-path="pansharpen.html"><a href="pansharpen.html#pansharpen-filter"><i class="fa fa-check"></i><b>1.5</b> Фильтрация</a></li>
+<li class="chapter" data-level="1.4" data-path="pansharpen.html"><a href="pansharpen.html#pansharpen-filter"><i class="fa fa-check"></i><b>1.4</b> Фильтрация</a></li>
+<li class="chapter" data-level="1.5" data-path="pansharpen.html"><a href="pansharpen.html#pansharpen-resampling"><i class="fa fa-check"></i><b>1.5</b> Передискретизация</a></li>
 <li class="chapter" data-level="1.6" data-path="pansharpen.html"><a href="pansharpen.html#pansharpen-pansharpen"><i class="fa fa-check"></i><b>1.6</b> Паншарпенинг</a></li>
+<li class="chapter" data-level="1.7" data-path="pansharpen.html"><a href="pansharpen.html#pansharpen-layout"><i class="fa fa-check"></i><b>1.7</b> Работа в режиме компоновки</a></li>
 </ul></li>
 <li class="chapter" data-level="2" data-path="georeference.html"><a href="georeference.html"><i class="fa fa-check"></i><b>2</b> Географическая привязка</a>
 <ul>
@@ -234,19 +235,31 @@
 <p>У полученного фрагмента изображения может быть не настроена гистограмма. Перейдите во вкладку <strong>Appearance</strong> и нажмите на кнопку <strong>DRA</strong> для автоматической настройки гистограммы фрагмента, либо исправьте гистограмму вручную.</p>
 <p><img src="images/Ref01/Stretching.png" /></p>
 </div>
-<div id="pansharpen-resampling" class="section level2 hasAnchor" number="1.4">
-<h2><span class="header-section-number">1.4</span> Передискретизация<a href="pansharpen.html#pansharpen-resampling" class="anchor-section" aria-label="Anchor link to header"></a></h2>
-<p>Для передискретизации используется инструмент <strong>Data Management Tools – Raster – Raster Processing – Resample</strong>. В качестве входных параметров необходимо указать исходный растр, а также размер ячейки нового растра и тип интерполяции</p>
-</div>
-<div id="pansharpen-filter" class="section level2 hasAnchor" number="1.5">
-<h2><span class="header-section-number">1.5</span> Фильтрация<a href="pansharpen.html#pansharpen-filter" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<div id="pansharpen-filter" class="section level2 hasAnchor" number="1.4">
+<h2><span class="header-section-number">1.4</span> Фильтрация<a href="pansharpen.html#pansharpen-filter" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>Для градиентной фильтрации выберите растр, в основной ленте меню выберите вкладку <strong>Imagery</strong>, нажмите на кнопку <strong>Raster Functions</strong> – у вас справа откроется панель с различными инструментами растров, в том числе во вкладке <strong>Appearance</strong> есть инструмент свёртки (<strong>Convolution</strong>).</p>
 <p><img src="images/Ref01/Raster_functions.png" /></p>
-<p>Для линейной (высокочастотная, низкочастотная) фильтрации используется инструмент <strong>Spatial Analyst Tools – Neighborhood – Filter</strong>. В качестве входных параметров необходимо указать исходный растр, а также тип фильтрации.</p>
+<p>Для линейной (высокочастотная, низкочастотная) фильтрации можно использовать инструмент <strong>Spatial Analyst Tools – Neighborhood – Filter</strong>. В качестве входных параметров необходимо указать исходный растр, а также тип фильтрации.</p>
+</div>
+<div id="pansharpen-resampling" class="section level2 hasAnchor" number="1.5">
+<h2><span class="header-section-number">1.5</span> Передискретизация<a href="pansharpen.html#pansharpen-resampling" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>Для передискретизации используется инструмент <strong>Data Management Tools – Raster – Raster Processing – Resample</strong>. В качестве входных параметров необходимо указать исходный растр, а также размер ячейки нового растра и тип интерполяции</p>
 </div>
 <div id="pansharpen-pansharpen" class="section level2 hasAnchor" number="1.6">
 <h2><span class="header-section-number">1.6</span> Паншарпенинг<a href="pansharpen.html#pansharpen-pansharpen" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>Для паншарпенинга используется инструмент <strong>Data Management Tools – Raster – Raster Processing – Create Pansharpened Raster Dataset</strong>. В качестве входных параметров необходимо указать исходный растр, тип преобразования и некоторые другие параметры, которые зависят от типа преобразования.</p>
+</div>
+<div id="pansharpen-layout" class="section level2 hasAnchor" number="1.7">
+<h2><span class="header-section-number">1.7</span> Работа в режиме компоновки<a href="pansharpen.html#pansharpen-layout" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>Для работы с данными в ArcGIS Pro мы находимся в окне карты (<strong>Map</strong>). Вы можете создать несколько окон карты через меню <strong>Insert – New Map</strong>. Слои содержания можно скопировать в каждую карту, а также синхронизировать их визуализацию через меню <strong>View – Link Views – Center And Scale</strong>. Создание компоновки осуществляется через меню <strong>Insert – New Layout</strong>, после чего у вас откроются варианты с параметрами листа компоновки. Эти параметры, включая ориентировку листа можно поменять в свойствах, вызвав их нажатием правой кнопки мыши.</p>
+<p><img src="images/Ref01/Layout_Properties.png" /></p>
+<p>Используйте кнопку <strong>Insert – Map Frame</strong> для того чтобы вставить картографическое изображение в лист компоновки.На одном листе можно разместить несколько картографических изображений, последовательно используя эту кнопку. Выделенный фрейм карты будет жирным в таблице содержания и отображаться в режиме узлов на листе карты.</p>
+<p><img src="images/Ref01/Map_Frames.png" /></p>
+<p>Для того чтобы область охвата фрейма переместилася к вашим данным, выберите соответствующий слой в таблице содержания и правой кнопкой вызовите меню <strong>Zoom To Layer</strong>. Вы можете менять масштаб изображения внутри фрейма в соответствующем окошке внизу. Для перемещения данных в пределах окна фрейма необходимо активировать карту правой кнопкой мыши и нажав <strong>Activate</strong>. Затем вернитесь в меню <strong>Map</strong> и переключитесь в режим <strong>Explore</strong>. Для выхода обратно в режим компоновки нажмите <strong>Close Activation</strong>.</p>
+<p><img src="images/Ref01/Map_Frame_Activation.gif" /></p>
+<p>Для всех фреймов можно выставить экстент из окна карты <strong>Layout – Zoom To Map View</strong> или <strong>Layout – Zoom To Last Active View</strong>.</p>
+<p>В окно компоновки можно вставить другие элементы: текст, графику, масштабную линейку и т.д. Правой кнопкой можно зайти в свойства элемента, поменять гарнитуру, кегль, выравнивание и прочие параметры.</p>
+<p><img src="images/Ref01/Graphic_Elements.png" /></p>
 <table>
 <tbody>
 <tr class="odd">
