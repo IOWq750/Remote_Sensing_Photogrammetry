@@ -6,7 +6,7 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <title>Раздел 11 Лазерное сканирование | Основы дистанционного зондирования и фотограмметрии</title>
   <meta name="description" content="Раздел 11 Лазерное сканирование | Основы дистанционного зондирования и фотограмметрии" />
-  <meta name="generator" content="bookdown 0.30 and GitBook 2.6.7" />
+  <meta name="generator" content="bookdown 0.36 and GitBook 2.6.7" />
 
   <meta property="og:title" content="Раздел 11 Лазерное сканирование | Основы дистанционного зондирования и фотограмметрии" />
   <meta property="og:type" content="book" />
@@ -23,7 +23,7 @@
 <meta name="author" content="Карпачевский А.М." />
 
 
-<meta name="date" content="2023-04-25" />
+<meta name="date" content="2023-10-25" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -55,6 +55,10 @@
 
 
 
+<style type="text/css">
+  
+  div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+</style>
 
 <link rel="stylesheet" href="style.css" type="text/css" />
 </head>
@@ -210,24 +214,24 @@
 <h2><span class="header-section-number">11.3</span> Работа с облаком ТЛО в SAGA<a href="las.html#las-Extract" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p><a href="las.html#las">В начало справки ⇡</a></p>
 <p>Для импорта ТЛО используйте инструмент <strong>Tools – Import/Export – LAS – Import LAS Files</strong>. Укажите путь к файлу, а все остальные параметры оставьте по умолчанию. Нажмите <strong>Okay</strong> для запуска инструмента.</p>
-<div class="figure">
-<img src="images/Ref19/Import_LAS.png" alt="" />
-<p class="caption">Окно инструмента импорта ТЛО</p>
+<div class="float">
+<img src="images/Ref19/Import_LAS.png" alt="Окно инструмента импорта ТЛО" />
+<div class="figcaption">Окно инструмента импорта ТЛО</div>
 </div>
 <p>Вы можете визуализировать облако, дважды щёлкнув по появившемуся слою во вкладке <strong>Data</strong>.</p>
-<div class="figure">
-<img src="images/Ref19/Point_Cloud.png" alt="" />
-<p class="caption">Визуализация данных в SAGA</p>
+<div class="float">
+<img src="images/Ref19/Point_Cloud.png" alt="Визуализация данных в SAGA" />
+<div class="figcaption">Визуализация данных в SAGA</div>
 </div>
 <p>В SAGA доступен инструмент для трёхмерной визуализации облаков точек. Для этого выберите <strong>Tools – Visualization – 3D Viewer – Point Cloud Viewer</strong>. Координату Z можно использовать для цветовой шкалы.</p>
-<div class="figure">
-<img src="images/Ref19/Point_Cloud_Viewer.png" alt="" />
-<p class="caption">Трёхмерная визуализация данных в SAGA</p>
+<div class="float">
+<img src="images/Ref19/Point_Cloud_Viewer.png" alt="Трёхмерная визуализация данных в SAGA" />
+<div class="figcaption">Трёхмерная визуализация данных в SAGA</div>
 </div>
 <p>Добавьте готовый векторный объект в SAGA в формате шейпфайла через меню <strong>Open</strong> <img src="images/Ref19/Open.png" />, который потом будет использован для вырезания облака точек. В панели менеджера перейдите на вкладку <strong>Data</strong>. Двойной щелчок по слою предложит добавить слой к либо к уже открытой карте, либо к новой карте. На панели <strong>Settings</strong> вы можете настроить отображение данных, подписи объектов.</p>
-<div class="figure">
-<img src="images/Ref19/Vector_Features.png" alt="" />
-<p class="caption">Трёхмерная визуализация данных в SAGA</p>
+<div class="float">
+<img src="images/Ref19/Vector_Features.png" alt="Трёхмерная визуализация данных в SAGA" />
+<div class="figcaption">Трёхмерная визуализация данных в SAGA</div>
 </div>
 <p>С помощью инструмента <img src="images/Ref19/Pick.png" /> можно выбрать и удалить ненужные объекты. Для того чтобы вырезать фрагмент облака, воспользуйтесь инструментом <strong>Tools – Shapes – Point Clouds – Point Cloud Cutter</strong>. В параметре <strong>Points</strong> укажите загруженный слой точек, в параметре <strong>Choose cut from…</strong> выберите параметр <strong>Polygons</strong>. После нажатия <strong>Okay</strong> откроется новое окно, в котором будет предложено указать непосредственный векторный слой для обрезки.</p>
 <p>После появления вырезанного облака точек воспользуйтесь инструментом <strong>Tools – Import/Export – LAS – Export LAS Files</strong>. В параметре <strong>Point Cloud</strong> укажите набор данных для экспорта, укажите масштабный коэффициент по трём осям равным 1. Остальные параметры остаются по умолчанию.</p>
@@ -236,16 +240,16 @@
 <h2><span class="header-section-number">11.4</span> Работа с ТЛО в CloudCompare<a href="las.html#las-cloudcompare" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p><a href="las.html#las">В начало справки ⇡</a></p>
 <p>В программе через меню <strong>File – Open</strong> откройте ваш фрагмент облака точек. Для того чтобы точки облака приобрели цвет (скаляр), указываем, что переменной цвета соответствует координата Z. Для этого вызываем меню <strong>Edit – Scalar Fields - Export coordinates to SF</strong> и выбираем координату.</p>
-<div class="figure">
-<img src="images/Ref19/Colorize_Cloud.png" alt="" />
-<p class="caption">Облако точек с настроенным скалярным значением</p>
+<div class="float">
+<img src="images/Ref19/Colorize_Cloud.png" alt="Облако точек с настроенным скалярным значением" />
+<div class="figcaption">Облако точек с настроенным скалярным значением</div>
 </div>
 <p>Для классификации облака точек на точки земли и точки всего остального вызываем меню <strong>Plugins – CSF Filter</strong>. В <strong>Advanced parameters</strong> обязательно укажите параметр <strong>cloth resolution</strong> (разрешение).Результат классификации добавится в виде отдельных облаков точек.</p>
-<p>С помощью инструмента Segment <img src="images/Ref19/Segment.png" /> можно вырезать объекты типа дорог и рек. Для этого нарисуйте полигон, ставя узлы левой кнопкой мыши. Замыкание полигона осуществляется нажатием правой кнопки мыши. После отрисовки участка, который необходимо очистить от ТЛО, выберите на панели <img src="images/Ref19/Segment_Panel.png" /> кнопку <strong>Segment Out</strong>. В результате у вас появятся новые поднаборы облаков точек в списке слоёв слева.</p>
+<p>С помощью инструмента Segment <img src="images/Ref19/Segment.png" /> можно вырезать объекты типа дорог и рек. Для этого нарисуйте полигон, ставя узлы левой кнопкой мыши. Замыкание полигона осуществляется нажатием правой кнопки мыши. После отрисовки участка, который необходимо очистить от ТЛО, выберите на панели <img src="images/Ref19/Segment_panel.png" /> кнопку <strong>Segment Out</strong>. В результате у вас появятся новые поднаборы облаков точек в списке слоёв слева.</p>
 <p>Для получения растровой поверхности, горизонталей и mesh-модели используется кнопка <img src="images/Ref19/Rasterize.png" /> на главной панели, либо вызывается меню <strong>Tool – Projection – Rasterize</strong>. В открывшемся окне укажите разрешение растра <strong>step – 1</strong>, ось координат для проекции <strong>direction – Z</strong>, размер ячейки укажите минимальный <strong>cell height – minimum</strong>, а также передискретизация <strong>resample input cloud – checked</strong>. пустые ячейки оставьте пустыми <strong>Empty cells fill with – leave empty</strong>.</p>
-<div class="figure">
-<img src="images/Ref19/Rasterize_Window.png" alt="" />
-<p class="caption">Окно настроек растеризации</p>
+<div class="float">
+<img src="images/Ref19/Rasterize_window.png" alt="Окно настроек растеризации" />
+<div class="figcaption">Окно настроек растеризации</div>
 </div>
 <p>Для запуска процесса растеризации нажмите на кнопку <strong>Raster</strong> и укажите путь для сохранения файла GeoTIFF. Опционально вы можете построить горизонтали <strong>Contour plot</strong>.</p>
 </div>
@@ -255,23 +259,23 @@
 <p>При открытии в QGIS для поверхности, соответствующей земле выполните заполнение пустых ячеек инструментом <strong>Raster – Analysis – Fill nodata…</strong>.</p>
 <p>Для нахождения высоты объектов над рельефом можно воспользоваться калькулятором растров и вычесть одну поверхность из другой.</p>
 <p>В QGIS доступны некоторые инструменты автоматизированного упрощения геометрии, что применимо к автоматически построенным горизонталям. Выберите в главном меню <strong>Vector – Geometry Tools – Simplify…</strong>. Откроется инструмент, упрощающий геометрию объектов. Для линейных объектов рекомендуется выбирать алгоритм Дугласа-Пейкера.</p>
-<div class="figure">
-<img src="images/Ref19/Simplify.png" alt="" />
-<p class="caption">Окно инструмента упрощения</p>
+<div class="float">
+<img src="images/Ref19/Simplify.png" alt="Окно инструмента упрощения" />
+<div class="figcaption">Окно инструмента упрощения</div>
 </div>
 <p>Данный алгоритм убирает вершины согласно заданному порогу, который устанавливается пользователем на основе масштаба и детализации исходных данных.</p>
 <p>В QGIS есть инструмент для сглаживания векторных объектов. Для его использования нужно открыть окно <strong>Processing</strong> и в нём найти инструмент <strong>Vector Geometry – Smooth</strong>.</p>
-<div class="figure">
-<img src="images/Ref19/Smooth.png" alt="" />
-<p class="caption">Окно инструмента сглаживания</p>
+<div class="float">
+<img src="images/Ref19/Smooth.png" alt="Окно инструмента сглаживания" />
+<div class="figcaption">Окно инструмента сглаживания</div>
 </div>
 <blockquote>
 <p>Обратите внимание, что оба инструмента не изменяют текущий слой, а создают новый.</p>
 </blockquote>
 <p>Упрощение и сглаживание объектов доступно в индивидуальном порядке в текущем слое на панели инструментов дополнительной оцифровки. Выбрав редактируемый слой в режиме редактирования, нажмите на кнопку <img src="images/Ref19/Simplify_button.png" />, после чего кликните по объекту, который вы хотите упростить. Откроется маленькое окошко, в котором можно выбрать метод сглаживания, либо упрощения.</p>
-<div class="figure">
-<img src="images/Ref19/Simplifying.png" alt="" />
-<p class="caption">Окно выбора метода упрощения и сглаживания</p>
+<div class="float">
+<img src="images/Ref19/Simplifying.png" alt="Окно выбора метода упрощения и сглаживания" />
+<div class="figcaption">Окно выбора метода упрощения и сглаживания</div>
 </div>
 <table>
 <tbody>

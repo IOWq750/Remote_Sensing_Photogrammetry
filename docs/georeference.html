@@ -6,7 +6,7 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <title>Раздел 2 Географическая привязка | Основы дистанционного зондирования и фотограмметрии</title>
   <meta name="description" content="Раздел 2 Географическая привязка | Основы дистанционного зондирования и фотограмметрии" />
-  <meta name="generator" content="bookdown 0.30 and GitBook 2.6.7" />
+  <meta name="generator" content="bookdown 0.36 and GitBook 2.6.7" />
 
   <meta property="og:title" content="Раздел 2 Географическая привязка | Основы дистанционного зондирования и фотограмметрии" />
   <meta property="og:type" content="book" />
@@ -23,7 +23,7 @@
 <meta name="author" content="Карпачевский А.М." />
 
 
-<meta name="date" content="2023-04-25" />
+<meta name="date" content="2023-10-25" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -55,6 +55,10 @@
 
 
 
+<style type="text/css">
+  
+  div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+</style>
 
 <link rel="stylesheet" href="style.css" type="text/css" />
 </head>
@@ -196,34 +200,34 @@
 <div id="georeference-arcgis" class="section level2 hasAnchor" number="2.1">
 <h2><span class="header-section-number">2.1</span> Географическая привязка в ArcGIS Pro<a href="georeference.html#georeference-arcgis" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>Создайте новый проект и сохраните его. Задайте систему координат датафрейма (карты) – для этого зайдите в свойства <strong>Map</strong> и перейдите во вкладку <strong>Coordinate Systems</strong>, раскройте список <strong>Projected coordinate system</strong> и выберите нужную СК.</p>
-<div class="figure">
-<img src="images/Ref02/Arc_mapCRS.png" alt="" />
-<p class="caption">Свойства системы координат карты</p>
+<div class="float">
+<img src="images/Ref02/Arc_mapCRS.png" alt="Свойства системы координат карты" />
+<div class="figcaption">Свойства системы координат карты</div>
 </div>
 <p>Добавьте из панели каталога растр, который необходимо привязать.Выделите его в списке слоев и во вкладке <strong>Imagery</strong> нажмите на кнопку <strong>Georeference</strong>.</p>
-<div class="figure">
-<img src="images/Ref02/Arc_georeference.png" alt="" />
-<p class="caption">Открытие панели привязки</p>
+<div class="float">
+<img src="images/Ref02/Arc_georeference.png" alt="Открытие панели привязки" />
+<div class="figcaption">Открытие панели привязки</div>
 </div>
 <p>Открытая панель привязки состоит из нескольких кнопок. Убедитесь, что у вас нажата кнопка <strong>Auto Apply</strong>, которая позволяет трансформировать изображение на лету.</p>
-<div class="figure">
-<img src="images/Ref02/Arc_georef_panel.png" alt="" />
-<p class="caption">Панель привязки</p>
+<div class="float">
+<img src="images/Ref02/Arc_georef_panel.png" alt="Панель привязки" />
+<div class="figcaption">Панель привязки</div>
 </div>
 <p>Нажмите на кнопку <strong>Add Control Points</strong> <img src="images/Ref02/Arc_add_control_points.png" /> и установите опорную точку в нужном месте на карте. После этого вам будет предложено установить соответственную точку на референцном слое или ввести заданные координаты для точки – для этого щёлкните правой кнопкой мыши, после чего откроется окошко для ввода координат.</p>
-<div class="figure">
-<img src="images/Ref02/Arc_target_coords.png" alt="" />
-<p class="caption">Окно ввода координат опорной точки</p>
+<div class="float">
+<img src="images/Ref02/Arc_target_coords.png" alt="Окно ввода координат опорной точки" />
+<div class="figcaption">Окно ввода координат опорной точки</div>
 </div>
 <p>Если нажать на кнопку <strong>Control Point Table</strong> <img src="images/Ref02/Arc_control_points_tab.png" />, то откроется таблица, где будут показаны все установленные опорные точки с их координатами в исходной и референцной системе координат. В этой же таблице указываются ошибки (невязки) общая и по отдельным координатам. Слева можно включать и выключать точки из расчёта. Когда точка выключена из расчёта, она превращается из опорной в контрольную.</p>
-<div class="figure">
-<img src="images/Ref02/Arc_table.png" alt="" />
-<p class="caption">Таблица координат опорных точек</p>
+<div class="float">
+<img src="images/Ref02/Arc_table.png" alt="Таблица координат опорных точек" />
+<div class="figcaption">Таблица координат опорных точек</div>
 </div>
 <p>Установив необходимое количество точек, вы можете нажать на кнопку <strong>Transformation</strong> <img src="images/Ref02/Arc_transformation.png" />и выбрать тип трансформации. После установки опорных точек и выбора типа трансформации можно запустить процесс трансформирования и сохранения нового изображения, нажав на кнопку <img src="images/Ref02/Arc_save_as_new.png" />.</p>
-<div class="figure">
-<img src="images/Ref02/Arc_export_raster.png" alt="" />
-<p class="caption">Окно сохранения трансформированного изображения</p>
+<div class="float">
+<img src="images/Ref02/Arc_export_raster.png" alt="Окно сохранения трансформированного изображения" />
+<div class="figcaption">Окно сохранения трансформированного изображения</div>
 </div>
 <p>Обратите внимание, что опорные точки можно сохранять отдельно (экспортировать) – для этого есть кнопка <strong>Export Control Points</strong> и импортировать <strong>Import Control Points</strong>.</p>
 </div>
@@ -239,17 +243,17 @@
 </blockquote>
 <p>Включите <strong>Панель инструментов работы с растровыми данными</strong>. На ней нажмите кнопку <strong>Привязка растров</strong> <img src="images/Ref02/Reference_button.png" />.</p>
 <p>Откроется окно привязки. Нажмите на кнопку <strong>Открыть растр</strong> <img src="images/Ref02/Open_rastr.png" />, добавьте привязываемый растр. Щелчок левой кнопкой мыши по привязываемому изображению открое окно, куда будет предложено ввести координаты. Если вы для привязки хотите использовать референцное изображение, нажмите на кнопку <strong>С карты</strong>.</p>
-<div class="figure">
-<img src="images/Ref02/Input_coordinates.png" alt="" />
-<p class="caption">Окно ввода координат</p>
+<div class="float">
+<img src="images/Ref02/Input_coordinates.png" alt="Окно ввода координат" />
+<div class="figcaption">Окно ввода координат</div>
 </div>
 <p>Для настройки параметров трансформации нажмите на кнопку <img src="images/Ref02/Transformation_settings.png" />. Опорные точки можно сохранять и подгружать – для этого используйте соответствующие кнопки на панели. Для запуска процесса трансформации нажмите на кнопку <img src="images/Ref02/Transformation_button.png" /></p>
 <p>После добавления трансформированного изображения в основное окно карты убедитесь в правильности проделанной операции, сравнивая его с подложкой из мозаики спутниковых снимков. Для этого удобно использовать инструмент шторки.</p>
 <p>Зайдите в <strong>Модули – Управление и установка модулей…</strong> и вбейте в поиск <strong>MapSwipe Tool</strong>. После этого появится панель шторки.</p>
 <p>Выберите слой, который будет активен в режиме шторки (будет находиться под шторкой) и нажмите на кнопку <img src="images/Ref02/Swipe_button.png" />.</p>
-<div class="figure">
-<img src="images/Ref02/Swipe.png" alt="" />
-<p class="caption">Режим шторки для слоя Google Maps</p>
+<div class="float">
+<img src="images/Ref02/Swipe.png" alt="Режим шторки для слоя Google Maps" />
+<div class="figcaption">Режим шторки для слоя Google Maps</div>
 </div>
 <table>
 <tbody>

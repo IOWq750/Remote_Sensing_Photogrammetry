@@ -6,7 +6,7 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <title>Раздел 10 Обработка данных в Agisoft Metashape | Основы дистанционного зондирования и фотограмметрии</title>
   <meta name="description" content="Раздел 10 Обработка данных в Agisoft Metashape | Основы дистанционного зондирования и фотограмметрии" />
-  <meta name="generator" content="bookdown 0.30 and GitBook 2.6.7" />
+  <meta name="generator" content="bookdown 0.36 and GitBook 2.6.7" />
 
   <meta property="og:title" content="Раздел 10 Обработка данных в Agisoft Metashape | Основы дистанционного зондирования и фотограмметрии" />
   <meta property="og:type" content="book" />
@@ -23,7 +23,7 @@
 <meta name="author" content="Карпачевский А.М." />
 
 
-<meta name="date" content="2023-04-25" />
+<meta name="date" content="2023-10-25" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -55,6 +55,10 @@
 
 
 
+<style type="text/css">
+  
+  div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+</style>
 
 <link rel="stylesheet" href="style.css" type="text/css" />
 </head>
@@ -209,19 +213,19 @@
 <h2><span class="header-section-number">10.3</span> Интерфейс<a href="agisoft.html#agisoft-interface" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p><a href="agisoft.html#agisoft">В начало справки ⇡</a></p>
 <p>Интерфейс программы состоит из основного окна 3D-вьюера, окна <strong>Workspace</strong> слева, куда добавляются блоки (<strong>Chunk</strong>) фотографий (<strong>Cameras</strong>). Другие окна показывают фотографии блока, свойства слоёв, информацию о привязке, маркеры и другие. С полным перечнем окон и панелей можно ознакомиться, щёлкнув правой кнопкой мыши по пустому месту сверху – там можно включить или выключить окно/панель.</p>
-<div class="figure">
-<img src="images/Ref18/Interface.png" alt="" />
-<p class="caption">Вид окна программы</p>
+<div class="float">
+<img src="images/Ref18/Interface.png" alt="Вид окна программы" />
+<div class="figcaption">Вид окна программы</div>
 </div>
 <p>Настройки программы доступны через меню <strong>Tools – Preferences</strong>. Убедитесь в том, что ресурсы видеокарты используются для вычислений.</p>
-<div class="figure">
-<img src="images/Ref18/Preferences.png" alt="" />
-<p class="caption">Включение GPU для ускорения вычислений</p>
+<div class="float">
+<img src="images/Ref18/Preferences.png" alt="Включение GPU для ускорения вычислений" />
+<div class="figcaption">Включение GPU для ускорения вычислений</div>
 </div>
 <p>Добавить фотографии можно, щёлкнув правой кнопкой по <strong>Chunk</strong> и вызвав меню <strong>Add – Add Photos…</strong> или <strong>Add – Add Folder…</strong>. Фотографии добавятся в окно блока и в окно с превью. Если в EXIF фотографий присутствуют геотеги, то соответствующие строчки появятся в окне <strong>Reference</strong>. При добавлении фотографий с БПЛА могут присутствовать углы ориентирования, как минимум рысканье (<strong>Yaw</strong>).</p>
-<div class="figure">
-<img src="images/Ref18/Reference.png" alt="" />
-<p class="caption">Окно с координатами центров проекции фотографий</p>
+<div class="float">
+<img src="images/Ref18/Reference.png" alt="Окно с координатами центров проекции фотографий" />
+<div class="figcaption">Окно с координатами центров проекции фотографий</div>
 </div>
 <p>При наличии геотегов добавленных фотографий их центры проекций будут схематично показываться и подписывать в окне 3D-вьюера. Кнопка <strong>Show Basemap</strong> <img src="images/Ref18/Basemap.png" /> включает и выключает подложку базовой карты, кнопка <strong>Show Cameras</strong> <img src="images/Ref18/Cameras.png" /> включает и выключает показ центров проекций снимков.</p>
 <p>Перемещать вид в окне 3D-вьюера можно зажатой левой кнопкой мыши, меняется масштаб с помощью колёсика мыши, поворачивается вид с помощью зажатого колёсика мыши.</p>
@@ -238,68 +242,68 @@
 <p><strong>Key point limit</strong> – лимит нахождения ключевых точек на снимке. Рекомендуется использовать значение <em>40 000</em>, а значение <em>0</em> означает отсутствие лимита;</p>
 <p><strong>Tie point limit</strong> – лимит нахождения связующих точек на снимке. Рекомендуется использовать значение <em>4 000</em>, а значение <em>0</em> означает отсутствие лимита;</p>
 <p><strong>Adaptive camera model fitting</strong> – при уравнивании связок проектирующих лучей происходит самокалибровка камеры.</p>
-<div class="figure">
-<img src="images/Ref18/Align_Photos.png" alt="" />
-<p class="caption">Настройки взаимного ориентирования (выравнивания)</p>
+<div class="float">
+<img src="images/Ref18/Align_Photos.png" alt="Настройки взаимного ориентирования (выравнивания)" />
+<div class="figcaption">Настройки взаимного ориентирования (выравнивания)</div>
 </div>
 <p>По завершении операции вы получаете облако связующих точек (<strong>Tie Points</strong>) или разреженное облако точек.</p>
-<div class="figure">
-<img src="images/Ref18/Sparse_Cloud.png" alt="" />
-<p class="caption">Разреженное облако точек</p>
+<div class="float">
+<img src="images/Ref18/Sparse_Cloud.png" alt="Разреженное облако точек" />
+<div class="figcaption">Разреженное облако точек</div>
 </div>
 <p>Все обнаруженные отождествления ключевых точек для каждой пары снимков можно найти в меню <strong>Tools – Tie Points – View Matches…</strong>.</p>
-<div class="figure">
-<img src="images/Ref18/Matches.png" alt="" />
-<p class="caption">Обнаруженные корректные и некорректные отождествления для пары снимков</p>
+<div class="float">
+<img src="images/Ref18/Matches.png" alt="Обнаруженные корректные и некорректные отождествления для пары снимков" />
+<div class="figcaption">Обнаруженные корректные и некорректные отождествления для пары снимков</div>
 </div>
 <p>Параметры калибровки камеры после взаимного ориентирования меняются. С ними можно ознакомиться через меню <strong>Tools – Camera calibration…</strong>. График распределения дистории (<strong>Distortion plot</strong>) можно вызвать, щёлкнув правой кнопкой мыши по модели камеры.</p>
-<div class="figure">
-<img src="images/Ref18/Camera_Calibration.png" alt="" />
-<p class="caption">Параметры калибровки камеры</p>
+<div class="float">
+<img src="images/Ref18/Camera_Calibration.png" alt="Параметры калибровки камеры" />
+<div class="figcaption">Параметры калибровки камеры</div>
 </div>
 </div>
 <div id="agisoft-markers" class="section level2 hasAnchor" number="10.5">
 <h2><span class="header-section-number">10.5</span> Расстановка опорных точек<a href="agisoft.html#agisoft-markers" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p><a href="agisoft.html#agisoft">В начало справки ⇡</a></p>
 <p>Опорные точки можно расставить вручную, если правой кнопкой мыши щёлкнуть по облаку точек в нужном месте и из выпадающего меню выбрать <strong>Add Marker</strong>. Соответствующая строчка с маркером появится в окне <strong>Reference</strong>, а в окне <strong>Photos</strong> на фотографиях, куда попадает маркер, появится синий флаг. При установке проекции маркера на конкретной фотографии флаг станет зелёным.</p>
-<div class="figure">
-<img src="images/Ref18/Manual_Markers.png" alt="" />
-<p class="caption">Ручная установка маркера</p>
+<div class="float">
+<img src="images/Ref18/Manual_Markers.png" alt="Ручная установка маркера" />
+<div class="figcaption">Ручная установка маркера</div>
 </div>
 <p>Если правой кнопкой мыши вызвать выпадающее меню в точке разреженного облака точек и выбрать пункт <strong>Filter Photos by point</strong>, перечень фотографий в окне <strong>Photos</strong> сократится. Для сброса фильтра нажмите на кнопку <img src="images/Ref18/Reset_Filter.png" /> на панели окна <strong>Photos</strong>.</p>
 <p>Если данные по опорным точкам сведены в текстовый файл с разделителем, его можно добавить, нажав на кнопку <strong>Import Reference</strong> <img src="images/Ref18/Import_Reference.png" />. Откроется окно, где вам будет предложено установить символ разделителя, расставить в нужном порядке колонки и указать, с какой строчки необходимо начать считывать данные.</p>
-<div class="figure">
-<img src="images/Ref18/Import_CSV.png" alt="" />
-<p class="caption">Окно импорта CSV</p>
+<div class="float">
+<img src="images/Ref18/Import_CSV.png" alt="Окно импорта CSV" />
+<div class="figcaption">Окно импорта CSV</div>
 </div>
 <p>В окне <strong>Reference</strong> нажмите на <strong>Settings</strong> <img src="images/Ref18/Settings.png" />, убедитесь в правильности установленных систем координат для модели, фотографий и маркеров (они могут быть разные). Установите точности для координат центров проекций и координат расставляемых маркеров.</p>
 <p>Установите маркеры на фотографиях, где присутствуют опознаки. Для этого откройте одну из фотографий в окне <strong>Photos</strong>, в точке опознака щёлкните правой кнопкой мыши и выберите пункт <strong>Place Marker</strong> и выберите нужный маркер из имеющихся. После установке хотя бы двух проекций программа начнёт подсказывать, на каких фотографиях присутствуют маркеры с помощью символа серого флага <img src="images/Ref18/Grey_Flag.png" />. Для хорошего результата необходимо, чтобы каждый маркер имел не менее четырёх проекций, а сами проекции не были установлены в области пониженной резкости изображения или совсем на краю снимка.</p>
-<div class="figure">
-<img src="images/Ref18/Place_Marker.png" alt="" />
-<p class="caption">Установка проекции маркера</p>
+<div class="float">
+<img src="images/Ref18/Place_Marker.png" alt="Установка проекции маркера" />
+<div class="figcaption">Установка проекции маркера</div>
 </div>
 <p>Нажмите на кнопку <strong>Optimize</strong> <img src="images/Ref18/Optimize.png" /> для калибровки элементов внутреннего и внешнего ориентирования камеры, а также параметров дисторсии.</p>
-<div class="figure">
-<img src="images/Ref18/Optimize_Camera.png" alt="" />
-<p class="caption">Выбор параметров оптимизации камеры</p>
+<div class="float">
+<img src="images/Ref18/Optimize_Camera.png" alt="Выбор параметров оптимизации камеры" />
+<div class="figcaption">Выбор параметров оптимизации камеры</div>
 </div>
 </div>
 <div id="agisoft-dense" class="section level2 hasAnchor" number="10.6">
 <h2><span class="header-section-number">10.6</span> Построение плотного облака точек<a href="agisoft.html#agisoft-dense" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p><a href="agisoft.html#agisoft">В начало справки ⇡</a></p>
 <p>В главном меню вызовите <strong>Workflow – Build Dense Cloud…</strong>. После окончания работы инструмента в окне <strong>Workspace</strong> появятся слои карт глубины (<strong>Depth Maps</strong>) и плотное облако точек (<strong>Dense Cloud</strong>).</p>
-<div class="figure">
-<img src="images/Ref18/Dense_Cloud.png" alt="" />
-<p class="caption">Плотное облако точек</p>
+<div class="float">
+<img src="images/Ref18/Dense_Cloud.png" alt="Плотное облако точек" />
+<div class="figcaption">Плотное облако точек</div>
 </div>
 </div>
 <div id="agisoft-DEM" class="section level2 hasAnchor" number="10.7">
 <h2><span class="header-section-number">10.7</span> Построение ЦМП и фотомозаики<a href="agisoft.html#agisoft-DEM" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p><a href="agisoft.html#agisoft">В начало справки ⇡</a></p>
 <p>Для построения цифровой модели поверхности на основе плотного облака точек в главном меню вызовите <strong>Workflow – Build DEM…</strong>. Для построения фотомозаики вам потребуется ЦМП, полученная на предыдущем этапе – в главном меню вызовите <strong>Workflow – Build Orthomosaic…</strong>.</p>
-<div class="figure">
-<img src="images/Ref18/DEM.png" alt="" />
-<p class="caption">Цифровая модель поверхности</p>
+<div class="float">
+<img src="images/Ref18/DEM.png" alt="Цифровая модель поверхности" />
+<div class="figcaption">Цифровая модель поверхности</div>
 </div>
 <blockquote>
 <p>Обратите внимание, что каждый слой для блока может быть представлен только в одном экземпляре. Если вы запускаете процедуру с новыми параметрами, то выходной слой перезапишется. Если вы хотите получить несколько вариантов одного слоя, необходимо сдублировать блок – нажать правой кнопкой мыши по блоку и выбрать <strong>Duplicate</strong> и указать те данные, которые необходимо сдублировать.</p>

@@ -6,7 +6,7 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <title>Раздел 8 Создание ЦМР и ЦММ на основе стереопары АФС в ЦФС PHOTOMOD | Основы дистанционного зондирования и фотограмметрии</title>
   <meta name="description" content="Раздел 8 Создание ЦМР и ЦММ на основе стереопары АФС в ЦФС PHOTOMOD | Основы дистанционного зондирования и фотограмметрии" />
-  <meta name="generator" content="bookdown 0.30 and GitBook 2.6.7" />
+  <meta name="generator" content="bookdown 0.36 and GitBook 2.6.7" />
 
   <meta property="og:title" content="Раздел 8 Создание ЦМР и ЦММ на основе стереопары АФС в ЦФС PHOTOMOD | Основы дистанционного зондирования и фотограмметрии" />
   <meta property="og:type" content="book" />
@@ -23,7 +23,7 @@
 <meta name="author" content="Карпачевский А.М." />
 
 
-<meta name="date" content="2023-04-25" />
+<meta name="date" content="2023-10-25" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -55,6 +55,10 @@
 
 
 
+<style type="text/css">
+  
+  div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+</style>
 
 <link rel="stylesheet" href="style.css" type="text/css" />
 </head>
@@ -197,23 +201,23 @@
 <h2><span class="header-section-number">8.1</span> Автоматический расчёт пикетов<a href="photomod_DEM.html#photomod_DEM-pikets" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p><a href="photomod_DEM.html#photomod_DEM">В начало справки ⇡</a></p>
 <p>Создайте слой сетки через главное меню <strong>Сетка – Создать</strong>. В диспетчере слоёв появится новый слой. Убедитесь в том, что он редактируем и с зажатой клавишей <strong>shift</strong> выделите прямоугольную область на нужную территорию. Зайдите в свойства слоя и задайте шаг сетки, исходя из требуемого разрешения, а <strong>Уровень Z</strong> выставьте равным 0.</p>
-<div class="figure">
-<img src="images/Ref16/Grid_Properties.png" alt="" />
-<p class="caption">Свойства сетки</p>
+<div class="float">
+<img src="images/Ref16/Grid_Properties.png" alt="Свойства сетки" />
+<div class="figcaption">Свойства сетки</div>
 </div>
 <p>Созданная сетка будет использована для построения пикетов. Откройте окно автоматического расчета пикетов <strong>ЦМР – Пикеты – Расчёт пикетов</strong>. Выберите конфигурацию коррелятора <strong>Сельская местность2</strong>, укажите необходимую область поиска, начальное приближение установите равным средней высоте стереопары. Обратите внимание, что рассчитанные пикеты должны сохраняться в отдельный слой.</p>
-<div class="figure">
-<img src="images/Ref16/Piket_Calculation.png" alt="" />
-<p class="caption">Окно расчёта пикетов</p>
+<div class="float">
+<img src="images/Ref16/Piket_Calculation.png" alt="Окно расчёта пикетов" />
+<div class="figcaption">Окно расчёта пикетов</div>
 </div>
 </div>
 <div id="photomod_DEM-TIN" class="section level2 hasAnchor" number="8.2">
 <h2><span class="header-section-number">8.2</span> Построение и редактирование модели TIN<a href="photomod_DEM.html#photomod_DEM-TIN" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p><a href="photomod_DEM.html#photomod_DEM">В начало справки ⇡</a></p>
 <p>Одно из моделей представления высот – нерегулярная сеть триангуляции (TIN). Откройте панель инструментов <strong>TIN</strong>. Нажмите на кнопку <strong>Построить TIN по пикетам и структурным линиям</strong>. выберите необходимые слои и запустите процесс.</p>
-<div class="figure">
-<img src="images/Ref16/TIN.png" alt="" />
-<p class="caption">Сеть TIN и квазигоризонтали</p>
+<div class="float">
+<img src="images/Ref16/TIN.png" alt="Сеть TIN и квазигоризонтали" />
+<div class="figcaption">Сеть TIN и квазигоризонтали</div>
 </div>
 <p>Если возникла необходимость отредактировать существующий узел триангуляции, зайдите в режим редактирования узлов, нажав на кнопку <img src="images/Ref16/Vertex_Edit.png" />. При зажатой клавише <strong>control</strong> вы можете сводить и разводить измерительную марку, а узел будет перемещаться за нею по высоте.</p>
 </div>
@@ -227,23 +231,23 @@
 <h2><span class="header-section-number">8.4</span> Ортотрансформация на основе полученной ЦМП<a href="photomod_DEM.html#photomod_DEM-Orthorectification" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p><a href="photomod_DEM.html#photomod_DEM">В начало справки ⇡</a></p>
 <p>Вызовите панель <strong>Растры – Ортотрансформирование</strong>. На схеме блока выделите снимок, с которым работаете. Далее на панели нажмите на кнопку <strong>Открыть выделенное изображение</strong> <img src="images/Ref16/Select.png" />. Нажмите на кнопку <strong>Обрезка краёв исходных изображений</strong> <img src="images/Ref16/Clip2.png" /> и укажите процент обрезки для ограничения вашей территории.</p>
-<div class="figure">
-<img src="images/Ref16/Clip.png" alt="" />
-<p class="caption">Окно обрезки изображения для ортотрансформации</p>
+<div class="float">
+<img src="images/Ref16/Clip.png" alt="Окно обрезки изображения для ортотрансформации" />
+<div class="figcaption">Окно обрезки изображения для ортотрансформации</div>
 </div>
 <p>Обратите внимание, что для ортотрансформации сохраняется собственный проект. Для запуска процесса ортотрансформации нажмите на кнопку <img src="images/Ref16/Run.png" />. Сопоставить снимок до и после ортотрансформации в PHOTOMOD нельзя, поэтому можно воспользоваться, например ГИС-пакетом QGIS.</p>
-<div class="figure">
-<img src="images/Ref16/Comparison.gif" alt="" />
-<p class="caption">Сопоставление трансформированного и ортотрансформированного снимка</p>
+<div class="float">
+<img src="images/Ref16/Comparison.gif" alt="Сопоставление трансформированного и ортотрансформированного снимка" />
+<div class="figcaption">Сопоставление трансформированного и ортотрансформированного снимка</div>
 </div>
 </div>
 <div id="photomod_DEM-structure_lines" class="section level2 hasAnchor" number="8.5">
 <h2><span class="header-section-number">8.5</span> Построение структурных линий<a href="photomod_DEM.html#photomod_DEM-structure_lines" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p><a href="photomod_DEM.html#photomod_DEM">В начало справки ⇡</a></p>
 <p>Для начала нужно создать векторный слой, куда будут сохраняться векторные объекты (<strong>Векторы – Создать слой</strong>). После этого в диспетчере слоёв появится соответствующий слой.</p>
-<div class="figure">
-<img src="images/Ref16/Layers.png" alt="" />
-<p class="caption">Диспетчер слоёв</p>
+<div class="float">
+<img src="images/Ref16/Layers.png" alt="Диспетчер слоёв" />
+<div class="figcaption">Диспетчер слоёв</div>
 </div>
 <p>На панели окна стереопары найдите инструмент векторизации линий <strong>Режим ввода незамкнутых линий</strong> <img src="images/Ref16/Polyline.png" />. Теперь вам необходимо векторизовать линии тальвегов и водоразделов в стереорежиме – установите маркер так, чтоб он слился в объемную марку (колёсиком мыши) и нажмите клавишей <strong>insert</strong>. Если точка установлена неверно, её можно удалить клавишей <strong>delete</strong>. Для завершения векторизации нажмите <strong>enter</strong>. Сохраняйте полученные результаты векторизации, нажав правой кнопкой мыши по слою в диспетчере и сохранив данные в папку проекта <strong>Data</strong>. Вы можете использовать режим трассировки, который включается на панели <strong>Векторы</strong> кнопкой <img src="images/Ref16/Tracing.png" />. В этом режиме коррелятор автоматически сводит марку на поверхности модели. Изменить чувствительность коррелятора можно в <strong>Сервис – Параметры – Коррелятор</strong>.</p>
 <p>Периодически сохраняйте векторный слой. Для этого правой кнопкой мыши щёлкните по слою и выберите пункт <strong>Сохранить как…</strong>. Сохраняйте данные в папке проекта.</p>
@@ -252,9 +256,9 @@
 <h2><span class="header-section-number">8.6</span> Фильтрация пикетов и построение цифровой модели рельефа<a href="photomod_DEM.html#photomod_DEM-DEM" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p><a href="photomod_DEM.html#photomod_DEM">В начало справки ⇡</a></p>
 <p>Сохраните слой с пикетами папке <strong>Data</strong> вашего проекта. Убедившись, что слой с пикетами открыт на редактирование, отфильтруйте пикеты, попавшие на деревья и строения. Для этого откройте окно <strong>ЦМР – Пикеты – Фильтрация - Фильтр строений и растительности</strong> и, оставив параметры по умолчанию, нажмите ОК. Удалите слои с непроверяемыми и удалёнными пикетами. Сохраните слой с отфильтрованными векторами в качестве отдельного слоя.</p>
-<div class="figure">
-<img src="images/Ref16/Filtration.png" alt="" />
-<p class="caption">Фильтрация пикетов</p>
+<div class="float">
+<img src="images/Ref16/Filtration.png" alt="Фильтрация пикетов" />
+<div class="figcaption">Фильтрация пикетов</div>
 </div>
 <p>Для дальнейшего построения ЦМР повторите шаги, которые вы делали при построении ЦМП, но в качестве исходных данных используйте отфильтрованные пикеты и структурные линии.</p>
 </div>
@@ -263,14 +267,14 @@
 <p><a href="photomod_DEM.html#photomod_DEM">В начало справки ⇡</a></p>
 <p>При работе с векторными объектами рекомендуется использовать возможности соответствующей панели <strong>Векторы</strong>. Для объектов правильной формы рекомендуется использовать <strong>CAD объекты</strong> <img src="images/Ref16/CAD.png" />. Если при рисовке полилинии или полигона вам необходимо отложить перпендикулярную линию, то зажмите и удерживайте клавишу <strong>A</strong>.</p>
 <p>Перечень объектов и их атрибутов вы можете увидеть в меню <strong>Окна – Список объектов</strong>, <strong>Окна – Атрибуты объектов</strong>. Для выделения объектов с помощью рамки или произвольного полигона нужно вызвать панель <strong>Инструменты</strong> и воспользовать инструментом группового выделения с зажатой клавишей <strong>shift</strong>.</p>
-<div class="figure">
-<img src="images/Ref16/Instruments.png" alt="" />
-<p class="caption">Панель инструментов</p>
+<div class="float">
+<img src="images/Ref16/Instruments.png" alt="Панель инструментов" />
+<div class="figcaption">Панель инструментов</div>
 </div>
 <p>Для экспорта векторных слоёв во внешний формат, например, SHP, вызовите <strong>Векторы – Экспорт – Shape</strong>. Для экспорта сразу набора векторных слоёв можно воспользоваться пакетным экспортом слоёв.</p>
-<div class="figure">
-<img src="images/Ref16/Export.png" alt="" />
-<p class="caption">Пакетный экспорт слоёв</p>
+<div class="float">
+<img src="images/Ref16/Export.png" alt="Пакетный экспорт слоёв" />
+<div class="figcaption">Пакетный экспорт слоёв</div>
 </div>
 <table>
 <tbody>

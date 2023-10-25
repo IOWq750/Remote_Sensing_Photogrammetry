@@ -6,7 +6,7 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <title>Раздел 9 Обработка сканерных космических изображений с помощью RPC | Основы дистанционного зондирования и фотограмметрии</title>
   <meta name="description" content="Раздел 9 Обработка сканерных космических изображений с помощью RPC | Основы дистанционного зондирования и фотограмметрии" />
-  <meta name="generator" content="bookdown 0.30 and GitBook 2.6.7" />
+  <meta name="generator" content="bookdown 0.36 and GitBook 2.6.7" />
 
   <meta property="og:title" content="Раздел 9 Обработка сканерных космических изображений с помощью RPC | Основы дистанционного зондирования и фотограмметрии" />
   <meta property="og:type" content="book" />
@@ -23,7 +23,7 @@
 <meta name="author" content="Карпачевский А.М." />
 
 
-<meta name="date" content="2023-04-25" />
+<meta name="date" content="2023-10-25" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -55,6 +55,10 @@
 
 
 
+<style type="text/css">
+  
+  div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+</style>
 
 <link rel="stylesheet" href="style.css" type="text/css" />
 </head>
@@ -202,9 +206,9 @@
 <h2><span class="header-section-number">9.2</span> Подготовка данных<a href="rpc.html#rpc-prepare" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p><a href="rpc.html#rpc">В начало справки ⇡</a></p>
 <p>Создайте новый проект PHOTOMOD. Укажите тип – <strong>Космическая сканерная съёмка</strong>, система координат – укажите соответствующую зону UTM. Создайте новый маршрут в блоке и добавьте туда два космических изображения стереопары. В окне редактора блока нажмите на кнопку добавления изображений. В открывшемся окне укажите путь к папке, где расположены изображения или папки с изображениями, выберите в автопоиске опцию <strong>начиная с текущей папки</strong> и нажмите на кнопку <strong>Поиск</strong>. Если программа найдёт файлы, они отразятся в виде строчек в добавляемых изображениях. Нажмите на кнопку <strong>Добавить все</strong>.</p>
-<div class="figure">
-<img src="images/Ref17/Adding_Imagery.png" alt="" />
-<p class="caption">Добавление данных в проект</p>
+<div class="float">
+<img src="images/Ref17/Adding_Imagery.png" alt="Добавление данных в проект" />
+<div class="figcaption">Добавление данных в проект</div>
 </div>
 <p>Если добавленные изображения получились чёрными, выполните их радиометрическую коррекцию, нажав на кнопку <img src="images/Ref17/Radiometric_Correction.png" /> в окне редактора блока.</p>
 </div>
@@ -212,85 +216,85 @@
 <h2><span class="header-section-number">9.3</span> Расстановка опорных точек<a href="rpc.html#rpc-gcp" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p><a href="rpc.html#rpc">В начало справки ⇡</a></p>
 <p>Откройте окно каталога опорных точек <strong>Ориентирование – Каталог опорных точек…</strong>. Импортируйте опорные точки из файла <strong>Selected_HobartGCPs114-UTM.csv</strong>. Установите опорные точки на обоих снимках стереопары, дважды щёлкнув по каждой строчке и подвинув точки в положение маркера в верной позиции <img src="images/Ref17/Move_Point2Marker.png" />. Ниже приведены фрагменты изображения с правильным положением точек.</p>
-<div class="figure">
-<img src="images/Ref17/B1_05_C.jpeg" alt="" />
-<p class="caption">Опорная точка B1_05_C</p>
+<div class="float">
+<img src="images/Ref17/B1_05_C.jpeg" alt="Опорная точка B1_05_C" />
+<div class="figcaption">Опорная точка B1_05_C</div>
 </div>
-<div class="figure">
-<img src="images/Ref17/B1_07.jpeg" alt="" />
-<p class="caption">Опорная точка B1_07</p>
+<div class="float">
+<img src="images/Ref17/B1_07.jpeg" alt="Опорная точка B1_07" />
+<div class="figcaption">Опорная точка B1_07</div>
 </div>
-<div class="figure">
-<img src="images/Ref17/B1_08.jpeg" alt="" />
-<p class="caption">Опорная точка B1_08</p>
+<div class="float">
+<img src="images/Ref17/B1_08.jpeg" alt="Опорная точка B1_08" />
+<div class="figcaption">Опорная точка B1_08</div>
 </div>
-<div class="figure">
-<img src="images/Ref17/B2_06.jpeg" alt="" />
-<p class="caption">Опорная точка B2_06</p>
+<div class="float">
+<img src="images/Ref17/B2_06.jpeg" alt="Опорная точка B2_06" />
+<div class="figcaption">Опорная точка B2_06</div>
 </div>
-<div class="figure">
-<img src="images/Ref17/B2_11.jpeg" alt="" />
-<p class="caption">Опорная точка B2_11</p>
+<div class="float">
+<img src="images/Ref17/B2_11.jpeg" alt="Опорная точка B2_11" />
+<div class="figcaption">Опорная точка B2_11</div>
 </div>
-<div class="figure">
-<img src="images/Ref17/B2_13.jpeg" alt="" />
-<p class="caption">Опорная точка B2_13</p>
+<div class="float">
+<img src="images/Ref17/B2_13.jpeg" alt="Опорная точка B2_13" />
+<div class="figcaption">Опорная точка B2_13</div>
 </div>
-<div class="figure">
-<img src="images/Ref17/B3_05.jpeg" alt="" />
-<p class="caption">Опорная точка B3_05</p>
+<div class="float">
+<img src="images/Ref17/B3_05.jpeg" alt="Опорная точка B3_05" />
+<div class="figcaption">Опорная точка B3_05</div>
 </div>
-<div class="figure">
-<img src="images/Ref17/B3_06.jpeg" alt="" />
-<p class="caption">Опорная точка B3_06</p>
+<div class="float">
+<img src="images/Ref17/B3_06.jpeg" alt="Опорная точка B3_06" />
+<div class="figcaption">Опорная точка B3_06</div>
 </div>
-<div class="figure">
-<img src="images/Ref17/B3_10.jpeg" alt="" />
-<p class="caption">Опорная точка B3_10</p>
+<div class="float">
+<img src="images/Ref17/B3_10.jpeg" alt="Опорная точка B3_10" />
+<div class="figcaption">Опорная точка B3_10</div>
 </div>
-<div class="figure">
-<img src="images/Ref17/B4_01.jpeg" alt="" />
-<p class="caption">Опорная точка B4_01</p>
+<div class="float">
+<img src="images/Ref17/B4_01.jpeg" alt="Опорная точка B4_01" />
+<div class="figcaption">Опорная точка B4_01</div>
 </div>
-<div class="figure">
-<img src="images/Ref17/B5_08.jpeg" alt="" />
-<p class="caption">Опорная точка B5_08</p>
+<div class="float">
+<img src="images/Ref17/B5_08.jpeg" alt="Опорная точка B5_08" />
+<div class="figcaption">Опорная точка B5_08</div>
 </div>
-<div class="figure">
-<img src="images/Ref17/B6_09.jpeg" alt="" />
-<p class="caption">Опорная точка B6_09</p>
+<div class="float">
+<img src="images/Ref17/B6_09.jpeg" alt="Опорная точка B6_09" />
+<div class="figcaption">Опорная точка B6_09</div>
 </div>
-<div class="figure">
-<img src="images/Ref17/B6_10.jpeg" alt="" />
-<p class="caption">Опорная точка B6_10</p>
+<div class="float">
+<img src="images/Ref17/B6_10.jpeg" alt="Опорная точка B6_10" />
+<div class="figcaption">Опорная точка B6_10</div>
 </div>
-<div class="figure">
-<img src="images/Ref17/B6_23.jpeg" alt="" />
-<p class="caption">Опорная точка B6_23</p>
+<div class="float">
+<img src="images/Ref17/B6_23.jpeg" alt="Опорная точка B6_23" />
+<div class="figcaption">Опорная точка B6_23</div>
 </div>
-<div class="figure">
-<img src="images/Ref17/B7_01.jpeg" alt="" />
-<p class="caption">Опорная точка B7_01</p>
+<div class="float">
+<img src="images/Ref17/B7_01.jpeg" alt="Опорная точка B7_01" />
+<div class="figcaption">Опорная точка B7_01</div>
 </div>
-<div class="figure">
-<img src="images/Ref17/B7_03.jpeg" alt="" />
-<p class="caption">Опорная точка B7_03</p>
+<div class="float">
+<img src="images/Ref17/B7_03.jpeg" alt="Опорная точка B7_03" />
+<div class="figcaption">Опорная точка B7_03</div>
 </div>
-<div class="figure">
-<img src="images/Ref17/B8_01.jpeg" alt="" />
-<p class="caption">Опорная точка B8_01</p>
+<div class="float">
+<img src="images/Ref17/B8_01.jpeg" alt="Опорная точка B8_01" />
+<div class="figcaption">Опорная точка B8_01</div>
 </div>
-<div class="figure">
-<img src="images/Ref17/B9_07.jpeg" alt="" />
-<p class="caption">Опорная точка B9_07</p>
+<div class="float">
+<img src="images/Ref17/B9_07.jpeg" alt="Опорная точка B9_07" />
+<div class="figcaption">Опорная точка B9_07</div>
 </div>
-<div class="figure">
-<img src="images/Ref17/B9_13.jpeg" alt="" />
-<p class="caption">Опорная точка B9_13</p>
+<div class="float">
+<img src="images/Ref17/B9_13.jpeg" alt="Опорная точка B9_13" />
+<div class="figcaption">Опорная точка B9_13</div>
 </div>
-<div class="figure">
-<img src="images/Ref17/B9_17.jpeg" alt="" />
-<p class="caption">Опорная точка B9_17</p>
+<div class="float">
+<img src="images/Ref17/B9_17.jpeg" alt="Опорная точка B9_17" />
+<div class="figcaption">Опорная точка B9_17</div>
 </div>
 <p>Для того чтобы оценить точность привязки снимка по RPC сделайте точки <em>B1_05_C</em>, <em>B2_11</em>, <em>B3_05</em>, <em>B5_08</em>, <em>B9_13</em> контрольными, выбрав их в таблице и нажав на кнопку <strong>Сделать выбранные точки контрольными</strong> <img src="images/Ref17/Control.png" />. Оставшиеся точки нужно исключить, нажав на кнопку <img src="images/Ref17/Excepted.png" />. Нажмите на кнопку <strong>Применить</strong>.</p>
 </div>
@@ -298,14 +302,14 @@
 <h2><span class="header-section-number">9.4</span> Уравнивание блока<a href="rpc.html#rpc-adjustment" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p><a href="rpc.html#rpc">В начало справки ⇡</a></p>
 <p>Вызовите меню <strong>Ориентирование – Уравнивание блока</strong>. На открывшейся панели нажмите на кнопку настроек уравнивания <img src="images/Ref17/Adjustment.png" />. В окне настроек убедитесь, что метод уравнивания стоит <strong>RPC</strong>. В объединениях укажите <strong>Не объединять</strong> и поставьте галочку напротив опции <strong>Создавать стереопары</strong>.</p>
-<div class="figure">
-<img src="images/Ref17/Adjustment_Settings.png" alt="" />
-<p class="caption">Настройки уравнивания блока</p>
+<div class="float">
+<img src="images/Ref17/Adjustment_Settings.png" alt="Настройки уравнивания блока" />
+<div class="figcaption">Настройки уравнивания блока</div>
 </div>
 <p>Запустите процесс уравнивания блока. Для получения отчёта об уравнивании нажмите на кнопку <img src="images/Ref17/Adjustment_Report.png" /> на панели уравнивания. Откроется окно параметров отчёта.</p>
-<div class="figure">
-<img src="images/Ref17/Report_Settings.png" alt="" />
-<p class="caption">Настройки отчёта об уравнивании</p>
+<div class="float">
+<img src="images/Ref17/Report_Settings.png" alt="Настройки отчёта об уравнивании" />
+<div class="figcaption">Настройки отчёта об уравнивании</div>
 </div>
 <p>В открывшемся окне отчёта будет содержаться информация о точности уравнивания по контрольным точкам. Для совместного уравнивания по данным RPC и опорным точкам переведите ранее исключённые точки в категорию опорных.</p>
 </div>

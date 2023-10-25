@@ -6,7 +6,7 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <title>Раздел 6 Получение ЦММ и ортотрансформация | Основы дистанционного зондирования и фотограмметрии</title>
   <meta name="description" content="Раздел 6 Получение ЦММ и ортотрансформация | Основы дистанционного зондирования и фотограмметрии" />
-  <meta name="generator" content="bookdown 0.30 and GitBook 2.6.7" />
+  <meta name="generator" content="bookdown 0.36 and GitBook 2.6.7" />
 
   <meta property="og:title" content="Раздел 6 Получение ЦММ и ортотрансформация | Основы дистанционного зондирования и фотограмметрии" />
   <meta property="og:type" content="book" />
@@ -23,7 +23,7 @@
 <meta name="author" content="Карпачевский А.М." />
 
 
-<meta name="date" content="2023-04-25" />
+<meta name="date" content="2023-10-25" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -55,6 +55,10 @@
 
 
 
+<style type="text/css">
+  
+  div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+</style>
 
 <link rel="stylesheet" href="style.css" type="text/css" />
 </head>
@@ -202,9 +206,9 @@
 <h2><span class="header-section-number">6.2</span> Построение ЦММ<a href="dem.html#dem-create" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p><a href="dem.html#dem">В начало справки ⇡</a></p>
 <p>Выберите команду <strong>Execute – DSM Extraction</strong>. Откроется окно соответствующего модуля.Перейдите во вкладку <strong>Automatic Extraction</strong>.</p>
-<div class="figure">
-<img src="images/Ref14/Automatic_Extraction.png" alt="" />
-<p class="caption">Настройки извлечения ЦММ</p>
+<div class="float">
+<img src="images/Ref14/Automatic_Extraction.png" alt="Настройки извлечения ЦММ" />
+<div class="figcaption">Настройки извлечения ЦММ</div>
 </div>
 <p>Здесь можно выбрать тип радиометрической коррекции – для чёрно-белых снимков лучше всего выбрать <strong>Histogram matching</strong>. Для обработки стереопар и поиска тождественных точек в программе доступно два метода – кросс-корреляции (<strong>Cross-correlation</strong>) и наименьших квадратов (<strong>Least-Squares Matching</strong>). Проделайте сначала всё одним методом, затем попробуйте другой и сравните результат. Для ускорения процесса построения лучше задать параметр передискретизации (<strong>Image downsampling</strong>) 2 (размер пикселов уменьшиться в два раза). В окне <strong>Use pairs</strong> выберите ту стереопару, по которой нужно построить ЦММ. Нажмите на кнопку <img src="images/Ref14/DSM_extraction.png" /> для запуска процесса. По окончании процесса откроется окно для просмотра найденных пикетов в виде жёлтых крестиков.</p>
 <p>После того, как пикеты были извлечены, необходимо их интерполировать. Для этого нажмите на соответствующую кнопку <img src="images/Ref14/DSM_interpolation.png" />. После этого можно экспортировать полученный грид.Перейдите во вкладку <strong>Load/Save Options</strong>, выберите <strong>DSM extraction file format</strong> – облако точек без индексов, а <strong>Grid file format</strong> – <strong>ASCII DSM Grid</strong>. В разделе <strong>DSM Grid Interpolation</strong> внизу окна нажмите на сохранение <img src="images/Ref14/Save_DSM.png" /> и сохраните текстовый файл с высотными данными.</p>
@@ -213,19 +217,19 @@
 <h2><span class="header-section-number">6.3</span> Работа с высотными данными в QGIS<a href="dem.html#dem-QGIS" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p><a href="dem.html#dem">В начало справки ⇡</a></p>
 <p>Добавьте в QGIS полученные ранее высотные данные как текст с разделителями. Обратите внимание, что необходимо правильно выбрать символ разделителя, указать количество строк заголовка файла, которые мы не учитываем, указать соответствующие поля для координат, а также правильную систему координат.</p>
-<div class="figure">
-<img src="images/Ref14/Delimited_Text.png" alt="" />
-<p class="caption">Добавление ASCII-файла как текста с разделителями</p>
+<div class="float">
+<img src="images/Ref14/Delimited_Text.png" alt="Добавление ASCII-файла как текста с разделителями" />
+<div class="figcaption">Добавление ASCII-файла как текста с разделителями</div>
 </div>
 <p>Добавленные данные необходимо сохранить либо в виде шейп-файла, либо в базе геоданных, щёлкнув правой кнопкой по слою <strong>Экспорт – сохранить как</strong>. Для получения растровой поверхности используйте инструмент <strong>Grid (Nearest Neighbor)…</strong>. Его можно найти через меню <strong>Raster – Analysis</strong>. Укажите поле для Z-значений в настройках инструмента. После настройки символики ваша ЦММ примет примерно следующий вид – очевидно, что в ней много пропущенных данных.</p>
-<div class="figure">
-<img src="images/Ref14/DSM_gaps.png" alt="" />
-<p class="caption">Визуализация первичной ЦММ с пропусками данных</p>
+<div class="float">
+<img src="images/Ref14/DSM_gaps.png" alt="Визуализация первичной ЦММ с пропусками данных" />
+<div class="figcaption">Визуализация первичной ЦММ с пропусками данных</div>
 </div>
 <p>Для заполнения пропусков воспользуйтесь инструментом <strong>Raster – Analysis – Fill nodata…</strong>. После этого ЦММ должна принять примерно следующий вид:</p>
-<div class="figure">
-<img src="images/Ref14/DSM_filled.png" alt="" />
-<p class="caption">Визуализация ЦММ с заполненными пропусками</p>
+<div class="float">
+<img src="images/Ref14/DSM_filled.png" alt="Визуализация ЦММ с заполненными пропусками" />
+<div class="figcaption">Визуализация ЦММ с заполненными пропусками</div>
 </div>
 </div>
 <div id="dem-derived" class="section level2 hasAnchor" number="6.4">
@@ -250,21 +254,21 @@
 <h2><span class="header-section-number">6.6</span> Ортотрансформация с использованием полученной ЦММ<a href="dem.html#dem-orthorectification" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p><a href="dem.html#dem">В начало справки ⇡</a></p>
 <p>Для ортотрансформации снимков в <strong>E-foto</strong> требуется ЦММ в собственном формате, что обуславливает необходимость её коррекции (заполнения пропусков) внутренними средствами программы. Для этого в модуле <strong>DSM Extraction</strong> после извлечения ЦММ перейдите на вкладку <strong>Interpolation</strong>. В параметре <strong>Grid Interpolation method</strong> необходимо выбрать <strong>Moving average</strong> (обычно установлено по умолчанию). В параметре <strong>Distance</strong> укажите размер плавающего окна осреднения в пикселях, например, 10.</p>
-<div class="figure">
-<img src="images/Ref14/Interpolation.png" alt="" />
-<p class="caption">настройки интерполяции</p>
+<div class="float">
+<img src="images/Ref14/Interpolation.png" alt="настройки интерполяции" />
+<div class="figcaption">настройки интерполяции</div>
 </div>
 <p>Сохраните ЦММ в формате <strong>ASCII DSM Grid</strong> и выйдите из модуля.</p>
 <p>Запустите модуль ортотрансформации <strong>Execute – Ortho-Rectification</strong>.</p>
-<div class="figure">
-<img src="images/Ref14/Orthorectification.png" alt="" />
-<p class="caption">Окно модуля ортотрансформации</p>
+<div class="float">
+<img src="images/Ref14/Orthorectification.png" alt="Окно модуля ортотрансформации" />
+<div class="figcaption">Окно модуля ортотрансформации</div>
 </div>
 <p>Выберите изображение, которое необходимо ортотрансформировать, укажите формат ЦММ такой же, как вы указывали для её сохранения, укажите путь к файлу ЦММ. В качестве выходного формата для изображения укажите <strong>GeoTIFF</strong>. Для запуска процедуры нажмите <img src="images/Ref14/Run.png" />.</p>
 <p>Ортотрансформированное изображение скорее всего сохранится без СК, но вы сможете её задать в QGIS. для сопоставления ортотрансформированного изображения с исходным можно воспользоваться инструментом <strong>Шторка</strong>.</p>
-<div class="figure">
-<img src="images/Ref14/Swipe.gif" alt="" />
-<p class="caption">Сопоставление ортотрансформированного изображения с исходным</p>
+<div class="float">
+<img src="images/Ref14/Swipe.gif" alt="Сопоставление ортотрансформированного изображения с исходным" />
+<div class="figcaption">Сопоставление ортотрансформированного изображения с исходным</div>
 </div>
 <table>
 <tbody>
