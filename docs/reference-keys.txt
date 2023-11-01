@@ -3,11 +3,14 @@ pansharpen
 pansharpen-project
 pansharpen-composite
 pansharpen-extract
-pansharpen-resampling
 pansharpen-filter
+pansharpen-resampling
 pansharpen-pansharpen
+pansharpen-layout
 georeference
 georeference-arcgis
+привязка-на-основе-ввода-координат
+привязка-на-основе-референцного-изображения
 georeference-qgis
 mosaic
 mosaic-arcgis
@@ -66,4 +69,3 @@ las-initial
 las-Extract
 las-cloudcompare
 las-qgis
-pansharpen-layout

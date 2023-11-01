@@ -88,7 +88,7 @@
 
 \title{Основы дистанционного зондирования и фотограмметрии}
 \author{Карпачевский А.М.}
-\date{2023-10-25}
+\date{2023-10-30}
 
 \begin{document}
 \maketitle
@@ -140,7 +140,7 @@
 \subsection*{macOS}\label{macos}}
 \addcontentsline{toc}{subsection}{macOS}
 
-По состоянию на 2023-10-25 для прохождения практикума рекомендуется использовать альтернативную сборку версии \href{https://www.kyngchaos.com/files/software/qgis/QGIS-macOS-3.4.12-1.dmg}{3.4.12}. Перейдя по ссылке, необходимо согласиться сохранить образ установочного диска на компьютер (можно разрешить его сразу открыть средствами \emph{DiskImageMounter}):
+По состоянию на 2023-10-30 для прохождения практикума рекомендуется использовать альтернативную сборку версии \href{https://www.kyngchaos.com/files/software/qgis/QGIS-macOS-3.4.12-1.dmg}{3.4.12}. Перейдя по ссылке, необходимо согласиться сохранить образ установочного диска на компьютер (можно разрешить его сразу открыть средствами \emph{DiskImageMounter}):
 
 \includegraphics{images/Index0/mac01.png}
 
@@ -211,7 +211,11 @@
 
 \includegraphics{images/Ref01/Default.png}
 
-Через главное меню добавьте новую карту. Сохраните проект в той же директории, где расположена база данных, после чего в каталоге на этой папке должен появиться значок домика.
+Через главное меню добавьте новую карту.
+
+\includegraphics{images/Ref01/New_Map.png}
+
+Сохраните проект\includegraphics{images/Ref01/Save_Project.png} в той же директории, где расположена база данных, после чего в каталоге на этой папке должен появиться значок домика.
 
 \hypertarget{pansharpen-composite}{%
 \section{Создание композита}\label{pansharpen-composite}}
@@ -253,11 +257,6 @@
 
 \includegraphics{images/Ref01/Stretching.png}
 
-\hypertarget{pansharpen-resampling}{%
-\section{Передискретизация}\label{pansharpen-resampling}}
-
-Для передискретизации используется инструмент \textbf{Data Management Tools -- Raster -- Raster Processing -- Resample}. В качестве входных параметров необходимо указать исходный растр, а также размер ячейки нового растра и тип интерполяции
-
 \hypertarget{pansharpen-filter}{%
 \section{Фильтрация}\label{pansharpen-filter}}
 
@@ -265,12 +264,42 @@
 
 \includegraphics{images/Ref01/Raster_functions.png}
 
-Для линейной (высокочастотная, низкочастотная) фильтрации используется инструмент \textbf{Spatial Analyst Tools -- Neighborhood -- Filter}. В качестве входных параметров необходимо указать исходный растр, а также тип фильтрации.
+Для линейной (высокочастотная, низкочастотная) фильтрации можно использовать инструмент \textbf{Spatial Analyst Tools -- Neighborhood -- Filter}. В качестве входных параметров необходимо указать исходный растр, а также тип фильтрации.
+
+\hypertarget{pansharpen-resampling}{%
+\section{Передискретизация}\label{pansharpen-resampling}}
+
+Для передискретизации используется инструмент \textbf{Data Management Tools -- Raster -- Raster Processing -- Resample}. В качестве входных параметров необходимо указать исходный растр, а также размер ячейки нового растра и тип интерполяции
 
 \hypertarget{pansharpen-pansharpen}{%
 \section{Паншарпенинг}\label{pansharpen-pansharpen}}
 
 Для паншарпенинга используется инструмент \textbf{Data Management Tools -- Raster -- Raster Processing -- Create Pansharpened Raster Dataset}. В качестве входных параметров необходимо указать исходный растр, тип преобразования и некоторые другие параметры, которые зависят от типа преобразования.
+
+\hypertarget{pansharpen-layout}{%
+\section{Работа в режиме компоновки}\label{pansharpen-layout}}
+
+Для работы с данными в ArcGIS Pro мы находимся в окне карты (\textbf{Map}). Вы можете создать несколько окон карты через меню \textbf{Insert -- New Map}. Слои содержания можно скопировать в каждую карту, а также синхронизировать их визуализацию через меню \textbf{View -- Link Views -- Center And Scale}. Создание компоновки осуществляется через меню \textbf{Insert -- New Layout}, после чего у вас откроются варианты с параметрами листа компоновки. Эти параметры, включая ориентировку листа можно поменять в свойствах, вызвав их нажатием правой кнопки мыши.
+
+\includegraphics{images/Ref01/Layout_Properties.png}
+
+Используйте кнопку \textbf{Insert -- Map Frame} для того чтобы вставить картографическое изображение в лист компоновки.На одном листе можно разместить несколько картографических изображений, последовательно используя эту кнопку. Выделенный фрейм карты будет жирным в таблице содержания и отображаться в режиме узлов на листе карты.
+
+\includegraphics{images/Ref01/Map_Frames.png}
+
+Для того чтобы область охвата фрейма переместилася к вашим данным, выберите соответствующий слой в таблице содержания и правой кнопкой вызовите меню \textbf{Zoom To Layer}. Вы можете менять масштаб изображения внутри фрейма в соответствующем окошке внизу. Для перемещения данных в пределах окна фрейма необходимо активировать карту правой кнопкой мыши и нажав \textbf{Activate}. Затем вернитесь в меню \textbf{Map} и переключитесь в режим \textbf{Explore}. Для выхода обратно в режим компоновки нажмите \textbf{Close Activation}.
+
+\includegraphics{images/Ref01/Map_Frame_Activation.gif}
+
+Для всех фреймов можно выставить экстент из окна карты \textbf{Layout -- Zoom To Map View} или \textbf{Layout -- Zoom To Last Active View}.
+
+В окно компоновки можно вставить другие элементы: текст, графику, масштабную линейку и т.д. Правой кнопкой можно зайти в свойства элемента, поменять гарнитуру, кегль, выравнивание и прочие параметры.
+
+\includegraphics{images/Ref01/Graphic_Elements.png}
+
+Экспорт составленного макета компоновки можно сделать через меню \textbf{Share -- Export Layout} или скопировать изображение в буфер обмена \textbf{Capture To Clipboard}
+
+\includegraphics{images/Ref01/Export.png}
 
 \begin{longtable}[]{@{}l@{}}
 \toprule\noalign{}
