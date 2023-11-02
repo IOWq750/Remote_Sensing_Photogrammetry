@@ -69,3 +69,4 @@ las-initial
 las-Extract
 las-cloudcompare
 las-qgis
+georeference-aerial
