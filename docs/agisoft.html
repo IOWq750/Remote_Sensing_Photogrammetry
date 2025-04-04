@@ -6,7 +6,7 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <title>Раздел 10 Обработка данных в Agisoft Metashape | Основы дистанционного зондирования и фотограмметрии</title>
   <meta name="description" content="Раздел 10 Обработка данных в Agisoft Metashape | Основы дистанционного зондирования и фотограмметрии" />
-  <meta name="generator" content="bookdown 0.36 and GitBook 2.6.7" />
+  <meta name="generator" content="bookdown 0.39 and GitBook 2.6.7" />
 
   <meta property="og:title" content="Раздел 10 Обработка данных в Agisoft Metashape | Основы дистанционного зондирования и фотограмметрии" />
   <meta property="og:type" content="book" />
@@ -23,7 +23,7 @@
 <meta name="author" content="Карпачевский А.М." />
 
 
-<meta name="date" content="2023-10-30" />
+<meta name="date" content="2025-04-04" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -98,7 +98,11 @@
 </ul></li>
 <li class="chapter" data-level="2" data-path="georeference.html"><a href="georeference.html"><i class="fa fa-check"></i><b>2</b> Географическая привязка</a>
 <ul>
-<li class="chapter" data-level="2.1" data-path="georeference.html"><a href="georeference.html#georeference-arcgis"><i class="fa fa-check"></i><b>2.1</b> Географическая привязка в ArcGIS Pro</a></li>
+<li class="chapter" data-level="2.1" data-path="georeference.html"><a href="georeference.html#georeference-arcgis"><i class="fa fa-check"></i><b>2.1</b> Географическая привязка в ArcGIS Pro</a>
+<ul>
+<li class="chapter" data-level="2.1.1" data-path="georeference.html"><a href="georeference.html#привязка-на-основе-ввода-координат"><i class="fa fa-check"></i><b>2.1.1</b> Привязка на основе ввода координат</a></li>
+<li class="chapter" data-level="2.1.2" data-path="georeference.html"><a href="georeference.html#привязка-на-основе-референцного-изображения"><i class="fa fa-check"></i><b>2.1.2</b> Привязка на основе референцного изображения</a></li>
+</ul></li>
 <li class="chapter" data-level="2.2" data-path="georeference.html"><a href="georeference.html#georeference-qgis"><i class="fa fa-check"></i><b>2.2</b> Географическая привязка в QGIS</a></li>
 </ul></li>
 <li class="chapter" data-level="3" data-path="mosaic.html"><a href="mosaic.html"><i class="fa fa-check"></i><b>3</b> Создание мозаики</a>
@@ -206,9 +210,13 @@
 <div id="agisoft-initial" class="section level2 hasAnchor" number="10.2">
 <h2><span class="header-section-number">10.2</span> Исходные данные<a href="agisoft.html#agisoft-initial" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p><a href="agisoft.html#agisoft">В начало справки ⇡</a></p>
-<p>В качестве исходных данных в этой справке приведены снимки, полученные с БПЛА DJI Phantom 4 и опорные точки, измеренные с помощью высокоточного ГНСС.</p>
+<p><strong>Вариант 1</strong></p>
+<p>Снимки, полученные с БПЛА DJI Phantom 4 и опорные точки, измеренные с помощью высокоточного ГНСС.</p>
 <p><a href="https://disk.yandex.ru/d/E8aQT6f8C_KBuw" target="_blank">Снимки</a></p>
 <p><a href="https://disk.yandex.ru/d/_5-zxp2QLPxKxQ" target="_blank">Наземные опорные точки</a></p>
+<p><strong>Вариант 2</strong></p>
+<p>Снимки, полученные с БПЛА DJI Mavic 2 Pro и опорные точки, измеренные с помощью высокоточного ГНСС.</p>
+<p><a href="https://disk.yandex.ru/d/x-ww-61wVdQlzw" target="_blank">Снимки и наземные опорные точки</a></p>
 </div>
 <div id="agisoft-interface" class="section level2 hasAnchor" number="10.3">
 <h2><span class="header-section-number">10.3</span> Интерфейс<a href="agisoft.html#agisoft-interface" class="anchor-section" aria-label="Anchor link to header"></a></h2>
@@ -313,7 +321,7 @@
 <table>
 <tbody>
 <tr class="odd">
-<td><em>Карпачевский А.М.</em> <strong>Основы дистанционного зондирования и фотограмметрии</strong>. М.: Географический факультет МГУ, 2023.</td>
+<td><em>Карпачевский А.М.</em> <strong>Основы дистанционного зондирования и фотограмметрии</strong>. М.: Географический факультет МГУ, 2025.</td>
 </tr>
 </tbody>
 </table>
@@ -340,42 +348,42 @@
 <script>
 gitbook.require(["gitbook"], function(gitbook) {
 gitbook.start({
-"sharing": {
-"github": false,
-"facebook": true,
-"twitter": true,
-"linkedin": false,
-"weibo": false,
-"instapaper": false,
-"vk": false,
-"whatsapp": false,
-"all": ["facebook", "twitter", "linkedin", "weibo", "instapaper"]
-},
-"fontsettings": {
-"theme": "white",
-"family": "sans",
-"size": 2
-},
-"edit": {
-"link": null,
-"text": null
-},
-"history": {
-"link": null,
-"text": null
-},
-"view": {
-"link": null,
-"text": null
-},
-"download": ["Remote_Sensing.pdf", "Remote_Sensing.epub"],
-"search": {
-"engine": "fuse",
-"options": null
-},
-"toc": {
-"collapse": "subsection"
-}
+  "sharing": {
+    "github": false,
+    "facebook": true,
+    "twitter": true,
+    "linkedin": false,
+    "weibo": false,
+    "instapaper": false,
+    "vk": false,
+    "whatsapp": false,
+    "all": ["facebook", "twitter", "linkedin", "weibo", "instapaper"]
+  },
+  "fontsettings": {
+    "theme": "white",
+    "family": "sans",
+    "size": 2
+  },
+  "edit": {
+    "link": null,
+    "text": null
+  },
+  "history": {
+    "link": null,
+    "text": null
+  },
+  "view": {
+    "link": null,
+    "text": null
+  },
+  "download": ["Remote_Sensing.pdf", "Remote_Sensing.epub"],
+  "search": {
+    "engine": "fuse",
+    "options": null
+  },
+  "toc": {
+    "collapse": "subsection"
+  }
 });
 });
 </script>
