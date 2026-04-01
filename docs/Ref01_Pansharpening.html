@@ -70,8 +70,16 @@ ul.task-list li input[type="checkbox"] {
     "search-label": "Поиск"
   }
 }</script>
+<script>
+document.addEventListener("DOMContentLoaded", function () {
+  const year = new Date().getFullYear();
+  const el = document.getElementById("year");
+  if (el) el.textContent = year;
+});
+</script>
 
 
+<link rel="stylesheet" href="styles.css">
 </head>
 
 <body class="nav-sidebar floating quarto-light">
@@ -301,13 +309,6 @@ ul.task-list li input[type="checkbox"] {
 <p><img src="images/Ref01/Graphic_Elements.png" class="img-fluid"></p>
 <p>Экспорт составленного макета компоновки можно сделать через меню <strong>Share – Export Layout</strong> или скопировать изображение в буфер обмена <strong>Capture To Clipboard</strong></p>
 <p><img src="images/Ref01/Export.png" class="img-fluid"></p>
-<table class="caption-top table">
-<tbody>
-<tr class="odd">
-<td><em>Карпачевский А.М.</em> <strong>Основы дистанционного зондирования и фотограмметрии</strong>. М.: Географический факультет МГУ, <code>r lubridate::year(Sys.Date())</code>.</td>
-</tr>
-</tbody>
-</table>
 
 
 </section>
@@ -737,7 +738,7 @@ ul.task-list li input[type="checkbox"] {
       &nbsp;
     </div>   
     <div class="nav-footer-center">
-<p>© 2020–1 апреля 2026 г. Карпачевский А.М.</p>
+<p>© 2020–<span id="year"></span> Карпачевский А.М. Основы дистанционного зондирования и фотограмметрии</p>
 <div class="toc-actions d-sm-block d-md-none"><ul><li><a href="https://github.com/IOWq750/Remote_Sensing_Photogrammetry/edit/main/Ref01_Pansharpening.qmd" class="toc-action"><i class="bi bi-github"></i>Редактировать страницу</a></li><li><a href="https://github.com/IOWq750/Remote_Sensing_Photogrammetry/issues/new" class="toc-action"><i class="bi empty"></i>Сообщить о проблеме</a></li></ul></div></div>
     <div class="nav-footer-right">
       &nbsp;

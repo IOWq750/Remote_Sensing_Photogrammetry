@@ -70,8 +70,16 @@ ul.task-list li input[type="checkbox"] {
     "search-label": "Поиск"
   }
 }</script>
+<script>
+document.addEventListener("DOMContentLoaded", function () {
+  const year = new Date().getFullYear();
+  const el = document.getElementById("year");
+  if (el) el.textContent = year;
+});
+</script>
 
 
+<link rel="stylesheet" href="styles.css">
 </head>
 
 <body class="nav-sidebar floating quarto-light">
@@ -221,6 +229,12 @@ ul.task-list li input[type="checkbox"] {
 <div class="quarto-title-meta">
 
     
+    <div>
+    <div class="quarto-title-meta-heading">Дата публикации</div>
+    <div class="quarto-title-meta-contents">
+      <p class="date">1 апреля 2026 г.</p>
+    </div>
+  </div>
   
     
   </div>
@@ -362,13 +376,6 @@ ul.task-list li input[type="checkbox"] {
 <figcaption>Установка точки с карты</figcaption>
 </figure>
 </div>
-<table class="caption-top table">
-<tbody>
-<tr class="odd">
-<td><em>Карпачевский А.М.</em> <strong>Основы дистанционного зондирования и фотограмметрии</strong>. М.: Географический факультет МГУ, <code>r lubridate::year(Sys.Date())</code>.</td>
-</tr>
-</tbody>
-</table>
 
 
 </section>
@@ -792,8 +799,21 @@ ul.task-list li input[type="checkbox"] {
   </div>
 </nav>
 </div> <!-- /content -->
+<footer class="footer">
+  <div class="nav-footer">
+    <div class="nav-footer-left">
+      &nbsp;
+    </div>   
+    <div class="nav-footer-center">
+<p>© 2020–<span id="year"></span> Карпачевский А.М. Основы дистанционного зондирования и фотограмметрии</p>
+<div class="toc-actions d-sm-block d-md-none"><ul><li><a href="https://github.com/IOWq750/Remote_Sensing_Photogrammetry/edit/main/Ref02_Georeference.qmd" class="toc-action"><i class="bi bi-github"></i>Редактировать страницу</a></li><li><a href="https://github.com/IOWq750/Remote_Sensing_Photogrammetry/issues/new" class="toc-action"><i class="bi empty"></i>Сообщить о проблеме</a></li></ul></div></div>
+    <div class="nav-footer-right">
+      &nbsp;
+    </div>
+  </div>
+</footer>
 
 
 
 
-<footer class="footer"><div class="nav-footer"><div class="nav-footer-center"><div class="toc-actions d-sm-block d-md-none"><ul><li><a href="https://github.com/IOWq750/Remote_Sensing_Photogrammetry/edit/main/Ref02_Georeference.qmd" class="toc-action"><i class="bi bi-github"></i>Редактировать страницу</a></li><li><a href="https://github.com/IOWq750/Remote_Sensing_Photogrammetry/issues/new" class="toc-action"><i class="bi empty"></i>Сообщить о проблеме</a></li></ul></div></div></div></footer></body></html>
+</body></html>

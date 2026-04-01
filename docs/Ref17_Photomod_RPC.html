@@ -70,8 +70,16 @@ ul.task-list li input[type="checkbox"] {
     "search-label": "Поиск"
   }
 }</script>
+<script>
+document.addEventListener("DOMContentLoaded", function () {
+  const year = new Date().getFullYear();
+  const el = document.getElementById("year");
+  if (el) el.textContent = year;
+});
+</script>
 
 
+<link rel="stylesheet" href="styles.css">
 </head>
 
 <body class="nav-sidebar floating quarto-light">
@@ -238,7 +246,7 @@ ul.task-list li input[type="checkbox"] {
 <section id="rpc-initial" class="level2" data-number="10.1">
 <h2 data-number="10.1" class="anchored" data-anchor-id="rpc-initial"><span class="header-section-number">10.1</span> Исходные данные</h2>
 <p><a href="#rpc">В начало справки ⇡</a></p>
-<p>В качестве исходных данных можно использовать выложенные в открытый доступ сканерные изображения со спутника IKONOS. Данные, включая изображения, метаданные, коэффициенты рациональных полиномов, а также наземные опорные точки, можно скачать <a href="https://www.isprs.org/data/ikonos_hobart/default.aspx" target="_blank">со страницы</a>, либо <a href="https://disk.yandex.ru/d/N2cDLX4j3GryPg" target="_blank">из облака</a>.</p>
+<p>В качестве исходных данных можно использовать выложенные в открытый доступ сканерные изображения со спутника IKONOS. Данные, включая изображения, метаданные, коэффициенты рациональных полиномов, а также наземные опорные точки, можно скачать <a href="https://www.isprs.org/data/ikonos_hobart/default.aspx" target="_blank">со страницы</a>, либо <a href="https://disk.yandex.ru/d/xvrvx3Did67xFw" target="_blank">из облака</a>.</p>
 </section>
 <section id="rpc-prepare" class="level2" data-number="10.2">
 <h2 data-number="10.2" class="anchored" data-anchor-id="rpc-prepare"><span class="header-section-number">10.2</span> Подготовка данных</h2>
@@ -831,8 +839,21 @@ ul.task-list li input[type="checkbox"] {
   </div>
 </nav>
 </div> <!-- /content -->
+<footer class="footer">
+  <div class="nav-footer">
+    <div class="nav-footer-left">
+      &nbsp;
+    </div>   
+    <div class="nav-footer-center">
+<p>© 2020–<span id="year"></span> Карпачевский А.М. Основы дистанционного зондирования и фотограмметрии</p>
+<div class="toc-actions d-sm-block d-md-none"><ul><li><a href="https://github.com/IOWq750/Remote_Sensing_Photogrammetry/edit/main/Ref17_Photomod_RPC.qmd" class="toc-action"><i class="bi bi-github"></i>Редактировать страницу</a></li><li><a href="https://github.com/IOWq750/Remote_Sensing_Photogrammetry/issues/new" class="toc-action"><i class="bi empty"></i>Сообщить о проблеме</a></li></ul></div></div>
+    <div class="nav-footer-right">
+      &nbsp;
+    </div>
+  </div>
+</footer>
 
 
 
 
-<footer class="footer"><div class="nav-footer"><div class="nav-footer-center"><div class="toc-actions d-sm-block d-md-none"><ul><li><a href="https://github.com/IOWq750/Remote_Sensing_Photogrammetry/edit/main/Ref17_Photomod_RPC.qmd" class="toc-action"><i class="bi bi-github"></i>Редактировать страницу</a></li><li><a href="https://github.com/IOWq750/Remote_Sensing_Photogrammetry/issues/new" class="toc-action"><i class="bi empty"></i>Сообщить о проблеме</a></li></ul></div></div></div></footer></body></html>
+</body></html>
