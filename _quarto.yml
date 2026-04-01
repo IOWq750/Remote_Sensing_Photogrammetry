@@ -35,6 +35,7 @@ date: today
 format:
   html:
     theme: cosmo
+    favicon: images/favicon.ico
     toc: true
     number-sections: true
     link-external-newwindow: true
