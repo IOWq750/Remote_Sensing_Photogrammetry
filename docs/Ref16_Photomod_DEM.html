@@ -6,9 +6,8 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
-<meta name="author" content="Карпачевский А.М.">
 
-<title>Основы дистанционного зондирования и фотограмметрии</title>
+<title>9&nbsp; Создание ЦМР и ЦММ на основе стереопары АФС в ЦФС PHOTOMOD – Основы дистанционного зондирования и фотограмметрии</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -31,7 +30,8 @@ ul.task-list li input[type="checkbox"] {
 <script src="site_libs/quarto-search/fuse.min.js"></script>
 <script src="site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="./">
-<link href="./Ref01_Pansharpening.html" rel="next">
+<link href="./Ref17_Photomod_RPC.html" rel="next">
+<link href="./Ref15_Photomod_aerial.html" rel="prev">
 <script src="site_libs/quarto-html/quarto.js" type="module"></script>
 <script src="site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
 <script src="site_libs/quarto-html/axe/axe-check.js" type="module"></script>
@@ -70,19 +70,11 @@ ul.task-list li input[type="checkbox"] {
     "search-label": "Поиск"
   }
 }</script>
-<script>
-document.addEventListener("DOMContentLoaded", function () {
-  const year = new Date().getFullYear();
-  const el = document.getElementById("year");
-  if (el) el.textContent = year;
-});
-</script>
 
 
-<link rel="stylesheet" href="styles.css">
 </head>
 
-<body class="nav-sidebar floating fullcontent quarto-light">
+<body class="nav-sidebar floating quarto-light">
 
 <div id="quarto-search-results"></div>
   <header id="quarto-header" class="headroom fixed-top">
@@ -91,7 +83,7 @@ document.addEventListener("DOMContentLoaded", function () {
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Переключить боковую панель навигации" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./index.html"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Основы дистанционного зондирования и фотограмметрии</span></a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./Ref16_Photomod_DEM.html"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title">Создание ЦМР и ЦММ на основе стереопары АФС в ЦФС PHOTOMOD</span></a></li></ol></nav>
         <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Переключить боковую панель навигации" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
       <button type="button" class="btn quarto-search-button" aria-label="Поиск" onclick="window.quartoOpenSearch();">
@@ -121,7 +113,7 @@ document.addEventListener("DOMContentLoaded", function () {
     <ul class="list-unstyled mt-1">
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./index.html" class="sidebar-item-text sidebar-link active">
+  <a href="./index.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Основы дистанционного зондирования и фотограмметрии</span></span></a>
   </div>
 </li>
@@ -169,7 +161,7 @@ document.addEventListener("DOMContentLoaded", function () {
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./Ref16_Photomod_DEM.html" class="sidebar-item-text sidebar-link">
+  <a href="./Ref16_Photomod_DEM.html" class="sidebar-item-text sidebar-link active">
  <span class="menu-text"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title">Создание ЦМР и ЦММ на основе стереопары АФС в ЦФС PHOTOMOD</span></span></a>
   </div>
 </li>
@@ -202,33 +194,34 @@ document.addEventListener("DOMContentLoaded", function () {
 </nav>
 <div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
 <!-- margin-sidebar -->
-    
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">Содержание</h2>
+   
+  <ul>
+  <li><a href="#photomod_DEM-pikets" id="toc-photomod_DEM-pikets" class="nav-link active" data-scroll-target="#photomod_DEM-pikets"><span class="header-section-number">9.1</span> Автоматический расчёт пикетов</a></li>
+  <li><a href="#photomod_DEM-TIN" id="toc-photomod_DEM-TIN" class="nav-link" data-scroll-target="#photomod_DEM-TIN"><span class="header-section-number">9.2</span> Построение и редактирование модели TIN</a></li>
+  <li><a href="#photomod_DEM-H_matrix" id="toc-photomod_DEM-H_matrix" class="nav-link" data-scroll-target="#photomod_DEM-H_matrix"><span class="header-section-number">9.3</span> Построение матрицы высот цифровой модели поверхности и горизонталей</a></li>
+  <li><a href="#photomod_DEM-Orthorectification" id="toc-photomod_DEM-Orthorectification" class="nav-link" data-scroll-target="#photomod_DEM-Orthorectification"><span class="header-section-number">9.4</span> Ортотрансформация на основе полученной ЦМП</a></li>
+  <li><a href="#photomod_DEM-structure_lines" id="toc-photomod_DEM-structure_lines" class="nav-link" data-scroll-target="#photomod_DEM-structure_lines"><span class="header-section-number">9.5</span> Построение структурных линий</a></li>
+  <li><a href="#photomod_DEM-DEM" id="toc-photomod_DEM-DEM" class="nav-link" data-scroll-target="#photomod_DEM-DEM"><span class="header-section-number">9.6</span> Фильтрация пикетов и построение цифровой модели рельефа</a></li>
+  <li><a href="#photomod_DEM-vector" id="toc-photomod_DEM-vector" class="nav-link" data-scroll-target="#photomod_DEM-vector"><span class="header-section-number">9.7</span> Векторизация ситуации</a></li>
+  </ul>
+<div class="toc-actions"><ul><li><a href="https://github.com/IOWq750/Remote_Sensing_Photogrammetry/edit/main/Ref16_Photomod_DEM.qmd" class="toc-action"><i class="bi bi-github"></i>Редактировать страницу</a></li><li><a href="https://github.com/IOWq750/Remote_Sensing_Photogrammetry/issues/new" class="toc-action"><i class="bi empty"></i>Сообщить о проблеме</a></li></ul></div></nav>
+    </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">Основы дистанционного зондирования и фотограмметрии</h1>
-<p class="subtitle lead">Электронный учебно-методический ресурс</p>
+<h1 class="title"><span id="photomod_DEM" class="quarto-section-identifier"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title">Создание ЦМР и ЦММ на основе стереопары АФС в ЦФС PHOTOMOD</span></span></h1>
 </div>
 
 
 
 <div class="quarto-title-meta">
 
-    <div>
-    <div class="quarto-title-meta-heading">Автор</div>
-    <div class="quarto-title-meta-contents">
-             <p>Карпачевский А.М. </p>
-          </div>
-  </div>
     
-    <div>
-    <div class="quarto-title-meta-heading">Дата публикации</div>
-    <div class="quarto-title-meta-contents">
-      <p class="date">1 апреля 2026 г.</p>
-    </div>
-  </div>
   
     
   </div>
@@ -238,101 +231,112 @@ document.addEventListener("DOMContentLoaded", function () {
 </header>
 
 
-<section id="добро-пожаловать" class="level1" data-number="1">
-<h1 data-number="1"><span class="header-section-number">1</span> Добро пожаловать</h1>
-<p>Это электронный учебно-методический ресурс по основам дистанционного зондирования и фотограмметрии.<br>
-Материал охватывает ключевые этапы обработки данных дистанционного зондирования, геопривязки, мозаикирования, построения моделей рельефа и фотограмметрической обработки в специализированных программных пакетах.</p>
-<div class="callout callout-style-default callout-tip callout-titled">
-<div class="callout-header d-flex align-content-center">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
+<section id="photomod_DEM-pikets" class="level2" data-number="9.1">
+<h2 data-number="9.1" class="anchored" data-anchor-id="photomod_DEM-pikets"><span class="header-section-number">9.1</span> Автоматический расчёт пикетов</h2>
+<p><a href="#photomod_DEM">В начало справки ⇡</a></p>
+<p>Создайте слой сетки через главное меню <strong>Сетка – Создать</strong>. В диспетчере слоёв появится новый слой. Убедитесь в том, что он редактируем и с зажатой клавишей <strong>shift</strong> выделите прямоугольную область на нужную территорию. Зайдите в свойства слоя и задайте шаг сетки, исходя из требуемого разрешения, а <strong>Уровень Z</strong> выставьте равным 0.</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="images\Ref16\Grid_Properties.png" class="img-fluid figure-img"></p>
+<figcaption>Свойства сетки</figcaption>
+</figure>
 </div>
-<div class="callout-title-container flex-fill">
-<span class="screen-reader-only">Совет</span>Как пользоваться ресурсом
-</div>
-</div>
-<div class="callout-body-container callout-body">
-<ul>
-<li>Для перехода между темами используйте боковую панель слева.</li>
-<li>Материал организован по разделам, которые можно изучать последовательно.</li>
-<li>Если вы уже знакомы с базовыми понятиями, можно переходить сразу к нужной практической теме.</li>
-</ul>
-</div>
-</div>
-<section id="содержание-курса" class="level2" data-number="1.1">
-<h2 data-number="1.1" class="anchored" data-anchor-id="содержание-курса"><span class="header-section-number">1.1</span> Содержание курса</h2>
-<p>В состав ресурса входят следующие разделы:</p>
-<ol type="1">
-<li><a href="./Ref01_Pansharpening.html">Паншарпенинг</a></li>
-<li><a href="./Ref02_Georeference.html">Географическая привязка изображений</a></li>
-<li><a href="./Ref03_Mosaicking.html">Создание мозаик</a></li>
-<li><a href="./Ref12_Photogrammetry.html">Основы фотограмметрии</a></li>
-<li><a href="./Ref13_Efoto.html">Обработка АФС в E-Foto</a></li>
-<li><a href="./Ref14_DEM.html">Построение ЦМР в E-Foto</a></li>
-<li><a href="./Ref15_Photomod_aerial.html">Photomod: обработка аэрофотосъёмки</a></li>
-<li><a href="./Ref16_Photomod_DEM.html">Photomod: построение ЦМР</a></li>
-<li><a href="./Ref17_Photomod_RPC.html">Photomod: работа с RPC</a></li>
-<li><a href="./Ref18_Metashape.html">Agisoft Metashape: базовая обработка</a></li>
-<li><a href="./Ref20_Metashape_RPC.html">Agisoft Metashape: обработка с RPC</a></li>
-<li><a href="./Ref19_Las.html">Работа с LAS-данными</a></li>
-</ol>
-</section>
-<section id="для-кого-предназначен-ресурс" class="level2" data-number="1.2">
-<h2 data-number="1.2" class="anchored" data-anchor-id="для-кого-предназначен-ресурс"><span class="header-section-number">1.2</span> Для кого предназначен ресурс</h2>
-<p>Ресурс ориентирован на:</p>
-<ul>
-<li>студентов 2 курса кафедры картографии и геоинформатики географического факультета МГУ имени М.В. Ломоносова</li>
-<li>Любых пользователей, имеющих базовое представление о фотограмметрической обработке данных дистанционного зондирования</li>
-</ul>
-<div class="callout callout-style-default callout-note callout-titled">
-<div class="callout-header d-flex align-content-center">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<div class="callout-title-container flex-fill">
-<span class="screen-reader-only">Уведомление</span>Примечание
-</div>
-</div>
-<div class="callout-body-container callout-body">
-<p>Структура ресурса может обновляться и дополняться новыми разделами, примерами и иллюстрациями.</p>
-</div>
+<p>Созданная сетка будет использована для построения пикетов. Откройте окно автоматического расчета пикетов <strong>ЦМР – Пикеты – Расчёт пикетов</strong>. Выберите конфигурацию коррелятора <strong>Сельская местность2</strong>, укажите необходимую область поиска, начальное приближение установите равным средней высоте стереопары. Обратите внимание, что рассчитанные пикеты должны сохраняться в отдельный слой.</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="images\Ref16\Piket_Calculation.png" class="img-fluid figure-img"></p>
+<figcaption>Окно расчёта пикетов</figcaption>
+</figure>
 </div>
 </section>
-<section id="быстрый-переход" class="level2" data-number="1.3">
-<h2 data-number="1.3" class="anchored" data-anchor-id="быстрый-переход"><span class="header-section-number">1.3</span> Быстрый переход</h2>
+<section id="photomod_DEM-TIN" class="level2" data-number="9.2">
+<h2 data-number="9.2" class="anchored" data-anchor-id="photomod_DEM-TIN"><span class="header-section-number">9.2</span> Построение и редактирование модели TIN</h2>
+<p><a href="#photomod_DEM">В начало справки ⇡</a></p>
+<p>Одно из моделей представления высот – нерегулярная сеть триангуляции (TIN). Откройте панель инструментов <strong>TIN</strong>. Нажмите на кнопку <strong>Построить TIN по пикетам и структурным линиям</strong>. выберите необходимые слои и запустите процесс.</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="images\Ref16\TIN.png" class="img-fluid figure-img"></p>
+<figcaption>Сеть TIN и квазигоризонтали</figcaption>
+</figure>
+</div>
+<p>Если возникла необходимость отредактировать существующий узел триангуляции, зайдите в режим редактирования узлов, нажав на кнопку <img src="images\Ref16\Vertex_Edit.png" class="img-fluid">. При зажатой клавише <strong>control</strong> вы можете сводить и разводить измерительную марку, а узел будет перемещаться за нею по высоте.</p>
+</section>
+<section id="photomod_DEM-H_matrix" class="level2" data-number="9.3">
+<h2 data-number="9.3" class="anchored" data-anchor-id="photomod_DEM-H_matrix"><span class="header-section-number">9.3</span> Построение матрицы высот цифровой модели поверхности и горизонталей</h2>
+<p><a href="#photomod_DEM">В начало справки ⇡</a></p>
+<p>Убедитесь, что слой TIN открыт на редактирование. В главном меню вызовите <strong>Матрица высот – Построить матрицу высот – По TIN</strong>, укажите размер ячейки матрицы высот и сохраните результат в папке проекта.</p>
+<p>Откройте ранее созданный слой с матрицей высот. В главном меню вызовите <strong>ЦМР – Горизонтали – Построить горизонтали – По матрице высот</strong>. В открывшемся окне установите опцию <strong>Сглаживать</strong>, уровень сглаживания 1.0, размер апертуры 21x21, начальный уровень 0.0. Установите шаг основных горизонталей в соответствии с требуемым сечением, рассчитайте шаг утолщенных горизонталей. Нажмите <strong>ОК</strong> и сохраните слой с горизонталями папке <strong>Data</strong> вашего проекта. Полученную модель можно экспортировать в формате <strong>GeoTIFF</strong> для дальнейшей работы в ГИС-пакетах.</p>
+</section>
+<section id="photomod_DEM-Orthorectification" class="level2" data-number="9.4">
+<h2 data-number="9.4" class="anchored" data-anchor-id="photomod_DEM-Orthorectification"><span class="header-section-number">9.4</span> Ортотрансформация на основе полученной ЦМП</h2>
+<p><a href="#photomod_DEM">В начало справки ⇡</a></p>
+<p>Вызовите панель <strong>Растры – Ортотрансформирование</strong>. На схеме блока выделите снимок, с которым работаете. Далее на панели нажмите на кнопку <strong>Открыть выделенное изображение</strong> <img src="images\Ref16\Select.png" class="img-fluid">. Нажмите на кнопку <strong>Обрезка краёв исходных изображений</strong> <img src="images\Ref16\Clip2.png" class="img-fluid"> и укажите процент обрезки для ограничения вашей территории.</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="images\Ref16\Clip.png" class="img-fluid figure-img"></p>
+<figcaption>Окно обрезки изображения для ортотрансформации</figcaption>
+</figure>
+</div>
+<p>Обратите внимание, что для ортотрансформации сохраняется собственный проект. Для запуска процесса ортотрансформации нажмите на кнопку <img src="images\Ref16\Run.png" class="img-fluid">. Сопоставить снимок до и после ортотрансформации в PHOTOMOD нельзя, поэтому можно воспользоваться, например ГИС-пакетом QGIS.</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="images\Ref16\Comparison.gif" class="img-fluid figure-img"></p>
+<figcaption>Сопоставление трансформированного и ортотрансформированного снимка</figcaption>
+</figure>
+</div>
+</section>
+<section id="photomod_DEM-structure_lines" class="level2" data-number="9.5">
+<h2 data-number="9.5" class="anchored" data-anchor-id="photomod_DEM-structure_lines"><span class="header-section-number">9.5</span> Построение структурных линий</h2>
+<p><a href="#photomod_DEM">В начало справки ⇡</a></p>
+<p>Для начала нужно создать векторный слой, куда будут сохраняться векторные объекты (<strong>Векторы – Создать слой</strong>). После этого в диспетчере слоёв появится соответствующий слой.</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="images\Ref16\Layers.png" class="img-fluid figure-img"></p>
+<figcaption>Диспетчер слоёв</figcaption>
+</figure>
+</div>
+<p>На панели окна стереопары найдите инструмент векторизации линий <strong>Режим ввода незамкнутых линий</strong> <img src="images\Ref16\Polyline.png" class="img-fluid">. Теперь вам необходимо векторизовать линии тальвегов и водоразделов в стереорежиме – установите маркер так, чтоб он слился в объемную марку (колёсиком мыши) и нажмите клавишей <strong>insert</strong>. Если точка установлена неверно, её можно удалить клавишей <strong>delete</strong>. Для завершения векторизации нажмите <strong>enter</strong>. Сохраняйте полученные результаты векторизации, нажав правой кнопкой мыши по слою в диспетчере и сохранив данные в папку проекта <strong>Data</strong>. Вы можете использовать режим трассировки, который включается на панели <strong>Векторы</strong> кнопкой <img src="images\Ref16\Tracing.png" class="img-fluid">. В этом режиме коррелятор автоматически сводит марку на поверхности модели. Изменить чувствительность коррелятора можно в <strong>Сервис – Параметры – Коррелятор</strong>.</p>
+<p>Периодически сохраняйте векторный слой. Для этого правой кнопкой мыши щёлкните по слою и выберите пункт <strong>Сохранить как…</strong>. Сохраняйте данные в папке проекта.</p>
+</section>
+<section id="photomod_DEM-DEM" class="level2" data-number="9.6">
+<h2 data-number="9.6" class="anchored" data-anchor-id="photomod_DEM-DEM"><span class="header-section-number">9.6</span> Фильтрация пикетов и построение цифровой модели рельефа</h2>
+<p><a href="#photomod_DEM">В начало справки ⇡</a></p>
+<p>Сохраните слой с пикетами папке <strong>Data</strong> вашего проекта. Убедившись, что слой с пикетами открыт на редактирование, отфильтруйте пикеты, попавшие на деревья и строения. Для этого откройте окно <strong>ЦМР – Пикеты – Фильтрация - Фильтр строений и растительности</strong> и, оставив параметры по умолчанию, нажмите ОК. Удалите слои с непроверяемыми и удалёнными пикетами. Сохраните слой с отфильтрованными векторами в качестве отдельного слоя.</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="images\Ref16\Filtration.png" class="img-fluid figure-img"></p>
+<figcaption>Фильтрация пикетов</figcaption>
+</figure>
+</div>
+<p>Для дальнейшего построения ЦМР повторите шаги, которые вы делали при построении ЦМП, но в качестве исходных данных используйте отфильтрованные пикеты и структурные линии.</p>
+</section>
+<section id="photomod_DEM-vector" class="level2" data-number="9.7">
+<h2 data-number="9.7" class="anchored" data-anchor-id="photomod_DEM-vector"><span class="header-section-number">9.7</span> Векторизация ситуации</h2>
+<p><a href="#photomod_DEM">В начало справки ⇡</a></p>
+<p>При работе с векторными объектами рекомендуется использовать возможности соответствующей панели <strong>Векторы</strong>. Для объектов правильной формы рекомендуется использовать <strong>CAD объекты</strong> <img src="images\Ref16\CAD.png" class="img-fluid">. Если при рисовке полилинии или полигона вам необходимо отложить перпендикулярную линию, то зажмите и удерживайте клавишу <strong>A</strong>.</p>
+<p>Перечень объектов и их атрибутов вы можете увидеть в меню <strong>Окна – Список объектов</strong>, <strong>Окна – Атрибуты объектов</strong>. Для выделения объектов с помощью рамки или произвольного полигона нужно вызвать панель <strong>Инструменты</strong> и воспользовать инструментом группового выделения с зажатой клавишей <strong>shift</strong>.</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="images\Ref16\Instruments.png" class="img-fluid figure-img"></p>
+<figcaption>Панель инструментов</figcaption>
+</figure>
+</div>
+<p>Для экспорта векторных слоёв во внешний формат, например, SHP, вызовите <strong>Векторы – Экспорт – Shape</strong>. Для экспорта сразу набора векторных слоёв можно воспользоваться пакетным экспортом слоёв.</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="images\Ref16\Export.png" class="img-fluid figure-img"></p>
+<figcaption>Пакетный экспорт слоёв</figcaption>
+</figure>
+</div>
 <table class="caption-top table">
-<thead>
-<tr class="header">
-<th>Раздел</th>
-<th>Ссылка</th>
-</tr>
-</thead>
 <tbody>
 <tr class="odd">
-<td>Начать с основ</td>
-<td><a href="./Ref02_Georeference.html">Геопривязка изображений</a></td>
-</tr>
-<tr class="even">
-<td>Изучить фотограмметрию</td>
-<td><a href="./Ref12_Photogrammetry.html">Основы фотограмметрии</a></td>
-</tr>
-<tr class="odd">
-<td>Перейти к Metashape</td>
-<td><a href="./Ref18_Metashape.html">Metashape</a></td>
-</tr>
-<tr class="even">
-<td>Изучить RPC в Metashape</td>
-<td><a href="./Ref20_Metashape_RPC.html">Metashape RPC</a></td>
-</tr>
-<tr class="odd">
-<td>Работа с LAS</td>
-<td><a href="./Ref19_Las.html">LAS-данные</a></td>
+<td><em>Карпачевский А.М.</em> <strong>Основы дистанционного зондирования и фотограмметрии</strong>. М.: Географический факультет МГУ, <code>r lubridate::year(Sys.Date())</code>.</td>
 </tr>
 </tbody>
 </table>
 
 
-</section>
 </section>
 
 </main> <!-- /main -->
@@ -743,29 +747,19 @@ document.addEventListener("DOMContentLoaded", function () {
   </script>
 <nav class="page-navigation">
   <div class="nav-page nav-page-previous">
+      <a href="./Ref15_Photomod_aerial.html" class="pagination-link" aria-label="Обработка данных аэрофотосъёмки в ЦФС PHOTOMOD">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">Обработка данных аэрофотосъёмки в ЦФС PHOTOMOD</span></span>
+      </a>          
   </div>
   <div class="nav-page nav-page-next">
-      <a href="./Ref01_Pansharpening.html" class="pagination-link" aria-label="Преобразования пространственного разрешения">
-        <span class="nav-page-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Преобразования пространственного разрешения</span></span> <i class="bi bi-arrow-right-short"></i>
+      <a href="./Ref17_Photomod_RPC.html" class="pagination-link" aria-label="Обработка сканерных космических изображений с помощью RPC">
+        <span class="nav-page-text"><span class="chapter-number">10</span>&nbsp; <span class="chapter-title">Обработка сканерных космических изображений с помощью RPC</span></span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
 </nav>
 </div> <!-- /content -->
-<footer class="footer">
-  <div class="nav-footer">
-    <div class="nav-footer-left">
-      &nbsp;
-    </div>   
-    <div class="nav-footer-center">
-<p>© 2020–<span id="year"></span> Карпачевский А.М. Основы дистанционного зондирования и фотограмметрии</p>
-<div class="toc-actions"><ul><li><a href="https://github.com/IOWq750/Remote_Sensing_Photogrammetry/edit/main/index.qmd" class="toc-action"><i class="bi bi-github"></i>Редактировать страницу</a></li><li><a href="https://github.com/IOWq750/Remote_Sensing_Photogrammetry/issues/new" class="toc-action"><i class="bi empty"></i>Сообщить о проблеме</a></li></ul></div></div>
-    <div class="nav-footer-right">
-      &nbsp;
-    </div>
-  </div>
-</footer>
 
 
 
 
-</body></html>
+<footer class="footer"><div class="nav-footer"><div class="nav-footer-center"><div class="toc-actions d-sm-block d-md-none"><ul><li><a href="https://github.com/IOWq750/Remote_Sensing_Photogrammetry/edit/main/Ref16_Photomod_DEM.qmd" class="toc-action"><i class="bi bi-github"></i>Редактировать страницу</a></li><li><a href="https://github.com/IOWq750/Remote_Sensing_Photogrammetry/issues/new" class="toc-action"><i class="bi empty"></i>Сообщить о проблеме</a></li></ul></div></div></div></footer></body></html>

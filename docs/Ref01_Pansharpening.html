@@ -6,9 +6,8 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
-<meta name="author" content="Карпачевский А.М.">
 
-<title>Основы дистанционного зондирования и фотограмметрии</title>
+<title>2&nbsp; Преобразования пространственного разрешения – Основы дистанционного зондирования и фотограмметрии</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -31,7 +30,8 @@ ul.task-list li input[type="checkbox"] {
 <script src="site_libs/quarto-search/fuse.min.js"></script>
 <script src="site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="./">
-<link href="./Ref01_Pansharpening.html" rel="next">
+<link href="./Ref02_Georeference.html" rel="next">
+<link href="./index.html" rel="prev">
 <script src="site_libs/quarto-html/quarto.js" type="module"></script>
 <script src="site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
 <script src="site_libs/quarto-html/axe/axe-check.js" type="module"></script>
@@ -70,19 +70,11 @@ ul.task-list li input[type="checkbox"] {
     "search-label": "Поиск"
   }
 }</script>
-<script>
-document.addEventListener("DOMContentLoaded", function () {
-  const year = new Date().getFullYear();
-  const el = document.getElementById("year");
-  if (el) el.textContent = year;
-});
-</script>
 
 
-<link rel="stylesheet" href="styles.css">
 </head>
 
-<body class="nav-sidebar floating fullcontent quarto-light">
+<body class="nav-sidebar floating quarto-light">
 
 <div id="quarto-search-results"></div>
   <header id="quarto-header" class="headroom fixed-top">
@@ -91,7 +83,7 @@ document.addEventListener("DOMContentLoaded", function () {
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Переключить боковую панель навигации" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./index.html"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Основы дистанционного зондирования и фотограмметрии</span></a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./Ref01_Pansharpening.html"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Преобразования пространственного разрешения</span></a></li></ol></nav>
         <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Переключить боковую панель навигации" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
       <button type="button" class="btn quarto-search-button" aria-label="Поиск" onclick="window.quartoOpenSearch();">
@@ -121,13 +113,13 @@ document.addEventListener("DOMContentLoaded", function () {
     <ul class="list-unstyled mt-1">
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./index.html" class="sidebar-item-text sidebar-link active">
+  <a href="./index.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Основы дистанционного зондирования и фотограмметрии</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./Ref01_Pansharpening.html" class="sidebar-item-text sidebar-link">
+  <a href="./Ref01_Pansharpening.html" class="sidebar-item-text sidebar-link active">
  <span class="menu-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Преобразования пространственного разрешения</span></span></a>
   </div>
 </li>
@@ -202,26 +194,33 @@ document.addEventListener("DOMContentLoaded", function () {
 </nav>
 <div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
 <!-- margin-sidebar -->
-    
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">Содержание</h2>
+   
+  <ul>
+  <li><a href="#pansharpen-project" id="toc-pansharpen-project" class="nav-link active" data-scroll-target="#pansharpen-project"><span class="header-section-number">2.1</span> Создание проекта в ArcGIS Pro</a></li>
+  <li><a href="#pansharpen-composite" id="toc-pansharpen-composite" class="nav-link" data-scroll-target="#pansharpen-composite"><span class="header-section-number">2.2</span> Создание композита</a></li>
+  <li><a href="#pansharpen-extract" id="toc-pansharpen-extract" class="nav-link" data-scroll-target="#pansharpen-extract"><span class="header-section-number">2.3</span> Вырезание фрагмента изображения</a></li>
+  <li><a href="#pansharpen-filter" id="toc-pansharpen-filter" class="nav-link" data-scroll-target="#pansharpen-filter"><span class="header-section-number">2.4</span> Фильтрация</a></li>
+  <li><a href="#pansharpen-resampling" id="toc-pansharpen-resampling" class="nav-link" data-scroll-target="#pansharpen-resampling"><span class="header-section-number">2.5</span> Передискретизация</a></li>
+  <li><a href="#pansharpen-pansharpen" id="toc-pansharpen-pansharpen" class="nav-link" data-scroll-target="#pansharpen-pansharpen"><span class="header-section-number">2.6</span> Паншарпенинг</a></li>
+  <li><a href="#pansharpen-layout" id="toc-pansharpen-layout" class="nav-link" data-scroll-target="#pansharpen-layout"><span class="header-section-number">2.7</span> Работа в режиме компоновки</a></li>
+  </ul>
+<div class="toc-actions"><ul><li><a href="https://github.com/IOWq750/Remote_Sensing_Photogrammetry/edit/main/Ref01_Pansharpening.qmd" class="toc-action"><i class="bi bi-github"></i>Редактировать страницу</a></li><li><a href="https://github.com/IOWq750/Remote_Sensing_Photogrammetry/issues/new" class="toc-action"><i class="bi empty"></i>Сообщить о проблеме</a></li></ul></div></nav>
+    </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">Основы дистанционного зондирования и фотограмметрии</h1>
-<p class="subtitle lead">Электронный учебно-методический ресурс</p>
+<h1 class="title"><span id="pansharpen" class="quarto-section-identifier"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Преобразования пространственного разрешения</span></span></h1>
 </div>
 
 
 
 <div class="quarto-title-meta">
 
-    <div>
-    <div class="quarto-title-meta-heading">Автор</div>
-    <div class="quarto-title-meta-contents">
-             <p>Карпачевский А.М. </p>
-          </div>
-  </div>
     
     <div>
     <div class="quarto-title-meta-heading">Дата публикации</div>
@@ -238,101 +237,79 @@ document.addEventListener("DOMContentLoaded", function () {
 </header>
 
 
-<section id="добро-пожаловать" class="level1" data-number="1">
-<h1 data-number="1"><span class="header-section-number">1</span> Добро пожаловать</h1>
-<p>Это электронный учебно-методический ресурс по основам дистанционного зондирования и фотограмметрии.<br>
-Материал охватывает ключевые этапы обработки данных дистанционного зондирования, геопривязки, мозаикирования, построения моделей рельефа и фотограмметрической обработки в специализированных программных пакетах.</p>
-<div class="callout callout-style-default callout-tip callout-titled">
-<div class="callout-header d-flex align-content-center">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<div class="callout-title-container flex-fill">
-<span class="screen-reader-only">Совет</span>Как пользоваться ресурсом
-</div>
-</div>
-<div class="callout-body-container callout-body">
-<ul>
-<li>Для перехода между темами используйте боковую панель слева.</li>
-<li>Материал организован по разделам, которые можно изучать последовательно.</li>
-<li>Если вы уже знакомы с базовыми понятиями, можно переходить сразу к нужной практической теме.</li>
-</ul>
-</div>
-</div>
-<section id="содержание-курса" class="level2" data-number="1.1">
-<h2 data-number="1.1" class="anchored" data-anchor-id="содержание-курса"><span class="header-section-number">1.1</span> Содержание курса</h2>
-<p>В состав ресурса входят следующие разделы:</p>
-<ol type="1">
-<li><a href="./Ref01_Pansharpening.html">Паншарпенинг</a></li>
-<li><a href="./Ref02_Georeference.html">Географическая привязка изображений</a></li>
-<li><a href="./Ref03_Mosaicking.html">Создание мозаик</a></li>
-<li><a href="./Ref12_Photogrammetry.html">Основы фотограмметрии</a></li>
-<li><a href="./Ref13_Efoto.html">Обработка АФС в E-Foto</a></li>
-<li><a href="./Ref14_DEM.html">Построение ЦМР в E-Foto</a></li>
-<li><a href="./Ref15_Photomod_aerial.html">Photomod: обработка аэрофотосъёмки</a></li>
-<li><a href="./Ref16_Photomod_DEM.html">Photomod: построение ЦМР</a></li>
-<li><a href="./Ref17_Photomod_RPC.html">Photomod: работа с RPC</a></li>
-<li><a href="./Ref18_Metashape.html">Agisoft Metashape: базовая обработка</a></li>
-<li><a href="./Ref20_Metashape_RPC.html">Agisoft Metashape: обработка с RPC</a></li>
-<li><a href="./Ref19_Las.html">Работа с LAS-данными</a></li>
-</ol>
+<section id="pansharpen-project" class="level2" data-number="2.1">
+<h2 data-number="2.1" class="anchored" data-anchor-id="pansharpen-project"><span class="header-section-number">2.1</span> Создание проекта в ArcGIS Pro</h2>
+<p>Запустите ArcGIS Pro. В открывшемся окне выберите запуск проекта без шаблона.</p>
+<p><img src="images/Ref01/Launching.png" class="img-fluid"></p>
+<p>Окно программы состоит из нескольких основных панелей: слева таблица содержания, самое большое окно посередине – окно карты, справа панель каталог и инструментов геообработки. Панель каталога нужна для того чтобы обращаться к данным, расположенным на компьютере. Раскройте пункт <strong>Folders</strong> и найдите свою папку, либо папку, расположенную выше по древу. Если её нет, можно добавить подключение к папке, щёлкнув правой кнопкой мыши.</p>
+<p><img src="images/Ref01/Add_Connection.png" class="img-fluid"></p>
+<p>Внутри своей папки создайте новую базу геоданных, щёлкнув по ней правой кнопкой.</p>
+<p><img src="images/Ref01/New_GDB.png" class="img-fluid"></p>
+<p>После этого база геоданных появится в перечне всех доступных баз данных в каталоге. Найдите там свою базу и сделайте её базой по умолчанию.</p>
+<p><img src="images/Ref01/Default.png" class="img-fluid"></p>
+<p>Через главное меню добавьте новую карту.</p>
+<p><img src="images/Ref01/New_Map.png" class="img-fluid"></p>
+<p>Сохраните проект<img src="images/Ref01/Save_Project.png" class="img-fluid"> в той же директории, где расположена база данных, после чего в каталоге на этой папке должен появиться значок домика.</p>
 </section>
-<section id="для-кого-предназначен-ресурс" class="level2" data-number="1.2">
-<h2 data-number="1.2" class="anchored" data-anchor-id="для-кого-предназначен-ресурс"><span class="header-section-number">1.2</span> Для кого предназначен ресурс</h2>
-<p>Ресурс ориентирован на:</p>
-<ul>
-<li>студентов 2 курса кафедры картографии и геоинформатики географического факультета МГУ имени М.В. Ломоносова</li>
-<li>Любых пользователей, имеющих базовое представление о фотограмметрической обработке данных дистанционного зондирования</li>
-</ul>
-<div class="callout callout-style-default callout-note callout-titled">
-<div class="callout-header d-flex align-content-center">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<div class="callout-title-container flex-fill">
-<span class="screen-reader-only">Уведомление</span>Примечание
-</div>
-</div>
-<div class="callout-body-container callout-body">
-<p>Структура ресурса может обновляться и дополняться новыми разделами, примерами и иллюстрациями.</p>
-</div>
-</div>
+<section id="pansharpen-composite" class="level2" data-number="2.2">
+<h2 data-number="2.2" class="anchored" data-anchor-id="pansharpen-composite"><span class="header-section-number">2.2</span> Создание композита</h2>
+<p>Для создания композита перетащите из окна каталога файлы отдельных каналов изображения. В панели геообработки найдите набор инструментов <strong>Data Management Tools – Raster – Raster Processing</strong>, внутри него выберите инструмент <strong>Composite Band</strong>.</p>
+<p><img src="images/Ref01/Raster_tools.png" class="img-fluid"></p>
+<p>На вход инструменту подайте отдельные каналы, на выход укажите название итогового композита – обратите внимание, что он должен быть в базе геоданных по умолчанию.</p>
+<p><img src="images/Ref01/Composite_bands.png" class="img-fluid"></p>
+<p>Для того чтобы задать визуализацию синтеза каналов нового композита, выделите слой и перейдите во вкладку <strong>Appearance</strong> основной ленты меню. В <strong>Band Combination</strong> укажите пользовательский синтез (<strong>Custom</strong>) и задайте соответствие каналов изображения каналам основных цветов.</p>
+<p><img src="images/Ref01/Band_combination.png" class="img-fluid"></p>
 </section>
-<section id="быстрый-переход" class="level2" data-number="1.3">
-<h2 data-number="1.3" class="anchored" data-anchor-id="быстрый-переход"><span class="header-section-number">1.3</span> Быстрый переход</h2>
+<section id="pansharpen-extract" class="level2" data-number="2.3">
+<h2 data-number="2.3" class="anchored" data-anchor-id="pansharpen-extract"><span class="header-section-number">2.3</span> Вырезание фрагмента изображения</h2>
+<p>Для вырезания фрагмента изображения необходимо создать новый класс объектов в базе геоданных. Для этого щёлкните правой кнопкой мыши по базе <strong>New – Feature Class</strong>. В открывшемся окне задайте имя и систему координат класса.</p>
+<p><img src="images/Ref01/New_FC.png" class="img-fluid"></p>
+<p>Добавьте класс объектов в окно карты и перейдите на вкладку <strong>Edit</strong> главного меню, выберите пункт <strong>Create</strong>.</p>
+<p><img src="images/Ref01/Create.png" class="img-fluid"></p>
+<p>Справа откроется панель с шаблонами объектов. Выберите способ создания объекта – прямоугольник. Отрисуйте прямоугольник на карте, который охватит вырезаемую область изображения.</p>
+<p><img src="images/Ref01/Rectangles.png" class="img-fluid"></p>
+<p>После того, как объект будет готов, сохраните изменения, нажав на кнопку <img src="images/Ref01/Save_edits.png" class="img-fluid">.</p>
+<p>Вырезается фрагмент изображения с помощью инструмента <strong>Extract by Mask</strong> – его можно найти на панели инструментов геообработки в наборе инструментов <strong>Spatial Analyst Tools – Extraction</strong>.</p>
+<p><img src="images/Ref01/Extract_by_Mask.png" class="img-fluid"></p>
+<p>У полученного фрагмента изображения может быть не настроена гистограмма. Перейдите во вкладку <strong>Appearance</strong> и нажмите на кнопку <strong>DRA</strong> для автоматической настройки гистограммы фрагмента, либо исправьте гистограмму вручную.</p>
+<p><img src="images/Ref01/Stretching.png" class="img-fluid"></p>
+</section>
+<section id="pansharpen-filter" class="level2" data-number="2.4">
+<h2 data-number="2.4" class="anchored" data-anchor-id="pansharpen-filter"><span class="header-section-number">2.4</span> Фильтрация</h2>
+<p>Для градиентной фильтрации выберите растр, в основной ленте меню выберите вкладку <strong>Imagery</strong>, нажмите на кнопку <strong>Raster Functions</strong> – у вас справа откроется панель с различными инструментами растров, в том числе во вкладке <strong>Appearance</strong> есть инструмент свёртки (<strong>Convolution</strong>).</p>
+<p><img src="images/Ref01/Raster_functions.png" class="img-fluid"></p>
+<p>Для линейной (высокочастотная, низкочастотная) фильтрации можно использовать инструмент <strong>Spatial Analyst Tools – Neighborhood – Filter</strong>. В качестве входных параметров необходимо указать исходный растр, а также тип фильтрации.</p>
+</section>
+<section id="pansharpen-resampling" class="level2" data-number="2.5">
+<h2 data-number="2.5" class="anchored" data-anchor-id="pansharpen-resampling"><span class="header-section-number">2.5</span> Передискретизация</h2>
+<p>Для передискретизации используется инструмент <strong>Data Management Tools – Raster – Raster Processing – Resample</strong>. В качестве входных параметров необходимо указать исходный растр, а также размер ячейки нового растра и тип интерполяции</p>
+</section>
+<section id="pansharpen-pansharpen" class="level2" data-number="2.6">
+<h2 data-number="2.6" class="anchored" data-anchor-id="pansharpen-pansharpen"><span class="header-section-number">2.6</span> Паншарпенинг</h2>
+<p>Для паншарпенинга используется инструмент <strong>Data Management Tools – Raster – Raster Processing – Create Pansharpened Raster Dataset</strong>. В качестве входных параметров необходимо указать исходный растр, тип преобразования и некоторые другие параметры, которые зависят от типа преобразования.</p>
+</section>
+<section id="pansharpen-layout" class="level2" data-number="2.7">
+<h2 data-number="2.7" class="anchored" data-anchor-id="pansharpen-layout"><span class="header-section-number">2.7</span> Работа в режиме компоновки</h2>
+<p>Для работы с данными в ArcGIS Pro мы находимся в окне карты (<strong>Map</strong>). Вы можете создать несколько окон карты через меню <strong>Insert – New Map</strong>. Слои содержания можно скопировать в каждую карту, а также синхронизировать их визуализацию через меню <strong>View – Link Views – Center And Scale</strong>. Создание компоновки осуществляется через меню <strong>Insert – New Layout</strong>, после чего у вас откроются варианты с параметрами листа компоновки. Эти параметры, включая ориентировку листа можно поменять в свойствах, вызвав их нажатием правой кнопки мыши.</p>
+<p><img src="images/Ref01/Layout_Properties.png" class="img-fluid"></p>
+<p>Используйте кнопку <strong>Insert – Map Frame</strong> для того чтобы вставить картографическое изображение в лист компоновки.На одном листе можно разместить несколько картографических изображений, последовательно используя эту кнопку. Выделенный фрейм карты будет жирным в таблице содержания и отображаться в режиме узлов на листе карты.</p>
+<p><img src="images/Ref01/Map_Frames.png" class="img-fluid"></p>
+<p>Для того чтобы область охвата фрейма переместилася к вашим данным, выберите соответствующий слой в таблице содержания и правой кнопкой вызовите меню <strong>Zoom To Layer</strong>. Вы можете менять масштаб изображения внутри фрейма в соответствующем окошке внизу. Для перемещения данных в пределах окна фрейма необходимо активировать карту правой кнопкой мыши и нажав <strong>Activate</strong>. Затем вернитесь в меню <strong>Map</strong> и переключитесь в режим <strong>Explore</strong>. Для выхода обратно в режим компоновки нажмите <strong>Close Activation</strong>.</p>
+<p><img src="images/Ref01/Map_Frame_Activation.gif" class="img-fluid"></p>
+<p>Для всех фреймов можно выставить экстент из окна карты <strong>Layout – Zoom To Map View</strong> или <strong>Layout – Zoom To Last Active View</strong>.</p>
+<p>В окно компоновки можно вставить другие элементы: текст, графику, масштабную линейку и т.д. Правой кнопкой можно зайти в свойства элемента, поменять гарнитуру, кегль, выравнивание и прочие параметры.</p>
+<p><img src="images/Ref01/Graphic_Elements.png" class="img-fluid"></p>
+<p>Экспорт составленного макета компоновки можно сделать через меню <strong>Share – Export Layout</strong> или скопировать изображение в буфер обмена <strong>Capture To Clipboard</strong></p>
+<p><img src="images/Ref01/Export.png" class="img-fluid"></p>
 <table class="caption-top table">
-<thead>
-<tr class="header">
-<th>Раздел</th>
-<th>Ссылка</th>
-</tr>
-</thead>
 <tbody>
 <tr class="odd">
-<td>Начать с основ</td>
-<td><a href="./Ref02_Georeference.html">Геопривязка изображений</a></td>
-</tr>
-<tr class="even">
-<td>Изучить фотограмметрию</td>
-<td><a href="./Ref12_Photogrammetry.html">Основы фотограмметрии</a></td>
-</tr>
-<tr class="odd">
-<td>Перейти к Metashape</td>
-<td><a href="./Ref18_Metashape.html">Metashape</a></td>
-</tr>
-<tr class="even">
-<td>Изучить RPC в Metashape</td>
-<td><a href="./Ref20_Metashape_RPC.html">Metashape RPC</a></td>
-</tr>
-<tr class="odd">
-<td>Работа с LAS</td>
-<td><a href="./Ref19_Las.html">LAS-данные</a></td>
+<td><em>Карпачевский А.М.</em> <strong>Основы дистанционного зондирования и фотограмметрии</strong>. М.: Географический факультет МГУ, <code>r lubridate::year(Sys.Date())</code>.</td>
 </tr>
 </tbody>
 </table>
 
 
-</section>
 </section>
 
 </main> <!-- /main -->
@@ -743,10 +720,13 @@ document.addEventListener("DOMContentLoaded", function () {
   </script>
 <nav class="page-navigation">
   <div class="nav-page nav-page-previous">
+      <a href="./index.html" class="pagination-link" aria-label="Основы дистанционного зондирования и фотограмметрии">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Основы дистанционного зондирования и фотограмметрии</span></span>
+      </a>          
   </div>
   <div class="nav-page nav-page-next">
-      <a href="./Ref01_Pansharpening.html" class="pagination-link" aria-label="Преобразования пространственного разрешения">
-        <span class="nav-page-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Преобразования пространственного разрешения</span></span> <i class="bi bi-arrow-right-short"></i>
+      <a href="./Ref02_Georeference.html" class="pagination-link" aria-label="Географическая привязка">
+        <span class="nav-page-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Географическая привязка</span></span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
 </nav>
@@ -757,8 +737,8 @@ document.addEventListener("DOMContentLoaded", function () {
       &nbsp;
     </div>   
     <div class="nav-footer-center">
-<p>© 2020–<span id="year"></span> Карпачевский А.М. Основы дистанционного зондирования и фотограмметрии</p>
-<div class="toc-actions"><ul><li><a href="https://github.com/IOWq750/Remote_Sensing_Photogrammetry/edit/main/index.qmd" class="toc-action"><i class="bi bi-github"></i>Редактировать страницу</a></li><li><a href="https://github.com/IOWq750/Remote_Sensing_Photogrammetry/issues/new" class="toc-action"><i class="bi empty"></i>Сообщить о проблеме</a></li></ul></div></div>
+<p>© 2020–1 апреля 2026 г. Карпачевский А.М.</p>
+<div class="toc-actions d-sm-block d-md-none"><ul><li><a href="https://github.com/IOWq750/Remote_Sensing_Photogrammetry/edit/main/Ref01_Pansharpening.qmd" class="toc-action"><i class="bi bi-github"></i>Редактировать страницу</a></li><li><a href="https://github.com/IOWq750/Remote_Sensing_Photogrammetry/issues/new" class="toc-action"><i class="bi empty"></i>Сообщить о проблеме</a></li></ul></div></div>
     <div class="nav-footer-right">
       &nbsp;
     </div>

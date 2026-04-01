@@ -6,9 +6,8 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
-<meta name="author" content="Карпачевский А.М.">
 
-<title>Основы дистанционного зондирования и фотограмметрии</title>
+<title>11&nbsp; Обработка данных в Agisoft Metashape – Основы дистанционного зондирования и фотограмметрии</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -31,7 +30,8 @@ ul.task-list li input[type="checkbox"] {
 <script src="site_libs/quarto-search/fuse.min.js"></script>
 <script src="site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="./">
-<link href="./Ref01_Pansharpening.html" rel="next">
+<link href="./Ref20_Metashape_RPC.html" rel="next">
+<link href="./Ref17_Photomod_RPC.html" rel="prev">
 <script src="site_libs/quarto-html/quarto.js" type="module"></script>
 <script src="site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
 <script src="site_libs/quarto-html/axe/axe-check.js" type="module"></script>
@@ -70,19 +70,11 @@ ul.task-list li input[type="checkbox"] {
     "search-label": "Поиск"
   }
 }</script>
-<script>
-document.addEventListener("DOMContentLoaded", function () {
-  const year = new Date().getFullYear();
-  const el = document.getElementById("year");
-  if (el) el.textContent = year;
-});
-</script>
 
 
-<link rel="stylesheet" href="styles.css">
 </head>
 
-<body class="nav-sidebar floating fullcontent quarto-light">
+<body class="nav-sidebar floating quarto-light">
 
 <div id="quarto-search-results"></div>
   <header id="quarto-header" class="headroom fixed-top">
@@ -91,7 +83,7 @@ document.addEventListener("DOMContentLoaded", function () {
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Переключить боковую панель навигации" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./index.html"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Основы дистанционного зондирования и фотограмметрии</span></a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./Ref18_Metashape.html"><span class="chapter-number">11</span>&nbsp; <span class="chapter-title">Обработка данных в Agisoft Metashape</span></a></li></ol></nav>
         <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Переключить боковую панель навигации" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
       <button type="button" class="btn quarto-search-button" aria-label="Поиск" onclick="window.quartoOpenSearch();">
@@ -121,7 +113,7 @@ document.addEventListener("DOMContentLoaded", function () {
     <ul class="list-unstyled mt-1">
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./index.html" class="sidebar-item-text sidebar-link active">
+  <a href="./index.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Основы дистанционного зондирования и фотограмметрии</span></span></a>
   </div>
 </li>
@@ -181,7 +173,7 @@ document.addEventListener("DOMContentLoaded", function () {
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./Ref18_Metashape.html" class="sidebar-item-text sidebar-link">
+  <a href="./Ref18_Metashape.html" class="sidebar-item-text sidebar-link active">
  <span class="menu-text"><span class="chapter-number">11</span>&nbsp; <span class="chapter-title">Обработка данных в Agisoft Metashape</span></span></a>
   </div>
 </li>
@@ -202,33 +194,34 @@ document.addEventListener("DOMContentLoaded", function () {
 </nav>
 <div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
 <!-- margin-sidebar -->
-    
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">Содержание</h2>
+   
+  <ul>
+  <li><a href="#agisoft-soft" id="toc-agisoft-soft" class="nav-link active" data-scroll-target="#agisoft-soft"><span class="header-section-number">11.1</span> Программное обеспечение</a></li>
+  <li><a href="#agisoft-initial" id="toc-agisoft-initial" class="nav-link" data-scroll-target="#agisoft-initial"><span class="header-section-number">11.2</span> Исходные данные</a></li>
+  <li><a href="#agisoft-interface" id="toc-agisoft-interface" class="nav-link" data-scroll-target="#agisoft-interface"><span class="header-section-number">11.3</span> Интерфейс</a></li>
+  <li><a href="#agisoft-alignment" id="toc-agisoft-alignment" class="nav-link" data-scroll-target="#agisoft-alignment"><span class="header-section-number">11.4</span> Взаимное ориентирование снимков</a></li>
+  <li><a href="#agisoft-markers" id="toc-agisoft-markers" class="nav-link" data-scroll-target="#agisoft-markers"><span class="header-section-number">11.5</span> Расстановка опорных точек</a></li>
+  <li><a href="#agisoft-dense" id="toc-agisoft-dense" class="nav-link" data-scroll-target="#agisoft-dense"><span class="header-section-number">11.6</span> Построение плотного облака точек</a></li>
+  <li><a href="#agisoft-DEM" id="toc-agisoft-DEM" class="nav-link" data-scroll-target="#agisoft-DEM"><span class="header-section-number">11.7</span> Построение ЦМП и фотомозаики</a></li>
+  </ul>
+<div class="toc-actions"><ul><li><a href="https://github.com/IOWq750/Remote_Sensing_Photogrammetry/edit/main/Ref18_Metashape.qmd" class="toc-action"><i class="bi bi-github"></i>Редактировать страницу</a></li><li><a href="https://github.com/IOWq750/Remote_Sensing_Photogrammetry/issues/new" class="toc-action"><i class="bi empty"></i>Сообщить о проблеме</a></li></ul></div></nav>
+    </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">Основы дистанционного зондирования и фотограмметрии</h1>
-<p class="subtitle lead">Электронный учебно-методический ресурс</p>
+<h1 class="title"><span id="agisoft" class="quarto-section-identifier"><span class="chapter-number">11</span>&nbsp; <span class="chapter-title">Обработка данных в Agisoft Metashape</span></span></h1>
 </div>
 
 
 
 <div class="quarto-title-meta">
 
-    <div>
-    <div class="quarto-title-meta-heading">Автор</div>
-    <div class="quarto-title-meta-contents">
-             <p>Карпачевский А.М. </p>
-          </div>
-  </div>
     
-    <div>
-    <div class="quarto-title-meta-heading">Дата публикации</div>
-    <div class="quarto-title-meta-contents">
-      <p class="date">1 апреля 2026 г.</p>
-    </div>
-  </div>
   
     
   </div>
@@ -238,101 +231,157 @@ document.addEventListener("DOMContentLoaded", function () {
 </header>
 
 
-<section id="добро-пожаловать" class="level1" data-number="1">
-<h1 data-number="1"><span class="header-section-number">1</span> Добро пожаловать</h1>
-<p>Это электронный учебно-методический ресурс по основам дистанционного зондирования и фотограмметрии.<br>
-Материал охватывает ключевые этапы обработки данных дистанционного зондирования, геопривязки, мозаикирования, построения моделей рельефа и фотограмметрической обработки в специализированных программных пакетах.</p>
-<div class="callout callout-style-default callout-tip callout-titled">
-<div class="callout-header d-flex align-content-center">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<div class="callout-title-container flex-fill">
-<span class="screen-reader-only">Совет</span>Как пользоваться ресурсом
-</div>
-</div>
-<div class="callout-body-container callout-body">
-<ul>
-<li>Для перехода между темами используйте боковую панель слева.</li>
-<li>Материал организован по разделам, которые можно изучать последовательно.</li>
-<li>Если вы уже знакомы с базовыми понятиями, можно переходить сразу к нужной практической теме.</li>
-</ul>
-</div>
-</div>
-<section id="содержание-курса" class="level2" data-number="1.1">
-<h2 data-number="1.1" class="anchored" data-anchor-id="содержание-курса"><span class="header-section-number">1.1</span> Содержание курса</h2>
-<p>В состав ресурса входят следующие разделы:</p>
-<ol type="1">
-<li><a href="./Ref01_Pansharpening.html">Паншарпенинг</a></li>
-<li><a href="./Ref02_Georeference.html">Географическая привязка изображений</a></li>
-<li><a href="./Ref03_Mosaicking.html">Создание мозаик</a></li>
-<li><a href="./Ref12_Photogrammetry.html">Основы фотограмметрии</a></li>
-<li><a href="./Ref13_Efoto.html">Обработка АФС в E-Foto</a></li>
-<li><a href="./Ref14_DEM.html">Построение ЦМР в E-Foto</a></li>
-<li><a href="./Ref15_Photomod_aerial.html">Photomod: обработка аэрофотосъёмки</a></li>
-<li><a href="./Ref16_Photomod_DEM.html">Photomod: построение ЦМР</a></li>
-<li><a href="./Ref17_Photomod_RPC.html">Photomod: работа с RPC</a></li>
-<li><a href="./Ref18_Metashape.html">Agisoft Metashape: базовая обработка</a></li>
-<li><a href="./Ref20_Metashape_RPC.html">Agisoft Metashape: обработка с RPC</a></li>
-<li><a href="./Ref19_Las.html">Работа с LAS-данными</a></li>
-</ol>
+<section id="agisoft-soft" class="level2" data-number="11.1">
+<h2 data-number="11.1" class="anchored" data-anchor-id="agisoft-soft"><span class="header-section-number">11.1</span> Программное обеспечение</h2>
+<p><a href="#agisoft">В начало справки ⇡</a></p>
+<p><strong>Agisoft Metashape</strong> – отечественное коммерческое фотограмметрическое ПО, использующее технологии компьютерного зрения. Домашний адрес со всей информацией о программе доступен <a href="https://www.agisoft.com/" target="_blank">по ссылке</a>, в том числе руководство пользователя на русском и английском языках.</p>
 </section>
-<section id="для-кого-предназначен-ресурс" class="level2" data-number="1.2">
-<h2 data-number="1.2" class="anchored" data-anchor-id="для-кого-предназначен-ресурс"><span class="header-section-number">1.2</span> Для кого предназначен ресурс</h2>
-<p>Ресурс ориентирован на:</p>
-<ul>
-<li>студентов 2 курса кафедры картографии и геоинформатики географического факультета МГУ имени М.В. Ломоносова</li>
-<li>Любых пользователей, имеющих базовое представление о фотограмметрической обработке данных дистанционного зондирования</li>
-</ul>
-<div class="callout callout-style-default callout-note callout-titled">
-<div class="callout-header d-flex align-content-center">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
+<section id="agisoft-initial" class="level2" data-number="11.2">
+<h2 data-number="11.2" class="anchored" data-anchor-id="agisoft-initial"><span class="header-section-number">11.2</span> Исходные данные</h2>
+<p><a href="#agisoft">В начало справки ⇡</a></p>
+<p><strong>Вариант 1</strong></p>
+<p>Снимки, полученные с БПЛА DJI Phantom 4 и опорные точки, измеренные с помощью высокоточного ГНСС.</p>
+<p><a href="https://disk.yandex.ru/d/E8aQT6f8C_KBuw" target="_blank">Снимки</a></p>
+<p><a href="https://disk.yandex.ru/d/_5-zxp2QLPxKxQ" target="_blank">Наземные опорные точки</a></p>
+<p><strong>Вариант 2</strong></p>
+<p>Снимки, полученные с БПЛА DJI Mavic 2 Pro и опорные точки, измеренные с помощью высокоточного ГНСС.</p>
+<p><a href="https://disk.yandex.ru/d/x-ww-61wVdQlzw" target="_blank">Снимки и наземные опорные точки</a></p>
+</section>
+<section id="agisoft-interface" class="level2" data-number="11.3">
+<h2 data-number="11.3" class="anchored" data-anchor-id="agisoft-interface"><span class="header-section-number">11.3</span> Интерфейс</h2>
+<p><a href="#agisoft">В начало справки ⇡</a></p>
+<p>Интерфейс программы состоит из основного окна 3D-вьюера, окна <strong>Workspace</strong> слева, куда добавляются блоки (<strong>Chunk</strong>) фотографий (<strong>Cameras</strong>). Другие окна показывают фотографии блока, свойства слоёв, информацию о привязке, маркеры и другие. С полным перечнем окон и панелей можно ознакомиться, щёлкнув правой кнопкой мыши по пустому месту сверху – там можно включить или выключить окно/панель.</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="images\Ref18\Interface.png" class="img-fluid figure-img"></p>
+<figcaption>Вид окна программы</figcaption>
+</figure>
 </div>
-<div class="callout-title-container flex-fill">
-<span class="screen-reader-only">Уведомление</span>Примечание
+<p>Настройки программы доступны через меню <strong>Tools – Preferences</strong>. Убедитесь в том, что ресурсы видеокарты используются для вычислений.</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="images\Ref18\Preferences.png" class="img-fluid figure-img"></p>
+<figcaption>Включение GPU для ускорения вычислений</figcaption>
+</figure>
 </div>
+<p>Добавить фотографии можно, щёлкнув правой кнопкой по <strong>Chunk</strong> и вызвав меню <strong>Add – Add Photos…</strong> или <strong>Add – Add Folder…</strong>. Фотографии добавятся в окно блока и в окно с превью. Если в EXIF фотографий присутствуют геотеги, то соответствующие строчки появятся в окне <strong>Reference</strong>. При добавлении фотографий с БПЛА могут присутствовать углы ориентирования, как минимум рысканье (<strong>Yaw</strong>).</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="images\Ref18\Reference.png" class="img-fluid figure-img"></p>
+<figcaption>Окно с координатами центров проекции фотографий</figcaption>
+</figure>
 </div>
-<div class="callout-body-container callout-body">
-<p>Структура ресурса может обновляться и дополняться новыми разделами, примерами и иллюстрациями.</p>
+<p>При наличии геотегов добавленных фотографий их центры проекций будут схематично показываться и подписывать в окне 3D-вьюера. Кнопка <strong>Show Basemap</strong> <img src="images\Ref18\Basemap.png" class="img-fluid"> включает и выключает подложку базовой карты, кнопка <strong>Show Cameras</strong> <img src="images\Ref18\Cameras.png" class="img-fluid"> включает и выключает показ центров проекций снимков.</p>
+<p>Перемещать вид в окне 3D-вьюера можно зажатой левой кнопкой мыши, меняется масштаб с помощью колёсика мыши, поворачивается вид с помощью зажатого колёсика мыши.</p>
+<p>Всё содержимое окна программы может быть сохранено в проект формата <strong>PSX</strong>.</p>
+</section>
+<section id="agisoft-alignment" class="level2" data-number="11.4">
+<h2 data-number="11.4" class="anchored" data-anchor-id="agisoft-alignment"><span class="header-section-number">11.4</span> Взаимное ориентирование снимков</h2>
+<p><a href="#agisoft">В начало справки ⇡</a></p>
+<p>Вызовите меню <strong>Workflow – Align Photos</strong>. В открывшемся окне будут доступны настройки:</p>
+<p><strong>Accuracy</strong> – точность, определяемая разрешением используемого уровня дискретизации. Значение <strong>High</strong> соответствует исходному разрешению снимков, каждый последующий уровень точности приводит к увеличению размера пикселя в 4 раза, соответственно время обработки данных с менее высокой точностью будет уменьшаться;</p>
+<p><strong>Generic preselection</strong> – использование изображений с худшим разрешением (пирамидальные слои) для предварительного отождествления соответственных точек на снимке;</p>
+<p><strong>Reference preselection</strong> – использование геотегов из EXIF фотографий для их предварительного ориентирования;</p>
+<p><strong>Reset current alignment</strong> – сброс текущих параметров ориентирования снимков;</p>
+<p><strong>Key point limit</strong> – лимит нахождения ключевых точек на снимке. Рекомендуется использовать значение <em>40 000</em>, а значение <em>0</em> означает отсутствие лимита;</p>
+<p><strong>Tie point limit</strong> – лимит нахождения связующих точек на снимке. Рекомендуется использовать значение <em>4 000</em>, а значение <em>0</em> означает отсутствие лимита;</p>
+<p><strong>Adaptive camera model fitting</strong> – при уравнивании связок проектирующих лучей происходит самокалибровка камеры.</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="images\Ref18\Align_Photos.png" class="img-fluid figure-img"></p>
+<figcaption>Настройки взаимного ориентирования (выравнивания)</figcaption>
+</figure>
 </div>
+<p>По завершении операции вы получаете облако связующих точек (<strong>Tie Points</strong>) или разреженное облако точек.</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="images\Ref18\Sparse_Cloud.png" class="img-fluid figure-img"></p>
+<figcaption>Разреженное облако точек</figcaption>
+</figure>
+</div>
+<p>Все обнаруженные отождествления ключевых точек для каждой пары снимков можно найти в меню <strong>Tools – Tie Points – View Matches…</strong>.</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="images\Ref18\Matches.png" class="img-fluid figure-img"></p>
+<figcaption>Обнаруженные корректные и некорректные отождествления для пары снимков</figcaption>
+</figure>
+</div>
+<p>Параметры калибровки камеры после взаимного ориентирования меняются. С ними можно ознакомиться через меню <strong>Tools – Camera calibration…</strong>. График распределения дистории (<strong>Distortion plot</strong>) можно вызвать, щёлкнув правой кнопкой мыши по модели камеры.</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="images\Ref18\Camera_Calibration.png" class="img-fluid figure-img"></p>
+<figcaption>Параметры калибровки камеры</figcaption>
+</figure>
 </div>
 </section>
-<section id="быстрый-переход" class="level2" data-number="1.3">
-<h2 data-number="1.3" class="anchored" data-anchor-id="быстрый-переход"><span class="header-section-number">1.3</span> Быстрый переход</h2>
+<section id="agisoft-markers" class="level2" data-number="11.5">
+<h2 data-number="11.5" class="anchored" data-anchor-id="agisoft-markers"><span class="header-section-number">11.5</span> Расстановка опорных точек</h2>
+<p><a href="#agisoft">В начало справки ⇡</a></p>
+<p>Опорные точки можно расставить вручную, если правой кнопкой мыши щёлкнуть по облаку точек в нужном месте и из выпадающего меню выбрать <strong>Add Marker</strong>. Соответствующая строчка с маркером появится в окне <strong>Reference</strong>, а в окне <strong>Photos</strong> на фотографиях, куда попадает маркер, появится синий флаг. При установке проекции маркера на конкретной фотографии флаг станет зелёным.</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="images\Ref18\Manual_Markers.png" class="img-fluid figure-img"></p>
+<figcaption>Ручная установка маркера</figcaption>
+</figure>
+</div>
+<p>Если правой кнопкой мыши вызвать выпадающее меню в точке разреженного облака точек и выбрать пункт <strong>Filter Photos by point</strong>, перечень фотографий в окне <strong>Photos</strong> сократится. Для сброса фильтра нажмите на кнопку <img src="images\Ref18\Reset_Filter.png" class="img-fluid"> на панели окна <strong>Photos</strong>.</p>
+<p>Если данные по опорным точкам сведены в текстовый файл с разделителем, его можно добавить, нажав на кнопку <strong>Import Reference</strong> <img src="images\Ref18\Import_Reference.png" class="img-fluid">. Откроется окно, где вам будет предложено установить символ разделителя, расставить в нужном порядке колонки и указать, с какой строчки необходимо начать считывать данные.</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="images\Ref18\Import_CSV.png" class="img-fluid figure-img"></p>
+<figcaption>Окно импорта CSV</figcaption>
+</figure>
+</div>
+<p>В окне <strong>Reference</strong> нажмите на <strong>Settings</strong> <img src="images\Ref18\Settings.png" class="img-fluid">, убедитесь в правильности установленных систем координат для модели, фотографий и маркеров (они могут быть разные). Установите точности для координат центров проекций и координат расставляемых маркеров.</p>
+<p>Установите маркеры на фотографиях, где присутствуют опознаки. Для этого откройте одну из фотографий в окне <strong>Photos</strong>, в точке опознака щёлкните правой кнопкой мыши и выберите пункт <strong>Place Marker</strong> и выберите нужный маркер из имеющихся. После установке хотя бы двух проекций программа начнёт подсказывать, на каких фотографиях присутствуют маркеры с помощью символа серого флага <img src="images\Ref18\Grey_Flag.png" class="img-fluid">. Для хорошего результата необходимо, чтобы каждый маркер имел не менее четырёх проекций, а сами проекции не были установлены в области пониженной резкости изображения или совсем на краю снимка.</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="images\Ref18\Place_Marker.png" class="img-fluid figure-img"></p>
+<figcaption>Установка проекции маркера</figcaption>
+</figure>
+</div>
+<p>Нажмите на кнопку <strong>Optimize</strong> <img src="images\Ref18\Optimize.png" class="img-fluid"> для калибровки элементов внутреннего и внешнего ориентирования камеры, а также параметров дисторсии.</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="images\Ref18\Optimize_Camera.png" class="img-fluid figure-img"></p>
+<figcaption>Выбор параметров оптимизации камеры</figcaption>
+</figure>
+</div>
+</section>
+<section id="agisoft-dense" class="level2" data-number="11.6">
+<h2 data-number="11.6" class="anchored" data-anchor-id="agisoft-dense"><span class="header-section-number">11.6</span> Построение плотного облака точек</h2>
+<p><a href="#agisoft">В начало справки ⇡</a></p>
+<p>В главном меню вызовите <strong>Workflow – Build Dense Cloud…</strong>. После окончания работы инструмента в окне <strong>Workspace</strong> появятся слои карт глубины (<strong>Depth Maps</strong>) и плотное облако точек (<strong>Dense Cloud</strong>).</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="images\Ref18\Dense_Cloud.png" class="img-fluid figure-img"></p>
+<figcaption>Плотное облако точек</figcaption>
+</figure>
+</div>
+</section>
+<section id="agisoft-DEM" class="level2" data-number="11.7">
+<h2 data-number="11.7" class="anchored" data-anchor-id="agisoft-DEM"><span class="header-section-number">11.7</span> Построение ЦМП и фотомозаики</h2>
+<p><a href="#agisoft">В начало справки ⇡</a></p>
+<p>Для построения цифровой модели поверхности на основе плотного облака точек в главном меню вызовите <strong>Workflow – Build DEM…</strong>. Для построения фотомозаики вам потребуется ЦМП, полученная на предыдущем этапе – в главном меню вызовите <strong>Workflow – Build Orthomosaic…</strong>.</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="images\Ref18\DEM.png" class="img-fluid figure-img"></p>
+<figcaption>Цифровая модель поверхности</figcaption>
+</figure>
+</div>
+<blockquote class="blockquote">
+<p>Обратите внимание, что каждый слой для блока может быть представлен только в одном экземпляре. Если вы запускаете процедуру с новыми параметрами, то выходной слой перезапишется. Если вы хотите получить несколько вариантов одного слоя, необходимо сдублировать блок – нажать правой кнопкой мыши по блоку и выбрать <strong>Duplicate</strong> и указать те данные, которые необходимо сдублировать.</p>
+</blockquote>
+<p>Для экспорта слоя щёлкните правой кнопкой мыши по нему и выберите пункт <strong>Export…</strong>.</p>
 <table class="caption-top table">
-<thead>
-<tr class="header">
-<th>Раздел</th>
-<th>Ссылка</th>
-</tr>
-</thead>
 <tbody>
 <tr class="odd">
-<td>Начать с основ</td>
-<td><a href="./Ref02_Georeference.html">Геопривязка изображений</a></td>
-</tr>
-<tr class="even">
-<td>Изучить фотограмметрию</td>
-<td><a href="./Ref12_Photogrammetry.html">Основы фотограмметрии</a></td>
-</tr>
-<tr class="odd">
-<td>Перейти к Metashape</td>
-<td><a href="./Ref18_Metashape.html">Metashape</a></td>
-</tr>
-<tr class="even">
-<td>Изучить RPC в Metashape</td>
-<td><a href="./Ref20_Metashape_RPC.html">Metashape RPC</a></td>
-</tr>
-<tr class="odd">
-<td>Работа с LAS</td>
-<td><a href="./Ref19_Las.html">LAS-данные</a></td>
+<td><em>Карпачевский А.М.</em> <strong>Основы дистанционного зондирования и фотограмметрии</strong>. М.: Географический факультет МГУ, <code>r lubridate::year(Sys.Date())</code>.</td>
 </tr>
 </tbody>
 </table>
 
 
-</section>
 </section>
 
 </main> <!-- /main -->
@@ -743,29 +792,19 @@ document.addEventListener("DOMContentLoaded", function () {
   </script>
 <nav class="page-navigation">
   <div class="nav-page nav-page-previous">
+      <a href="./Ref17_Photomod_RPC.html" class="pagination-link" aria-label="Обработка сканерных космических изображений с помощью RPC">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">10</span>&nbsp; <span class="chapter-title">Обработка сканерных космических изображений с помощью RPC</span></span>
+      </a>          
   </div>
   <div class="nav-page nav-page-next">
-      <a href="./Ref01_Pansharpening.html" class="pagination-link" aria-label="Преобразования пространственного разрешения">
-        <span class="nav-page-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Преобразования пространственного разрешения</span></span> <i class="bi bi-arrow-right-short"></i>
+      <a href="./Ref20_Metashape_RPC.html" class="pagination-link" aria-label="Обработка сканерных космических изображений с помощью RPC в Agisoft Metashape">
+        <span class="nav-page-text"><span class="chapter-number">12</span>&nbsp; <span class="chapter-title">Обработка сканерных космических изображений с помощью RPC в Agisoft Metashape</span></span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
 </nav>
 </div> <!-- /content -->
-<footer class="footer">
-  <div class="nav-footer">
-    <div class="nav-footer-left">
-      &nbsp;
-    </div>   
-    <div class="nav-footer-center">
-<p>© 2020–<span id="year"></span> Карпачевский А.М. Основы дистанционного зондирования и фотограмметрии</p>
-<div class="toc-actions"><ul><li><a href="https://github.com/IOWq750/Remote_Sensing_Photogrammetry/edit/main/index.qmd" class="toc-action"><i class="bi bi-github"></i>Редактировать страницу</a></li><li><a href="https://github.com/IOWq750/Remote_Sensing_Photogrammetry/issues/new" class="toc-action"><i class="bi empty"></i>Сообщить о проблеме</a></li></ul></div></div>
-    <div class="nav-footer-right">
-      &nbsp;
-    </div>
-  </div>
-</footer>
 
 
 
 
-</body></html>
+<footer class="footer"><div class="nav-footer"><div class="nav-footer-center"><div class="toc-actions d-sm-block d-md-none"><ul><li><a href="https://github.com/IOWq750/Remote_Sensing_Photogrammetry/edit/main/Ref18_Metashape.qmd" class="toc-action"><i class="bi bi-github"></i>Редактировать страницу</a></li><li><a href="https://github.com/IOWq750/Remote_Sensing_Photogrammetry/issues/new" class="toc-action"><i class="bi empty"></i>Сообщить о проблеме</a></li></ul></div></div></div></footer></body></html>

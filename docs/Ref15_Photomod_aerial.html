@@ -1,0 +1,889 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="ru" xml:lang="ru"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.8.27">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+
+<title>8&nbsp; Обработка данных аэрофотосъёмки в ЦФС PHOTOMOD – Основы дистанционного зондирования и фотограмметрии</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+</style>
+
+
+<script src="site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="site_libs/quarto-nav/headroom.min.js"></script>
+<script src="site_libs/clipboard/clipboard.min.js"></script>
+<script src="site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="site_libs/quarto-search/fuse.min.js"></script>
+<script src="site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="./">
+<link href="./Ref16_Photomod_DEM.html" rel="next">
+<link href="./Ref14_DEM.html" rel="prev">
+<script src="site_libs/quarto-html/quarto.js" type="module"></script>
+<script src="site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
+<script src="site_libs/quarto-html/axe/axe-check.js" type="module"></script>
+<script src="site_libs/quarto-html/popper.min.js"></script>
+<script src="site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="site_libs/quarto-html/anchor.min.js"></script>
+<link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting-ed96de9b727972fe78a7b5d16c58bf87.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="site_libs/bootstrap/bootstrap-70a47bd5681a7291082a5b9f83d58762.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<script id="quarto-search-options" type="application/json">{
+  "location": "sidebar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "start",
+  "type": "textbox",
+  "limit": 50,
+  "keyboard-shortcut": [
+    "f",
+    "/",
+    "s"
+  ],
+  "show-item-context": false,
+  "language": {
+    "search-no-results-text": "Поиск не дал результатов",
+    "search-matching-documents-text": "Результаты поиска",
+    "search-copy-link-title": "Скопировать ссылку",
+    "search-hide-matches-text": "Скрыть дополнительные результаты",
+    "search-more-match-text": "дополнительный результат в этом документе",
+    "search-more-matches-text": "дополнительных результата(-ов) в этом документе",
+    "search-clear-button-title": "Очистить",
+    "search-text-placeholder": "",
+    "search-detached-cancel-button-title": "Отменить",
+    "search-submit-button-title": "Найти",
+    "search-label": "Поиск"
+  }
+}</script>
+
+
+</head>
+
+<body class="nav-sidebar floating quarto-light">
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+  <nav class="quarto-secondary-nav">
+    <div class="container-fluid d-flex">
+      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Переключить боковую панель навигации" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+        <i class="bi bi-layout-text-sidebar-reverse"></i>
+      </button>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./Ref15_Photomod_aerial.html"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">Обработка данных аэрофотосъёмки в ЦФС PHOTOMOD</span></a></li></ol></nav>
+        <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Переключить боковую панель навигации" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
+        </a>
+      <button type="button" class="btn quarto-search-button" aria-label="Поиск" onclick="window.quartoOpenSearch();">
+        <i class="bi bi-search"></i>
+      </button>
+    </div>
+  </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article">
+<!-- sidebar -->
+  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation floating overflow-auto">
+    <div class="pt-lg-2 mt-2 text-left sidebar-header">
+    <div class="sidebar-title mb-0 py-0">
+      <a href="./">Основы дистанционного зондирования и фотограмметрии</a> 
+        <div class="sidebar-tools-main">
+    <a href="https://github.com/IOWq750/Remote_Sensing_Photogrammetry" title="Исходный код" class="quarto-navigation-tool px-1" aria-label="Исходный код"><i class="bi bi-github"></i></a>
+</div>
+    </div>
+      </div>
+        <div class="mt-2 flex-shrink-0 align-items-center">
+        <div class="sidebar-search">
+        <div id="quarto-search" class="" title="Поиск"></div>
+        </div>
+        </div>
+    <div class="sidebar-menu-container"> 
+    <ul class="list-unstyled mt-1">
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Основы дистанционного зондирования и фотограмметрии</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./Ref01_Pansharpening.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Преобразования пространственного разрешения</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./Ref02_Georeference.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Географическая привязка</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./Ref03_Mosaicking.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Создание мозаики</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./Ref12_Photogrammetry.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Фотограмметрия кадрового снимка</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./Ref13_Efoto.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Создание стереомодели и стереоизмерения в E-foto</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./Ref14_DEM.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Получение ЦММ и ортотрансформация</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./Ref15_Photomod_aerial.html" class="sidebar-item-text sidebar-link active">
+ <span class="menu-text"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">Обработка данных аэрофотосъёмки в ЦФС PHOTOMOD</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./Ref16_Photomod_DEM.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title">Создание ЦМР и ЦММ на основе стереопары АФС в ЦФС PHOTOMOD</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./Ref17_Photomod_RPC.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">10</span>&nbsp; <span class="chapter-title">Обработка сканерных космических изображений с помощью RPC</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./Ref18_Metashape.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">11</span>&nbsp; <span class="chapter-title">Обработка данных в Agisoft Metashape</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./Ref20_Metashape_RPC.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">12</span>&nbsp; <span class="chapter-title">Обработка сканерных космических изображений с помощью RPC в Agisoft Metashape</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./Ref19_Las.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">13</span>&nbsp; <span class="chapter-title">Лазерное сканирование</span></span></a>
+  </div>
+</li>
+    </ul>
+    </div>
+</nav>
+<div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">Содержание</h2>
+   
+  <ul>
+  <li><a href="#photomod-soft" id="toc-photomod-soft" class="nav-link active" data-scroll-target="#photomod-soft"><span class="header-section-number">8.1</span> Программное обеспечение</a></li>
+  <li><a href="#photomod-initial" id="toc-photomod-initial" class="nav-link" data-scroll-target="#photomod-initial"><span class="header-section-number">8.2</span> Исходные данные</a></li>
+  <li><a href="#photomod-create_project" id="toc-photomod-create_project" class="nav-link" data-scroll-target="#photomod-create_project"><span class="header-section-number">8.3</span> Создание проекта</a></li>
+  <li><a href="#photomod-interior_orientation" id="toc-photomod-interior_orientation" class="nav-link" data-scroll-target="#photomod-interior_orientation"><span class="header-section-number">8.4</span> Внутреннее ориентирование</a></li>
+  <li><a href="#photomod-network_measurements" id="toc-photomod-network_measurements" class="nav-link" data-scroll-target="#photomod-network_measurements"><span class="header-section-number">8.5</span> Измерение сети</a></li>
+  <li><a href="#photomod-network_adjustment" id="toc-photomod-network_adjustment" class="nav-link" data-scroll-target="#photomod-network_adjustment"><span class="header-section-number">8.6</span> Уравнивание сети</a></li>
+  <li><a href="#photomod-stereo" id="toc-photomod-stereo" class="nav-link" data-scroll-target="#photomod-stereo"><span class="header-section-number">8.7</span> Работа в стереорежиме</a></li>
+  </ul>
+<div class="toc-actions"><ul><li><a href="https://github.com/IOWq750/Remote_Sensing_Photogrammetry/edit/main/Ref15_Photomod_aerial.qmd" class="toc-action"><i class="bi bi-github"></i>Редактировать страницу</a></li><li><a href="https://github.com/IOWq750/Remote_Sensing_Photogrammetry/issues/new" class="toc-action"><i class="bi empty"></i>Сообщить о проблеме</a></li></ul></div></nav>
+    </div>
+<!-- main -->
+<main class="content" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default">
+<div class="quarto-title">
+<h1 class="title"><span id="photomod" class="quarto-section-identifier"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">Обработка данных аэрофотосъёмки в ЦФС PHOTOMOD</span></span></h1>
+</div>
+
+
+
+<div class="quarto-title-meta">
+
+    
+  
+    
+  </div>
+  
+
+
+</header>
+
+
+<section id="photomod-soft" class="level2" data-number="8.1">
+<h2 data-number="8.1" class="anchored" data-anchor-id="photomod-soft"><span class="header-section-number">8.1</span> Программное обеспечение</h2>
+<p><a href="#photomod">В начало справки ⇡</a></p>
+<p>Для практической работы вам понадобится цифровая фотограмметрическая система <strong>PHOTOMOD</strong>. Информацию о ней можно найти на домашнем сайте (https://racurs.ru/), там же можно скачать себе дистрибутив бесплатной версии программы, предварительно зарегистрировавшись.</p>
+</section>
+<section id="photomod-initial" class="level2" data-number="8.2">
+<h2 data-number="8.2" class="anchored" data-anchor-id="photomod-initial"><span class="header-section-number">8.2</span> Исходные данные</h2>
+<p><a href="#photomod">В начало справки ⇡</a></p>
+<p>В качестве исходных данных мы будем использовать серию аналоговых аэрофотоснимков на территорию WaldKirch (Германия).</p>
+<p><a href="https://disk.yandex.ru/d/vxx2kKksx5Hyfw" target="_blank">Снимки</a></p>
+<p><a href="https://disk.yandex.ru/d/7xvAgKMJ7xIavg" target="_blank">Параметры камеры</a></p>
+<p><a href="https://disk.yandex.ru/d/ZFQWVoHlaKIGUA" target="_blank">Наземные опорные точки</a></p>
+</section>
+<section id="photomod-create_project" class="level2" data-number="8.3">
+<h2 data-number="8.3" class="anchored" data-anchor-id="photomod-create_project"><span class="header-section-number">8.3</span> Создание проекта</h2>
+<p><a href="#photomod">В начало справки ⇡</a></p>
+<p>Запустите программу <strong>PHOTOMOD 7 X64</strong>. Если вы используете <strong>Lite</strong> версию, то откроется окно с информацией об усеченном функционале. Интерфейс программы представляет собой набор окон, например, окно главного меню, окно схемы блока, а также различные панели работы с данными. При запуске программы открывается окно управления проектами. Для создания проекта нажмите на соответствующую кнопку справа.</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="images\Ref15\Project_Manager.png" class="img-fluid figure-img"></p>
+<figcaption>Окно менеджера проекта</figcaption>
+</figure>
+</div>
+<p>Справа выберите путь для создания проекта. Обратите внимание, что по умолчанию предлагаются системные пути на диске C. вы можете создать новый путь, нажав на кнопку <strong>Open Explorer</strong> <img src="images\Ref15\Open_Explorer.png" class="img-fluid">, а затем на кнопку подключения <img src="images\Ref15\Connect_Folder.png" class="img-fluid">.</p>
+<blockquote class="blockquote">
+<p>Обратите внимание, что у программы есть свои особенности, связанные с сетевой структурой хранения данных, что может не позволить вам создать проект с произвольным путём не на диске C.</p>
+</blockquote>
+<p>Заполните <em>Имя</em> проекта, <em>Описание</em>. Если вы работаете с фотографическими снимками, выберите в <em>Тип</em> <strong>Центральная проекция</strong>. Укажите правую декартовую систему координат – для этого нажмите на <strong>Выбрать – Из БД – Международная</strong>, в открывшемся окне найдите <strong>Cartesian Right</strong> (№142). Задайте амплитуду высот местности от 400 до 900 м. нажмите <strong>ОК</strong> для создания проекта.</p>
+</section>
+<section id="photomod-interior_orientation" class="level2" data-number="8.4">
+<h2 data-number="8.4" class="anchored" data-anchor-id="photomod-interior_orientation"><span class="header-section-number">8.4</span> Внутреннее ориентирование</h2>
+<p><a href="#photomod">В начало справки ⇡</a></p>
+<p>Перед вами откроется окно создания нового маршрута – можно согласиться с именем по умолчанию. <em>Маршрут</em> – это совокупность снимков, полученных с одного галса залёта. Затем вы перейдёте к окну редактора блока снимков. <em>Блок снимков</em> – это совокупность всех снимков, сделанных на изучамую территорию в течение залёта.</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="images\Ref15\Block_Editor.png" class="img-fluid figure-img"></p>
+<figcaption>Окно менеджера проекта</figcaption>
+</figure>
+</div>
+<p>Кнопки <img src="images\Ref15\Add_Image1.png" class="img-fluid"> и <img src="images\Ref15\Add_Image2.png" class="img-fluid"> предназначены для добавления снимков. Первая позволяет добавить файлы из любого места, а вторая – из подключенных папок, включая папку проекта. Проще использовать вторую кнопку – для этого необходимо переместить данные в папку <strong>Images</strong> проекта (<strong>C:/PHOTOMOD6.VAR/Profiles/%Имя профиля%/%Имя проекта%/Images</strong>).</p>
+<p>По умолчанию программа формирует накидной монтаж из снимков, состоящий из одного маршрута (в одну линию).</p>
+<blockquote class="blockquote">
+<p>Накидной монтаж – схематическое наложение снимков блока, исходя из их принадлежности к маршрутам, порядка съёмки, значений продольного и поперечного перекрытия.</p>
+</blockquote>
+<p>Используемые снимки в именах файлов содержат информацию о принадлежности к маршрутам (число до символа ‘_’) и порядковом номере снимка (число после символа ‘_’). Можно заметить, что используемые снимки относятся к маршрутам 2 и 3. В основном окне программы найдите меню <strong>Блок – Разбить на маршруты – По именам снимков</strong>.</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="images\Ref15\Split_Block.png" class="img-fluid figure-img"></p>
+<figcaption>Разбивка по маршрутам</figcaption>
+</figure>
+</div>
+<p>Поскольку маршрут 2 представляет собой галс обратного направления съёмки, необходимо его выделить в редакторе блока и нажать на кнопку изменения порядка изображений в маршруте <img src="images\Ref15\Change_Direction.png" class="img-fluid">.</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="images\Ref15\Block_Editor2.png" class="img-fluid figure-img"></p>
+<figcaption>Правильный порядок кадров в маршрутах блока</figcaption>
+</figure>
+</div>
+<p>Откройте окно накидного монтажа в главном меню <strong>Окна – Накидной монтаж</strong> или нажав на кнопку <img src="images\Ref15\Schematics_Button.png" class="img-fluid"> в окне редактора блока. Задайте продольное и поперечное перекрытие в 65 и 43%, для предварительного внешнего ориентирования снимков выберите <strong>Центры проекции и углы</strong>. Нажмите на кнопку <strong>Применить</strong> и закройте окно, после чего накидной монтаж перестроится.</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="images\Ref15\Schematics.png" class="img-fluid figure-img"></p>
+<figcaption>Настройки накидного монтажа</figcaption>
+</figure>
+</div>
+<p>Далее необходимо задать параметры камеры, с помощью которой были сделаны кадры. Для этого в главном меню программы выберите пункт <strong>Ориентирование – Управление камерами</strong>. В открывшемся окне необходимо создать камеру, нажав на кнопку <img src="images\Ref15\Create_Camera.png" class="img-fluid">. Параметры камеры можно заполнить самостоятельно, а можно импортировать из файла, предоставленного в исходных данных.</p>
+<p><em>Камера</em>: RC_30</p>
+<p><em>Тип камеры</em>: аналоговая</p>
+<p><em>Единицы измерения</em>: мм</p>
+<p><em>Фокусное расстояние</em>: 153.5030</p>
+<p><em>Координаты главной точки</em>: X: 0.0020, Y: 0.0110</p>
+<p><em>Дисторсия</em>: Формула (физ.)</p>
+<p><em>Информация о метках</em>: Координаты меток</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="images\Ref15\Camera.png" class="img-fluid figure-img"></p>
+<figcaption>Настройки накидного монтажа</figcaption>
+</figure>
+</div>
+<p>После этого необходимо выделить все снимки в окне управления камерами проекта и убедиться в том, что стоит галка напротив опции <strong>Присвоить выбранную камеру выбранным изображениям</strong>. Нажмите на кнопку <strong>Выполнить</strong>. После закрытия окна камера присвоится ко всем снимкам.</p>
+<p>В окне редактора блока выделите снимок <strong>2_0710</strong>, после чего в главном меню программы выберите <strong>Ориентирование – Внутреннее ориентирование – Внутреннее ориентирование снимка</strong>. Откроется окно для задания координатных меток снимков. Для ориентирования необходимо выбрать каждую строку координат из таблицы внизу и указать их положение на соответственных координатных метках. После установки маркера необходимо нажать на кнопку <strong>Измерить метку</strong>.</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="images\Ref15\Interior_Orientation.png" class="img-fluid figure-img"></p>
+<figcaption>Окно внутреннего ориентирования снимка</figcaption>
+</figure>
+</div>
+<blockquote class="blockquote">
+<p>Для того чтобы перемещать снимок, используйте зажатую клавишу <strong>ALT</strong>. Изменение масштаба осуществляется с помощью соответствующих кнопок над изображением.</p>
+</blockquote>
+<p>После расстановки координатных меток снимка нажмите кнопку <strong>Применить</strong> и <strong>OK</strong>. Координатные метки на всех остальных снимках можно расставить автоматически. Выберите в главном меню <strong>Ориентирование – Внутреннее ориентирование – Полуавтоматическое внутреннее ориентирование</strong>. Выберите все изображения в окне, поставив напротив них галочки. Введите параметры размера области метки 101 и размер области поиска 201. Коэффициент корреляции 0,9. Аффинный тип преобразования. Нажмите выполнить. Появится сообщение о том, что найдены все метки на 5 изображениях. Нажмите ОК. Закройте окно полуавтоматического внутреннего ориентирования.</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="images\Ref15\Semi-Automate.png" class="img-fluid figure-img"></p>
+<figcaption>Полуавтоматическое внутреннее ориентирование снимка</figcaption>
+</figure>
+</div>
+<p>В окне управления камерами проекта вы можете увидеть знак + напротив каждого снимка в колонке внутреннего ориентирования. Можно ознакомиться с отчётом по внутреннему ориентированию. Выберите пункт главного меню <strong>Ориентирование – Внутреннее ориентирование – Отчет по внутреннему ориентированию</strong>, либо нажмите на кнопку <img src="images\Ref15\Report_IO.png" class="img-fluid"> в окне управления камерами. Необходимо убедиться, что ошибка по СКО у измеренных меток не больше 0,5 пиксела. При несоответствии ваших измерений этому допуску ошибка подсветится красным цветом. Отредактировать измерение можно, нажав на синюю звездочку в левом столбце таблицы отчета напротив измерения, превышающего допуск. После исправления возможных ошибок закройте окно отчета и окно управления камерами проекта.</p>
+</section>
+<section id="photomod-network_measurements" class="level2" data-number="8.5">
+<h2 data-number="8.5" class="anchored" data-anchor-id="photomod-network_measurements"><span class="header-section-number">8.5</span> Измерение сети</h2>
+<p><a href="#photomod">В начало справки ⇡</a></p>
+<p>Выберите пункт главного меню <strong>Ориентирование – Автоматическое измерение связующих точек – Аэросъёмка (Площадной коррелятор)</strong>. Откроется окно, убедитесь, что параметры соответствуют тому, что указано на скриншоте. Нажмите <strong>Выполнить</strong>, по завершении операции нажмите <strong>ОК</strong> и закройте открывшийся отчёт.</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="images\Ref15\Tie_Points.png" class="img-fluid figure-img"></p>
+<figcaption>Окно автоматического измерения связующих точек</figcaption>
+</figure>
+</div>
+<p>Для перестройки накидного монтажа выберите пункт меню <strong>Проект – Синхронизировать</strong></p>
+<p>В окне накидного монтажа или редактора блока выберите любой снимок. Далее импортируйте опорные точки в проект, выбрав пункт главного меню <strong>Ориентирование – Каталог опорных точек</strong>. В открывшемся окне нажмите на кнопку импорта <img src="images\Ref15\Import_Points.png" class="img-fluid"> и выберите файл <strong>Waldkirch_GCP.csv</strong>. В открывшемся окне убедитесь, что выбран правильный разделитель колонок, а также указана правильный порядковый номер строки, с которой начинает чтение файла. Колонки с данными должны соответствовать колонкам в окне.</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="images\Ref15\Import_Points2.png" class="img-fluid figure-img"></p>
+<figcaption>Окно импорта опорных точек</figcaption>
+</figure>
+</div>
+<p>Далее необходимо последовательно выбрать добавленные опорные точки в таблице и каждую измерить, нажав на кнопку <strong>Найти/измерить точку</strong> <img src="images\Ref15\Measure_Point.png" class="img-fluid">. После нажатия откроется окно со снимком. С помощью инструментов на верхней панели вы можете менять масштаб, а также премещаться между снимками накидного монтажа. Помните о том, что опорные точки, как правило, имеют свои проекции на нескольких снимках, но на данном этапе необходимо поставить точку только на одном снимке из блока.</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="images\Ref15\Measure_Point2.png" class="img-fluid figure-img"></p>
+<figcaption>Окно измерения опорных точек</figcaption>
+</figure>
+</div>
+<p>Изучите размещение опорных точек по рисунке ниже и найдите каждую. После нахождения точки и установки маркера в центр опознака необходимо нажать на кнопку <strong>Переместить точку в положение маркера</strong> <img src="images\Ref15\Move_Point2Marker.png" class="img-fluid">.</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="images\Ref15\Image_0722.png" class="img-fluid figure-img"></p>
+<figcaption>Размещение опорных точек на снимке 0722</figcaption>
+</figure>
+</div>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="images\Ref15\Image_0712.png" class="img-fluid figure-img"></p>
+<figcaption>Размещение опорных точек на снимке 0712</figcaption>
+</figure>
+</div>
+<p>Далее приведены положения всех опорных точек в крупном масштабе. Обратите внимание, что каждая точка представляет собой опознак белого цвета с двумя перпендикулярными прямоугольниками.</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="images\Ref15\Opoznak.png" class="img-fluid figure-img"></p>
+<figcaption>Схематичное изображение опознака</figcaption>
+</figure>
+</div>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="images\Ref15\Point_40169P.png" class="img-fluid figure-img"></p>
+<figcaption>Точка 40169P</figcaption>
+</figure>
+</div>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="images\Ref15\Point_6719.png" class="img-fluid figure-img"></p>
+<figcaption>Точка 6719</figcaption>
+</figure>
+</div>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="images\Ref15\Point_6720.png" class="img-fluid figure-img"></p>
+<figcaption>Точка 6720</figcaption>
+</figure>
+</div>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="images\Ref15\Point_779.png" class="img-fluid figure-img"></p>
+<figcaption>Точка 779</figcaption>
+</figure>
+</div>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="images\Ref15\Point_970.png" class="img-fluid figure-img"></p>
+<figcaption>Точка 970</figcaption>
+</figure>
+</div>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="images\Ref15\Point_163.png" class="img-fluid figure-img"></p>
+<figcaption>Точка 163</figcaption>
+</figure>
+</div>
+<p>После измерения всех опорных точек на одном снимке нажмите кнопку <strong>Применить</strong>.</p>
+<p>Для измерения остальных проекций точек на других снимках дважды щёлкните по точке в таблице. Откроются другие снимки, на которых эта точка должна присутствовать. Снимок, на котором точка была измерена в первый раз, назначьте левым, нажав на кнопку <img src="images\Ref15\Make_Left.png" class="img-fluid">. Поставьте маркер на правом снимке (снимках) в нужное место и нажмите на кнопку <strong>Коррелировать все с левым</strong> <img src="images\Ref15\Correlate.png" class="img-fluid">. При правильной установке проекции опорной точки будет получен высокий коэффициент корреляции. Если вы заметили, что коррелятор некорректно ставит проекцию точки, то поставьте её вручную с помощью кнопки <strong>Переместить точку в положение маркера</strong>. По завершении работы со всеми точками нажмите <strong>Применить</strong> и <strong>ОК</strong>.</p>
+</section>
+<section id="photomod-network_adjustment" class="level2" data-number="8.6">
+<h2 data-number="8.6" class="anchored" data-anchor-id="photomod-network_adjustment"><span class="header-section-number">8.6</span> Уравнивание сети</h2>
+<p><a href="#photomod">В начало справки ⇡</a></p>
+<p>Запустите уравнивание блока в главном меню <strong>Ориентирование – Уравнивание блока</strong>. На открывшейся панели нажмите на кнопку <strong>Редактировать параметры уравнивания и вид отчёта</strong> <img src="images\Ref15\Adjustment.png" class="img-fluid">. Для начального приближения выберите метод <strong>по схеме блока</strong>, а уравнивания по методу <strong>связок</strong>.</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="images\Ref15\Adjustment_Settings.png" class="img-fluid figure-img"></p>
+<figcaption>Окно параметрова уравнивания и вида отчета</figcaption>
+</figure>
+</div>
+<p>Зайдите в настройки уравнивания методом связок и убедитесь, что веса для параметров уравнений равны 1. Это значение можно менять, но при это общая точность может ухудшиться. Точность измерений на снимках установите в 0,5 пикселя, поскольку это оптимальное значение параметра по соотношению время работы алгоритма/точность.</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="images\Ref15\Bundle_Adjustment.png" class="img-fluid figure-img"></p>
+<figcaption>Параметры метода связок</figcaption>
+</figure>
+</div>
+<p>Нажмите на кнопку <strong>Уравнять</strong>, если не требуется менять параметры системы координат и вида отчета.</p>
+</section>
+<section id="photomod-stereo" class="level2" data-number="8.7">
+<h2 data-number="8.7" class="anchored" data-anchor-id="photomod-stereo"><span class="header-section-number">8.7</span> Работа в стереорежиме</h2>
+<p><a href="#photomod">В начало справки ⇡</a></p>
+<p>Включите стереорежим в программе – для этого в главном меню выберите <strong>Сервис – Параметры – Стерео – Анаглифический</strong>, если вы планируете работать с анаглифическими очками. Также в главном меню выберите <strong>Окна – Новое 2D-окно (стереопара)</strong>, либо нажмите на главной панели кнопку <img src="images\Ref15\Stereo2.png" class="img-fluid">. Нажмите на кнопку перехода в стереорежим <img src="images\Ref15\Stereo.png" class="img-fluid">. При необходимости для инвертирования стереоэффекта нажмите на кнопку <img src="images\Ref15\Stereo_Invert.png" class="img-fluid">. Для перемещения по стереопаре используйте лапку. Для изменения масштаба – соответствующие инструменты на панели.</p>
+<p>Внутри стереорежима можно вызвать окно измерительной марки (маркера) <strong>Окна – Окно маркера</strong>. Нажатие левой клавиши мыши позволяет узнать координаты точки на стереопаре. Плавное передвижение маркера с пиксельной точностью осуществляется стрелками на клавиатуре. Для сведения марки используйте колёсико мыши или клавиши <strong>page up</strong>, <strong>page down</strong>.</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="images\Ref15\Anagliph.png" class="img-fluid figure-img"></p>
+<figcaption>Маркер в стереорежиме</figcaption>
+</figure>
+</div>
+<p>Изменение продольного параллакса осуществляется зажатой клавишей <strong>shift</strong> и колесом мыши, либо вы можете нажать на кнопку <strong>Подстроить глубину в соответствии с текущим положением маркера</strong> <img src="images\Ref15\Adjust_parallax.png" class="img-fluid"> или нажатием на клавишу <strong>f2</strong>. Подгонять значение продольного параллакса можно и автоматически нажатием на клавишу <strong>пробел</strong>, но коррелятор не всегда срабатывает, и тогда вы услышите звуковой сигнал. Настройки коррелятора можно поменять, вызвав <strong>Сервис – Параметры – Коррелятор</strong>. Вы можете поменять форму, размер и цвет самого маркера в <strong>Сервис – Параметры – Маркер (стереопара)</strong>.</p>
+<p>Для перехода между стереопарами есть специальная панель, которую можно открыть, вызвав <strong>Окна – Панели инструментов – Смена стереопары</strong>.</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="images\Ref15\Change_Stereopair.png" class="img-fluid figure-img"></p>
+<figcaption>Панель смены стереопары</figcaption>
+</figure>
+</div>
+<table class="caption-top table">
+<tbody>
+<tr class="odd">
+<td><em>Карпачевский А.М.</em> <strong>Основы дистанционного зондирования и фотограмметрии</strong>. М.: Географический факультет МГУ, <code>r lubridate::year(Sys.Date())</code>.</td>
+</tr>
+</tbody>
+</table>
+
+
+</section>
+
+</main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+  window.document.addEventListener("DOMContentLoaded", function (event) {
+    const icon = "";
+    const anchorJS = new window.AnchorJS();
+    anchorJS.options = {
+      placement: 'right',
+      icon: icon
+    };
+    anchorJS.add('.anchored');
+    const isCodeAnnotation = (el) => {
+      for (const clz of el.classList) {
+        if (clz.startsWith('code-annotation-')) {                     
+          return true;
+        }
+      }
+      return false;
+    }
+    const onCopySuccess = function(e) {
+      // button target
+      const button = e.trigger;
+      // don't keep focus
+      button.blur();
+      // flash "checked"
+      button.classList.add('code-copy-button-checked');
+      var currentTitle = button.getAttribute("title");
+      button.setAttribute("title", "Скопировано");
+      let tooltip;
+      if (window.bootstrap) {
+        button.setAttribute("data-bs-toggle", "tooltip");
+        button.setAttribute("data-bs-placement", "left");
+        button.setAttribute("data-bs-title", "Скопировано");
+        tooltip = new bootstrap.Tooltip(button, 
+          { trigger: "manual", 
+            customClass: "code-copy-button-tooltip",
+            offset: [0, -8]});
+        tooltip.show();    
+      }
+      setTimeout(function() {
+        if (tooltip) {
+          tooltip.hide();
+          button.removeAttribute("data-bs-title");
+          button.removeAttribute("data-bs-toggle");
+          button.removeAttribute("data-bs-placement");
+        }
+        button.setAttribute("title", currentTitle);
+        button.classList.remove('code-copy-button-checked');
+      }, 1000);
+      // clear code selection
+      e.clearSelection();
+    }
+    const getTextToCopy = function(trigger) {
+      const outerScaffold = trigger.parentElement.cloneNode(true);
+      const codeEl = outerScaffold.querySelector('code');
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+    }
+    const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+      text: getTextToCopy
+    });
+    clipboard.on('success', onCopySuccess);
+    if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+      const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+        text: getTextToCopy,
+        container: window.document.getElementById('quarto-embedded-source-code-modal')
+      });
+      clipboardModal.on('success', onCopySuccess);
+    }
+      var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+      var mailtoRegex = new RegExp(/^mailto:/);
+        var filterRegex = new RegExp('/' + window.location.host + '/');
+      var isInternal = (href) => {
+          return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+      }
+      // Inspect non-navigation links and adorn them if external
+     var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+      for (var i=0; i<links.length; i++) {
+        const link = links[i];
+        if (!isInternal(link.href)) {
+          // undo the damage that might have been done by quarto-nav.js in the case of
+          // links that we want to consider external
+          if (link.dataset.originalHref !== undefined) {
+            link.href = link.dataset.originalHref;
+          }
+            // target, if specified
+            link.setAttribute("target", "_blank");
+            if (link.getAttribute("rel") === null) {
+              link.setAttribute("rel", "noopener");
+            }
+        }
+      }
+    function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+      const config = {
+        allowHTML: true,
+        maxWidth: 500,
+        delay: 100,
+        arrow: false,
+        appendTo: function(el) {
+            return el.parentElement;
+        },
+        interactive: true,
+        interactiveBorder: 10,
+        theme: 'quarto',
+        placement: 'bottom-start',
+      };
+      if (contentFn) {
+        config.content = contentFn;
+      }
+      if (onTriggerFn) {
+        config.onTrigger = onTriggerFn;
+      }
+      if (onUntriggerFn) {
+        config.onUntrigger = onUntriggerFn;
+      }
+      window.tippy(el, config); 
+    }
+    const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+    for (var i=0; i<noterefs.length; i++) {
+      const ref = noterefs[i];
+      tippyHover(ref, function() {
+        // use id or data attribute instead here
+        let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+        try { href = new URL(href).hash; } catch {}
+        const id = href.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note) {
+          return note.innerHTML;
+        } else {
+          return "";
+        }
+      });
+    }
+    const xrefs = window.document.querySelectorAll('a.quarto-xref');
+    const processXRef = (id, note) => {
+      // Strip column container classes
+      const stripColumnClz = (el) => {
+        el.classList.remove("page-full", "page-columns");
+        if (el.children) {
+          for (const child of el.children) {
+            stripColumnClz(child);
+          }
+        }
+      }
+      stripColumnClz(note)
+      if (id === null || id.startsWith('sec-')) {
+        // Special case sections, only their first couple elements
+        const container = document.createElement("div");
+        if (note.children && note.children.length > 2) {
+          container.appendChild(note.children[0].cloneNode(true));
+          for (let i = 1; i < note.children.length; i++) {
+            const child = note.children[i];
+            if (child.tagName === "P" && child.innerText === "") {
+              continue;
+            } else {
+              container.appendChild(child.cloneNode(true));
+              break;
+            }
+          }
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(container);
+          }
+          return container.innerHTML
+        } else {
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(note);
+          }
+          return note.innerHTML;
+        }
+      } else {
+        // Remove any anchor links if they are present
+        const anchorLink = note.querySelector('a.anchorjs-link');
+        if (anchorLink) {
+          anchorLink.remove();
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        if (note.classList.contains("callout")) {
+          return note.outerHTML;
+        } else {
+          return note.innerHTML;
+        }
+      }
+    }
+    for (var i=0; i<xrefs.length; i++) {
+      const xref = xrefs[i];
+      tippyHover(xref, undefined, function(instance) {
+        instance.disable();
+        let url = xref.getAttribute('href');
+        let hash = undefined; 
+        if (url.startsWith('#')) {
+          hash = url;
+        } else {
+          try { hash = new URL(url).hash; } catch {}
+        }
+        if (hash) {
+          const id = hash.replace(/^#\/?/, "");
+          const note = window.document.getElementById(id);
+          if (note !== null) {
+            try {
+              const html = processXRef(id, note.cloneNode(true));
+              instance.setContent(html);
+            } finally {
+              instance.enable();
+              instance.show();
+            }
+          } else {
+            // See if we can fetch this
+            fetch(url.split('#')[0])
+            .then(res => res.text())
+            .then(html => {
+              const parser = new DOMParser();
+              const htmlDoc = parser.parseFromString(html, "text/html");
+              const note = htmlDoc.getElementById(id);
+              if (note !== null) {
+                const html = processXRef(id, note);
+                instance.setContent(html);
+              } 
+            }).finally(() => {
+              instance.enable();
+              instance.show();
+            });
+          }
+        } else {
+          // See if we can fetch a full url (with no hash to target)
+          // This is a special case and we should probably do some content thinning / targeting
+          fetch(url)
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.querySelector('main.content');
+            if (note !== null) {
+              // This should only happen for chapter cross references
+              // (since there is no id in the URL)
+              // remove the first header
+              if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+                note.children[0].remove();
+              }
+              const html = processXRef(null, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      }, function(instance) {
+      });
+    }
+        let selectedAnnoteEl;
+        const selectorForAnnotation = ( cell, annotation) => {
+          let cellAttr = 'data-code-cell="' + cell + '"';
+          let lineAttr = 'data-code-annotation="' +  annotation + '"';
+          const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+          return selector;
+        }
+        const selectCodeLines = (annoteEl) => {
+          const doc = window.document;
+          const targetCell = annoteEl.getAttribute("data-target-cell");
+          const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+          const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+          const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+          const lineIds = lines.map((line) => {
+            return targetCell + "-" + line;
+          })
+          let top = null;
+          let height = null;
+          let parent = null;
+          if (lineIds.length > 0) {
+              //compute the position of the single el (top and bottom and make a div)
+              const el = window.document.getElementById(lineIds[0]);
+              top = el.offsetTop;
+              height = el.offsetHeight;
+              parent = el.parentElement.parentElement;
+            if (lineIds.length > 1) {
+              const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+              const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+              height = bottom - top;
+            }
+            if (top !== null && height !== null && parent !== null) {
+              // cook up a div (if necessary) and position it 
+              let div = window.document.getElementById("code-annotation-line-highlight");
+              if (div === null) {
+                div = window.document.createElement("div");
+                div.setAttribute("id", "code-annotation-line-highlight");
+                div.style.position = 'absolute';
+                parent.appendChild(div);
+              }
+              div.style.top = top - 2 + "px";
+              div.style.height = height + 4 + "px";
+              div.style.left = 0;
+              let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+              if (gutterDiv === null) {
+                gutterDiv = window.document.createElement("div");
+                gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+                gutterDiv.style.position = 'absolute';
+                const codeCell = window.document.getElementById(targetCell);
+                const gutter = codeCell.querySelector('.code-annotation-gutter');
+                gutter.appendChild(gutterDiv);
+              }
+              gutterDiv.style.top = top - 2 + "px";
+              gutterDiv.style.height = height + 4 + "px";
+            }
+            selectedAnnoteEl = annoteEl;
+          }
+        };
+        const unselectCodeLines = () => {
+          const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+          elementsIds.forEach((elId) => {
+            const div = window.document.getElementById(elId);
+            if (div) {
+              div.remove();
+            }
+          });
+          selectedAnnoteEl = undefined;
+        };
+          // Handle positioning of the toggle
+      window.addEventListener(
+        "resize",
+        throttle(() => {
+          elRect = undefined;
+          if (selectedAnnoteEl) {
+            selectCodeLines(selectedAnnoteEl);
+          }
+        }, 10)
+      );
+      function throttle(fn, ms) {
+      let throttle = false;
+      let timer;
+        return (...args) => {
+          if(!throttle) { // first call gets through
+              fn.apply(this, args);
+              throttle = true;
+          } else { // all the others get throttled
+              if(timer) clearTimeout(timer); // cancel #2
+              timer = setTimeout(() => {
+                fn.apply(this, args);
+                timer = throttle = false;
+              }, ms);
+          }
+        };
+      }
+        // Attach click handler to the DT
+        const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+        for (const annoteDlNode of annoteDls) {
+          annoteDlNode.addEventListener('click', (event) => {
+            const clickedEl = event.target;
+            if (clickedEl !== selectedAnnoteEl) {
+              unselectCodeLines();
+              const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+              if (activeEl) {
+                activeEl.classList.remove('code-annotation-active');
+              }
+              selectCodeLines(clickedEl);
+              clickedEl.classList.add('code-annotation-active');
+            } else {
+              // Unselect the line
+              unselectCodeLines();
+              clickedEl.classList.remove('code-annotation-active');
+            }
+          });
+        }
+    const findCites = (el) => {
+      const parentEl = el.parentElement;
+      if (parentEl) {
+        const cites = parentEl.dataset.cites;
+        if (cites) {
+          return {
+            el,
+            cites: cites.split(' ')
+          };
+        } else {
+          return findCites(el.parentElement)
+        }
+      } else {
+        return undefined;
+      }
+    };
+    var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+    for (var i=0; i<bibliorefs.length; i++) {
+      const ref = bibliorefs[i];
+      const citeInfo = findCites(ref);
+      if (citeInfo) {
+        tippyHover(citeInfo.el, function() {
+          var popup = window.document.createElement('div');
+          citeInfo.cites.forEach(function(cite) {
+            var citeDiv = window.document.createElement('div');
+            citeDiv.classList.add('hanging-indent');
+            citeDiv.classList.add('csl-entry');
+            var biblioDiv = window.document.getElementById('ref-' + cite);
+            if (biblioDiv) {
+              citeDiv.innerHTML = biblioDiv.innerHTML;
+            }
+            popup.appendChild(citeDiv);
+          });
+          return popup.innerHTML;
+        });
+      }
+    }
+  });
+  </script>
+<nav class="page-navigation">
+  <div class="nav-page nav-page-previous">
+      <a href="./Ref14_DEM.html" class="pagination-link" aria-label="Получение ЦММ и ортотрансформация">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Получение ЦММ и ортотрансформация</span></span>
+      </a>          
+  </div>
+  <div class="nav-page nav-page-next">
+      <a href="./Ref16_Photomod_DEM.html" class="pagination-link" aria-label="Создание ЦМР и ЦММ на основе стереопары АФС в ЦФС PHOTOMOD">
+        <span class="nav-page-text"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title">Создание ЦМР и ЦММ на основе стереопары АФС в ЦФС PHOTOMOD</span></span> <i class="bi bi-arrow-right-short"></i>
+      </a>
+  </div>
+</nav>
+</div> <!-- /content -->
+
+
+
+
+<footer class="footer"><div class="nav-footer"><div class="nav-footer-center"><div class="toc-actions d-sm-block d-md-none"><ul><li><a href="https://github.com/IOWq750/Remote_Sensing_Photogrammetry/edit/main/Ref15_Photomod_aerial.qmd" class="toc-action"><i class="bi bi-github"></i>Редактировать страницу</a></li><li><a href="https://github.com/IOWq750/Remote_Sensing_Photogrammetry/issues/new" class="toc-action"><i class="bi empty"></i>Сообщить о проблеме</a></li></ul></div></div></div></footer></body></html>

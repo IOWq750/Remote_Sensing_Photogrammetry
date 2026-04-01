@@ -6,9 +6,8 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
-<meta name="author" content="Карпачевский А.М.">
 
-<title>Основы дистанционного зондирования и фотограмметрии</title>
+<title>7&nbsp; Получение ЦММ и ортотрансформация – Основы дистанционного зондирования и фотограмметрии</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -31,7 +30,8 @@ ul.task-list li input[type="checkbox"] {
 <script src="site_libs/quarto-search/fuse.min.js"></script>
 <script src="site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="./">
-<link href="./Ref01_Pansharpening.html" rel="next">
+<link href="./Ref15_Photomod_aerial.html" rel="next">
+<link href="./Ref13_Efoto.html" rel="prev">
 <script src="site_libs/quarto-html/quarto.js" type="module"></script>
 <script src="site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
 <script src="site_libs/quarto-html/axe/axe-check.js" type="module"></script>
@@ -70,19 +70,11 @@ ul.task-list li input[type="checkbox"] {
     "search-label": "Поиск"
   }
 }</script>
-<script>
-document.addEventListener("DOMContentLoaded", function () {
-  const year = new Date().getFullYear();
-  const el = document.getElementById("year");
-  if (el) el.textContent = year;
-});
-</script>
 
 
-<link rel="stylesheet" href="styles.css">
 </head>
 
-<body class="nav-sidebar floating fullcontent quarto-light">
+<body class="nav-sidebar floating quarto-light">
 
 <div id="quarto-search-results"></div>
   <header id="quarto-header" class="headroom fixed-top">
@@ -91,7 +83,7 @@ document.addEventListener("DOMContentLoaded", function () {
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Переключить боковую панель навигации" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./index.html"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Основы дистанционного зондирования и фотограмметрии</span></a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./Ref14_DEM.html"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Получение ЦММ и ортотрансформация</span></a></li></ol></nav>
         <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Переключить боковую панель навигации" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
       <button type="button" class="btn quarto-search-button" aria-label="Поиск" onclick="window.quartoOpenSearch();">
@@ -121,7 +113,7 @@ document.addEventListener("DOMContentLoaded", function () {
     <ul class="list-unstyled mt-1">
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./index.html" class="sidebar-item-text sidebar-link active">
+  <a href="./index.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Основы дистанционного зондирования и фотограмметрии</span></span></a>
   </div>
 </li>
@@ -157,7 +149,7 @@ document.addEventListener("DOMContentLoaded", function () {
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./Ref14_DEM.html" class="sidebar-item-text sidebar-link">
+  <a href="./Ref14_DEM.html" class="sidebar-item-text sidebar-link active">
  <span class="menu-text"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Получение ЦММ и ортотрансформация</span></span></a>
   </div>
 </li>
@@ -202,33 +194,33 @@ document.addEventListener("DOMContentLoaded", function () {
 </nav>
 <div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
 <!-- margin-sidebar -->
-    
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">Содержание</h2>
+   
+  <ul>
+  <li><a href="#dem-initial" id="toc-dem-initial" class="nav-link active" data-scroll-target="#dem-initial"><span class="header-section-number">7.1</span> Исходные данные</a></li>
+  <li><a href="#dem-create" id="toc-dem-create" class="nav-link" data-scroll-target="#dem-create"><span class="header-section-number">7.2</span> Построение ЦММ</a></li>
+  <li><a href="#dem-QGIS" id="toc-dem-QGIS" class="nav-link" data-scroll-target="#dem-QGIS"><span class="header-section-number">7.3</span> Работа с высотными данными в QGIS</a></li>
+  <li><a href="#dem-derived" id="toc-dem-derived" class="nav-link" data-scroll-target="#dem-derived"><span class="header-section-number">7.4</span> Построение производных поверхностей</a></li>
+  <li><a href="#dem-verification" id="toc-dem-verification" class="nav-link" data-scroll-target="#dem-verification"><span class="header-section-number">7.5</span> Верификация ЦММ по точкам стереоизмерений</a></li>
+  <li><a href="#dem-orthorectification" id="toc-dem-orthorectification" class="nav-link" data-scroll-target="#dem-orthorectification"><span class="header-section-number">7.6</span> Ортотрансформация с использованием полученной ЦММ</a></li>
+  </ul>
+<div class="toc-actions"><ul><li><a href="https://github.com/IOWq750/Remote_Sensing_Photogrammetry/edit/main/Ref14_DEM.qmd" class="toc-action"><i class="bi bi-github"></i>Редактировать страницу</a></li><li><a href="https://github.com/IOWq750/Remote_Sensing_Photogrammetry/issues/new" class="toc-action"><i class="bi empty"></i>Сообщить о проблеме</a></li></ul></div></nav>
+    </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">Основы дистанционного зондирования и фотограмметрии</h1>
-<p class="subtitle lead">Электронный учебно-методический ресурс</p>
+<h1 class="title"><span id="dem" class="quarto-section-identifier"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Получение ЦММ и ортотрансформация</span></span></h1>
 </div>
 
 
 
 <div class="quarto-title-meta">
 
-    <div>
-    <div class="quarto-title-meta-heading">Автор</div>
-    <div class="quarto-title-meta-contents">
-             <p>Карпачевский А.М. </p>
-          </div>
-  </div>
     
-    <div>
-    <div class="quarto-title-meta-heading">Дата публикации</div>
-    <div class="quarto-title-meta-contents">
-      <p class="date">1 апреля 2026 г.</p>
-    </div>
-  </div>
   
     
   </div>
@@ -238,101 +230,102 @@ document.addEventListener("DOMContentLoaded", function () {
 </header>
 
 
-<section id="добро-пожаловать" class="level1" data-number="1">
-<h1 data-number="1"><span class="header-section-number">1</span> Добро пожаловать</h1>
-<p>Это электронный учебно-методический ресурс по основам дистанционного зондирования и фотограмметрии.<br>
-Материал охватывает ключевые этапы обработки данных дистанционного зондирования, геопривязки, мозаикирования, построения моделей рельефа и фотограмметрической обработки в специализированных программных пакетах.</p>
-<div class="callout callout-style-default callout-tip callout-titled">
-<div class="callout-header d-flex align-content-center">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
+<section id="dem-initial" class="level2" data-number="7.1">
+<h2 data-number="7.1" class="anchored" data-anchor-id="dem-initial"><span class="header-section-number">7.1</span> Исходные данные</h2>
+<p><a href="#dem">В начало справки ⇡</a></p>
+<p>В качестве исходных данных в этой работе выступают ориентированные и привязанные снимки из предыдущей модели, а также полученная на их основе стереомодель в программе E-foto.</p>
+</section>
+<section id="dem-create" class="level2" data-number="7.2">
+<h2 data-number="7.2" class="anchored" data-anchor-id="dem-create"><span class="header-section-number">7.2</span> Построение ЦММ</h2>
+<p><a href="#dem">В начало справки ⇡</a></p>
+<p>Выберите команду <strong>Execute – DSM Extraction</strong>. Откроется окно соответствующего модуля.Перейдите во вкладку <strong>Automatic Extraction</strong>.</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="images/Ref14/Automatic_Extraction.png" class="img-fluid figure-img"></p>
+<figcaption>Настройки извлечения ЦММ</figcaption>
+</figure>
 </div>
-<div class="callout-title-container flex-fill">
-<span class="screen-reader-only">Совет</span>Как пользоваться ресурсом
+<p>Здесь можно выбрать тип радиометрической коррекции – для чёрно-белых снимков лучше всего выбрать <strong>Histogram matching</strong>. Для обработки стереопар и поиска тождественных точек в программе доступно два метода – кросс-корреляции (<strong>Cross-correlation</strong>) и наименьших квадратов (<strong>Least-Squares Matching</strong>). Проделайте сначала всё одним методом, затем попробуйте другой и сравните результат. Для ускорения процесса построения лучше задать параметр передискретизации (<strong>Image downsampling</strong>) 2 (размер пикселов уменьшиться в два раза). В окне <strong>Use pairs</strong> выберите ту стереопару, по которой нужно построить ЦММ. Нажмите на кнопку <img src="images/Ref14/DSM_extraction.png" class="img-fluid"> для запуска процесса. По окончании процесса откроется окно для просмотра найденных пикетов в виде жёлтых крестиков.</p>
+<p>После того, как пикеты были извлечены, необходимо их интерполировать. Для этого нажмите на соответствующую кнопку <img src="images/Ref14/DSM_interpolation.png" class="img-fluid">. После этого можно экспортировать полученный грид.Перейдите во вкладку <strong>Load/Save Options</strong>, выберите <strong>DSM extraction file format</strong> – облако точек без индексов, а <strong>Grid file format</strong> – <strong>ASCII DSM Grid</strong>. В разделе <strong>DSM Grid Interpolation</strong> внизу окна нажмите на сохранение <img src="images/Ref14/Save_DSM.png" class="img-fluid"> и сохраните текстовый файл с высотными данными.</p>
+</section>
+<section id="dem-QGIS" class="level2" data-number="7.3">
+<h2 data-number="7.3" class="anchored" data-anchor-id="dem-QGIS"><span class="header-section-number">7.3</span> Работа с высотными данными в QGIS</h2>
+<p><a href="#dem">В начало справки ⇡</a></p>
+<p>Добавьте в QGIS полученные ранее высотные данные как текст с разделителями. Обратите внимание, что необходимо правильно выбрать символ разделителя, указать количество строк заголовка файла, которые мы не учитываем, указать соответствующие поля для координат, а также правильную систему координат.</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="images/Ref14/Delimited_Text.png" class="img-fluid figure-img"></p>
+<figcaption>Добавление ASCII-файла как текста с разделителями</figcaption>
+</figure>
 </div>
+<p>Добавленные данные необходимо сохранить либо в виде шейп-файла, либо в базе геоданных, щёлкнув правой кнопкой по слою <strong>Экспорт – сохранить как</strong>. Для получения растровой поверхности используйте инструмент <strong>Grid (Nearest Neighbor)…</strong>. Его можно найти через меню <strong>Raster – Analysis</strong>. Укажите поле для Z-значений в настройках инструмента. После настройки символики ваша ЦММ примет примерно следующий вид – очевидно, что в ней много пропущенных данных.</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="images/Ref14/DSM_gaps.png" class="img-fluid figure-img"></p>
+<figcaption>Визуализация первичной ЦММ с пропусками данных</figcaption>
+</figure>
 </div>
-<div class="callout-body-container callout-body">
-<ul>
-<li>Для перехода между темами используйте боковую панель слева.</li>
-<li>Материал организован по разделам, которые можно изучать последовательно.</li>
-<li>Если вы уже знакомы с базовыми понятиями, можно переходить сразу к нужной практической теме.</li>
-</ul>
+<p>Для заполнения пропусков воспользуйтесь инструментом <strong>Raster – Analysis – Fill nodata…</strong>. После этого ЦММ должна принять примерно следующий вид:</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="images/Ref14/DSM_filled.png" class="img-fluid figure-img"></p>
+<figcaption>Визуализация ЦММ с заполненными пропусками</figcaption>
+</figure>
 </div>
-</div>
-<section id="содержание-курса" class="level2" data-number="1.1">
-<h2 data-number="1.1" class="anchored" data-anchor-id="содержание-курса"><span class="header-section-number">1.1</span> Содержание курса</h2>
-<p>В состав ресурса входят следующие разделы:</p>
+</section>
+<section id="dem-derived" class="level2" data-number="7.4">
+<h2 data-number="7.4" class="anchored" data-anchor-id="dem-derived"><span class="header-section-number">7.4</span> Построение производных поверхностей</h2>
+<p><a href="#dem">В начало справки ⇡</a></p>
+<p>В QGIS доступны многие инструменты для построения производных поверхностей от ЦМР и ЦММ, например:</p>
 <ol type="1">
-<li><a href="./Ref01_Pansharpening.html">Паншарпенинг</a></li>
-<li><a href="./Ref02_Georeference.html">Географическая привязка изображений</a></li>
-<li><a href="./Ref03_Mosaicking.html">Создание мозаик</a></li>
-<li><a href="./Ref12_Photogrammetry.html">Основы фотограмметрии</a></li>
-<li><a href="./Ref13_Efoto.html">Обработка АФС в E-Foto</a></li>
-<li><a href="./Ref14_DEM.html">Построение ЦМР в E-Foto</a></li>
-<li><a href="./Ref15_Photomod_aerial.html">Photomod: обработка аэрофотосъёмки</a></li>
-<li><a href="./Ref16_Photomod_DEM.html">Photomod: построение ЦМР</a></li>
-<li><a href="./Ref17_Photomod_RPC.html">Photomod: работа с RPC</a></li>
-<li><a href="./Ref18_Metashape.html">Agisoft Metashape: базовая обработка</a></li>
-<li><a href="./Ref20_Metashape_RPC.html">Agisoft Metashape: обработка с RPC</a></li>
-<li><a href="./Ref19_Las.html">Работа с LAS-данными</a></li>
+<li><p><em>Углы наклона</em> – <strong>Raster – Analysis – Slope…</strong>.</p></li>
+<li><p><em>Экспозиция склонов</em> – <strong>Raster – Analysis – Aspect…</strong>.</p></li>
+<li><p><em>Аналитическая отмывка рельефа</em> – <strong>Raster – Analysis – Hillshade…</strong>.</p></li>
 </ol>
+<p>Кроме того, мы можем извлечь изолинии (горизонтали) с помощью инструмента <strong>Raster – Extraction – Contour…</strong>.</p>
+<p>Для сопоставления высот ЦМР и ЦМП можно воспользоваться любым калькулятором растров, например, <strong>Raster – Raster Calculator</strong></p>
 </section>
-<section id="для-кого-предназначен-ресурс" class="level2" data-number="1.2">
-<h2 data-number="1.2" class="anchored" data-anchor-id="для-кого-предназначен-ресурс"><span class="header-section-number">1.2</span> Для кого предназначен ресурс</h2>
-<p>Ресурс ориентирован на:</p>
-<ul>
-<li>студентов 2 курса кафедры картографии и геоинформатики географического факультета МГУ имени М.В. Ломоносова</li>
-<li>Любых пользователей, имеющих базовое представление о фотограмметрической обработке данных дистанционного зондирования</li>
-</ul>
-<div class="callout callout-style-default callout-note callout-titled">
-<div class="callout-header d-flex align-content-center">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<div class="callout-title-container flex-fill">
-<span class="screen-reader-only">Уведомление</span>Примечание
-</div>
-</div>
-<div class="callout-body-container callout-body">
-<p>Структура ресурса может обновляться и дополняться новыми разделами, примерами и иллюстрациями.</p>
-</div>
-</div>
+<section id="dem-verification" class="level2" data-number="7.5">
+<h2 data-number="7.5" class="anchored" data-anchor-id="dem-verification"><span class="header-section-number">7.5</span> Верификация ЦММ по точкам стереоизмерений</h2>
+<p><a href="#dem">В начало справки ⇡</a></p>
+<p>Измерьте высоты с помощью стереокомпаратора в местах, где есть крупные пропуски данных в ЦММ. Полученные точки можно экспортировать в шейпфайл, нажав на кнопку <img src="images/Ref14/Export_survey_point.png" class="img-fluid">. В открывшемся окне выберите формат сохранения <strong>SHP</strong>.</p>
+<p>Для извлечения значений высот ЦММ в точки используйте инструмент в QGIS <strong>Sample Raster Values</strong>. Этот инструмент записывает в виде атрибута значения ячеек растра, в которые попадают точки. Для расчёта собственных значений высот точек шейпфайла (полученные в результате стереоизмерений) можно зайти в калькулятор поле и написать выражение для нового атрибутивного поля <em>z($geometry)</em>.</p>
 </section>
-<section id="быстрый-переход" class="level2" data-number="1.3">
-<h2 data-number="1.3" class="anchored" data-anchor-id="быстрый-переход"><span class="header-section-number">1.3</span> Быстрый переход</h2>
+<section id="dem-orthorectification" class="level2" data-number="7.6">
+<h2 data-number="7.6" class="anchored" data-anchor-id="dem-orthorectification"><span class="header-section-number">7.6</span> Ортотрансформация с использованием полученной ЦММ</h2>
+<p><a href="#dem">В начало справки ⇡</a></p>
+<p>Для ортотрансформации снимков в <strong>E-foto</strong> требуется ЦММ в собственном формате, что обуславливает необходимость её коррекции (заполнения пропусков) внутренними средствами программы. Для этого в модуле <strong>DSM Extraction</strong> после извлечения ЦММ перейдите на вкладку <strong>Interpolation</strong>. В параметре <strong>Grid Interpolation method</strong> необходимо выбрать <strong>Moving average</strong> (обычно установлено по умолчанию). В параметре <strong>Distance</strong> укажите размер плавающего окна осреднения в пикселях, например, 10.</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="images/Ref14/Interpolation.png" class="img-fluid figure-img"></p>
+<figcaption>настройки интерполяции</figcaption>
+</figure>
+</div>
+<p>Сохраните ЦММ в формате <strong>ASCII DSM Grid</strong> и выйдите из модуля.</p>
+<p>Запустите модуль ортотрансформации <strong>Execute – Ortho-Rectification</strong>.</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="images/Ref14/Orthorectification.png" class="img-fluid figure-img"></p>
+<figcaption>Окно модуля ортотрансформации</figcaption>
+</figure>
+</div>
+<p>Выберите изображение, которое необходимо ортотрансформировать, укажите формат ЦММ такой же, как вы указывали для её сохранения, укажите путь к файлу ЦММ. В качестве выходного формата для изображения укажите <strong>GeoTIFF</strong>. Для запуска процедуры нажмите <img src="images/Ref14/Run.png" class="img-fluid">.</p>
+<p>Ортотрансформированное изображение скорее всего сохранится без СК, но вы сможете её задать в QGIS. для сопоставления ортотрансформированного изображения с исходным можно воспользоваться инструментом <strong>Шторка</strong>.</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="images/Ref14/Swipe.gif" class="img-fluid figure-img"></p>
+<figcaption>Сопоставление ортотрансформированного изображения с исходным</figcaption>
+</figure>
+</div>
 <table class="caption-top table">
-<thead>
-<tr class="header">
-<th>Раздел</th>
-<th>Ссылка</th>
-</tr>
-</thead>
 <tbody>
 <tr class="odd">
-<td>Начать с основ</td>
-<td><a href="./Ref02_Georeference.html">Геопривязка изображений</a></td>
-</tr>
-<tr class="even">
-<td>Изучить фотограмметрию</td>
-<td><a href="./Ref12_Photogrammetry.html">Основы фотограмметрии</a></td>
-</tr>
-<tr class="odd">
-<td>Перейти к Metashape</td>
-<td><a href="./Ref18_Metashape.html">Metashape</a></td>
-</tr>
-<tr class="even">
-<td>Изучить RPC в Metashape</td>
-<td><a href="./Ref20_Metashape_RPC.html">Metashape RPC</a></td>
-</tr>
-<tr class="odd">
-<td>Работа с LAS</td>
-<td><a href="./Ref19_Las.html">LAS-данные</a></td>
+<td><em>Карпачевский А.М.</em> <strong>Основы дистанционного зондирования и фотограмметрии</strong>. М.: Географический факультет МГУ, <code>r lubridate::year(Sys.Date())</code>.</td>
 </tr>
 </tbody>
 </table>
 
 
-</section>
 </section>
 
 </main> <!-- /main -->
@@ -743,29 +736,19 @@ document.addEventListener("DOMContentLoaded", function () {
   </script>
 <nav class="page-navigation">
   <div class="nav-page nav-page-previous">
+      <a href="./Ref13_Efoto.html" class="pagination-link" aria-label="Создание стереомодели и стереоизмерения в E-foto">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Создание стереомодели и стереоизмерения в E-foto</span></span>
+      </a>          
   </div>
   <div class="nav-page nav-page-next">
-      <a href="./Ref01_Pansharpening.html" class="pagination-link" aria-label="Преобразования пространственного разрешения">
-        <span class="nav-page-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Преобразования пространственного разрешения</span></span> <i class="bi bi-arrow-right-short"></i>
+      <a href="./Ref15_Photomod_aerial.html" class="pagination-link" aria-label="Обработка данных аэрофотосъёмки в ЦФС PHOTOMOD">
+        <span class="nav-page-text"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">Обработка данных аэрофотосъёмки в ЦФС PHOTOMOD</span></span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
 </nav>
 </div> <!-- /content -->
-<footer class="footer">
-  <div class="nav-footer">
-    <div class="nav-footer-left">
-      &nbsp;
-    </div>   
-    <div class="nav-footer-center">
-<p>© 2020–<span id="year"></span> Карпачевский А.М. Основы дистанционного зондирования и фотограмметрии</p>
-<div class="toc-actions"><ul><li><a href="https://github.com/IOWq750/Remote_Sensing_Photogrammetry/edit/main/index.qmd" class="toc-action"><i class="bi bi-github"></i>Редактировать страницу</a></li><li><a href="https://github.com/IOWq750/Remote_Sensing_Photogrammetry/issues/new" class="toc-action"><i class="bi empty"></i>Сообщить о проблеме</a></li></ul></div></div>
-    <div class="nav-footer-right">
-      &nbsp;
-    </div>
-  </div>
-</footer>
 
 
 
 
-</body></html>
+<footer class="footer"><div class="nav-footer"><div class="nav-footer-center"><div class="toc-actions d-sm-block d-md-none"><ul><li><a href="https://github.com/IOWq750/Remote_Sensing_Photogrammetry/edit/main/Ref14_DEM.qmd" class="toc-action"><i class="bi bi-github"></i>Редактировать страницу</a></li><li><a href="https://github.com/IOWq750/Remote_Sensing_Photogrammetry/issues/new" class="toc-action"><i class="bi empty"></i>Сообщить о проблеме</a></li></ul></div></div></div></footer></body></html>

@@ -1,0 +1,50 @@
+project:
+  type: book
+  output-dir: docs
+
+book:
+  title: "Основы дистанционного зондирования и фотограмметрии"
+  author: "Карпачевский А.М."
+  page-navigation: true
+  search: true
+  repo-url: https://github.com/IOWq750/Remote_Sensing_Photogrammetry
+  repo-actions: [edit, issue]
+  page-footer: "© 2020–<span id='year'></span> Карпачевский А.М. Основы дистанционного зондирования и фотограмметрии"
+  chapters:
+    - index.qmd
+    - Ref01_Pansharpening.qmd
+    - Ref02_Georeference.qmd
+    - Ref03_Mosaicking.qmd	
+    - Ref12_Photogrammetry.qmd
+    - Ref13_Efoto.qmd
+    - Ref14_DEM.qmd
+    - Ref15_Photomod_aerial.qmd
+    - Ref16_Photomod_DEM.qmd
+    - Ref17_Photomod_RPC.qmd
+    - Ref18_Metashape.qmd
+    - Ref20_Metashape_RPC.qmd
+    - Ref19_Las.qmd
+
+bibliography:
+  - book.bib
+  - packages.bib
+
+lang: ru
+date: today
+
+format:
+  html:
+    theme: cosmo
+    toc: true
+    number-sections: true
+    link-external-newwindow: true
+    css: styles.css
+    include-in-header:
+      text: |
+        <script>
+        document.addEventListener("DOMContentLoaded", function () {
+          const year = new Date().getFullYear();
+          const el = document.getElementById("year");
+          if (el) el.textContent = year;
+        });
+        </script>

@@ -6,9 +6,8 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
-<meta name="author" content="Карпачевский А.М.">
 
-<title>Основы дистанционного зондирования и фотограмметрии</title>
+<title>10&nbsp; Обработка сканерных космических изображений с помощью RPC – Основы дистанционного зондирования и фотограмметрии</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -31,7 +30,8 @@ ul.task-list li input[type="checkbox"] {
 <script src="site_libs/quarto-search/fuse.min.js"></script>
 <script src="site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="./">
-<link href="./Ref01_Pansharpening.html" rel="next">
+<link href="./Ref18_Metashape.html" rel="next">
+<link href="./Ref16_Photomod_DEM.html" rel="prev">
 <script src="site_libs/quarto-html/quarto.js" type="module"></script>
 <script src="site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
 <script src="site_libs/quarto-html/axe/axe-check.js" type="module"></script>
@@ -70,19 +70,11 @@ ul.task-list li input[type="checkbox"] {
     "search-label": "Поиск"
   }
 }</script>
-<script>
-document.addEventListener("DOMContentLoaded", function () {
-  const year = new Date().getFullYear();
-  const el = document.getElementById("year");
-  if (el) el.textContent = year;
-});
-</script>
 
 
-<link rel="stylesheet" href="styles.css">
 </head>
 
-<body class="nav-sidebar floating fullcontent quarto-light">
+<body class="nav-sidebar floating quarto-light">
 
 <div id="quarto-search-results"></div>
   <header id="quarto-header" class="headroom fixed-top">
@@ -91,7 +83,7 @@ document.addEventListener("DOMContentLoaded", function () {
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Переключить боковую панель навигации" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./index.html"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Основы дистанционного зондирования и фотограмметрии</span></a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./Ref17_Photomod_RPC.html"><span class="chapter-number">10</span>&nbsp; <span class="chapter-title">Обработка сканерных космических изображений с помощью RPC</span></a></li></ol></nav>
         <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Переключить боковую панель навигации" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
       <button type="button" class="btn quarto-search-button" aria-label="Поиск" onclick="window.quartoOpenSearch();">
@@ -121,7 +113,7 @@ document.addEventListener("DOMContentLoaded", function () {
     <ul class="list-unstyled mt-1">
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./index.html" class="sidebar-item-text sidebar-link active">
+  <a href="./index.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Основы дистанционного зондирования и фотограмметрии</span></span></a>
   </div>
 </li>
@@ -175,7 +167,7 @@ document.addEventListener("DOMContentLoaded", function () {
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./Ref17_Photomod_RPC.html" class="sidebar-item-text sidebar-link">
+  <a href="./Ref17_Photomod_RPC.html" class="sidebar-item-text sidebar-link active">
  <span class="menu-text"><span class="chapter-number">10</span>&nbsp; <span class="chapter-title">Обработка сканерных космических изображений с помощью RPC</span></span></a>
   </div>
 </li>
@@ -202,26 +194,31 @@ document.addEventListener("DOMContentLoaded", function () {
 </nav>
 <div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
 <!-- margin-sidebar -->
-    
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">Содержание</h2>
+   
+  <ul>
+  <li><a href="#rpc-initial" id="toc-rpc-initial" class="nav-link active" data-scroll-target="#rpc-initial"><span class="header-section-number">10.1</span> Исходные данные</a></li>
+  <li><a href="#rpc-prepare" id="toc-rpc-prepare" class="nav-link" data-scroll-target="#rpc-prepare"><span class="header-section-number">10.2</span> Подготовка данных</a></li>
+  <li><a href="#rpc-gcp" id="toc-rpc-gcp" class="nav-link" data-scroll-target="#rpc-gcp"><span class="header-section-number">10.3</span> Расстановка опорных точек</a></li>
+  <li><a href="#rpc-adjustment" id="toc-rpc-adjustment" class="nav-link" data-scroll-target="#rpc-adjustment"><span class="header-section-number">10.4</span> Уравнивание блока</a></li>
+  <li><a href="#rpc-orthorectification" id="toc-rpc-orthorectification" class="nav-link" data-scroll-target="#rpc-orthorectification"><span class="header-section-number">10.5</span> Ортотрансформация сканерного изображения по данным RPC и ЦМП в ArcGIS</a></li>
+  </ul>
+<div class="toc-actions"><ul><li><a href="https://github.com/IOWq750/Remote_Sensing_Photogrammetry/edit/main/Ref17_Photomod_RPC.qmd" class="toc-action"><i class="bi bi-github"></i>Редактировать страницу</a></li><li><a href="https://github.com/IOWq750/Remote_Sensing_Photogrammetry/issues/new" class="toc-action"><i class="bi empty"></i>Сообщить о проблеме</a></li></ul></div></nav>
+    </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">Основы дистанционного зондирования и фотограмметрии</h1>
-<p class="subtitle lead">Электронный учебно-методический ресурс</p>
+<h1 class="title"><span id="rpc" class="quarto-section-identifier"><span class="chapter-number">10</span>&nbsp; <span class="chapter-title">Обработка сканерных космических изображений с помощью RPC</span></span></h1>
 </div>
 
 
 
 <div class="quarto-title-meta">
 
-    <div>
-    <div class="quarto-title-meta-heading">Автор</div>
-    <div class="quarto-title-meta-contents">
-             <p>Карпачевский А.М. </p>
-          </div>
-  </div>
     
     <div>
     <div class="quarto-title-meta-heading">Дата публикации</div>
@@ -238,101 +235,181 @@ document.addEventListener("DOMContentLoaded", function () {
 </header>
 
 
-<section id="добро-пожаловать" class="level1" data-number="1">
-<h1 data-number="1"><span class="header-section-number">1</span> Добро пожаловать</h1>
-<p>Это электронный учебно-методический ресурс по основам дистанционного зондирования и фотограмметрии.<br>
-Материал охватывает ключевые этапы обработки данных дистанционного зондирования, геопривязки, мозаикирования, построения моделей рельефа и фотограмметрической обработки в специализированных программных пакетах.</p>
-<div class="callout callout-style-default callout-tip callout-titled">
-<div class="callout-header d-flex align-content-center">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<div class="callout-title-container flex-fill">
-<span class="screen-reader-only">Совет</span>Как пользоваться ресурсом
-</div>
-</div>
-<div class="callout-body-container callout-body">
-<ul>
-<li>Для перехода между темами используйте боковую панель слева.</li>
-<li>Материал организован по разделам, которые можно изучать последовательно.</li>
-<li>Если вы уже знакомы с базовыми понятиями, можно переходить сразу к нужной практической теме.</li>
-</ul>
-</div>
-</div>
-<section id="содержание-курса" class="level2" data-number="1.1">
-<h2 data-number="1.1" class="anchored" data-anchor-id="содержание-курса"><span class="header-section-number">1.1</span> Содержание курса</h2>
-<p>В состав ресурса входят следующие разделы:</p>
-<ol type="1">
-<li><a href="./Ref01_Pansharpening.html">Паншарпенинг</a></li>
-<li><a href="./Ref02_Georeference.html">Географическая привязка изображений</a></li>
-<li><a href="./Ref03_Mosaicking.html">Создание мозаик</a></li>
-<li><a href="./Ref12_Photogrammetry.html">Основы фотограмметрии</a></li>
-<li><a href="./Ref13_Efoto.html">Обработка АФС в E-Foto</a></li>
-<li><a href="./Ref14_DEM.html">Построение ЦМР в E-Foto</a></li>
-<li><a href="./Ref15_Photomod_aerial.html">Photomod: обработка аэрофотосъёмки</a></li>
-<li><a href="./Ref16_Photomod_DEM.html">Photomod: построение ЦМР</a></li>
-<li><a href="./Ref17_Photomod_RPC.html">Photomod: работа с RPC</a></li>
-<li><a href="./Ref18_Metashape.html">Agisoft Metashape: базовая обработка</a></li>
-<li><a href="./Ref20_Metashape_RPC.html">Agisoft Metashape: обработка с RPC</a></li>
-<li><a href="./Ref19_Las.html">Работа с LAS-данными</a></li>
-</ol>
+<section id="rpc-initial" class="level2" data-number="10.1">
+<h2 data-number="10.1" class="anchored" data-anchor-id="rpc-initial"><span class="header-section-number">10.1</span> Исходные данные</h2>
+<p><a href="#rpc">В начало справки ⇡</a></p>
+<p>В качестве исходных данных можно использовать выложенные в открытый доступ сканерные изображения со спутника IKONOS. Данные, включая изображения, метаданные, коэффициенты рациональных полиномов, а также наземные опорные точки, можно скачать <a href="https://www.isprs.org/data/ikonos_hobart/default.aspx" target="_blank">со страницы</a>, либо <a href="https://disk.yandex.ru/d/N2cDLX4j3GryPg" target="_blank">из облака</a>.</p>
 </section>
-<section id="для-кого-предназначен-ресурс" class="level2" data-number="1.2">
-<h2 data-number="1.2" class="anchored" data-anchor-id="для-кого-предназначен-ресурс"><span class="header-section-number">1.2</span> Для кого предназначен ресурс</h2>
-<p>Ресурс ориентирован на:</p>
-<ul>
-<li>студентов 2 курса кафедры картографии и геоинформатики географического факультета МГУ имени М.В. Ломоносова</li>
-<li>Любых пользователей, имеющих базовое представление о фотограмметрической обработке данных дистанционного зондирования</li>
-</ul>
-<div class="callout callout-style-default callout-note callout-titled">
-<div class="callout-header d-flex align-content-center">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
+<section id="rpc-prepare" class="level2" data-number="10.2">
+<h2 data-number="10.2" class="anchored" data-anchor-id="rpc-prepare"><span class="header-section-number">10.2</span> Подготовка данных</h2>
+<p><a href="#rpc">В начало справки ⇡</a></p>
+<p>Создайте новый проект PHOTOMOD. Укажите тип – <strong>Космическая сканерная съёмка</strong>, система координат – укажите соответствующую зону UTM. Создайте новый маршрут в блоке и добавьте туда два космических изображения стереопары. В окне редактора блока нажмите на кнопку добавления изображений. В открывшемся окне укажите путь к папке, где расположены изображения или папки с изображениями, выберите в автопоиске опцию <strong>начиная с текущей папки</strong> и нажмите на кнопку <strong>Поиск</strong>. Если программа найдёт файлы, они отразятся в виде строчек в добавляемых изображениях. Нажмите на кнопку <strong>Добавить все</strong>.</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="images\Ref17\Adding_Imagery.png" class="img-fluid figure-img"></p>
+<figcaption>Добавление данных в проект</figcaption>
+</figure>
 </div>
-<div class="callout-title-container flex-fill">
-<span class="screen-reader-only">Уведомление</span>Примечание
-</div>
-</div>
-<div class="callout-body-container callout-body">
-<p>Структура ресурса может обновляться и дополняться новыми разделами, примерами и иллюстрациями.</p>
-</div>
-</div>
+<p>Если добавленные изображения получились чёрными, выполните их радиометрическую коррекцию, нажав на кнопку <img src="images\Ref17\Radiometric_Correction.png" class="img-fluid"> в окне редактора блока.</p>
 </section>
-<section id="быстрый-переход" class="level2" data-number="1.3">
-<h2 data-number="1.3" class="anchored" data-anchor-id="быстрый-переход"><span class="header-section-number">1.3</span> Быстрый переход</h2>
+<section id="rpc-gcp" class="level2" data-number="10.3">
+<h2 data-number="10.3" class="anchored" data-anchor-id="rpc-gcp"><span class="header-section-number">10.3</span> Расстановка опорных точек</h2>
+<p><a href="#rpc">В начало справки ⇡</a></p>
+<p>Откройте окно каталога опорных точек <strong>Ориентирование – Каталог опорных точек…</strong>. Импортируйте опорные точки из файла <strong>Selected_HobartGCPs114-UTM.csv</strong>. Установите опорные точки на обоих снимках стереопары, дважды щёлкнув по каждой строчке и подвинув точки в положение маркера в верной позиции <img src="images\Ref17\Move_Point2Marker.png" class="img-fluid">. Ниже приведены фрагменты изображения с правильным положением точек.</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="images\Ref17\B1_05_C.jpeg" class="img-fluid figure-img"></p>
+<figcaption>Опорная точка B1_05_C</figcaption>
+</figure>
+</div>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="images\Ref17\B1_07.jpeg" class="img-fluid figure-img"></p>
+<figcaption>Опорная точка B1_07</figcaption>
+</figure>
+</div>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="images\Ref17\B1_08.jpeg" class="img-fluid figure-img"></p>
+<figcaption>Опорная точка B1_08</figcaption>
+</figure>
+</div>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="images\Ref17\B2_06.jpeg" class="img-fluid figure-img"></p>
+<figcaption>Опорная точка B2_06</figcaption>
+</figure>
+</div>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="images\Ref17\B2_11.jpeg" class="img-fluid figure-img"></p>
+<figcaption>Опорная точка B2_11</figcaption>
+</figure>
+</div>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="images\Ref17\B2_13.jpeg" class="img-fluid figure-img"></p>
+<figcaption>Опорная точка B2_13</figcaption>
+</figure>
+</div>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="images\Ref17\B3_05.jpeg" class="img-fluid figure-img"></p>
+<figcaption>Опорная точка B3_05</figcaption>
+</figure>
+</div>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="images\Ref17\B3_06.jpeg" class="img-fluid figure-img"></p>
+<figcaption>Опорная точка B3_06</figcaption>
+</figure>
+</div>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="images\Ref17\B3_10.jpeg" class="img-fluid figure-img"></p>
+<figcaption>Опорная точка B3_10</figcaption>
+</figure>
+</div>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="images\Ref17\B4_01.jpeg" class="img-fluid figure-img"></p>
+<figcaption>Опорная точка B4_01</figcaption>
+</figure>
+</div>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="images\Ref17\B5_08.jpeg" class="img-fluid figure-img"></p>
+<figcaption>Опорная точка B5_08</figcaption>
+</figure>
+</div>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="images\Ref17\B6_09.jpeg" class="img-fluid figure-img"></p>
+<figcaption>Опорная точка B6_09</figcaption>
+</figure>
+</div>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="images\Ref17\B6_10.jpeg" class="img-fluid figure-img"></p>
+<figcaption>Опорная точка B6_10</figcaption>
+</figure>
+</div>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="images\Ref17\B6_23.jpeg" class="img-fluid figure-img"></p>
+<figcaption>Опорная точка B6_23</figcaption>
+</figure>
+</div>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="images\Ref17\B7_01.jpeg" class="img-fluid figure-img"></p>
+<figcaption>Опорная точка B7_01</figcaption>
+</figure>
+</div>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="images\Ref17\B7_03.jpeg" class="img-fluid figure-img"></p>
+<figcaption>Опорная точка B7_03</figcaption>
+</figure>
+</div>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="images\Ref17\B8_01.jpeg" class="img-fluid figure-img"></p>
+<figcaption>Опорная точка B8_01</figcaption>
+</figure>
+</div>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="images\Ref17\B9_07.jpeg" class="img-fluid figure-img"></p>
+<figcaption>Опорная точка B9_07</figcaption>
+</figure>
+</div>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="images\Ref17\B9_13.jpeg" class="img-fluid figure-img"></p>
+<figcaption>Опорная точка B9_13</figcaption>
+</figure>
+</div>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="images\Ref17\B9_17.jpeg" class="img-fluid figure-img"></p>
+<figcaption>Опорная точка B9_17</figcaption>
+</figure>
+</div>
+<p>Для того чтобы оценить точность привязки снимка по RPC сделайте точки <em>B1_05_C</em>, <em>B2_11</em>, <em>B3_05</em>, <em>B5_08</em>, <em>B9_13</em> контрольными, выбрав их в таблице и нажав на кнопку <strong>Сделать выбранные точки контрольными</strong> <img src="images\Ref17\Control.png" class="img-fluid">. Оставшиеся точки нужно исключить, нажав на кнопку <img src="images\Ref17\Excepted.png" class="img-fluid">. Нажмите на кнопку <strong>Применить</strong>.</p>
+</section>
+<section id="rpc-adjustment" class="level2" data-number="10.4">
+<h2 data-number="10.4" class="anchored" data-anchor-id="rpc-adjustment"><span class="header-section-number">10.4</span> Уравнивание блока</h2>
+<p><a href="#rpc">В начало справки ⇡</a></p>
+<p>Вызовите меню <strong>Ориентирование – Уравнивание блока</strong>. На открывшейся панели нажмите на кнопку настроек уравнивания <img src="images\Ref17\Adjustment.png" class="img-fluid">. В окне настроек убедитесь, что метод уравнивания стоит <strong>RPC</strong>. В объединениях укажите <strong>Не объединять</strong> и поставьте галочку напротив опции <strong>Создавать стереопары</strong>.</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="images\Ref17\Adjustment_Settings.png" class="img-fluid figure-img"></p>
+<figcaption>Настройки уравнивания блока</figcaption>
+</figure>
+</div>
+<p>Запустите процесс уравнивания блока. Для получения отчёта об уравнивании нажмите на кнопку <img src="images\Ref17\Adjustment_Report.png" class="img-fluid"> на панели уравнивания. Откроется окно параметров отчёта.</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="images\Ref17\Report_Settings.png" class="img-fluid figure-img"></p>
+<figcaption>Настройки отчёта об уравнивании</figcaption>
+</figure>
+</div>
+<p>В открывшемся окне отчёта будет содержаться информация о точности уравнивания по контрольным точкам. Для совместного уравнивания по данным RPC и опорным точкам переведите ранее исключённые точки в категорию опорных.</p>
+</section>
+<section id="rpc-orthorectification" class="level2" data-number="10.5">
+<h2 data-number="10.5" class="anchored" data-anchor-id="rpc-orthorectification"><span class="header-section-number">10.5</span> Ортотрансформация сканерного изображения по данным RPC и ЦМП в ArcGIS</h2>
+<p><a href="#rpc">В начало справки ⇡</a></p>
+<p>В ArcGIS доступен инструмент ортотрансформации сканерных изображений с RPC <strong>Data Management Tools – Raster – Raster Processing – Create Ortho Corrected Raster Dataset</strong>. В качестве цифровой модели поверхности можно использовать модель на основе стереопары сканерных изображений или (менее точно) какой-либо глобальный набор данных. Учтите, что файл изображения должен быть в одной папке с метаданными и RPC.</p>
 <table class="caption-top table">
-<thead>
-<tr class="header">
-<th>Раздел</th>
-<th>Ссылка</th>
-</tr>
-</thead>
 <tbody>
 <tr class="odd">
-<td>Начать с основ</td>
-<td><a href="./Ref02_Georeference.html">Геопривязка изображений</a></td>
-</tr>
-<tr class="even">
-<td>Изучить фотограмметрию</td>
-<td><a href="./Ref12_Photogrammetry.html">Основы фотограмметрии</a></td>
-</tr>
-<tr class="odd">
-<td>Перейти к Metashape</td>
-<td><a href="./Ref18_Metashape.html">Metashape</a></td>
-</tr>
-<tr class="even">
-<td>Изучить RPC в Metashape</td>
-<td><a href="./Ref20_Metashape_RPC.html">Metashape RPC</a></td>
-</tr>
-<tr class="odd">
-<td>Работа с LAS</td>
-<td><a href="./Ref19_Las.html">LAS-данные</a></td>
+<td><em>Карпачевский А.М.</em> <strong>Основы дистанционного зондирования и фотограмметрии</strong>. М.: Географический факультет МГУ, <code>r lubridate::year(Sys.Date())</code>.</td>
 </tr>
 </tbody>
 </table>
 
 
-</section>
 </section>
 
 </main> <!-- /main -->
@@ -743,29 +820,19 @@ document.addEventListener("DOMContentLoaded", function () {
   </script>
 <nav class="page-navigation">
   <div class="nav-page nav-page-previous">
+      <a href="./Ref16_Photomod_DEM.html" class="pagination-link" aria-label="Создание ЦМР и ЦММ на основе стереопары АФС в ЦФС PHOTOMOD">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title">Создание ЦМР и ЦММ на основе стереопары АФС в ЦФС PHOTOMOD</span></span>
+      </a>          
   </div>
   <div class="nav-page nav-page-next">
-      <a href="./Ref01_Pansharpening.html" class="pagination-link" aria-label="Преобразования пространственного разрешения">
-        <span class="nav-page-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Преобразования пространственного разрешения</span></span> <i class="bi bi-arrow-right-short"></i>
+      <a href="./Ref18_Metashape.html" class="pagination-link" aria-label="Обработка данных в Agisoft Metashape">
+        <span class="nav-page-text"><span class="chapter-number">11</span>&nbsp; <span class="chapter-title">Обработка данных в Agisoft Metashape</span></span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
 </nav>
 </div> <!-- /content -->
-<footer class="footer">
-  <div class="nav-footer">
-    <div class="nav-footer-left">
-      &nbsp;
-    </div>   
-    <div class="nav-footer-center">
-<p>© 2020–<span id="year"></span> Карпачевский А.М. Основы дистанционного зондирования и фотограмметрии</p>
-<div class="toc-actions"><ul><li><a href="https://github.com/IOWq750/Remote_Sensing_Photogrammetry/edit/main/index.qmd" class="toc-action"><i class="bi bi-github"></i>Редактировать страницу</a></li><li><a href="https://github.com/IOWq750/Remote_Sensing_Photogrammetry/issues/new" class="toc-action"><i class="bi empty"></i>Сообщить о проблеме</a></li></ul></div></div>
-    <div class="nav-footer-right">
-      &nbsp;
-    </div>
-  </div>
-</footer>
 
 
 
 
-</body></html>
+<footer class="footer"><div class="nav-footer"><div class="nav-footer-center"><div class="toc-actions d-sm-block d-md-none"><ul><li><a href="https://github.com/IOWq750/Remote_Sensing_Photogrammetry/edit/main/Ref17_Photomod_RPC.qmd" class="toc-action"><i class="bi bi-github"></i>Редактировать страницу</a></li><li><a href="https://github.com/IOWq750/Remote_Sensing_Photogrammetry/issues/new" class="toc-action"><i class="bi empty"></i>Сообщить о проблеме</a></li></ul></div></div></div></footer></body></html>

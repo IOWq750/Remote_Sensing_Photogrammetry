@@ -6,9 +6,8 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
-<meta name="author" content="Карпачевский А.М.">
 
-<title>Основы дистанционного зондирования и фотограмметрии</title>
+<title>3&nbsp; Географическая привязка – Основы дистанционного зондирования и фотограмметрии</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -31,7 +30,8 @@ ul.task-list li input[type="checkbox"] {
 <script src="site_libs/quarto-search/fuse.min.js"></script>
 <script src="site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="./">
-<link href="./Ref01_Pansharpening.html" rel="next">
+<link href="./Ref03_Mosaicking.html" rel="next">
+<link href="./Ref01_Pansharpening.html" rel="prev">
 <script src="site_libs/quarto-html/quarto.js" type="module"></script>
 <script src="site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
 <script src="site_libs/quarto-html/axe/axe-check.js" type="module"></script>
@@ -70,19 +70,11 @@ ul.task-list li input[type="checkbox"] {
     "search-label": "Поиск"
   }
 }</script>
-<script>
-document.addEventListener("DOMContentLoaded", function () {
-  const year = new Date().getFullYear();
-  const el = document.getElementById("year");
-  if (el) el.textContent = year;
-});
-</script>
 
 
-<link rel="stylesheet" href="styles.css">
 </head>
 
-<body class="nav-sidebar floating fullcontent quarto-light">
+<body class="nav-sidebar floating quarto-light">
 
 <div id="quarto-search-results"></div>
   <header id="quarto-header" class="headroom fixed-top">
@@ -91,7 +83,7 @@ document.addEventListener("DOMContentLoaded", function () {
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Переключить боковую панель навигации" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./index.html"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Основы дистанционного зондирования и фотограмметрии</span></a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./Ref02_Georeference.html"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Географическая привязка</span></a></li></ol></nav>
         <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Переключить боковую панель навигации" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
       <button type="button" class="btn quarto-search-button" aria-label="Поиск" onclick="window.quartoOpenSearch();">
@@ -121,7 +113,7 @@ document.addEventListener("DOMContentLoaded", function () {
     <ul class="list-unstyled mt-1">
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./index.html" class="sidebar-item-text sidebar-link active">
+  <a href="./index.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Основы дистанционного зондирования и фотограмметрии</span></span></a>
   </div>
 </li>
@@ -133,7 +125,7 @@ document.addEventListener("DOMContentLoaded", function () {
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./Ref02_Georeference.html" class="sidebar-item-text sidebar-link">
+  <a href="./Ref02_Georeference.html" class="sidebar-item-text sidebar-link active">
  <span class="menu-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Географическая привязка</span></span></a>
   </div>
 </li>
@@ -202,33 +194,33 @@ document.addEventListener("DOMContentLoaded", function () {
 </nav>
 <div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
 <!-- margin-sidebar -->
-    
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">Содержание</h2>
+   
+  <ul>
+  <li><a href="#georeference-arcgis" id="toc-georeference-arcgis" class="nav-link active" data-scroll-target="#georeference-arcgis"><span class="header-section-number">3.1</span> Географическая привязка в ArcGIS Pro</a>
+  <ul class="collapse">
+  <li><a href="#привязка-на-основе-ввода-координат" id="toc-привязка-на-основе-ввода-координат" class="nav-link" data-scroll-target="#привязка-на-основе-ввода-координат"><span class="header-section-number">3.1.1</span> Привязка на основе ввода координат</a></li>
+  <li><a href="#привязка-на-основе-референцного-изображения" id="toc-привязка-на-основе-референцного-изображения" class="nav-link" data-scroll-target="#привязка-на-основе-референцного-изображения"><span class="header-section-number">3.1.2</span> Привязка на основе референцного изображения</a></li>
+  </ul></li>
+  <li><a href="#georeference-qgis" id="toc-georeference-qgis" class="nav-link" data-scroll-target="#georeference-qgis"><span class="header-section-number">3.2</span> Географическая привязка в QGIS</a></li>
+  </ul>
+<div class="toc-actions"><ul><li><a href="https://github.com/IOWq750/Remote_Sensing_Photogrammetry/edit/main/Ref02_Georeference.qmd" class="toc-action"><i class="bi bi-github"></i>Редактировать страницу</a></li><li><a href="https://github.com/IOWq750/Remote_Sensing_Photogrammetry/issues/new" class="toc-action"><i class="bi empty"></i>Сообщить о проблеме</a></li></ul></div></nav>
+    </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">Основы дистанционного зондирования и фотограмметрии</h1>
-<p class="subtitle lead">Электронный учебно-методический ресурс</p>
+<h1 class="title"><span id="georeference" class="quarto-section-identifier"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Географическая привязка</span></span></h1>
 </div>
 
 
 
 <div class="quarto-title-meta">
 
-    <div>
-    <div class="quarto-title-meta-heading">Автор</div>
-    <div class="quarto-title-meta-contents">
-             <p>Карпачевский А.М. </p>
-          </div>
-  </div>
     
-    <div>
-    <div class="quarto-title-meta-heading">Дата публикации</div>
-    <div class="quarto-title-meta-contents">
-      <p class="date">1 апреля 2026 г.</p>
-    </div>
-  </div>
   
     
   </div>
@@ -238,101 +230,147 @@ document.addEventListener("DOMContentLoaded", function () {
 </header>
 
 
-<section id="добро-пожаловать" class="level1" data-number="1">
-<h1 data-number="1"><span class="header-section-number">1</span> Добро пожаловать</h1>
-<p>Это электронный учебно-методический ресурс по основам дистанционного зондирования и фотограмметрии.<br>
-Материал охватывает ключевые этапы обработки данных дистанционного зондирования, геопривязки, мозаикирования, построения моделей рельефа и фотограмметрической обработки в специализированных программных пакетах.</p>
-<div class="callout callout-style-default callout-tip callout-titled">
-<div class="callout-header d-flex align-content-center">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
+<section id="georeference-arcgis" class="level2" data-number="3.1">
+<h2 data-number="3.1" class="anchored" data-anchor-id="georeference-arcgis"><span class="header-section-number">3.1</span> Географическая привязка в ArcGIS Pro</h2>
+<section id="привязка-на-основе-ввода-координат" class="level3" data-number="3.1.1">
+<h3 data-number="3.1.1" class="anchored" data-anchor-id="привязка-на-основе-ввода-координат"><span class="header-section-number">3.1.1</span> Привязка на основе ввода координат</h3>
+<p>Создайте новый проект и сохраните его. Задайте систему координат датафрейма (карты) – для этого зайдите в свойства <strong>Map</strong> и перейдите во вкладку <strong>Coordinate Systems</strong>, раскройте список <strong>Projected coordinate system</strong> и выберите нужную СК.</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="images/Ref02/Arc_mapCRS.png" class="img-fluid figure-img"></p>
+<figcaption>Свойства системы координат карты</figcaption>
+</figure>
 </div>
-<div class="callout-title-container flex-fill">
-<span class="screen-reader-only">Совет</span>Как пользоваться ресурсом
+<p>Добавьте из панели каталога растр, который необходимо привязать.Выделите его в списке слоев и во вкладке <strong>Imagery</strong> нажмите на кнопку <strong>Georeference</strong>.</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="images/Ref02/Arc_georeference.png" class="img-fluid figure-img"></p>
+<figcaption>Открытие панели привязки</figcaption>
+</figure>
 </div>
+<p>Открытая панель привязки состоит из нескольких кнопок. Убедитесь, что у вас нажата кнопка <strong>Auto Apply</strong>, которая позволяет трансформировать изображение на лету.</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="images/Ref02/Arc_georef_panel.png" class="img-fluid figure-img"></p>
+<figcaption>Панель привязки</figcaption>
+</figure>
 </div>
-<div class="callout-body-container callout-body">
-<ul>
-<li>Для перехода между темами используйте боковую панель слева.</li>
-<li>Материал организован по разделам, которые можно изучать последовательно.</li>
-<li>Если вы уже знакомы с базовыми понятиями, можно переходить сразу к нужной практической теме.</li>
-</ul>
+<p>Нажмите на кнопку <strong>Add Control Points</strong> <img src="images/Ref02/Arc_add_control_points.png" class="img-fluid"> и установите опорную точку в нужном месте на карте. После этого вам будет предложено установить соответственную точку на референцном слое или ввести заданные координаты для точки – для этого щёлкните правой кнопкой мыши, после чего откроется окошко для ввода координат.</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="images/Ref02/Arc_target_coords.png" class="img-fluid figure-img"></p>
+<figcaption>Окно ввода координат опорной точки</figcaption>
+</figure>
 </div>
+<p>Если нажать на кнопку <strong>Control Point Table</strong> <img src="images/Ref02/Arc_control_points_tab.png" class="img-fluid">, то откроется таблица, где будут показаны все установленные опорные точки с их координатами в исходной и референцной системе координат. В этой же таблице указываются ошибки (невязки) общая и по отдельным координатам. Слева можно включать и выключать точки из расчёта. Когда точка выключена из расчёта, она превращается из опорной в контрольную.</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="images/Ref02/Arc_table.png" class="img-fluid figure-img"></p>
+<figcaption>Таблица координат опорных точек</figcaption>
+</figure>
 </div>
-<section id="содержание-курса" class="level2" data-number="1.1">
-<h2 data-number="1.1" class="anchored" data-anchor-id="содержание-курса"><span class="header-section-number">1.1</span> Содержание курса</h2>
-<p>В состав ресурса входят следующие разделы:</p>
-<ol type="1">
-<li><a href="./Ref01_Pansharpening.html">Паншарпенинг</a></li>
-<li><a href="./Ref02_Georeference.html">Географическая привязка изображений</a></li>
-<li><a href="./Ref03_Mosaicking.html">Создание мозаик</a></li>
-<li><a href="./Ref12_Photogrammetry.html">Основы фотограмметрии</a></li>
-<li><a href="./Ref13_Efoto.html">Обработка АФС в E-Foto</a></li>
-<li><a href="./Ref14_DEM.html">Построение ЦМР в E-Foto</a></li>
-<li><a href="./Ref15_Photomod_aerial.html">Photomod: обработка аэрофотосъёмки</a></li>
-<li><a href="./Ref16_Photomod_DEM.html">Photomod: построение ЦМР</a></li>
-<li><a href="./Ref17_Photomod_RPC.html">Photomod: работа с RPC</a></li>
-<li><a href="./Ref18_Metashape.html">Agisoft Metashape: базовая обработка</a></li>
-<li><a href="./Ref20_Metashape_RPC.html">Agisoft Metashape: обработка с RPC</a></li>
-<li><a href="./Ref19_Las.html">Работа с LAS-данными</a></li>
-</ol>
+<p>Установив необходимое количество точек, вы можете нажать на кнопку <strong>Transformation</strong> <img src="images/Ref02/Arc_transformation.png" class="img-fluid">и выбрать тип трансформации. После установки опорных точек и выбора типа трансформации можно запустить процесс трансформирования и сохранения нового изображения, нажав на кнопку <img src="images/Ref02/Arc_save_as_new.png" class="img-fluid">. При сохранении укажите путь внутрь базы данных, название для слоя, убедитесь в том, что разрешение выходного растра составляет 30 на 30, а также укажите глубину цветности <strong>16</strong> или <strong>32 bit unsigned</strong>.</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="images/Ref02/Arc_export_raster.png" class="img-fluid figure-img"></p>
+<figcaption>Окно сохранения трансформированного изображения</figcaption>
+</figure>
+</div>
+<p>Обратите внимание, что опорные точки можно сохранять отдельно (экспортировать) – для этого есть кнопка <strong>Export Control Points</strong> и импортировать <strong>Import Control Points</strong>.</p>
 </section>
-<section id="для-кого-предназначен-ресурс" class="level2" data-number="1.2">
-<h2 data-number="1.2" class="anchored" data-anchor-id="для-кого-предназначен-ресурс"><span class="header-section-number">1.2</span> Для кого предназначен ресурс</h2>
-<p>Ресурс ориентирован на:</p>
-<ul>
-<li>студентов 2 курса кафедры картографии и геоинформатики географического факультета МГУ имени М.В. Ломоносова</li>
-<li>Любых пользователей, имеющих базовое представление о фотограмметрической обработке данных дистанционного зондирования</li>
-</ul>
-<div class="callout callout-style-default callout-note callout-titled">
-<div class="callout-header d-flex align-content-center">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
+<section id="привязка-на-основе-референцного-изображения" class="level3" data-number="3.1.2">
+<h3 data-number="3.1.2" class="anchored" data-anchor-id="привязка-на-основе-референцного-изображения"><span class="header-section-number">3.1.2</span> Привязка на основе референцного изображения</h3>
+<p>При привязке снимка к референцному изображению удобно воспользоваться кнопкой <strong>Fit to Display</strong> <img src="images/Ref02/Arc_Fit_to_Display.png" class="img-fluid">, которая переместит привязывамаемое изображение в экстент, соответствующий текущему дисплею карты.</p>
+<p>Далее для привязки неоходимо снова нажать на кнопку <strong>Add Control Points</strong> и поставить сначала точку на привязываемом изображении, а затем на референцном.</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="images/Ref02/Arc_Image_to_Image.gif" class="img-fluid figure-img"></p>
+<figcaption>Привязка снимка к референцному изображению</figcaption>
+</figure>
 </div>
-<div class="callout-title-container flex-fill">
-<span class="screen-reader-only">Уведомление</span>Примечание
+<p>К сожалению, в ArcGIS нет возможности сделать контрольные точки для оценки точности в данном модуле, но их можно создать искусственно. Для этого в окне каталога найдите свою базу данных или создайте новую. Внутри базы данных создайте точечный класс векторных объектов.</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="images/Ref02/Arc_Create_FC.png" class="img-fluid figure-img"></p>
+<figcaption>Создание класса объектов</figcaption>
+</figure>
 </div>
+<p>Задайте имя класса объекта латинскими буквами, без пробелов и спецсимволов, укажите тип геометрии – <strong>Point</strong>, снимите галочку с координаты <strong>Z</strong>.</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="images/Ref02/Arc_Create_Points.png" class="img-fluid figure-img"></p>
+<figcaption>Точечный класс объектов</figcaption>
+</figure>
 </div>
-<div class="callout-body-container callout-body">
-<p>Структура ресурса может обновляться и дополняться новыми разделами, примерами и иллюстрациями.</p>
+<p>Нас следующем шаге укажите целевую систему координат и нажмите на кнопку <strong>Finish</strong>.</p>
+<p>Добавьте созданный класс объектов в качестве слоя на карту, если он не добавился автоматически. Выделите слой, перейдите на вкладку <strong>Edit</strong>, затем нажмите на кнопку <strong>Create</strong> и у вас откроется панель с шаблонами для создания векторных объектов. Выделите шаблон, нажмите на появившуюся под ним кнопку <strong>Create point feature</strong> и установите точку на референцном изображении. Сохраните изменения, нажав на кнопку <strong>Save</strong>.</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="images/Ref02/Arc_Control_Points.gif" class="img-fluid figure-img"></p>
+<figcaption>Установка точек</figcaption>
+</figure>
 </div>
+<p>Эти точки будут выступать в качестве реперов для оценки точности привязки. Для оценки отклонений их образа на привязываемом изображении перейдите на вкладку <strong>Map</strong>, возьмите линейку и измерьте расстояние от установленной точки до её предполагаемого положения на привязываемом изображении.</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="images/Ref02/Arc_Measuring.gif" class="img-fluid figure-img"></p>
+<figcaption>Измерение отклонений</figcaption>
+</figure>
 </div>
 </section>
-<section id="быстрый-переход" class="level2" data-number="1.3">
-<h2 data-number="1.3" class="anchored" data-anchor-id="быстрый-переход"><span class="header-section-number">1.3</span> Быстрый переход</h2>
+</section>
+<section id="georeference-qgis" class="level2" data-number="3.2">
+<h2 data-number="3.2" class="anchored" data-anchor-id="georeference-qgis"><span class="header-section-number">3.2</span> Географическая привязка в QGIS</h2>
+<p><a href="#georeference">В начало справки ⇡</a></p>
+<p>Для привязки данных дистанционного зондирования в QGIS можно использовать WMS-сервис с мозаикой спутниковых снимков. Для включения мозаики зайдите в меню <strong>Модули – Управление и установка модулей…</strong>. Впишите в строку поиска <strong>QuickMapServices</strong>. Установите модуль.</p>
+<p>Откроется окно модуля. В окне поиска геосервиса введите <strong>Google satelite</strong> или какой-либо еще картографический веб-сервис со спутниковой подложкой. Нажмите <strong>Добавить</strong>.</p>
+<p><img src="images/Ref02/QMS.png" class="img-fluid"></p>
+<p>Добавьте в качестве слоя данных привязываемый снимок.</p>
+<p>В меню <strong>Layers</strong> найдите пункт <strong>Referencer</strong> <img src="images/Ref02/Reference_button.png" class="img-fluid">.</p>
+<p>Откроется окно привязки. Нажмите на кнопку <strong>Open Raster</strong> <img src="images/Ref02/Open_rastr.png" class="img-fluid">, добавьте привязываемый растр. Щелчок левой кнопкой мыши по привязываемому изображению открое окно, куда будет предложено ввести координаты. Если вы для привязки хотите использовать референцное изображение, нажмите на кнопку <strong>С карты</strong>.</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="images/Ref02/Input_coordinates.png" class="img-fluid figure-img"></p>
+<figcaption>Окно ввода координат</figcaption>
+</figure>
+</div>
+<p>Для настройки параметров трансформации нажмите на кнопку <img src="images/Ref02/Transformation_settings.png" class="img-fluid">. Опорные точки можно сохранять и подгружать – для этого используйте соответствующие кнопки на панели. Для запуска процесса трансформации нажмите на кнопку <img src="images/Ref02/Transformation_button.png" class="img-fluid"></p>
+<p>После добавления трансформированного изображения в основное окно карты убедитесь в правильности проделанной операции, сравнивая его с подложкой из мозаики спутниковых снимков. Для этого удобно использовать инструмент шторки.</p>
+<p>Зайдите в <strong>Модули – Управление и установка модулей…</strong> и вбейте в поиск <strong>MapSwipe Tool</strong>. После этого появится панель шторки.</p>
+<p>Выберите слой, который будет активен в режиме шторки (будет находиться под шторкой) и нажмите на кнопку <img src="images/Ref02/Swipe_button.png" class="img-fluid">.</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="images/Ref02/Swipe.png" class="img-fluid figure-img"></p>
+<figcaption>Режим шторки для слоя Google Maps</figcaption>
+</figure>
+</div>
+<p>Установите опорные точки. Внизу окна появится таблица с вашими точками привязки – будут указаны координаты этих точек в исходной СК изображения и в целевой СК, а также невязки. Далее необходимо указать способ трансформации для расчёта невязок. Нажмите на кнопку <img src="images/Ref02/Transformation_settings.png" class="img-fluid">. В качестве типа трансформации для топографических карт должно быть достаточно полиномиального первой степени. Укажите целевую систему координат (в которой вводились координаты точек), а также путь для сохраняемого файла.</p>
+<blockquote class="blockquote">
+<p>Сохраняйте файлы в папку с путями без латиницы, пробелов и спецсимволов.</p>
+</blockquote>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="images/Ref02/Transformation_parameters.png" class="img-fluid figure-img"></p>
+<figcaption>Параметры трансформации</figcaption>
+</figure>
+</div>
+<p>После указания типа трансформации в таблице внизу должны появиться расчётные невязки. Убедитесь в том, что невязки имеют значение менее пикселя. Если невязка более пикселя, нужно удалить неправильную опорную точку, нажав на кнопку <img src="images/Ref02/Delete_point.png" class="img-fluid"> и выбрав точку на карте. Для добавления новой точки выберите кнопку <img src="images/Ref02/Add_point.png" class="img-fluid">. Когда точность трансформации станет удовлетворительной, запустите сам процесс трансформации, нажав на кнопку <img src="images/Ref02/Transformation_button.png" class="img-fluid">. Закройте модуль привязки.</p>
+<p>Привязка материалов аэрофотосъёмки происходит аналогично, но в качестве опорных точек выступают соответственные точки на топографической карте. Для этого нужно сопоставить снимок с картой и найти эти точки. В модуле привязке выберите точку, но при появлении окна не вводите координаты, а выберите кнопку <strong>С карты</strong>.</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="images/Ref02/Reference_aerial.gif" class="img-fluid figure-img"></p>
+<figcaption>Установка точки с карты</figcaption>
+</figure>
+</div>
 <table class="caption-top table">
-<thead>
-<tr class="header">
-<th>Раздел</th>
-<th>Ссылка</th>
-</tr>
-</thead>
 <tbody>
 <tr class="odd">
-<td>Начать с основ</td>
-<td><a href="./Ref02_Georeference.html">Геопривязка изображений</a></td>
-</tr>
-<tr class="even">
-<td>Изучить фотограмметрию</td>
-<td><a href="./Ref12_Photogrammetry.html">Основы фотограмметрии</a></td>
-</tr>
-<tr class="odd">
-<td>Перейти к Metashape</td>
-<td><a href="./Ref18_Metashape.html">Metashape</a></td>
-</tr>
-<tr class="even">
-<td>Изучить RPC в Metashape</td>
-<td><a href="./Ref20_Metashape_RPC.html">Metashape RPC</a></td>
-</tr>
-<tr class="odd">
-<td>Работа с LAS</td>
-<td><a href="./Ref19_Las.html">LAS-данные</a></td>
+<td><em>Карпачевский А.М.</em> <strong>Основы дистанционного зондирования и фотограмметрии</strong>. М.: Географический факультет МГУ, <code>r lubridate::year(Sys.Date())</code>.</td>
 </tr>
 </tbody>
 </table>
 
 
-</section>
 </section>
 
 </main> <!-- /main -->
@@ -743,29 +781,19 @@ document.addEventListener("DOMContentLoaded", function () {
   </script>
 <nav class="page-navigation">
   <div class="nav-page nav-page-previous">
+      <a href="./Ref01_Pansharpening.html" class="pagination-link" aria-label="Преобразования пространственного разрешения">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Преобразования пространственного разрешения</span></span>
+      </a>          
   </div>
   <div class="nav-page nav-page-next">
-      <a href="./Ref01_Pansharpening.html" class="pagination-link" aria-label="Преобразования пространственного разрешения">
-        <span class="nav-page-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Преобразования пространственного разрешения</span></span> <i class="bi bi-arrow-right-short"></i>
+      <a href="./Ref03_Mosaicking.html" class="pagination-link" aria-label="Создание мозаики">
+        <span class="nav-page-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Создание мозаики</span></span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
 </nav>
 </div> <!-- /content -->
-<footer class="footer">
-  <div class="nav-footer">
-    <div class="nav-footer-left">
-      &nbsp;
-    </div>   
-    <div class="nav-footer-center">
-<p>© 2020–<span id="year"></span> Карпачевский А.М. Основы дистанционного зондирования и фотограмметрии</p>
-<div class="toc-actions"><ul><li><a href="https://github.com/IOWq750/Remote_Sensing_Photogrammetry/edit/main/index.qmd" class="toc-action"><i class="bi bi-github"></i>Редактировать страницу</a></li><li><a href="https://github.com/IOWq750/Remote_Sensing_Photogrammetry/issues/new" class="toc-action"><i class="bi empty"></i>Сообщить о проблеме</a></li></ul></div></div>
-    <div class="nav-footer-right">
-      &nbsp;
-    </div>
-  </div>
-</footer>
 
 
 
 
-</body></html>
+<footer class="footer"><div class="nav-footer"><div class="nav-footer-center"><div class="toc-actions d-sm-block d-md-none"><ul><li><a href="https://github.com/IOWq750/Remote_Sensing_Photogrammetry/edit/main/Ref02_Georeference.qmd" class="toc-action"><i class="bi bi-github"></i>Редактировать страницу</a></li><li><a href="https://github.com/IOWq750/Remote_Sensing_Photogrammetry/issues/new" class="toc-action"><i class="bi empty"></i>Сообщить о проблеме</a></li></ul></div></div></div></footer></body></html>
