@@ -1,6 +1,9 @@
 project:
   type: book
   output-dir: docs
+  resources:
+    - images/favicon.ico
+    - images/favicon.png
 
 book:
   title: "Основы дистанционного зондирования и фотограмметрии"
@@ -9,12 +12,13 @@ book:
   search: true
   repo-url: https://github.com/IOWq750/Remote_Sensing_Photogrammetry
   repo-actions: [edit, issue]
-  page-footer: "© 2020–<span id='year'></span> Карпачевский А.М. Основы дистанционного зондирования и фотограмметрии"
+  page-footer:
+    center: "© 2020–2026 Карпачевский А.М. Основы дистанционного зондирования и фотограмметрии"
   chapters:
     - index.qmd
     - Ref01_Pansharpening.qmd
     - Ref02_Georeference.qmd
-    - Ref03_Mosaicking.qmd	
+    - Ref03_Mosaicking.qmd
     - Ref12_Photogrammetry.qmd
     - Ref13_Efoto.qmd
     - Ref14_DEM.qmd
@@ -42,10 +46,6 @@ format:
     css: styles.css
     include-in-header:
       text: |
-        <script>
-        document.addEventListener("DOMContentLoaded", function () {
-          const year = new Date().getFullYear();
-          const el = document.getElementById("year");
-          if (el) el.textContent = year;
-        });
-        </script>
+        <link rel="icon" type="image/x-icon" href="./images/favicon.ico">
+        <link rel="shortcut icon" type="image/x-icon" href="./images/favicon.ico">
+        <link rel="icon" type="image/png" href="./images/favicon.png">
