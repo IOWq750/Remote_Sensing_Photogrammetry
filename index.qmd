@@ -50,13 +50,3 @@ toc: false
 
 Структура ресурса может обновляться и дополняться новыми разделами, примерами и иллюстрациями.
 :::
-
-## Быстрый переход
-
-| Раздел | Ссылка |
-|---|---|
-| Начать с основ | [Геопривязка изображений](Ref02_Georeference.qmd) |
-| Изучить фотограмметрию | [Основы фотограмметрии](Ref12_Photogrammetry.qmd) |
-| Перейти к Metashape | [Metashape](Ref18_Metashape.qmd) |
-| Изучить RPC в Metashape | [Metashape RPC](Ref20_Metashape_RPC.qmd) |
-| Работа с LAS | [LAS-данные](Ref19_Las.qmd) |
